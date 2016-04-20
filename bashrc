@@ -7,6 +7,12 @@ case $- in
 	*) return;;
 esac
 
+shopt -s cdspell
+shopt -s nocaseglob
+shopt -s hostcomplete
+shopt -s no_empty_cmd_completion
+shopt -s autocd
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -30,11 +36,9 @@ UNAME=${UNAME/CYGWIN*/cygwin}
 export UNAME
 
 # Variables specific to the OS environment
-if [ -d "${HOME}/.shenv" ];then
-  for file in ${HOME}/.shenv/*${UNAME} ; do
-    [[ -r "${file}" ]] && source "${file}" || echo WTF
-  done
-fi
+for file in ${HOME}/.shenv/*${UNAME} ; do
+  [[ -r "${file}" ]] && source "${file}" || echo "No such file ${file}"
+done
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -43,12 +47,6 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 export PATH
-
-shopt -s cdspell
-shopt -s nocaseglob
-shopt -s hostcomplete
-shopt -s no_empty_cmd_completion
-shopt -s autocd
 
 if [ -r /etc/bash_completion ];then
   source /etc/bash_completion

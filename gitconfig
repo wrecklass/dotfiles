@@ -1,5 +1,5 @@
 [core]
-	editor = /bin/vim
+	editor = /usr/bin/vim
 [push]
 	default = simple
 [credential]
@@ -159,3 +159,6 @@
   sl = stash list
   sa = stash apply
   ss = stash save
+[user]
+	name = Steve Martin
+	email = smartin5590+github@gmail.com

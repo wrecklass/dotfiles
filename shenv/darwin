@@ -1,16 +1,28 @@
 #!/bin/bash
 
+# Need to do this before sourcing .bash_aliases
+HAVE_VIM=$(command -v vim)
+
+if [ -n "$HAVE_VIM" ];then
+  EDITOR=vim
+else
+  EDITOR=vi
+fi
+
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home"
-export GROOVY_HOME="/usr/local/groovy"
-export ANT_HOME="/Users/smartin/bin/apache-ant-1.9.4"
+export GROOVY_HOME="/usr/local/opt/groovy/libexec"
+export ANT_HOME="/usr/local/opt/ant/libexec"
 export MYSQL_HOME="/usr/local/mysql"
-export GOROOT="/usr/local/go"
+export GOROOT="/Users/smartin/src/go-darwin-amd64-bootstrap"
+export GOPATH="/Users/smartin/src/gocode"
 
 export HISTSIZE=5000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL='erasedups:ignoreboth'
 export HISTTIMEFORMAT="%m/%d/%y %T "
 export HISTIGNORE="&:[ ]*:exit"
+
+export s3bucket="s3://com.charter.aesd.engprod.sshsec"
 
 export MANPAGER="less -X"
 
@@ -25,8 +37,8 @@ export LC_ALL="en_US.UTF-8"
 # e.g. BBEdit.app gets an alias of:
 #   alias bbedit='open -a BBEdit.app'
 function foomagick() {
-rm -f ~/.foomagick.tmp
-ls /Applications /Applications/Utilities /Applications/Microsoft\ Office\ 2011 | grep "\.app" | grep -v iWork |\
+  rm -f ~/.foomagick.tmp
+  /bin/ls /Applications /Applications/Utilities /Applications/Microsoft\ Office\ 2011 /Users/smartin/Applications | /usr/bin/grep "\.app" | /usr/bin/grep -v iWork |\
   while read APP
   do
     # Clean it up
@@ -38,11 +50,60 @@ ls /Applications /Applications/Utilities /Applications/Microsoft\ Office\ 2011 |
   echo alias word="'open -a Microsoft\ Word.app'" >> ~/.foomagick.tmp
   echo alias excel="'open -a Microsoft\ Excel.app'" >> ~/.foomagick.tmp
   echo alias chrome="'open -a Google\ Chrome.app'" >> ~/.foomagick.tmp
+  echo alias code="'/Users/smartin/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'" >> ~/.foomagick.tmp
   source ~/.foomagick.tmp
   rm -f ~/.foomagick.tmp
 }
 
 foomagick
 
+# Trying for a "best of both worlds" approach to locate
+# on OS X darwin. Use the faster mdfind. However, this fails
+# for partial pathnames like: bin/sudo. So fall back to mlocate
+# style for those cases.
+function _locate() {
+  declare -i nmbr=$(mdfind -name "$*" -count)
+
+  if [ $nmbr -gt 0 ];then
+    echo "mdfind -name $*"
+    mdfind -name $*
+  else
+    /usr/bin/locate $*
+  fi
+}
+
+alias locate="_locate"
+
+pathmunge() {
+  # If the new directory is already in our PATH skip it
+  case "$:${PATH}:" in
+    *:"$1":*)
+      ;;
+    *)
+      if [ "$2" == "after" ];then
+        PATH="$PATH:$1"
+      else
+        PATH="$1:$PATH"
+      fi
+  esac
+}
+
+# Inserted before current path
+# So last one ends up being first on PATH
+for var in "$JAVA_HOME" "$ANT_HOME" "$HOME" "$GOROOT"
+do
+  if [ -d "${var}/bin" -a -r "${var}/bin" ];then
+    pathmunge "${var}/bin"
+  fi
+done
+
+# Add these after the rest of the PATH
+for var in "$GROOVY_HOME" "$MYSQL_HOME"
+do
+  if [ -d "${var}/bin" -a -r "${var}/bin" ];then
+    pathmunge "${var}/bin" after
+  fi
+done
+
+unset pathmunge
 unset foomagick
-export PS1='\[\e[1;34m\]\w\n\[\e[0;36m\]\u@\[\e[0;36m\]\h`r=$?; test $r -ne 0 && echo " \[\e[1;31m\]ret:$r"`\[\e[0m\]\$ '
