@@ -1,0 +1,11 @@
+#!/bin/bash
+
+alias h="_h"
+
+_h () {
+    if [ $# -gt 0 ]; then
+        history | grep -i "$*"
+    else
+        history
+    fi
+}

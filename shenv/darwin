@@ -1,0 +1,48 @@
+#!/bin/bash
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home"
+export GROOVY_HOME="/usr/local/groovy"
+export ANT_HOME="/Users/smartin/bin/apache-ant-1.9.4"
+export MYSQL_HOME="/usr/local/mysql"
+export GOROOT="/usr/local/go"
+
+export HISTSIZE=5000
+export HISTFILESIZE=${HISTSIZE}
+export HISTCONTROL='erasedups:ignoreboth'
+export HISTTIMEFORMAT="%m/%d/%y %T "
+export HISTIGNORE="&:[ ]*:exit"
+
+export MANPAGER="less -X"
+
+# Prefer English UTF-8
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# Make all of the OS X apps from $HOME/Applications, 
+# /Applications and /Applications/Utilties into command
+# line aliases to open them easily.
+#
+# e.g. BBEdit.app gets an alias of:
+#   alias bbedit='open -a BBEdit.app'
+function foomagick() {
+rm -f ~/.foomagick.tmp
+ls /Applications /Applications/Utilities /Applications/Microsoft\ Office\ 2011 | grep "\.app" | grep -v iWork |\
+  while read APP
+  do
+    # Clean it up
+    a=$(echo $APP | sed "s/\ //g" )
+    a=$(echo $a | sed -e "s/\'//g" )
+    a=$(echo $a | tr "[:upper:]" "[:lower:]")
+    echo alias ${a%.*}="'open -a \"${APP%.*}\"'" >> ~/.foomagick.tmp
+  done
+  echo alias word="'open -a Microsoft\ Word.app'" >> ~/.foomagick.tmp
+  echo alias excel="'open -a Microsoft\ Excel.app'" >> ~/.foomagick.tmp
+  echo alias chrome="'open -a Google\ Chrome.app'" >> ~/.foomagick.tmp
+  source ~/.foomagick.tmp
+  rm -f ~/.foomagick.tmp
+}
+
+foomagick
+
+unset foomagick
+export PS1='\[\e[1;34m\]\w\n\[\e[0;36m\]\u@\[\e[0;36m\]\h`r=$?; test $r -ne 0 && echo " \[\e[1;31m\]ret:$r"`\[\e[0m\]\$ '

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+export JAVA_HOME="/usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt"
+export GROOVY_HOME="/usr/share/groovy"
+export ANT_HOME="/Users/smartin/bin/apache-ant-1.9.4"
+export MYSQL_HOME="/usr/local/mysql"
+export GOROOT="/usr/lib/go"
+#export PS1='\[\e[1;34m\]\w\n\[\e[0;36m\]\u@\[\e[0;36m\]\h`r=$?; test $r -ne 0 && echo " \[\e[1;31m\]ret:$r"`\[\e[0m\]\$ '
+export HISTSIZE=5000
+export HISTFILESIZE=${HISTSIZE}
+export HISTCONTROL='erasedups:ignoreboth'
+export HISTTIMEFORMAT="%m/%d/%y %T "
+export HISTIGNORE="&:[ ]*:exit:pwd"
+
+# Prefer English UTF-8
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+export MANPAGER="less -X"
+

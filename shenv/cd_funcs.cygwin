@@ -1,0 +1,262 @@
+#!/bin/bash
+
+alias cd2="_cd2"
+alias cda="_cda"
+alias cdc="_cdc"
+alias cdd="_cdd"
+alias cde="_cde"
+alias cdg="_cdg"
+alias cdk="_cdk"
+alias cdm="_cdm"
+alias cdl="_cdl"
+alias cdp="_cdp"
+alias cdps="_cdps"
+alias cdr="_cdr"
+alias cds="_cds"
+alias cdsa="_cdsa"
+alias cdu="_cdu"
+alias cdv="_cdv"
+alias cdw="_cdw"
+alias cdwi="_cdwi"
+alias cdz="_cdz"
+alias mkcd="_mkcd"
+alias cd="cd_func"
+
+PROGDIR="$(cygpath "$PROGRAMFILES")"
+PROGDIR_X86="${PROGDIR} (x86)"
+
+# ctrl-w shows the menu
+# bind -x "\"\C-w\":cd_func -- ;"
+
+settitle()
+{
+  echo -ne "\e]2;$@\a\e]1;$@\a";
+}
+
+_cd2() {
+    if [ $# -gt 0 ]; then
+        cd_func "$(cygpath --sysdir)/${*}"
+    else
+        cd_func "$(cygpath --sysdir)/"
+    fi
+}
+
+_cda() {
+    if [ $# -gt 0 ]; then
+        cd_func "/c/Users/${USER}/AppData/${*}"
+    else
+        cd_func "/c/Users/${USER}/AppData/"
+    fi
+}
+
+_cdc() {
+    if [ $# -gt 0 ]; then
+        cd_func "$(cygpath --mydocs)/../projects/Compliance/${*}"
+    else
+        cd_func "$(cygpath --mydocs)/../projects/Compliance"
+    fi
+}
+
+_cdd() {
+    if [ $# -gt 0 ]; then
+        cd_func "$(cygpath --mydocs)/${*}"
+    else
+        cd_func "$(cygpath --mydocs)"
+    fi
+}
+
+_cde() {
+    if [ $# -gt 0 ]; then
+        cd_func "$(cygpath --desktop)/${*}"
+    else
+        cd_func "$(cygpath --desktop)"
+    fi
+}
+
+_cdg() {
+    if [ $# -gt 0 ]; then
+        cd_func "/d/apps/${*}"
+    else
+        cd_func "/d/apps/"
+    fi
+}
+
+_cdk() {
+    if [ $# -gt 0 ]; then
+        cd_func "/c/apps/steamapps/kerbal space program${*}"
+    else
+        cd_func "/c/apps/steamapps/kerbal space program"
+    fi
+}
+
+_cdm() {
+    if [ $# -gt 0 ]; then
+        cd_func "$(cygpath --mydocs)/Music/${*}"
+    else
+        cd_func "$(cygpath --mydocs)/Music/"
+    fi
+}
+
+_cdl() {
+    if [ $# -gt 0 ]; then
+        cd_func "/d/Users/${USER}/Downloads/${*}"
+    else
+        cd_func "/d/Users/${USER}/Downloads/"
+    fi
+}
+
+_cdp() {
+    if [ $# -gt 0 ]; then
+        cd_func "/home/${USER}/public_html/${*}"
+    else
+        cd_func "/home/${USER}/public_html"
+    fi
+}
+
+_cdps() {
+    if [ $# -gt 0 ]; then
+        cd_func "/home/${USER}/src/patchsimple_agent/src/github.com/PatchSimple/psagent/${*}"
+    else
+        cd_func "/home/${USER}/src/patchsimple_agent/src/github.com/PatchSimple/psagent/"
+    fi
+}
+
+_cdr() {
+    if [ -d "/d/Users/${USER}/Dropbox" ];then
+        if [ $# -gt 0 ]; then
+            cd_func "/d/Users/${USER}/Dropbox/${*}"
+        else
+            cd_func "/d/Users/${USER}/Dropbox/"
+        fi
+        return
+    fi
+    if [ -d "/d/Data/Dropbox" ];then
+        if [ $# -gt 0 ]; then
+            cd_func "/d/Data/Dropbox/${*}"
+        else
+            cd_func "/d/Data/Dropbox/"
+        fi
+    fi
+}
+
+_cds() {
+    if [ $# -gt 0 ]; then
+        cd_func "/d/Users/${USER}/DropBox/Scripts/${*}"
+    else
+        cd_func "/d/Users/${USER}/DropBox/Scripts/"
+    fi
+}
+
+_cdsa() {
+    if [ $# -gt 0 ]; then
+        cd_func "/d/apps/steam/steamapps/${*}"
+    else
+        cd_func "/d/apps/steam/steamapps/"
+    fi
+}
+
+_cdu() {
+    if [ $# -gt 0 ]; then
+        cd_func "/c/Users/${USER}/${*}"
+    else
+        cd_func "/c/Users/${USER}"
+    fi
+}
+
+_cdv() {
+    if [ $# -gt 0 ]; then
+        cd_func "/d/Users/${USER}/Videos/${*}"
+    else
+        cd_func "/d/Users/${USER}/Videos"
+    fi
+}
+
+_cdw() {
+    if [ $# -gt 0 ]; then
+        cd_func "${PROGDIR_X86}/World of Warcraft/${*}"
+    else
+        cd_func "${PROGDIR_X86}/World of Warcraft"
+    fi
+}
+
+_cdwi() {
+    if [ $# -gt 0 ]; then
+        cd_func "/d/apps/World of Warcraft//Interface/${*}"
+    else
+        cd_func "/d/apps/World of Warcraft/Interface"
+    fi
+}
+
+_cdz() {
+    if [ $# -gt 0 ]; then
+        cd_func "$(cygpath --windir)/${*}"
+    else
+        cd_func "$(cygpath --windir)"
+    fi
+}
+
+_mkcd() {
+    mkdir -p "$*"
+    cd_func "$*"
+}
+
+# function cd_func
+# This function defines a 'cd' replacement function capable of keeping,
+# displaying and accessing history of visited directories, up to 10 entries.
+# To use it, uncomment it, source this file and try 'cd --'.
+# acd_func 1.0.5, 10-nov-2004
+# Petar Marinov, http:/geocities.com/h2428, this is public domain
+
+cd_func() {
+    local x2 the_new_dir adir index
+    local -i cnt
+
+    if [[ $1 == "--" ]]; then
+        dirs -v
+        return 0
+    fi
+
+    the_new_dir=$1
+    [[ -z $1 ]] && the_new_dir=$HOME
+    
+    if [[ ${the_new_dir:0:1} == '-' ]]; then
+        #
+        # When argument is '-N' Extract dir N from dirs
+        index=${the_new_dir:1}
+        [[ -z $index ]] && index=1
+        adir=$(dirs +$index)
+        [[ -z $adir ]] && return 1
+        the_new_dir=$adir
+    fi
+
+    #
+    # '~' has to be substituted by ${HOME}
+    [[ ${the_new_dir:0:1} == '~' ]] && the_new_dir="${HOME}${the_new_dir:1}"
+
+    #
+    # Now change to the new dir and add to the top of the stack
+    pushd "${the_new_dir}" > /dev/null
+    settitle "-$(basename $SHELL) : ${PWD/$HOME/'~'}"
+    [[ $? -ne 0 ]] && return 1
+    the_new_dir=$(pwd)
+
+    #
+    # Trim down everything beyond 11th entry
+    popd -n +16 2>/dev/null 1>/dev/null
+
+    #
+    # Remove any other occurence of this dir, skipping the top of the stack
+    for ((cnt=1; cnt <= 15; cnt++)); do
+        x2="$(dirs +${cnt} 2>/dev/null)"
+        [[ $? -ne 0 ]] && return 0
+        [[ ${x2:0:1} == '~' ]] && x2="${HOME}${x2:1}"
+        if [[ "${x2}" == "${the_new_dir}" ]]; then
+            popd -n +$cnt 2>/dev/null 1>/dev/null
+            cnt=cnt-1
+        fi
+    done
+
+    settitle "-$(basename $SHELL) : ${PWD/$HOME/'~'}"
+    return 0
+}
+

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+alias ff='_ff'
+alias ffd='_ffd'
+alias ffl='_ffl'
+
+_ff() {
+    if [ $# -eq 0 ];then
+        FF_DIR="."
+    else
+        FF_DIR="$1"
+    fi
+    find "${FF_DIR}" -type f
+}
+
+_ffd() {
+    if [ $# -eq 0 ];then
+        FF_DIR="."
+    else
+        FF_DIR="$1"
+    fi
+    find "${FF_DIR}" -type d
+}
+
+_ffl() {
+    if [ $# -eq 0 ];then
+        FF_DIR="."
+    else
+        FF_DIR="$1"
+    fi
+    ls -l `find "${FF_DIR}" -type f`
+}
+

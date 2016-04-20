@@ -1,0 +1,19 @@
+#!/bin/bash
+
+alias psg='_psg'
+alias psl='_psl'
+alias psn='_psn'
+alias psw='tasklist'
+
+_psg() {
+    ps | grep -i "$*"
+}
+
+_psl() {
+    tasklist /v | grep -i "$*"
+}
+
+
+_psn() {
+    tasklist | sed 's/,//g' | sort --sort=h -k 5
+}

@@ -1,0 +1,17 @@
+
+alias which="_which"
+
+_which() {
+    if [ $# -eq 1 ]; then
+      TR=$(/usr/bin/which $1 2>/dev/null)
+      if [ $? -ne 0 ];then
+        TR=$(type -P $1) 
+        if [ -z "$TR" ];then
+          TR=$(type $1)
+        fi
+      fi
+      echo "$TR"
+    else
+        return 1
+    fi
+}
