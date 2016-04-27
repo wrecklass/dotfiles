@@ -2,6 +2,9 @@
 
 mkdir -p "${HOME}/.log"
 
+alias open='cygstart'
+alias ifconfig='ipconfig'
+
 export TMPDIR='/var/tmp'
 export CYGWIN="nodosfilewarning"
 #export LESS='srC'
@@ -32,8 +35,6 @@ PATH="/c/Windows/Microsoft.NET/Framework64/${DOTNET}:${PATH}"
 
 # The global environment variable doesn't work for this:
 export SVN_SSH="/bin/ssh -q"
-
-export EDITOR=/usr/bin/vim
 
 # Don't put duplicate lines in the history.
 export HISTSIZE=5000
@@ -85,5 +86,13 @@ do
 done
 pathmunge /sbin after
 pathmunge /usr/sbin after
+
+HAVE_VIM=$(command -v vim)
+
+EDITOR=vi
+if [ -n "$HAVE_VIM" ];then
+  EDITOR="$HAVE_VIM"
+fi
+export EDITOR
 
 unset pathmunge

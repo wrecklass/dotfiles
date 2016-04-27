@@ -1,4 +1,5 @@
 # Detect which `ls` flavor is in use
+
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
 else # OS X `ls`
@@ -46,7 +47,6 @@ alias hosts='sudo vim /etc/hosts'
 alias hp='hashapass.sh'
 # alias h="history"
 
-alias ifconfig='ipconfig'
 alias irb='irb --readline -r irb/completion'
 
 # IP addresses
@@ -91,8 +91,6 @@ alias map="xargs -n1"
 
 alias nslookupo=nslookup
 
-alias open='cygstart'
-
 alias pp='ping google.com'
 alias r='fc -s'
 alias ri='ri -f bs '
@@ -129,11 +127,11 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-alias vi='/usr/bin/vim'
-alias vim='/usr/bin/vim'
-alias vib='/usr/bin/vim ~/.bashrc'
+alias vi="$EDITOR"
+alias vim="$EDITOR"
+alias vib='$EDITOR ~/.bashrc'
 # Because I'm occasionally dislexic:
-alias iv='/usr/bin/vim'
+alias iv="$EDITOR"
 
 alias httpd.py='python -m SimpleHTTPServer'
 alias httpd.rb='ruby -run -e httpd . -p 8000'
