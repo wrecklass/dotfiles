@@ -18,3 +18,11 @@ export LC_ALL="en_US.UTF-8"
 
 export MANPAGER="less -X"
 
+HAVE_VIM=$(command -v vim)
+
+EDITOR=vi
+if [ -n "$HAVE_VIM" ];then
+  EDITOR="$HAVE_VIM"
+fi
+export EDITOR
+

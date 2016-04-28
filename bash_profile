@@ -26,14 +26,14 @@
 # Set user-defined locale
 # export LANG=$(locale -uU)
 
-for file in ~/.{bash_prompt,bash_aliases,path,dockerfunc,extra,exports}; do
+for file in ~/.{bashrc,bash_prompt,bash_aliases,path,dockerfunc,extra,exports}; do
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
 # source the users bashrc if it exists
-if [ -f "${HOME}/.bashrc" ] ; then
-  source "${HOME}/.bashrc"
-fi
+# if [ -f "${HOME}/.bashrc" ] ; then
+  # source "${HOME}/.bashrc"
+# fi
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
