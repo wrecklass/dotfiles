@@ -13,7 +13,7 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Hom
 export GROOVY_HOME="/usr/local/opt/groovy/libexec"
 export ANT_HOME="/usr/local/opt/ant/libexec"
 export MYSQL_HOME="/usr/local/mysql"
-export GOROOT="/Users/smartin/src/go-darwin-amd64-bootstrap"
+export GOROOT="/usr/local/go"
 export GOPATH="/Users/smartin/src/gocode"
 
 export HISTSIZE=5000
@@ -38,7 +38,7 @@ export LC_ALL="en_US.UTF-8"
 #   alias bbedit='open -a BBEdit.app'
 function foomagick() {
   rm -f ~/.foomagick.tmp
-  /bin/ls /Applications /Applications/Utilities /Applications/Microsoft\ Office\ 2011 /Users/smartin/Applications | /usr/bin/grep "\.app" | /usr/bin/grep -v iWork |\
+  /bin/ls /Applications /Applications/Utilities /Users/smartin/Applications | /usr/bin/grep "\.app" | /usr/bin/grep -v iWork |\
   while read APP
   do
     # Clean it up
@@ -52,7 +52,7 @@ function foomagick() {
   echo alias chrome="'open -a Google\ Chrome.app'" >> ~/.foomagick.tmp
   echo alias code="'/Users/smartin/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'" >> ~/.foomagick.tmp
   source ~/.foomagick.tmp
-  rm -f ~/.foomagick.tmp
+  # rm -f ~/.foomagick.tmp
 }
 
 foomagick
