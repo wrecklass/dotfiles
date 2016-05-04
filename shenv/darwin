@@ -89,7 +89,7 @@ do
 done
 
 # Add these after the rest of the PATH
-for var in "$GROOVY_HOME" "$MYSQL_HOME"
+for var in "$GROOVY_HOME" "$MYSQL_HOME" "$GOPATH"
 do
   if [ -d "${var}/bin" -a -r "${var}/bin" ];then
     pathmunge "${var}/bin" after
