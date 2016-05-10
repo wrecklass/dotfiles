@@ -11,7 +11,8 @@ shopt -s cdspell
 shopt -s nocaseglob
 shopt -s hostcomplete
 shopt -s no_empty_cmd_completion
-shopt -s autocd
+# Older version of Bash may not like this one:
+shopt -s autocd &> /dev/null
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
