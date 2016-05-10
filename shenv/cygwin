@@ -95,4 +95,4 @@ if [ -n "$HAVE_VIM" ];then
 fi
 export EDITOR
 
-unset pathmunge
+# unset pathmunge

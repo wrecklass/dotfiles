@@ -4,6 +4,7 @@ alias cde="_cde"
 alias cdl="_cdl"
 alias cdo="_cdo"
 alias cdp="_cdp"
+alias cds="_cds"
 alias mkcd="_mkcd"
 alias cd="cd_func"
 
@@ -46,6 +47,14 @@ _cdp() {
         cd_func "/Users/${USER}/public_html/${*}"
     else
         cd_func "/Users/${USER}/public_html"
+    fi
+}
+
+_cds() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/${*}"
+    else
+        cd_func "/Users/${USER}/src"
     fi
 }
 

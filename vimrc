@@ -154,7 +154,7 @@ set mouse=a
 " all tabs. <Leader> is defined as the backslash char
 " unless redefined elsewhere.
 " Pathogen bundle manager:
-" call pathogen#infect()
+call pathogen#infect()
 " map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " map <Leader>t <plug>NERDTreeFocusToggle<CR>
 " let g:nerdtree_tabs_open_on_console_startup=0

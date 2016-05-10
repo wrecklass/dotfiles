@@ -67,16 +67,20 @@ alias locate="_locate"
 
 pathmunge() {
   # If the new directory is already in our PATH skip it
-  case "$:${PATH}:" in
-    *:"$1":*)
-      ;;
-    *)
-      if [ "$2" == "after" ];then
-        PATH="$PATH:$1"
-      else
-        PATH="$1:$PATH"
-      fi
-  esac
+  if [ $# -eq 0 ];then
+    echo $PATH | awk 'BEGIN { RS=":" } ; { print $1 }'
+  else
+    case "$:${PATH}:" in
+      *:"$1":*)
+        ;;
+      *)
+        if [ "$2" == "after" ];then
+          PATH="$PATH:$1"
+        else
+          PATH="$1:$PATH"
+        fi
+    esac
+  fi
 }
 
 # Inserted before current path
@@ -89,7 +93,7 @@ do
 done
 
 # Add these after the rest of the PATH
-for var in "$GROOVY_HOME" "$MYSQL_HOME"
+for var in "$GROOVY_HOME" "$MYSQL_HOME" "$GOPATH"
 do
   if [ -d "${var}/bin" -a -r "${var}/bin" ];then
     pathmunge "${var}/bin" after
@@ -98,7 +102,7 @@ done
 
 # Need to do this before sourcing .bash_aliases
 HAVE_VIM=$(command -v vim)
-echo $HAVE_VIM
+#echo $HAVE_VIM
 
 EDITOR=vi
 if [ -n "$HAVE_VIM" ];then
@@ -106,5 +110,5 @@ if [ -n "$HAVE_VIM" ];then
 fi
 export EDITOR
 
-unset pathmunge
+# unset pathmunge
 unset foomagick
