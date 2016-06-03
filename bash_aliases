@@ -59,6 +59,7 @@ else # *ix ifconfig
   alias ips="sudo ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 fi
 
+alias j='jobs'
 alias dot='ls -dAF ${colorflag} .*'
 alias l.='ls -dAF ${colorflag} .*'
 alias ll.='ls -lGdF ${colorflag} .*'

@@ -1,5 +1,5 @@
 [core]
-	editor = /usr/bin/vim
+	editor = /Users/smartin/bin/vim
 [push]
 	default = simple
 [credential]
@@ -67,7 +67,7 @@
   # Because I forget that git isn't SVN
   info = status
   # Edit the global config file
-	edit = config --global -e
+	edit = !vim ~/.gitconfig
 	e = config --global -e
   # Saves Work in Progress. Leaves untracked alone.
   wip = commit -am "WIP"

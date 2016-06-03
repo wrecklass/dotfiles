@@ -5,6 +5,7 @@ alias cdl="_cdl"
 alias cdo="_cdo"
 alias cdp="_cdp"
 alias cds="_cds"
+alias cdu="_cdu"
 alias mkcd="_mkcd"
 alias cd="cd_func"
 
@@ -42,6 +43,13 @@ _cdo() {
     fi
 }
 
+_cdu() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/Documents/Unclutter/FileStorage/${*}"
+    else
+        cd_func "/Users/${USER}/Documents/Unclutter/Filestorage"
+    fi
+}
 _cdp() {
     if [ $# -gt 0 ]; then
         cd_func "/Users/${USER}/public_html/${*}"
