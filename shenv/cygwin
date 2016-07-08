@@ -2,7 +2,11 @@
 
 mkdir -p "${HOME}/.log"
 
+alias start='cygstart'
 alias open='cygstart'
+alias edit='cygstart -e'
+alias explore='cygstart -x'
+
 alias ifconfig='ipconfig'
 
 export TMPDIR='/var/tmp'

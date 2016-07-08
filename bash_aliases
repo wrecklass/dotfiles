@@ -24,9 +24,6 @@ alias duh='du -sh'
 alias dus='du -sh . | sort -h'
 alias dust='du -sh * | sort -h'
 
-alias edit='cygstart -e'
-alias explore='cygstart -x'
-
 alias fild='file'
 alias fiel='file'
 
@@ -106,7 +103,6 @@ alias scc='less $HOME/bin/screencheat'
 alias sec='vi $HOME/bin/.secret'
 alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
 # alias sensu='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user sensu'
-alias start='cygstart'
 alias sw='telnet  towel.blinkenlights.nl'
 alias sx='startxwin.sh > .xwin_errors 2>&1'
 
