@@ -38,7 +38,7 @@ filetype on
 set autoread
 
 " For chess Portable Game Notation (pgn) files:
-au BufNewFile,BufRead *.pgn setf pgn
+" au BufNewFile,BufRead *.pgn setf pgn
 
 
 "Strong Encryption:
