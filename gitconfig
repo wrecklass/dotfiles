@@ -4,6 +4,9 @@
 	default = simple
 [credential]
 	helper = store
+[user]
+	name = Steve Martin
+	email = smartin5590+github@gmail.com
 [alias]
   # XXX TEMPLATE: XXX
   # changeme = "!f() { changemetoo }; f"
@@ -67,14 +70,18 @@
   # Because I forget that git isn't SVN
   info = status
   # Edit the global config file
-	edit = config --global -e
-	e = config --global -e
+  # e = config --global -e
+	edit = !vim ~/.gitconfig
+  e = !vim ~/.gitconfig
   # Saves Work in Progress. Leaves untracked alone.
   wip = commit -am "WIP"
   # Just show the date in compressed format
   dt  = !date +"%Y%m%dT%H%M%S"
   # Longer format
   dtl = !date '+"%Y/%m/%d %H:%M:%S"'
+  # seconds since epoch
+  dts = !date +'%s'
+
   # Note that this adds UNTRACKED files to the repository:
   cm = !git add -A && git commit -m
   # Likewise, saves it all as a (probably temporary) checkpoint:
@@ -159,6 +166,3 @@
   sl = stash list
   sa = stash apply
   ss = stash save
-[user]
-	name = Steve Martin
-	email = smartin5590+github@gmail.com
