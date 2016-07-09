@@ -1,5 +1,5 @@
 [core]
-	editor = /usr/bin/vim
+	editor = /Users/smartin/bin/vim
 [push]
 	default = simple
 [credential]

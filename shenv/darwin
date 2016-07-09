@@ -4,7 +4,8 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Hom
 export GROOVY_HOME="/usr/local/opt/groovy/libexec"
 export ANT_HOME="/usr/local/opt/ant/libexec"
 export MYSQL_HOME="/usr/local/mysql"
-export GOROOT="/usr/local/go"
+# export GOROOT="/usr/local/go"
+export GOROOT="/Users/smartin/src/go-darwin-amd64-bootstrap"
 export GOPATH="/Users/smartin/src/gocode"
 
 export HISTSIZE=5000
@@ -64,6 +65,7 @@ function _locate() {
 }
 
 alias locate="_locate"
+alias start='open'
 
 pathmunge() {
   # If the new directory is already in our PATH skip it
