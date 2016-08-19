@@ -7,6 +7,9 @@ case $- in
 	*) return;;
 esac
 
+# DigitalOcean Token:
+export TOKEN='fa3acf68894c3e9e6448989865e92c4c219e2b8f9174a3aec798d32556c75730'
+
 shopt -s cdspell
 shopt -s nocaseglob
 shopt -s hostcomplete
@@ -24,7 +27,10 @@ shopt -s checkwinsize
 # gets added from external files based on which
 # OS we find.
 
-export NETREGX="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
+# export NETREGX="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
+# Better:
+export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+
 # Make sure we only source this once
 [[ -z ${CYG_HOME_BASHRC} ]] && CYG_HOME_BASHRC="1" || return 0
 

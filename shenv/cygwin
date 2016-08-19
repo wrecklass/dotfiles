@@ -18,7 +18,8 @@ export CLASSPATH="$CLASSPATH:."
 export ANT_HOME="/usr/local/ant"
 export MPLAYER="/usr/local/mplayer"
 export PYTIVO="/usr/local/pytivo"
-export ANDROID_PATH="/c/Users/smartin/AppData/Local/Android/android-sdk"
+export ANDROID_PATH="/Users/smartin/AppData/Local/Android/sdk"
+export ANDROID_HOME='C:\Users\smartin\AppData\Local\Android\sdk'
 export NODE_MODULES="$HOME/node_modules"
 
 export FFMPEG_PATH="/usr/local/ffmpeg"

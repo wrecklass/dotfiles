@@ -1,0 +1,15 @@
+#!/bin/bash
+
+export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+alias grepip="_grepip"
+alias filegrepip="_filegrepip"
+alias ripip="_filegrepip"
+alias ripips="_filegrepip"
+
+_grepip() {
+  echo "$*" | /usr/bin/grep -oE "$NETREGX"
+}
+
+_filegrepip() {
+  cat "$*" | /usr/bin/grep -oE "$NETREGX"
+}
