@@ -104,7 +104,7 @@ set history=50        " Keep 50 lines of command line history
 
 " syntax on
 syntax enable
-colorscheme SlateDark
+"colorscheme SlateDark
 
 " Take from the Debian package and the example on $VIM/vim_eaemples
 if has("autocmd")
@@ -143,21 +143,8 @@ set mouse=a
 " Toggle TagBar on and off
 "nmap <F8> :TagbarToggle<CR>
 
-" Handy split screen with directory structure in a tree.
-" Remember to use C-Wh or C-Wl (movement keys) to move
-" between screen sections. Also use :tab sball to
-" open all buffers in individual tabs and :bn to switch
-" between tabs. Can also use gt in command mode to switch
-" tabs.
-" autocmd vimenter * NERDTree
-" Defines \n in command mode to toggle the NerdTree in
-" all tabs. <Leader> is defined as the backslash char
-" unless redefined elsewhere.
 " Pathogen bundle manager:
-" call pathogen#infect()
-" map <Leader>n <plug>NERDTreeTabsToggle<CR>
-" map <Leader>t <plug>NERDTreeFocusToggle<CR>
-" let g:nerdtree_tabs_open_on_console_startup=0
+call pathogen#infect()
 
 set laststatus=2
 "set statusline=%<%-40.50F\ %h%m%r=%-14.(%l/%L,%c%V%)\ %P
