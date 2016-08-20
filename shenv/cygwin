@@ -2,7 +2,11 @@
 
 mkdir -p "${HOME}/.log"
 
+alias start='cygstart'
 alias open='cygstart'
+alias edit='cygstart -e'
+alias explore='cygstart -x'
+
 alias ifconfig='ipconfig'
 
 export TMPDIR='/var/tmp'
@@ -14,12 +18,13 @@ export CLASSPATH="$CLASSPATH:."
 export ANT_HOME="/usr/local/ant"
 export MPLAYER="/usr/local/mplayer"
 export PYTIVO="/usr/local/pytivo"
-export ANDROID_PATH="/c/Users/smartin/AppData/Local/Android/android-sdk"
+export ANDROID_PATH="/Users/smartin/AppData/Local/Android/sdk"
+export ANDROID_HOME='C:\Users\smartin\AppData\Local\Android\sdk'
 export NODE_MODULES="$HOME/node_modules"
 
 export FFMPEG_PATH="/usr/local/ffmpeg"
 export MPLAYER_PATH="/usr/local/mplayer"
-export GOROOT="D:\Apps\go"
+export GOROOT="C:\cygwin64\usr\local\go-windows-amd64-bootstrap"
 export GOPATH="C:\cygwin64\home\smartin\src\gocode"
 
 # Create my personal Log directory
@@ -70,7 +75,7 @@ pathmunge() {
 
 # Inserted before current path
 # So last one ends up being first on PATH
-for var in "$JAVA_HOME" "$ANT_HOME" "$HOME"
+for var in "$JAVA_HOME" "$ANT_HOME" "$HOME" "$GOROOT" "$GOPATH"
 do
   if [ -d "${var}/bin" -a -r "${var}/bin" ];then
     pathmunge "${var}/bin"
@@ -78,7 +83,7 @@ do
 done
 
 # Add these after the rest of the PATH
-for var in "$GOROOT" "$GROOVY_HOME" "$MYSQL_HOME"
+for var in "$GROOVY_HOME" "$MYSQL_HOME"
 do
   if [ -d "${var}/bin" -a -r "${var}/bin" ];then
     pathmunge "${var}/bin" after
@@ -95,4 +100,4 @@ if [ -n "$HAVE_VIM" ];then
 fi
 export EDITOR
 
-unset pathmunge
+# unset pathmunge

@@ -6,7 +6,9 @@ export GROOVY_HOME="/usr/local/opt/groovy/libexec"
 #export ANT_HOME="/usr/local/opt/ant/libexec"
 export ANT_HOME="/usr/local/apache-ant-1.9.4"
 export MYSQL_HOME="/usr/local/mysql"
-export GOROOT="/usr/local/go"
+# export GOROOT="/usr/local/go"
+export GOROOT="/Users/smartin/src/github/go-darwin-amd64-bootstrap"
+#export GOROOT="/Users/smartin/src/github/golang"
 export GOPATH="/Users/smartin/src/gocode"
 
 export HISTSIZE=5000
@@ -34,6 +36,7 @@ function foomagick() {
   /bin/ls /Applications /Applications/Utilities /Users/smartin/Applications | /usr/bin/grep "\.app" | /usr/bin/grep -v iWork |\
   while read APP
   do
+    [[ "$APP" == "Docker.app" ]] && continue
     # Clean it up
     a=$(echo $APP | sed "s/\ //g" )
     a=$(echo $a | sed -e "s/\'//g" )
@@ -66,19 +69,24 @@ function _locate() {
 }
 
 alias locate="_locate"
+alias start='open'
 
 pathmunge() {
   # If the new directory is already in our PATH skip it
-  case "$:${PATH}:" in
-    *:"$1":*)
-      ;;
-    *)
-      if [ "$2" == "after" ];then
-        PATH="$PATH:$1"
-      else
-        PATH="$1:$PATH"
-      fi
-  esac
+  if [ $# -eq 0 ];then
+    echo $PATH | awk 'BEGIN { RS=":" } ; { print $1 }'
+  else
+    case "$:${PATH}:" in
+      *:"$1":*)
+        ;;
+      *)
+        if [ "$2" == "after" ];then
+          PATH="$PATH:$1"
+        else
+          PATH="$1:$PATH"
+        fi
+    esac
+  fi
 }
 
 # Inserted before current path
@@ -100,7 +108,7 @@ done
 
 # Need to do this before sourcing .bash_aliases
 HAVE_VIM=$(command -v vim)
-echo $HAVE_VIM
+#echo $HAVE_VIM
 
 EDITOR=vi
 if [ -n "$HAVE_VIM" ];then
@@ -108,5 +116,5 @@ if [ -n "$HAVE_VIM" ];then
 fi
 export EDITOR
 
-unset pathmunge
+# unset pathmunge
 unset foomagick

@@ -4,15 +4,15 @@ alias cd2="_cd2"
 alias cda="_cda"
 alias cdc="_cdc"
 alias cdd="_cdd"
+alias cdo="_cdd"
 alias cde="_cde"
 alias cdg="_cdg"
-alias cdk="_cdk"
 alias cdm="_cdm"
 alias cdl="_cdl"
 alias cdp="_cdp"
-alias cdps="_cdps"
 alias cdr="_cdr"
 alias cds="_cds"
+alias cdsc="_cdsc"
 alias cdsa="_cdsa"
 alias cdu="_cdu"
 alias cdv="_cdv"
@@ -49,11 +49,11 @@ _cda() {
     fi
 }
 
-_cdc() {
+_cds() {
     if [ $# -gt 0 ]; then
-        cd_func "$(cygpath --mydocs)/../projects/Compliance/${*}"
+        cd_func "/home/${USER}/src/${*}"
     else
-        cd_func "$(cygpath --mydocs)/../projects/Compliance"
+        cd_func "/home/${USER}/src"
     fi
 }
 
@@ -81,28 +81,36 @@ _cdg() {
     fi
 }
 
-_cdk() {
-    if [ $# -gt 0 ]; then
-        cd_func "/c/apps/steamapps/kerbal space program${*}"
-    else
-        cd_func "/c/apps/steamapps/kerbal space program"
-    fi
-}
-
 _cdm() {
+   if [ -d "/d/Users/${USER}/Music" ];then
     if [ $# -gt 0 ]; then
-        cd_func "$(cygpath --mydocs)/Music/${*}"
+        cd_func "/d/Users/${USER}/Music/${*}"
     else
-        cd_func "$(cygpath --mydocs)/Music/"
+        cd_func "/d/Users/${USER}/Music"
     fi
+  elif [ -d "/c/Users/${USER}/Music" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/c/Users/${USER}/Music/${*}"
+    else
+        cd_func "/c/Users/${USER}/Music"
+    fi
+  fi
 }
 
 _cdl() {
+  if [ -d "/d/Users/${USER}/Downloads/" ];then
     if [ $# -gt 0 ]; then
         cd_func "/d/Users/${USER}/Downloads/${*}"
     else
         cd_func "/d/Users/${USER}/Downloads/"
     fi
+  elif [ -d "/c/Users/${USER}/Downloads/" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/c/Users/${USER}/Downloads/${*}"
+    else
+        cd_func "/c/Users/${USER}/Downloads/"
+    fi
+  fi
 }
 
 _cdp() {
@@ -113,16 +121,15 @@ _cdp() {
     fi
 }
 
-_cdps() {
-    if [ $# -gt 0 ]; then
-        cd_func "/home/${USER}/src/patchsimple_agent/src/github.com/PatchSimple/psagent/${*}"
-    else
-        cd_func "/home/${USER}/src/patchsimple_agent/src/github.com/PatchSimple/psagent/"
-    fi
-}
-
 _cdr() {
-    if [ -d "/d/Users/${USER}/Dropbox" ];then
+    if [ -d "/c/Users/${USER}/Dropbox" ];then
+        if [ $# -gt 0 ]; then
+            cd_func "/c/Users/${USER}/Dropbox/${*}"
+        else
+            cd_func "/c/Users/${USER}/Dropbox/"
+        fi
+        return
+    elif [ -d "/d/Users/${USER}/Dropbox" ];then
         if [ $# -gt 0 ]; then
             cd_func "/d/Users/${USER}/Dropbox/${*}"
         else
@@ -130,61 +137,102 @@ _cdr() {
         fi
         return
     fi
-    if [ -d "/d/Data/Dropbox" ];then
-        if [ $# -gt 0 ]; then
-            cd_func "/d/Data/Dropbox/${*}"
-        else
-            cd_func "/d/Data/Dropbox/"
-        fi
-    fi
 }
 
-_cds() {
+_cdsc() {
+  if [ -d "/d/Users/${USER}/Dropbox/Scripts" ];then
     if [ $# -gt 0 ]; then
-        cd_func "/d/Users/${USER}/DropBox/Scripts/${*}"
+      cd_func "/d/Users/${USER}/DropBox/Scripts/${*}"
     else
-        cd_func "/d/Users/${USER}/DropBox/Scripts/"
+      cd_func "/d/Users/${USER}/DropBox/Scripts/"
     fi
+  elif [ -d "/c/Users/${USER}/Dropbox/Scripts" ];then
+    if [ $# -gt 0 ]; then
+      cd_func "/c/Users/${USER}/DropBox/Scripts/${*}"
+    else
+      cd_func "/c/Users/${USER}/DropBox/Scripts/"
+    fi
+  fi
 }
 
 _cdsa() {
+  if [ -d "/d/apps/steam/steamapps" ];then
     if [ $# -gt 0 ]; then
-        cd_func "/d/apps/steam/steamapps/${*}"
+      cd_func "/d/apps/steam/steamapps/${*}"
     else
-        cd_func "/d/apps/steam/steamapps/"
+      cd_func "/d/apps/steam/steamapps/"
     fi
+  elif [ -d "/c/apps/steam/steamapps" ];then
+    if [ $# -gt 0 ]; then
+      cd_func "/c/apps/steam/steamapps/${*}"
+    else
+      cd_func "/dcapps/steam/steamapps/"
+    fi
+  fi
 }
 
 _cdu() {
+  if [ -d "/d/Users/${USER}" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/d/Users/${USER}/${*}"
+    else
+        cd_func "/d/Users/${USER}"
+    fi
+  elif [ -d "/c/Users/${USER}" ];then
     if [ $# -gt 0 ]; then
         cd_func "/c/Users/${USER}/${*}"
     else
         cd_func "/c/Users/${USER}"
     fi
+  fi
 }
 
 _cdv() {
+   if [ -d "/d/Users/${USER}/Videos" ];then
     if [ $# -gt 0 ]; then
         cd_func "/d/Users/${USER}/Videos/${*}"
     else
         cd_func "/d/Users/${USER}/Videos"
     fi
+  elif [ -d "/c/Users/${USER}/Videos" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/c/Users/${USER}/Videos/${*}"
+    else
+        cd_func "/c/Users/${USER}/Videos"
+    fi
+  fi
 }
 
 _cdw() {
+  if [ -d "/d/apps/World of Warcraft/" ];then
     if [ $# -gt 0 ]; then
-        cd_func "${PROGDIR_X86}/World of Warcraft/${*}"
+        cd_func "/d/apps/World of Warcraft/${*}"
     else
-        cd_func "${PROGDIR_X86}/World of Warcraft"
+        cd_func "/d/apps/World of Warcraft"
     fi
+  elif [ -d "/c/apps/World of Warcraft/" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/c/apps/World of Warcraft/${*}"
+    else
+        cd_func "/c/apps/World of Warcraft"
+    fi
+  fi
 }
 
 _cdwi() {
+  if [ -d "/d/apps/World of Warcraft/Interface" ];then
     if [ $# -gt 0 ]; then
-        cd_func "/d/apps/World of Warcraft//Interface/${*}"
+        cd_func "/d/apps/World of Warcraft/Interface/${*}"
     else
         cd_func "/d/apps/World of Warcraft/Interface"
     fi
+  elif [ -d "/c/apps/World of Warcraft/Interface" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/c/apps/World of Warcraft/Interface/${*}"
+    else
+        cd_func "/c/apps/World of Warcraft/Interface"
+    fi
+  fi
 }
 
 _cdz() {

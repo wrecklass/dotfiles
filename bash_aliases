@@ -24,9 +24,6 @@ alias duh='du -sh'
 alias dus='du -sh . | sort -h'
 alias dust='du -sh * | sort -h'
 
-alias edit='cygstart -e'
-alias explore='cygstart -x'
-
 alias fild='file'
 alias fiel='file'
 
@@ -59,6 +56,7 @@ else # *ix ifconfig
   alias ips="sudo ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 fi
 
+alias j='jobs'
 alias dot='ls -dAF ${colorflag} .*'
 alias l.='ls -dAF ${colorflag} .*'
 alias ll.='ls -ldF ${colorflag} .*'
@@ -96,8 +94,10 @@ alias r='fc -s'
 alias ri='ri -f bs '
 alias rit='ri -T -f bs '
 alias rm='rm -i'
+alias mr='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias vm='mv -i'
 
 alias s7='secure7'
 alias sb='cd /usr/local/streambaby ; ./streambaby_high &> ~/.log/streambaby.log &'
@@ -105,7 +105,6 @@ alias scc='less $HOME/bin/screencheat'
 alias sec='vi $HOME/bin/.secret'
 alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
 # alias sensu='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user sensu'
-alias start='cygstart'
 alias sw='telnet  towel.blinkenlights.nl'
 alias sx='startxwin.sh > .xwin_errors 2>&1'
 

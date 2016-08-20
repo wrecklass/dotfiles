@@ -1,15 +1,19 @@
 [core]
-	editor = /usr/bin/vim
+	editor = /Users/smartin/bin/vim
 [push]
 	default = simple
 [credential]
 	helper = store
+[user]
+	name = Steve Martin
+	email = smartin5590+github@gmail.com
 [alias]
   # XXX TEMPLATE: XXX
   # changeme = "!f() { changemetoo }; f"
 
   la = "!git config -l | grep alias "
 	rv = remote -v
+	r = remote -v
   # Add a new remote to the current repository, $1=NameIt, $2=URL
   ra = "!f() { git remote add $1 $2; }; f"
 
@@ -67,14 +71,18 @@
   # Because I forget that git isn't SVN
   info = status
   # Edit the global config file
-	edit = config --global -e
-	e = config --global -e
+  # e = config --global -e
+	edit = !vim ~/.gitconfig
+  e = !vim ~/.gitconfig
   # Saves Work in Progress. Leaves untracked alone.
   wip = commit -am "WIP"
   # Just show the date in compressed format
   dt  = !date +"%Y%m%dT%H%M%S"
   # Longer format
   dtl = !date '+"%Y/%m/%d %H:%M:%S"'
+  # seconds since epoch
+  dts = !date +'%s'
+
   # Note that this adds UNTRACKED files to the repository:
   cm = !git add -A && git commit -m
   # Likewise, saves it all as a (probably temporary) checkpoint:
@@ -146,7 +154,7 @@
 
   # Reset Commands
   # Reset progressively further back and harder
-  r = reset
+  # r = reset
   # HEAD -1
   r1 = reset HEAD^
   # HEAD -2
@@ -162,3 +170,9 @@
 [user]
 	name = Steve Martin
 	email = smartin5590+github@gmail.com
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

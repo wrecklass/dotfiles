@@ -37,6 +37,10 @@ filetype on
 
 set autoread
 
+" For chess Portable Game Notation (pgn) files:
+" au BufNewFile,BufRead *.pgn setf pgn
+
+
 "Strong Encryption:
 set cm=blowfish
 
@@ -145,6 +149,9 @@ set mouse=a
 
 " Pathogen bundle manager:
 call pathogen#infect()
+" map <Leader>n <plug>NERDTreeTabsToggle<CR>
+" map <Leader>t <plug>NERDTreeFocusToggle<CR>
+" let g:nerdtree_tabs_open_on_console_startup=0
 
 set laststatus=2
 "set statusline=%<%-40.50F\ %h%m%r=%-14.(%l/%L,%c%V%)\ %P
