@@ -5,10 +5,7 @@ alias cdl="_cdl"
 alias cdo="_cdo"
 alias cdp="_cdp"
 alias cds="_cds"
-<<<<<<< HEAD
-=======
 alias cdu="_cdu"
->>>>>>> c83b8641a949da6789a32d0b5b279b22ec5417ee
 alias mkcd="_mkcd"
 alias cd="cd_func"
 
