@@ -1,8 +1,10 @@
 #!/bin/bash
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home"
+#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home"
 export GROOVY_HOME="/usr/local/opt/groovy/libexec"
-export ANT_HOME="/usr/local/opt/ant/libexec"
+#export ANT_HOME="/usr/local/opt/ant/libexec"
+export ANT_HOME="/usr/local/apache-ant-1.9.4"
 export MYSQL_HOME="/usr/local/mysql"
 # export GOROOT="/usr/local/go"
 export GOROOT="/Users/smartin/src/github/go-darwin-amd64-bootstrap"

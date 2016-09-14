@@ -4,9 +4,6 @@
 	default = simple
 [credential]
 	helper = store
-[user]
-	name = Steve Martin
-	email = smartin5590+github@gmail.com
 [alias]
   # XXX TEMPLATE: XXX
   # changeme = "!f() { changemetoo }; f"
