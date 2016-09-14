@@ -60,7 +60,7 @@ function _locate() {
 
   if [ $nmbr -gt 0 ];then
     # echo "mdfind -name $*"
-    mdfind -name $*
+    mdfind -name "$*"
   else
     /usr/bin/locate $*
   fi

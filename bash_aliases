@@ -1,5 +1,8 @@
 # Detect which `ls` flavor is in use
 
+[[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
+# echo ".bash_aliases"
+
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
 else # OS X `ls`
