@@ -27,6 +27,7 @@
 # export LANG=$(locale -uU)
 
 for file in ~/.{bashrc,bash_prompt,bash_aliases,path,dockerfunc,extra,exports}; do
+  # echo ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file

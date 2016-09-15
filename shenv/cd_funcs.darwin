@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alias cda="_cda"
 alias cde="_cde"
 alias cdl="_cdl"
 alias cdo="_cdo"
@@ -17,6 +18,14 @@ PROGDIR_X86="${PROGDIR} (x86)"
 settitle()
 {
   echo -ne "\e]2;$@\a\e]1;$@\a";
+}
+
+_cda() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/charter/adapticus/${*}"
+    else
+        cd_func "/Users/${USER}/src/charter/adapticus"
+    fi
 }
 
 _cdl() {
