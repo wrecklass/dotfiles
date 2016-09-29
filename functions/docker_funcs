@@ -1,0 +1,82 @@
+#!/bin/bash
+alias dimg="docker images"
+alias docker-images="docker images"
+alias drm="_drm"
+alias drmi="_drmi"
+alias dps="docker ps"
+alias dockercleancontainers="docker ps -aq | xargs docker rm"
+alias dockercleanimages="docker images -aq -f dangling=true | xargs docker rmi"
+alias dockerclean="dockercleancontainers && dockercleanimages"
+alias docker-killall="docker ps -q | xargs docker kill"
+
+_drm() {
+  docker rm "$1"
+}
+
+_drmi() {
+  docker rmi "$1"
+}
+
+# runs docker exec in the latest container
+docker-exec-last() {
+  docker exec -ti $( docker ps -a -q -l) /bin/bash
+}
+
+docker-get-ip() {
+  # Usage: docker-get-ip (name or sha)
+  [ -n "$1" ] && docker inspect --format "{{ .NetworkSettings.IPAddress }}" $1
+}
+
+docker-get-id() {
+  # Usage: docker-get-id (friendly-name)
+  [ -n "$1" ] && docker inspect --format "{{ .ID }}" "$1"
+}
+
+docker-get-image() {
+  # Usage: docker-get-image (friendly-name)
+  [ -n "$1" ] && docker inspect --format "{{ .Image }}" "$1"
+}
+
+docker-get-state() {
+  # Usage: docker-get-state (friendly-name)
+  [ -n "$1" ] && docker inspect --format "{{ .State.Running }}" "$1"
+}
+
+docker-memory() {
+  for line in `docker ps | awk '{print $1}' | grep -v CONTAINER`; do docker ps | grep $line | awk '{printf $NF" "}' && echo $(( `cat /sys/fs/cgroup/memory/docker/$line*/memory.usage_in_bytes` / 1024 / 1024 ))MB ; done
+}
+
+# keeps the commmand history when running a container
+basher() {
+    if [[ $1 = 'run' ]]
+    then
+        shift
+        docker run -e HIST_FILE=/root/.bash_history -v $HOME/.bash_history:/root/.bash_history "$@"
+    else
+        docker "$@"
+    fi
+}
+# backup files from a docker volume into /tmp/backup.tar.gz
+docker-volume-backup-compressed() {
+  docker run --rm -v /tmp:/backup --volumes-from "$1" debian:jessie tar -czvf /backup/backup.tar.gz "${@:2}"
+}
+
+# restore files from /tmp/backup.tar.gz into a docker volume
+docker-volume-restore-compressed() {
+  docker run --rm -v /tmp:/backup --volumes-from "$1" debian:jessie tar -xzvf /backup/backup.tar.gz "${@:2}"
+  echo "Double checking files..."
+  docker run --rm -v /tmp:/backup --volumes-from "$1" debian:jessie ls -lh "${@:2}"
+}
+
+# backup files from a docker volume into /tmp/backup.tar
+docker-volume-backup() {
+  docker run --rm -v /tmp:/backup --volumes-from "$1" busybox tar -cvf /backup/backup.tar "${@:2}"
+}
+
+# restore files from /tmp/backup.tar into a docker volume
+docker-volume-restore() {
+  docker run --rm -v /tmp:/backup --volumes-from "$1" busybox tar -xvf /backup/backup.tar "${@:2}"
+  echo "Double checking files..."
+  docker run --rm -v /tmp:/backup --volumes-from "$1" busybox ls -lh "${@:2}"
+}
+
