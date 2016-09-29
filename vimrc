@@ -109,6 +109,7 @@ set history=50        " Keep 50 lines of command line history
 " syntax on
 syntax enable
 "colorscheme SlateDark
+colorscheme Panda02
 
 " Take from the Debian package and the example on $VIM/vim_eaemples
 if has("autocmd")
