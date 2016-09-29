@@ -1,4 +1,5 @@
 #!/bin/bash
+alias d="docker"
 alias dimg="docker images"
 alias docker-images="docker images"
 alias drm="_drm"
