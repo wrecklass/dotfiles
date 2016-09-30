@@ -9,6 +9,7 @@ else # OS X `ls`
 	colorflag="-G"
 fi
 
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -21,7 +22,7 @@ alias b64="build64"
 alias cls=clear
 alias comcast='ftp upload.comcast.net'
 
-alias dl="cd ~/Downloads"
+# alias dl="cd ~/Downloads"
 alias dfh='df -h '
 alias duh='du -sh'
 alias dus='du -sh . | sort -h'

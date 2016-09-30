@@ -80,3 +80,8 @@ else
   echo "Make sure the directory hasn't been moved or changed."
 fi
 
+for file in ~/.{bash_prompt,bash_aliases,path,dockerfunc,extra,exports}; do
+  # echo ".bash_profile file:${file}"
+  [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
+done
+unset file
