@@ -26,10 +26,12 @@
 # Set user-defined locale
 # export LANG=$(locale -uU)
 
-# source the users bashrc if it exists
-if [ -r "${HOME}/.bashrc" ] ; then
-  source "${HOME}/.bashrc"
-fi
+# for file in ~/.{bashrc,bash_prompt,bash_aliases,path,dockerfunc,extra,exports}; do
+for file in ~/.bashrc; do
+  #echo ".bash_profile file:${file}"
+  [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
+done
+unset file
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`

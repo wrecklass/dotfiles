@@ -57,9 +57,15 @@ fi
 
 export PATH
 
-if [ -r /etc/bash_completion ];then
-  source /etc/bash_completion
-fi
+#if [ -r /etc/bash_completion ];then
+  #source /etc/bash_completion
+#fi
+
+for file in ~/.{bash_prompt,bash_aliases,path,dockerfunc,extra,exports} /etc/bash_completion; do
+  # echo ".bash_profile file:${file}"
+  [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
+done
+unset file
 
 # Get our aliases
 # if [ -r ${HOME}/.bash_aliases ];then
