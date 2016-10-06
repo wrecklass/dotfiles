@@ -26,6 +26,7 @@
 # Set user-defined locale
 # export LANG=$(locale -uU)
 
+# echo "bash_profile"
 # for file in ~/.{bashrc,bash_prompt,bash_aliases,path,dockerfunc,extra,exports}; do
 for file in ~/.bashrc; do
   #echo ".bash_profile file:${file}"
