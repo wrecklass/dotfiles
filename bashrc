@@ -59,13 +59,12 @@ if [ -r /etc/bash_completion ];then
   source /etc/bash_completion
 fi
 
-# Get our aliases
-# if [ -r ${HOME}/.bash_aliases ];then
-# source ${HOME}/.bash_aliases
-# else
-# echo "Missing ${HOME}/.bash_aliases file"
-# echo "Make sure the file hasn't been moved or changed."
-# fi
+# Import all of the files we use
+for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
+  #echo ".bash_profile file:${file}"
+  [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
+done
+unset file
 
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then

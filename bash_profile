@@ -27,9 +27,7 @@
 # export LANG=$(locale -uU)
 
 # echo "bash_profile"
-# for file in ~/.{bashrc,bash_prompt,bash_aliases,path,dockerfunc,extra,exports}; do
 for file in ~/.bashrc; do
-  #echo ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
@@ -57,4 +55,6 @@ done
 # fi
 
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]];then
+  source "${HOME}/.iterm2_shell_integration.bash"
+fi
