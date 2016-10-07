@@ -30,7 +30,7 @@
 # exists.
 #
 # if running bash
-echo ".profile"
+# echo ".profile"
 if [ -n "${BASH_VERSION}" ]; then
   if [ -f "${HOME}/.bash_profile" ]; then
     # This will source .bashrc for us.

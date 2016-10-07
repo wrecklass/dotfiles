@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home"
 export GROOVY_HOME="/usr/local/opt/groovy/libexec"
 #export ANT_HOME="/usr/local/opt/ant/libexec"
@@ -116,6 +115,10 @@ if [ -n "$HAVE_VIM" ];then
   EDITOR="$HAVE_VIM"
 fi
 export EDITOR
+
+if [ -r /usr/local/etc/bash_completion ];then
+  source /usr/local/etc/bash_completion
+fi
 
 # unset pathmunge
 unset foomagick

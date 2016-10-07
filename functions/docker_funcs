@@ -1,6 +1,6 @@
 #!/bin/bash
 alias d="docker"
-alias dl="docker ps -l"
+alias dl="docker ps -lq"
 alias dimg="docker images"
 alias docker-images="docker images"
 alias docker-build="_docker-build"
