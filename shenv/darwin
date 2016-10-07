@@ -37,6 +37,7 @@ function foomagick() {
   while read APP
   do
     [[ "$APP" == "Docker.app" ]] && continue
+    [[ "$APP" == "Kitematic (Beta).app" ]] && continue
     # Clean it up
     a=$(echo $APP | sed "s/\ //g" )
     a=$(echo $a | sed -e "s/\'//g" )
