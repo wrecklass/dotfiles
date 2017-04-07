@@ -136,7 +136,7 @@
 
   # Basic shortcuts
   cp = cherry-pick
-  s = status -s
+  s = status -sb
   st = status
   c = clone --recursive
   cl = clone
