@@ -20,6 +20,11 @@ _drmi() {
 }
 
 # runs docker exec in the latest container
+docker-build() {
+  docker build -t "$1" .
+}
+
+# runs docker exec in the latest container
 docker-exec-last() {
   docker exec -ti $( docker ps -a -q -l) /bin/bash
 }

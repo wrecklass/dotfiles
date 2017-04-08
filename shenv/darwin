@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home"
 export GROOVY_HOME="/usr/local/opt/groovy/libexec"
 #export ANT_HOME="/usr/local/opt/ant/libexec"
 export ANT_HOME="/usr/local/apache-ant-1.9.4"
@@ -36,6 +36,7 @@ function foomagick() {
   while read APP
   do
     [[ "$APP" == "Docker.app" ]] && continue
+    [[ "$APP" == "Kitematic (Beta).app" ]] && continue
     # Clean it up
     a=$(echo $APP | sed "s/\ //g" )
     a=$(echo $a | sed -e "s/\'//g" )
