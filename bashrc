@@ -7,10 +7,6 @@ case $- in
 	*) return;;
 esac
 
-# Make sure we only source this once
-[[ -z "${CYG_HOME_BASHRC}" ]] && CYG_HOME_BASHRC="1" || return 0
-# echo ".bashrc"
-
 # DigitalOcean Token:
 export TOKEN='fa3acf68894c3e9e6448989865e92c4c219e2b8f9174a3aec798d32556c75730'
 
@@ -31,10 +27,13 @@ shopt -s checkwinsize
 # gets added from external files based on which
 # OS we find.
 
-
 # export NETREGX="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
 # Better:
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+export LESS='Rc'
+
+# Make sure we only source this once
+[[ -z ${CYG_HOME_BASHRC} ]] && CYG_HOME_BASHRC="1" || return 0
 
 UNAMECMD=$(which uname)
 : ${HOME=~}
@@ -57,23 +56,16 @@ fi
 
 export PATH
 
-#if [ -r /etc/bash_completion ];then
-  #source /etc/bash_completion
-#fi
+if [ -r /etc/bash_completion ];then
+  source /etc/bash_completion
+fi
 
-for file in ~/.{bash_prompt,bash_aliases,path,dockerfunc,extra,exports} /etc/bash_completion; do
-  # echo ".bash_profile file:${file}"
+# Import all of the files we use
+for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
+  #echo ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
-
-# Get our aliases
-# if [ -r ${HOME}/.bash_aliases ];then
-# source ${HOME}/.bash_aliases
-# else
-# echo "Missing ${HOME}/.bash_aliases file"
-# echo "Make sure the file hasn't been moved or changed."
-# fi
 
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then
@@ -86,8 +78,3 @@ else
   echo "Make sure the directory hasn't been moved or changed."
 fi
 
-for file in ~/.{bash_prompt,bash_aliases,path,dockerfunc,extra,exports}; do
-  # echo ".bash_profile file:${file}"
-  [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
-done
-unset file

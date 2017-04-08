@@ -1,2 +1,2 @@
 #env
-LESS = -Rc
+LESS=-Rc

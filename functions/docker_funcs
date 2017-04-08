@@ -3,6 +3,7 @@ alias d="docker"
 alias dl="docker ps -lq"
 alias dimg="docker images"
 alias docker-images="docker images"
+alias docker-build="_docker-build"
 alias drm="_drm"
 alias drmi="_drmi"
 alias dps="docker ps"
@@ -17,6 +18,14 @@ _drm() {
 
 _drmi() {
   docker rmi "$1"
+}
+
+_docker-build() {
+  if [ -n "$1" ];then
+    if [ -r ./Dockerfile ];then
+      docker build -t "${1}" .
+    fi
+  fi
 }
 
 # runs docker exec in the latest container

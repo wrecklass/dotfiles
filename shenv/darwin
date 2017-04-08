@@ -32,7 +32,12 @@ export LC_ALL="en_US.UTF-8"
 #   alias bbedit='open -a BBEdit.app'
 function foomagick() {
   rm -f ~/.foomagick.tmp
-  /bin/ls /Applications /Applications/Utilities /Users/smartin/Applications | /usr/bin/grep "\.app" | /usr/bin/grep -v iWork |\
+  if [ -d /Users/smartin/Applications ]; then
+    MYAPPS='/Users/smartin/Applications'
+  elif [ -d /Users/p2708440/Applications ];then
+    MYAPPS='/Users/p2708440/Applications'
+  fi
+  /bin/ls /Applications /Applications/Utilities "${MYAPPS}" | /usr/bin/grep "\.app" | /usr/bin/grep -v iWork |\
   while read APP
   do
     [[ "$APP" == "Docker.app" ]] && continue
