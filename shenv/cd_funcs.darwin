@@ -1,6 +1,7 @@
 #!/bin/bash
 
 alias cda="_cda"
+alias cdc="_cdc"
 alias cde="_cde"
 alias cdl="_cdl"
 alias cdo="_cdo"
@@ -25,6 +26,14 @@ _cda() {
         cd_func "/Users/${USER}/src/charter/adapticus/${*}"
     else
         cd_func "/Users/${USER}/src/charter/adapticus"
+    fi
+}
+
+_cdc() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/charter/${*}"
+    else
+        cd_func "/Users/${USER}/src/charter"
     fi
 }
 

@@ -31,6 +31,7 @@ shopt -s checkwinsize
 # Better:
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
 export LESS='Rc'
+export LSCOLORS='Gxfxcxdxdxegedabagacad'
 
 # Make sure we only source this once
 [[ -z ${CYG_HOME_BASHRC} ]] && CYG_HOME_BASHRC="1" || return 0

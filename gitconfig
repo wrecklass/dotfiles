@@ -126,6 +126,7 @@
   # Show verbose output of tags and branches and remotes
   tags = tag -l
   branches = branch -a
+  bs = branch -a
   remotes = remote -v
 
   # Merge aliases
