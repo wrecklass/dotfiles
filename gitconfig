@@ -1,5 +1,5 @@
 [core]
-	editor = /Users/smartin/bin/vim
+	editor = /usr/bin/vim
 [push]
 	default = simple
 [credential]
@@ -126,6 +126,7 @@
   # Show verbose output of tags and branches and remotes
   tags = tag -l
   branches = branch -a
+  bs = branch -a
   remotes = remote -v
 
   # Merge aliases
@@ -136,7 +137,7 @@
 
   # Basic shortcuts
   cp = cherry-pick
-  s = status -s
+  s = status -sb
   st = status
   c = clone --recursive
   cl = clone
