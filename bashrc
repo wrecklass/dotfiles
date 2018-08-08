@@ -30,13 +30,13 @@ shopt -s checkwinsize
 # export NETREGX="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
 # Better:
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
-export LESS='Rc'
+export LESS='FXR'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 
 # Make sure we only source this once
 [[ -z ${CYG_HOME_BASHRC} ]] && CYG_HOME_BASHRC="1" || return 0
 
-UNAMECMD=$(which uname)
+UNAMECMD=$(command -v uname)
 : ${HOME=~}
 : ${UNAME=$($UNAMECMD)}
 # Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
@@ -79,3 +79,4 @@ else
   echo "Make sure the directory hasn't been moved or changed."
 fi
 
+unset UNAMECMD

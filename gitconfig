@@ -69,8 +69,8 @@
   info = status
   # Edit the global config file
   # e = config --global -e
-	edit = !vim ~/.gitconfig
-  e = !vim ~/.gitconfig
+	edit = !/usr/bin/vim ~/.gitconfig
+  e = !/usr/bin/vim ~/.gitconfig
   # Saves Work in Progress. Leaves untracked alone.
   wip = commit -am "WIP"
   # Just show the date in compressed format

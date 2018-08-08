@@ -1,16 +1,20 @@
 #!/bin/bash
 
+BREW_CORE_PATH="/usr/local/opt/findutils/libexec/gnubin"
+BREW_FIND_PATH="/usr/local/opt/coreutils/libexec/gnubin"
+
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home"
 export GROOVY_HOME="/usr/local/opt/groovy/libexec"
 #export ANT_HOME="/usr/local/opt/ant/libexec"
 export ANT_HOME="/usr/local/apache-ant-1.9.4"
 export MYSQL_HOME="/usr/local/mysql"
-export GOROOT="/usr/local/go"
-#export GOROOT="/Users/smartin/src/github/go-darwin-amd64-bootstrap"
-#export GOROOT="/Users/smartin/src/github/golang"
+# export GOROOT="/usr/local/go"
+export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH="$HOME/src/gocode"
 
+# Store lots of history to go back in time
 export HISTSIZE=5000
+# Having FIle:q
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL='erasedups:ignoreboth'
 export HISTTIMEFORMAT="%m/%d/%y %T "
@@ -32,11 +36,12 @@ export LC_ALL="en_US.UTF-8"
 #   alias bbedit='open -a BBEdit.app'
 function foomagick() {
   rm -f ~/.foomagick.tmp
-  if [ -d /Users/smartin/Applications ]; then
-    MYAPPS='/Users/smartin/Applications'
-  elif [ -d /Users/p2708440/Applications ];then
-    MYAPPS='/Users/p2708440/Applications'
-  fi
+  MYAPPS="$HOME/Applications"
+  # if [ -d /Users/smartin/Applications ]; then
+    # MYAPPS='/Users/smartin/Applications'
+  # elif [ -d /Users/p2708440/Applications ];then
+    # MYAPPS='/Users/p2708440/Applications'
+  # fi
   /bin/ls /Applications /Applications/Utilities "${MYAPPS}" | /usr/bin/grep "\.app" | /usr/bin/grep -v iWork |\
   while read APP
   do
@@ -51,7 +56,7 @@ function foomagick() {
   echo alias word="'open -a Microsoft\ Word.app'" >> ~/.foomagick.tmp
   echo alias excel="'open -a Microsoft\ Excel.app'" >> ~/.foomagick.tmp
   echo alias chrome="'open -a Google\ Chrome.app'" >> ~/.foomagick.tmp
-  echo alias code="'/Users/smartin/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'" >> ~/.foomagick.tmp
+  echo alias code="'/Users/p2708440/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'" >> ~/.foomagick.tmp
   source ~/.foomagick.tmp
   # rm -f ~/.foomagick.tmp
 }
@@ -110,6 +115,9 @@ do
     pathmunge "${var}/bin" after
   fi
 done
+
+pathmunge $BREW_CORE_PATH
+pathmunge $BREW_FIND_PATH
 
 # Need to do this before sourcing .bash_aliases
 HAVE_VIM=$(command -v vim)

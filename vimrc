@@ -42,7 +42,7 @@ set autoread
 
 
 "Strong Encryption:
-set cm=blowfish
+set cm=blowfish2
 
 " Indenting:
 set nocindent

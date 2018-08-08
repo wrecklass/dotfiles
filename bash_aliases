@@ -3,6 +3,10 @@
 [[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
 # echo ".bash_aliases"
 
+# Kubectl/kubernetes/k8s aliases
+alias nodes='kubectl get nodes'
+alias pods='kubectl get pods'
+
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
 else # OS X `ls`
@@ -18,6 +22,12 @@ alias -- -="cd -"
 
 alias sal='source ~/.bash_aliases'
 alias b64="build64"
+
+# common typos
+# Because I'm occasionally dislexic:
+alias iv="$EDITOR"
+alias cate='cat'
+
 alias cls=clear
 alias comcast='ftp upload.comcast.net'
 
@@ -60,6 +70,8 @@ else # *ix ifconfig
 fi
 
 alias j='jobs'
+
+
 alias dot='ls -dAF ${colorflag} .*'
 alias l.='ls -dAF ${colorflag} .*'
 alias ll.='ls -ldF ${colorflag} .*'
@@ -135,8 +147,6 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias vi="$EDITOR"
 alias vim="$EDITOR"
 alias vib='$EDITOR ~/.bashrc'
-# Because I'm occasionally dislexic:
-alias iv="$EDITOR"
 
 alias httpd.py='python -m SimpleHTTPServer'
 alias httpd.rb='ruby -run -e httpd . -p 8000'

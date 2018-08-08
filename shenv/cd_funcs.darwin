@@ -2,7 +2,10 @@
 
 alias cda="_cda"
 alias cdc="_cdc"
+alias cdcc="_cdcc"
 alias cde="_cde"
+alias cdg="_cdg"
+alias cdgo="_cdgo"
 alias cdl="_cdl"
 alias cdo="_cdo"
 alias cdp="_cdp"
@@ -37,6 +40,14 @@ _cdc() {
     fi
 }
 
+_cdcc() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/charter/Containerization${*}"
+    else
+        cd_func "/Users/${USER}/src/charter/Containerization"
+    fi
+}
+
 _cdl() {
     if [ $# -gt 0 ]; then
         cd_func "/Users/${USER}/Downloads/${*}"
@@ -50,6 +61,22 @@ _cde() {
         cd_func "/Users/${USER}/Desktop/${*}"
     else
         cd_func "/Users/${USER}/Desktop"
+    fi
+}
+
+_cdg() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/github/${*}"
+    else
+        cd_func "/Users/${USER}/src/github"
+    fi
+}
+
+_cdgo() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/gocode/${*}"
+    else
+        cd_func "/Users/${USER}/src/gocode"
     fi
 }
 
@@ -70,9 +97,9 @@ _cdu() {
 }
 _cdp() {
     if [ $# -gt 0 ]; then
-        cd_func "/Users/${USER}/public_html/${*}"
+        cd_func "/Users/${USER}/src/gocode/src/github.com/wrecklass/flagship/${*}"
     else
-        cd_func "/Users/${USER}/public_html"
+        cd_func "/Users/${USER}/src/gocode/src/github.com/wrecklass/flagship"
     fi
 }
 

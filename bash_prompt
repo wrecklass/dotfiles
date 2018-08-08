@@ -4,6 +4,15 @@
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
 
+UNAMECMD=$(command -v uname)
+: ${HOME=~}
+: ${UNAME=$($UNAMECMD)}
+# Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
+# To make sourcing our defaults environment easier.
+UNAME=${UNAME/CYGWIN*/cygwin}
+export UNAME
+unset UNAMECMD
+
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
   export TERM='gnome-256color';
 elif infocmp xterm-256color >/dev/null 2>&1; then
@@ -119,13 +128,14 @@ else
 fi;
 
 # Highlight the user name when logged in as root.
+userStyle="${green}";
+userName="${USER}";
 if [[ "${USER}" == "root" ]]; then
   userStyle="${red}";
   userName="root";
-else
-  userStyle="${green}";
-  userName="${USER}";
-  ${IDCMD} -Gn | /bin/grep -i admin > /dev/null 2>&1
+elif [[ "${UNAME}" == "cygwin" ]];then
+  GREP=$(command -v grep)
+  "${IDCMD}" -Gn 2>/dev/null | "${GREP}" -iq admin
   declare -i RETVAL="$?"
   if [ "$RETVAL" -eq 0 ];then
     # Give me a Big Red Admin tag so we know we're running with
