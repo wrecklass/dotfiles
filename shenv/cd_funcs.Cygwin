@@ -14,6 +14,7 @@ alias cdr="_cdr"
 alias cds="_cds"
 alias cdsc="_cdsc"
 alias cdsa="_cdsa"
+alias cdst="_cdst"
 alias cdu="_cdu"
 alias cdv="_cdv"
 alias cdw="_cdw"
@@ -167,6 +168,16 @@ _cdsa() {
       cd_func "/c/apps/steam/steamapps/${*}"
     else
       cd_func "/dcapps/steam/steamapps/"
+    fi
+  fi
+}
+
+_cdst() {
+  if [ -d "/c/apps/steamapps" ];then
+    if [ $# -gt 0 ]; then
+      cd_func "/c/apps/steamapps/${*}"
+    else
+      cd_func "/c/apps/steamapps/"
     fi
   fi
 }

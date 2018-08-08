@@ -2,10 +2,10 @@
 # ulimit -u 1024
 # If not running interactively, don't do anything
 
-case $- in
-	*i*) ;;
-	*) return;;
-esac
+#case $- in
+	#*i*) ;;
+	#*) return;;
+#esac
 
 # DigitalOcean Token:
 export TOKEN='fa3acf68894c3e9e6448989865e92c4c219e2b8f9174a3aec798d32556c75730'
@@ -34,19 +34,19 @@ export LESS='FXR'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 
 # Make sure we only source this once
-[[ -z ${CYG_HOME_BASHRC} ]] && CYG_HOME_BASHRC="1" || return 0
+# [[ -z ${CYG_HOME_BASHRC} ]] && CYG_HOME_BASHRC="1" || return 0
 
 UNAMECMD=$(command -v uname)
 : ${HOME=~}
-: ${UNAME=$($UNAMECMD)}
+: ${UNAME=$($UNAMECMD -s)}
 # Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
 # To make sourcing our defaults environment easier.
 UNAME=${UNAME/CYGWIN*/cygwin}
 export UNAME
 
 # Variables specific to the OS environment
-for file in ${HOME}/.shenv/*${UNAME} ; do
-  [[ -r "${file}" ]] && source "${file}" || echo "No such file ${file}"
+for file in ${HOME}/.shenv/*.${UNAME} ; do
+  [[ -r "${file}" ]] && source "${file}" || printf "No such file: %s\n" "${file}"
 done
 
 # enable color support of ls and also add handy aliases

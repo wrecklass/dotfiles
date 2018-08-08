@@ -151,7 +151,7 @@ alias vib='$EDITOR ~/.bashrc'
 alias httpd.py='python -m SimpleHTTPServer'
 alias httpd.rb='ruby -run -e httpd . -p 8000'
 
-alias xh='xhost +'
+# alias xh='xhost +'
 alias x='chmod +x '
 
 # alias rout='route add 172.0.0.0 mask 255.0.0.0 '
