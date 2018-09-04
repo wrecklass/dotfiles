@@ -57,8 +57,12 @@ fi
 
 export PATH
 
-if [ -r /etc/bash_completion ];then
+if [ -r /usr/local/etc/bash_completion ];then
+  source /usr/local/etc/bash_completion
+elif [ -r /etc/bash_completion ]
   source /etc/bash_completion
+else
+  echo "No bash_completion script!"
 fi
 
 # Import all of the files we use
