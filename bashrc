@@ -59,7 +59,7 @@ export PATH
 
 if [ -r /usr/local/etc/bash_completion ];then
   source /usr/local/etc/bash_completion
-elif [ -r /etc/bash_completion ]
+elif [ -r /etc/bash_completion ];then
   source /etc/bash_completion
 else
   echo "No bash_completion script!"

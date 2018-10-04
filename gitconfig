@@ -29,6 +29,8 @@
   # Show history of file or files
   filelog = log -u
   fl = log -u
+  # Because it sux that it can't figure this out:
+  logs = log
   # Inspect recent history
   dl = !git ll -1
   dlc = diff --cached HEAD^

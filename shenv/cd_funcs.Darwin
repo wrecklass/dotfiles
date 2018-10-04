@@ -4,11 +4,14 @@ alias cda="_cda"
 alias cdc="_cdc"
 alias cdcc="_cdcc"
 alias cde="_cde"
+alias cdf="_cdf"
+alias cdpf="_cdf"
 alias cdg="_cdg"
 alias cdgo="_cdgo"
 alias cdl="_cdl"
 alias cdo="_cdo"
 alias cdp="_cdp"
+alias cdps="_cdp"
 alias cds="_cds"
 alias cdu="_cdu"
 alias mkcd="_mkcd"
@@ -95,11 +98,20 @@ _cdu() {
         cd_func "/Users/${USER}/Documents/Unclutter/Filestorage"
     fi
 }
-_cdp() {
+
+_cdf() {
     if [ $# -gt 0 ]; then
         cd_func "/Users/${USER}/src/gocode/src/github.com/wrecklass/flagship/${*}"
     else
         cd_func "/Users/${USER}/src/gocode/src/github.com/wrecklass/flagship"
+    fi
+}
+
+_cdp() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/charter/Containerization/security-sidecar-crypto/${*}"
+    else
+        cd_func "/Users/${USER}/src/charter/Containerization/security-sidecar-crypto"
     fi
 }
 

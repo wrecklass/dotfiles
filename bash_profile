@@ -39,6 +39,8 @@ for option in autocd globstar; do
   shopt -s "$option" 2> /dev/null
 done
 
+[ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
+
 # Set PATH so it includes user's private bin if it exists
 # if [ -d "${HOME}/bin" ] ; then
  #  PATH="${HOME}/bin:${PATH}"

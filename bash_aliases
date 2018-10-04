@@ -31,6 +31,14 @@ alias cate='cat'
 alias cls=clear
 alias comcast='ftp upload.comcast.net'
 
+colordiff="$(command -v colordiff)"
+if [ "$?" -eq 0 ];then
+  alias diff='colordiff'
+fi
+if [ "$UNAME" == "cygwin" ];then
+  alias diff="diff --color"
+fi
+
 # alias dl="cd ~/Downloads"
 alias dfh='df -h '
 alias duh='du -sh'
