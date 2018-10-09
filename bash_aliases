@@ -6,6 +6,8 @@
 # Kubectl/kubernetes/k8s aliases
 alias nodes='kubectl get nodes'
 alias pods='kubectl get pods'
+alias kns='kubens'
+alias kctx='kubectx'
 
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -111,8 +113,12 @@ alias mplayer='mplayer'
 alias map="xargs -n1"
 
 alias nslookupo=nslookup
+alias now='date +"%T"'
+alias nowtime='now'
+alias nowdate='date +"%d-%m-%Y"'
 
 alias pp='ping google.com'
+alias fastping='ping -c 10 -i .2'
 alias r='fc -s'
 alias ri='ri -f bs '
 alias rit='ri -T -f bs '
@@ -128,6 +134,7 @@ alias scc='less $HOME/bin/screencheat'
 alias sec='vi $HOME/bin/.secret'
 alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
 # alias sensu='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user sensu'
+alias svi='sudo vim'
 alias sw='telnet  towel.blinkenlights.nl'
 alias sx='startxwin.sh > .xwin_errors 2>&1'
 
