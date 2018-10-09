@@ -27,7 +27,6 @@ alias b64="build64"
 
 # common typos
 # Because I'm occasionally dislexic:
-alias iv="$EDITOR"
 alias cate='cat'
 
 alias cls=clear
@@ -80,8 +79,6 @@ else # *ix ifconfig
 fi
 
 alias j='jobs'
-
-
 alias dot='ls -dAF ${colorflag} .*'
 alias l.='ls -dAF ${colorflag} .*'
 alias ll.='ls -ldF ${colorflag} .*'
@@ -162,6 +159,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias vi="$EDITOR"
 alias vim="$EDITOR"
 alias vib='$EDITOR ~/.bashrc'
+alias iv="$EDITOR"
 
 alias httpd.py='python -m SimpleHTTPServer'
 alias httpd.rb='ruby -run -e httpd . -p 8000'

@@ -21,9 +21,12 @@ fi;
 
 IDCMD=$(which id)
 
-prompt_kube() {
-  echo -n "$(kubectl config current-context 2>/dev/null)"
-}
+KUBE=$(command -v kubectl)
+if [ -x "${KUBE}" ];then
+  prompt_kube() {
+    echo -n "$(kubectl config current-context 2>/dev/null)"
+  }
+fi
 
 prompt_git() {
   local s=''
@@ -134,6 +137,8 @@ if [[ "${USER}" == "root" ]]; then
   userStyle="${red}";
   userName="root";
 elif [[ "${UNAME}" == "cygwin" ]];then
+  userStyle="${green}";
+  userName="${USER}";
   GREP=$(command -v grep)
   "${IDCMD}" -Gn 2>/dev/null | "${GREP}" -iq admin
   declare -i RETVAL="$?"
@@ -163,7 +168,9 @@ PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory
 PS1+="\$(prompt_git \"${white} on ${violet}\")"; # Git repository details
-PS1+="   KubeCTX: \$(prompt_kube)"
+if [ -x "${KUBE}" ];then
+  PS1+="   KubeCTX: \$(prompt_kube)"
+fi
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
