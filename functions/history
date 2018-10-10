@@ -9,10 +9,11 @@ export HISTSIZE=50000
 # And file size stored
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL='erasedups:ignoreboth'
-export HISTTIMEFORMAT="%m/%d/%y %T "
+#export HISTTIMEFORMAT="%m/%d/%y %T "
 export HISTIGNORE="h:history:ls:ps:ll:exit"
 # Do the 'Are you sure' thing like ZSH
 shopt -s histverify
+
 shopt -s histreedit
 shopt -s histappend
 
