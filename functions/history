@@ -5,11 +5,10 @@ mkdir -p "$HOME/.history"
 alias h="_h"
 
 # Store lots of history to go back in time
-export HISTSIZE=50000
+export HISTSIZE=10000
 # And file size stored
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL='erasedups:ignoreboth'
-#export HISTTIMEFORMAT="%m/%d/%y %T "
 export HISTIGNORE="h:history:ls:ps:ll:exit"
 # Do the 'Are you sure' thing like ZSH
 shopt -s histverify
@@ -22,8 +21,9 @@ shopt -s histappend
 
 # Change to specific history file
 TTY="$(basename $(tty))"
+export tmpHISTFILE="$HOME/.history/history_session.$TTY"
+\cp -f "$HOME/.bash_history" "$tmpHISTFILE"
 export HISTFILE="$HOME/.history/history_session.$TTY"
-\cp -f "$HOME/.bash_history" "$HISTFILE"
 builtin history -c
 builtin history -r
 

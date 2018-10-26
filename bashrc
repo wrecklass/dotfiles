@@ -38,10 +38,10 @@ export LSCOLORS='Gxfxcxdxdxegedabagacad'
 
 UNAMECMD=$(command -v uname)
 : ${HOME=~}
-: ${UNAME=$($UNAMECMD -s)}
+: ${UNAME=$($UNAMECMD -s | tr '[:upper:]' '[:lower:]')}
 # Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
 # To make sourcing our defaults environment easier.
-UNAME=${UNAME/CYGWIN*/cygwin}
+UNAME="${UNAME/cygwin*/cygwin/}"
 export UNAME
 
 # Variables specific to the OS environment
