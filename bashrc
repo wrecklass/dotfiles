@@ -3,8 +3,8 @@
 # If not running interactively, don't do anything
 
 #case $- in
-	#*i*) ;;
-	#*) return;;
+#*i*) ;;
+#*) return;;
 #esac
 
 # DigitalOcean Token:
@@ -51,8 +51,8 @@ done
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	alias vdir='vdir --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias vdir='vdir --color=auto'
 fi
 
 export PATH
@@ -63,6 +63,8 @@ elif [ -r /usr/local/etc/bash_completion ];then
   source /usr/local/etc/bash_completion
 elif [ -r /etc/bash_completion ];then
   source /etc/bash_completion
+elif [ -r /usr/share/bash-completion/bash_completion ];then
+  source /usr/share/bash-completion/bash_completion
 else
   echo "No bash_completion script!"
 fi
