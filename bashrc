@@ -41,7 +41,7 @@ UNAMECMD=$(command -v uname)
 : ${UNAME=$($UNAMECMD -s | tr '[:upper:]' '[:lower:]')}
 # Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
 # To make sourcing our defaults environment easier.
-UNAME="${UNAME/cygwin*/cygwin/}"
+UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
 
 # Variables specific to the OS environment
@@ -57,7 +57,9 @@ fi
 
 export PATH
 
-if [ -r /usr/local/etc/bash_completion ];then
+if [ -r /usr/share/bash-completion/bash_completion ];then
+   source /usr/share/bash-completion/bash_completion
+elif [ -r /usr/local/etc/bash_completion ];then
   source /usr/local/etc/bash_completion
 elif [ -r /etc/bash_completion ];then
   source /etc/bash_completion
