@@ -6,6 +6,7 @@ alias cdc="_cdc"
 alias cdd="_cdd"
 alias cdo="_cdd"
 alias cde="_cde"
+alias cdf="_cdf"
 alias cdg="_cdg"
 alias cdm="_cdm"
 alias cdl="_cdl"
@@ -74,11 +75,19 @@ _cde() {
     fi
 }
 
+_cdf() {
+    if [ $# -gt 0 ]; then
+        cd_func "$HOME/src/gocode/src/github.com/v1k0d3n/${*}"
+    else
+        cd_func "$HOME/src/gocode/src/github.com/v1k0d3n"
+    fi
+}
+
 _cdg() {
     if [ $# -gt 0 ]; then
-        cd_func "/d/apps/${*}"
+        cd_func "$HOME/src/gocode/${*}"
     else
-        cd_func "/d/apps/"
+        cd_func "$HOME/src/gocode"
     fi
 }
 

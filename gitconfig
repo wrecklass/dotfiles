@@ -8,6 +8,8 @@
   # XXX TEMPLATE: XXX
   # changeme = "!f() { changemetoo }; f"
 
+  aliases = config --get-regexp alias
+
   la = "!git config -l | grep alias "
 	rv = remote -v
 	r = remote -v

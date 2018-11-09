@@ -3,11 +3,17 @@
 [[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
 # echo ".bash_aliases"
 
+# Lock the screen (when going AFK) MacOS Only
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
 # Kubectl/kubernetes/k8s aliases
 alias nodes='kubectl get nodes'
 alias pods='kubectl get pods'
 alias kns='kubens'
 alias kctx='kubectx'
+
+# Allow aliases to be sudoed
+alias sudo='sudo '
 
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -51,6 +57,9 @@ alias fiel='file'
 
 alias g="git"
 alias get='git'
+complete -o default -o nospace -F _git g
+complete -o default -o nospace -F _git get
+
 alias gc=". $HOME/bin/gitdate && git commit -v "
 
 alias grep='grep -a --color=always'
@@ -68,6 +77,8 @@ alias hp='hashapass.sh'
 
 alias irb='irb --readline -r irb/completion'
 
+alias ppath='echo -e ${PATH//:/\\n}'
+
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 
@@ -78,6 +89,7 @@ else # *ix ifconfig
   alias ips="sudo ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 fi
 
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias j='jobs'
 alias dot='ls -dAF ${colorflag} .*'
 alias l.='ls -dAF ${colorflag} .*'
@@ -160,6 +172,8 @@ alias vi="$EDITOR"
 alias vim="$EDITOR"
 alias vib='$EDITOR ~/.bashrc'
 alias iv="$EDITOR"
+
+alias week='date +%V'
 
 alias httpd.py='python -m SimpleHTTPServer'
 alias httpd.rb='ruby -run -e httpd . -p 8000'
