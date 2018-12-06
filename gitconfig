@@ -11,7 +11,7 @@
   la = "!git config -l | grep alias "
 	rv = remote -v
 	r = remote -v
-  # Add a new remote to the current repository, $1=NameIt, $2=URL
+  # Add a new remote to the current repository, $1=Name(origin), $2=URL(git@github.com/...)
   ra = "!f() { git remote add $1 $2; }; f"
 
   # some log aliases
@@ -51,6 +51,7 @@
   gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; } ; f"
   # Show the diff between the latest commit and the current state
   d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+  dif = diff
   # Show the diff between the "number" of revisions ago and current state
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
   # Diff to a specific commit passed as parameter
@@ -167,8 +168,8 @@
   sa = stash apply
   ss = stash save
 [user]
-  name = Steve Martin
-  email = smartin5590+github@gmail.com
+	name = Steve Martin
+	email = smartin5590+github@gmail.com
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
@@ -176,6 +177,7 @@
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
   required = true
+	process = git-lfs filter-process

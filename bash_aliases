@@ -3,6 +3,11 @@
 [[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
 # echo ".bash_aliases"
 
+hub_path=$(command -v hub)
+if [ -n "${hub_path}" ];then
+  alias git="${hub_path}"
+fi
+
 # Kubectl/kubernetes/k8s aliases
 alias nodes='kubectl get nodes'
 alias pods='kubectl get pods'

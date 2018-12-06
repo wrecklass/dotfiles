@@ -1,35 +1,5 @@
 #!/bin/bash
 
-mkdir -p "$HOME/.history"
-
-alias h="_h"
-
-# Store lots of history to go back in time
-export HISTSIZE=10000
-# And file size stored
-export HISTFILESIZE=${HISTSIZE}
-export HISTCONTROL='erasedups:ignoreboth'
-export HISTIGNORE="h:history:ls:ps:ll:exit"
-# Do the 'Are you sure' thing like ZSH
-shopt -s histverify
-
-shopt -s histreedit
-shopt -s histappend
-
-# Read from the central history file: ~/.bash_history
-#builtin history -c && builtin history -r
-
-# Change to specific history file
-TTY="$(basename $(tty))"
-export tmpHISTFILE="$HOME/.history/history_session.$TTY"
-\cp -f "$HOME/.bash_history" "$tmpHISTFILE"
-export HISTFILE="$HOME/.history/history_session.$TTY"
-builtin history -c
-builtin history -r
-
-# Write our data to that
-# history -a
-
 _bash_history_sync() {
   builtin history -a
   HISTFILESIZE=$HISTSIZE
@@ -42,8 +12,6 @@ history() {
   builtin history "$@"
 }
 
-export PROMPT_COMMAND="_bash_history_sync;$PROMPT_COMMAND"
-
 _h () {
     if [ $# -gt 0 ]; then
         history | grep -i "$*"
@@ -51,3 +19,37 @@ _h () {
         history
     fi
 }
+
+export PROMPT_COMMAND="_bash_history_sync;$PROMPT_COMMAND"
+echo $PROMPT_COMMAND
+export PROMPT_COMMAND
+
+mkdir -p "$HOME/.history"
+
+alias h="_h"
+
+builtin history -c
+# Do the 'Are you sure' thing like ZSH
+shopt -s histverify
+shopt -s histreedit
+shopt -s histappend
+
+# Read from the central history file: ~/.bash_history
+#builtin history -c && builtin history -r
+
+# Change to specific history file
+TTY="$(basename $(tty))"
+tmpHISTFile="$HOME/.history/history_session.$TTY"
+cat "$HOME/.bash_history_tmp" | tail -n 10000 >> "$tmpHISTFile"
+
+# Store lots of history to go back in time
+# And file size stored
+export HISTFILE="$tmpHISTFile"
+export HISTCONTROL='erasedups:ignoreboth'
+export HISTIGNORE="h:history:ls:ps:ll:exit"
+export HISTSIZE=10000
+export HISTFILESIZE=${HISTSIZE}
+# builtin history -r
+
+unset tmpHISTFile
+

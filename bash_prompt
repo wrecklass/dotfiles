@@ -28,77 +28,11 @@ if [ -x "${KUBE}" ];then
   }
 fi
 
-prompt_git() {
-  local s=''
-  local branchName=''
-
-  if [ -d ./.git ];then
-    # Get the short symbolic ref.
-    # If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
-    # Otherwise, just give up.
-    branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \ git rev-parse --short HEAD 2> /dev/null || \ echo '(unknown)')"
-    gitsize=$(du -s ./.git | awk '{print $1}' 2> /dev/null)
-
-    if [ $gitsize -lt 80000 ];then
-      # Check if the current directory is in a Git repository.
-      if [ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]; then
-        # check if the current directory is in .git before running git checks
-        if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
-          # Ensure the index is up to date.
-          git update-index --really-refresh -q &>/dev/null
-
-          # Check for uncommitted changes in the index.
-          if ! $(git diff --quiet --ignore-submodules --cached); then
-            s+='+'
-          fi
-
-          # Check for unstaged changes.
-          if ! $(git diff-files --quiet --ignore-submodules --); then
-            s+='!'
-          fi
-
-          # Check for untracked files.
-          if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-            s+='?'
-          fi
-
-          # Check for stashed files.
-          if $(git rev-parse --verify refs/stash &>/dev/null); then
-            s+='$'
-          fi
-        fi
-      fi
-
-      [ -n "${s}" ] && s=" [${s}]"
-
-      echo -e "${1}${branchName}${blue}${s}"
-    else
-      # Check for uncommitted changes in the index.
-      if ! $(git diff --quiet --ignore-submodules --cached); then
-        s+='+'
-      fi
-
-      # Check for unstaged changes.
-      #if ! $(git diff-files --quiet --ignore-submodules --); then
-      #  s+='!'
-      #fi
-
-      # Check for untracked files.
-      if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-        s+='?'
-      fi
-
-      # Check for stashed files.
-      if $(git rev-parse --verify refs/stash &>/dev/null); then
-        s+='$'
-      fi
-      [ -n "${s}" ] && s=" [${s}]"
-
-      echo -e "${1}${branchName}${blue}${s}"
-      return
-    fi
-  fi
-}
+GIT_PS1_DESCRIBE_STYLE=default
+GIT_PS1_SHOWCOLORHINTS=1
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUPSTREAM=verbose
 
 if tput setaf 1 &> /dev/null; then
   tput sgr0; # reset colors
@@ -167,9 +101,9 @@ PS1+="\[${white}\]@";
 PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory
-PS1+="\$(prompt_git \"${white} on ${violet}\")"; # Git repository details
+PS1+='$(__git_ps1 " \[${white}\](%s)")'; # Git repository details
 if [ -x "${KUBE}" ];then
-  PS1+="   KubeCTX: \$(prompt_kube)"
+  PS1+=" \[${yellow}\]KubeCTX: \[${orange}\]\$(prompt_kube)"
 fi
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
