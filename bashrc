@@ -3,8 +3,8 @@
 # If not running interactively, don't do anything
 
 #case $- in
-	#*i*) ;;
-	#*) return;;
+#*i*) ;;
+#*) return;;
 #esac
 
 # DigitalOcean Token:
@@ -41,7 +41,7 @@ UNAMECMD=$(command -v uname)
 : ${UNAME=$($UNAMECMD -s | tr '[:upper:]' '[:lower:]')}
 # Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
 # To make sourcing our defaults environment easier.
-UNAME="${UNAME/cygwin*/cygwin/}"
+UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
 
 # Variables specific to the OS environment
@@ -51,16 +51,20 @@ done
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	alias vdir='vdir --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias vdir='vdir --color=auto'
 fi
 
 export PATH
 
-if [ -r /usr/local/etc/bash_completion ];then
+if [ -r /usr/share/bash-completion/bash_completion ];then
+   source /usr/share/bash-completion/bash_completion
+elif [ -r /usr/local/etc/bash_completion ];then
   source /usr/local/etc/bash_completion
 elif [ -r /etc/bash_completion ];then
   source /etc/bash_completion
+elif [ -r /usr/share/bash-completion/bash_completion ];then
+  source /usr/share/bash-completion/bash_completion
 else
   echo "No bash_completion script!"
 fi

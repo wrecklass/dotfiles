@@ -146,6 +146,16 @@ repo() {
 	fi
 }
 
+alias grepr="_grepr"
+_grepr() {
+  grep -r --exclude-dir=.git --exclude-dir=vendor "$*" .
+}
+
+alias greprl="_greprl"
+_greprl() {
+  grep -rl --exclude-dir=.git --exclude-dir=vendor "$*" .
+}
+
 # Get colors in manual pages
 alias man="_man"
 _man() {
@@ -158,5 +168,16 @@ _man() {
 		LESS_TERMCAP_ue=$(printf "\e[0m") \
 		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 		man "$@"
+}
+
+
+# `o` with no arguments opens the current directory, otherwise opens the given
+# location
+function o() {
+	if [ $# -eq 0 ]; then
+		open .;
+	else
+		open "$@";
+	fi;
 }
 
