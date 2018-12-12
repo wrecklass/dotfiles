@@ -10,7 +10,6 @@ fi
 
 # Lock the screen (when going AFK) MacOS Only
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
->>>>>>> e96a3b95e2db6368ffb10ae5f93fc0538982d138
 
 # Kubectl/kubernetes/k8s aliases
 alias nodes='kubectl get nodes'
