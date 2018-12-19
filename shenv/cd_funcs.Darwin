@@ -2,6 +2,7 @@
 
 alias cda="_cda"
 alias cdc="_cdc"
+alias cdd="_cdd"
 alias cdcc="_cdcc"
 alias cde="_cde"
 alias cdf="_cdf"
@@ -14,6 +15,7 @@ alias cdp="_cdp"
 alias cdps="_cdp"
 alias cds="_cds"
 alias cdu="_cdu"
+alias cdot="_cdot"
 alias mkcd="_mkcd"
 alias cd="cd_func"
 
@@ -25,6 +27,10 @@ PROGDIR_X86="${PROGDIR} (x86)"
 settitle()
 {
   echo -ne "\e]2;$@\a\e]1;$@\a";
+}
+
+_cdot() {
+  cd $(dirname $(\ls -l .bashrc | awk '{print $NF}'))
 }
 
 _cda() {
@@ -43,11 +49,19 @@ _cdc() {
     fi
 }
 
+_cdd() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/github/dotfiles/${*}"
+    else
+        cd_func "/Users/${USER}/src/github/dotfiles"
+    fi
+}
+
 _cdcc() {
     if [ $# -gt 0 ]; then
-        cd_func "/Users/${USER}/src/charter/Containerization${*}"
+        cd_func "/Users/${USER}/src/charter/Containerization/${*}"
     else
-        cd_func "/Users/${USER}/src/charter/Containerization"
+        cd_func "/Users/${USER}/src/charter/Containerization/"
     fi
 }
 
