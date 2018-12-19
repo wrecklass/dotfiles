@@ -58,7 +58,7 @@ fi
 export PATH
 
 if [ -r /usr/share/bash-completion/bash_completion ];then
-   source /usr/share/bash-completion/bash_completion
+  source /usr/share/bash-completion/bash_completion
 elif [ -r /usr/local/etc/bash_completion ];then
   source /usr/local/etc/bash_completion
 elif [ -r /etc/bash_completion ];then

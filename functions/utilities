@@ -146,16 +146,6 @@ repo() {
 	fi
 }
 
-alias grepr="_grepr"
-_grepr() {
-  grep -r --exclude-dir=.git --exclude-dir=vendor "$*" .
-}
-
-alias greprl="_greprl"
-_greprl() {
-  grep -rl --exclude-dir=.git --exclude-dir=vendor "$*" .
-}
-
 # Get colors in manual pages
 alias man="_man"
 _man() {
