@@ -58,3 +58,10 @@ done
 if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]];then
   source "${HOME}/.iterm2_shell_integration.bash"
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/p2708440/src/google-cloud-sdk/path.bash.inc' ]; then source '/Users/p2708440/src/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/p2708440/src/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/p2708440/src/google-cloud-sdk/completion.bash.inc'; fi
+

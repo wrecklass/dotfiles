@@ -94,7 +94,7 @@ pathmunge /usr/sbin after
 
 HAVE_VIM=$(command -v vim)
 
-EDITOR=vi
+EDITOR=vim
 if [ -n "$HAVE_VIM" ];then
   EDITOR="$HAVE_VIM"
 fi

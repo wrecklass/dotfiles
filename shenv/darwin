@@ -1,14 +1,21 @@
 #!/bin/bash
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home"
+# echo "darwin"
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home"
 export GROOVY_HOME="/usr/local/opt/groovy/libexec"
 #export ANT_HOME="/usr/local/opt/ant/libexec"
 export ANT_HOME="/usr/local/apache-ant-1.9.4"
 export MYSQL_HOME="/usr/local/mysql"
+export JMETER_HOME="/usr/local/jmeter"
 # export GOROOT="/usr/local/go"
-export GOROOT="/Users/smartin/src/github/go-darwin-amd64-bootstrap"
-#export GOROOT="/Users/smartin/src/github/golang"
-export GOPATH="/Users/smartin/src/gocode"
+export GOROOT="/Users/p2708440/src/github/go-darwin-amd64-bootstrap"
+#export GOROOT="/Users/p2708440/src/github/golang"
+export GOPATH="/Users/p2708440/src/gocode"
+
+if [ -x /usr/local/bin/minikube ];then
+  minikube status | grep -qi started &> /dev/null && eval $(minikube docker-env)
+fi
 
 export HISTSIZE=5000
 export HISTFILESIZE=${HISTSIZE}
@@ -51,7 +58,8 @@ function foomagick() {
   echo alias word="'open -a Microsoft\ Word.app'" >> ~/.foomagick.tmp
   echo alias excel="'open -a Microsoft\ Excel.app'" >> ~/.foomagick.tmp
   echo alias chrome="'open -a Google\ Chrome.app'" >> ~/.foomagick.tmp
-  echo alias code="'/Users/smartin/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'" >> ~/.foomagick.tmp
+  echo alias code="'open -a /Users/p2708440/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'" >> ~/.foomagick.tmp
+  echo alias vscode="'open -a /Users/p2708440/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'" >> ~/.foomagick.tmp
   source ~/.foomagick.tmp
   # rm -f ~/.foomagick.tmp
 }
@@ -104,7 +112,7 @@ do
 done
 
 # Add these after the rest of the PATH
-for var in "$GROOVY_HOME" "$MYSQL_HOME" "$GOPATH"
+for var in "$GROOVY_HOME" "$MYSQL_HOME" "$GOPATH" "$JMETER_HOME"
 do
   if [ -d "${var}/bin" -a -r "${var}/bin" ];then
     pathmunge "${var}/bin" after

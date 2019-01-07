@@ -1,6 +1,6 @@
 # Detect which `ls` flavor is in use
 
-[[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
+# [[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
 # echo ".bash_aliases"
 
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -48,6 +48,8 @@ alias hp='hashapass.sh'
 # alias h="history"
 
 alias irb='irb --readline -r irb/completion'
+
+alias kc='kubectl'
 
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -106,7 +108,7 @@ alias s7='secure7'
 alias sb='cd /usr/local/streambaby ; ./streambaby_high &> ~/.log/streambaby.log &'
 alias scc='less $HOME/bin/screencheat'
 alias sec='vi $HOME/bin/.secret'
-alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
+alias sec2='ssh -i ~/.ssh/EngProd-Admin.pem -l ec2-user'
 # alias sensu='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user sensu'
 alias sw='telnet  towel.blinkenlights.nl'
 alias sx='startxwin.sh > .xwin_errors 2>&1'

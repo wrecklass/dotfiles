@@ -1,5 +1,5 @@
 [core]
-	editor = /Users/smartin/bin/vim
+	editor = /Users/p2708440/bin/vim
 [push]
 	default = simple
 [credential]
@@ -11,12 +11,14 @@
   la = "!git config -l | grep alias "
 	rv = remote -v
 	r = remote -v
+  z = status -z -u
   # Add a new remote to the current repository, $1=NameIt, $2=URL
   ra = "!f() { git remote add $1 $2; }; f"
 
   # some log aliases
   history = log
   h = !git log | cat
+	last = log -1 HEAD
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -170,9 +172,10 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Users/p2708440/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
