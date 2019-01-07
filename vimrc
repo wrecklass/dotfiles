@@ -42,7 +42,9 @@ set autoread
 
 
 "Strong Encryption:
-"set cm=blowfish
+if !has('nvim')
+  set cm=blowfish2
+endif
 
 " Indenting:
 set nocindent

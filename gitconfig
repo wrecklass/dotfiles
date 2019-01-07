@@ -1,5 +1,5 @@
 [core]
-	editor = /Users/p2708440/bin/vim
+	editor = /usr/bin/vim
 [push]
 	default = simple
 [credential]
@@ -8,11 +8,13 @@
   # XXX TEMPLATE: XXX
   # changeme = "!f() { changemetoo }; f"
 
+  aliases = config --get-regexp alias
+
   la = "!git config -l | grep alias "
 	rv = remote -v
 	r = remote -v
   z = status -z -u
-  # Add a new remote to the current repository, $1=NameIt, $2=URL
+  # Add a new remote to the current repository, $1=Name(origin), $2=URL(git@github.com/...)
   ra = "!f() { git remote add $1 $2; }; f"
 
   # some log aliases
@@ -31,6 +33,8 @@
   # Show history of file or files
   filelog = log -u
   fl = log -u
+  # Because it sux that it can't figure this out:
+  logs = log
   # Inspect recent history
   dl = !git ll -1
   dlc = diff --cached HEAD^
@@ -51,6 +55,7 @@
   gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; } ; f"
   # Show the diff between the latest commit and the current state
   d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+  dif = diff
   # Show the diff between the "number" of revisions ago and current state
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
   # Diff to a specific commit passed as parameter
@@ -71,10 +76,8 @@
   info = status
   # Edit the global config file
   # e = config --global -e
-	edit = !vim ~/.gitconfig
-  e = !vim ~/.gitconfig
-  # Saves Work in Progress. Leaves untracked alone.
-  wip = commit -am "WIP"
+	edit = !/usr/bin/vim ~/.gitconfig
+  e = !/usr/bin/vim ~/.gitconfig
   # Just show the date in compressed format
   dt  = !date +"%Y%m%dT%H%M%S"
   # Longer format
@@ -84,6 +87,8 @@
 
   # Note that this adds UNTRACKED files to the repository:
   cm = !git add -A && git commit -m
+  # Saves Work in Progress. Leaves untracked alone.
+  wip = commit -am "WIP"
   # Likewise, saves it all as a (probably temporary) checkpoint:
   save = !git add -A && git commit -m 'SAVEPOINT'
   # Then use this to restore (roll back) the previous working session.
@@ -128,6 +133,7 @@
   # Show verbose output of tags and branches and remotes
   tags = tag -l
   branches = branch -a
+  bs = branch -a
   remotes = remote -v
 
   # Merge aliases
@@ -169,8 +175,8 @@
 	name = Steve Martin
 	email = smartin5590+github@gmail.com
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
 	cmd = /Users/p2708440/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
