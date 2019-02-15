@@ -1,12 +1,24 @@
 #!/bin/bash
 
+# echo "cd_funcs"
+
 alias cda="_cda"
+alias cdc="_cdc"
+alias cdd="_cdd"
+alias cdcc="_cdcc"
 alias cde="_cde"
+alias cdf="_cdf"
+alias cdpf="_cdf"
+alias cdg="_cdg"
+alias cdgo="_cdgo"
 alias cdl="_cdl"
+alias cdn="_cdn"
 alias cdo="_cdo"
 alias cdp="_cdp"
+alias cdps="_cdp"
 alias cds="_cds"
 alias cdu="_cdu"
+alias cdot="_cdot"
 alias mkcd="_mkcd"
 alias cd="cd_func"
 
@@ -20,11 +32,39 @@ settitle()
   echo -ne "\e]2;$@\a\e]1;$@\a";
 }
 
+_cdot() {
+  cd $(dirname $(\ls -l .bashrc | awk '{print $NF}'))
+}
+
 _cda() {
     if [ $# -gt 0 ]; then
         cd_func "/Users/${USER}/src/charter/adapticus/${*}"
     else
         cd_func "/Users/${USER}/src/charter/adapticus"
+    fi
+}
+
+_cdc() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/charter/${*}"
+    else
+        cd_func "/Users/${USER}/src/charter"
+    fi
+}
+
+_cdd() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/github/dotfiles/${*}"
+    else
+        cd_func "/Users/${USER}/src/github/dotfiles"
+    fi
+}
+
+_cdcc() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/charter/Containerization/${*}"
+    else
+        cd_func "/Users/${USER}/src/charter/Containerization/"
     fi
 }
 
@@ -36,11 +76,35 @@ _cdl() {
     fi
 }
 
+_cdn() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/Nextcloud/${*}"
+    else
+        cd_func "/Users/${USER}/Nextcloud"
+    fi
+}
+
 _cde() {
     if [ $# -gt 0 ]; then
         cd_func "/Users/${USER}/Desktop/${*}"
     else
         cd_func "/Users/${USER}/Desktop"
+    fi
+}
+
+_cdg() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/github/${*}"
+    else
+        cd_func "/Users/${USER}/src/github"
+    fi
+}
+
+_cdgo() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/gocode/${*}"
+    else
+        cd_func "/Users/${USER}/src/gocode"
     fi
 }
 
@@ -59,6 +123,15 @@ _cdu() {
         cd_func "/Users/${USER}/Documents/Unclutter/Filestorage"
     fi
 }
+
+_cdf() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/src/gocode/src/github.com/wrecklass/flagship/${*}"
+    else
+        cd_func "/Users/${USER}/src/gocode/src/github.com/wrecklass/flagship"
+    fi
+}
+
 _cdp() {
     if [ $# -gt 0 ]; then
         cd_func "~/src/gocode/src/github.com/wrecklass/flagship/${*}"
@@ -122,11 +195,11 @@ cd_func() {
 
     #
     # Trim down everything beyond 11th entry
-    popd -n +16 2>/dev/null 1>/dev/null
+    popd -n +11 2>/dev/null 1>/dev/null
 
     #
     # Remove any other occurence of this dir, skipping the top of the stack
-    for ((cnt=1; cnt <= 15; cnt++)); do
+    for ((cnt=1; cnt <= 10; cnt++)); do
         x2="$(dirs +${cnt} 2>/dev/null)"
         [[ $? -ne 0 ]] && return 0
         [[ ${x2:0:1} == '~' ]] && x2="${HOME}${x2:1}"

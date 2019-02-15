@@ -3,6 +3,29 @@
 alias ff='_ff'
 alias ffd='_ffd'
 alias ffl='_ffl'
+alias grepr="_grepr"
+alias greprl="_greprl"
+alias greplr="_greprl"
+alias grepri="_grepri"
+alias grepir="_grepri"
+alias grepril="_grepril"
+alias greprli="_grepril"
+
+_grepr() {
+  grep --exclude-dir target --exclude-dir vendor --exclude-dir .git -r "$*" .
+}
+
+_greprl() {
+  grep --exclude-dir target --exclude-dir vendor --exclude-dir .git -rl "$*" .
+}
+
+_grepri() {
+  grep --exclude-dir target --exclude-dir vendor --exclude-dir .git -ri "$*" .
+}
+
+_grepril() {
+  grep --exclude-dir target --exclude-dir vendor --exclude-dir .git -ril "$*" .
+}
 
 _ff() {
     if [ $# -eq 0 ];then
@@ -28,6 +51,6 @@ _ffl() {
     else
         FF_DIR="$1"
     fi
-    ls -l `find "${FF_DIR}" -type f`
+    find "${FF_DIR}" -type f -ls
 }
 

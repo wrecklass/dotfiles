@@ -6,6 +6,7 @@ alias cdc="_cdc"
 alias cdd="_cdd"
 alias cdo="_cdd"
 alias cde="_cde"
+alias cdf="_cdf"
 alias cdg="_cdg"
 alias cdm="_cdm"
 alias cdl="_cdl"
@@ -14,6 +15,7 @@ alias cdr="_cdr"
 alias cds="_cds"
 alias cdsc="_cdsc"
 alias cdsa="_cdsa"
+alias cdst="_cdst"
 alias cdu="_cdu"
 alias cdv="_cdv"
 alias cdw="_cdw"
@@ -73,11 +75,19 @@ _cde() {
     fi
 }
 
+_cdf() {
+    if [ $# -gt 0 ]; then
+        cd_func "$HOME/src/gocode/src/github.com/v1k0d3n/${*}"
+    else
+        cd_func "$HOME/src/gocode/src/github.com/v1k0d3n"
+    fi
+}
+
 _cdg() {
     if [ $# -gt 0 ]; then
-        cd_func "/d/apps/${*}"
+        cd_func "$HOME/src/gocode/${*}"
     else
-        cd_func "/d/apps/"
+        cd_func "$HOME/src/gocode"
     fi
 }
 
@@ -167,6 +177,16 @@ _cdsa() {
       cd_func "/c/apps/steam/steamapps/${*}"
     else
       cd_func "/dcapps/steam/steamapps/"
+    fi
+  fi
+}
+
+_cdst() {
+  if [ -d "/c/apps/steamapps" ];then
+    if [ $# -gt 0 ]; then
+      cd_func "/c/apps/steamapps/${*}"
+    else
+      cd_func "/c/apps/steamapps/"
     fi
   fi
 }
@@ -290,11 +310,11 @@ cd_func() {
 
     #
     # Trim down everything beyond 11th entry
-    popd -n +16 2>/dev/null 1>/dev/null
+    popd -n +11 2>/dev/null 1>/dev/null
 
     #
     # Remove any other occurence of this dir, skipping the top of the stack
-    for ((cnt=1; cnt <= 15; cnt++)); do
+    for ((cnt=1; cnt <= 10; cnt++)); do
         x2="$(dirs +${cnt} 2>/dev/null)"
         [[ $? -ne 0 ]] && return 0
         [[ ${x2:0:1} == '~' ]] && x2="${HOME}${x2:1}"
