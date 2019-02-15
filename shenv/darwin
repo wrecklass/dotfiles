@@ -112,13 +112,7 @@ do
 done
 
 # Need to do this before sourcing .bash_aliases
-HAVE_VIM=$(command -v vim)
-#echo $HAVE_VIM
-
-EDITOR=vi
-if [ -n "$HAVE_VIM" ];then
-  EDITOR="$HAVE_VIM"
-fi
+EDITOR=$(command -v vim)
 export EDITOR
 
 if [ -r /usr/local/etc/bash_completion ];then

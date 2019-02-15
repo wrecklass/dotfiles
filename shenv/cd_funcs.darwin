@@ -61,9 +61,9 @@ _cdu() {
 }
 _cdp() {
     if [ $# -gt 0 ]; then
-        cd_func "/Users/${USER}/public_html/${*}"
+        cd_func "~/src/gocode/src/github.com/wrecklass/flagship/${*}"
     else
-        cd_func "/Users/${USER}/public_html"
+        cd_func "~/src/gocode/src/github.com/wrecklass/flagship"
     fi
 }
 

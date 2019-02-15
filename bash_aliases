@@ -17,7 +17,10 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 alias sal='source ~/.bash_aliases'
-alias b64="build64"
+#alias b64="build64"
+
+alias code='/Users/smartin/Applications/Visual Studio Code.app//Contents/Resources/app/bin/code'
+
 alias cls=clear
 alias comcast='ftp upload.comcast.net'
 
