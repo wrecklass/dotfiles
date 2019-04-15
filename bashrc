@@ -1,6 +1,7 @@
 #!/bin/bash
 # ulimit -u 1024
 # If not running interactively, don't do anything
+#echo ".bashrc"
 
 #case $- in
 #*i*) ;;

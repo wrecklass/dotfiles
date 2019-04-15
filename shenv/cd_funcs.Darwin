@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# echo "cd_funcs"
+
 alias cda="_cda"
 alias cdc="_cdc"
 alias cdd="_cdd"
@@ -10,6 +12,7 @@ alias cdpf="_cdf"
 alias cdg="_cdg"
 alias cdgo="_cdgo"
 alias cdl="_cdl"
+alias cdn="_cdn"
 alias cdo="_cdo"
 alias cdp="_cdp"
 alias cdps="_cdp"
@@ -73,6 +76,14 @@ _cdl() {
     fi
 }
 
+_cdn() {
+    if [ $# -gt 0 ]; then
+        cd_func "/Users/${USER}/Nextcloud/${*}"
+    else
+        cd_func "/Users/${USER}/Nextcloud"
+    fi
+}
+
 _cde() {
     if [ $# -gt 0 ]; then
         cd_func "/Users/${USER}/Desktop/${*}"
@@ -123,9 +134,9 @@ _cdf() {
 
 _cdp() {
     if [ $# -gt 0 ]; then
-        cd_func "/Users/${USER}/src/charter/Containerization/security-sidecar-crypto/${*}"
+        cd_func "~/src/gocode/src/github.com/wrecklass/flagship/${*}"
     else
-        cd_func "/Users/${USER}/src/charter/Containerization/security-sidecar-crypto"
+        cd_func "~/src/gocode/src/github.com/wrecklass/flagship"
     fi
 }
 
@@ -184,11 +195,11 @@ cd_func() {
 
     #
     # Trim down everything beyond 11th entry
-    popd -n +16 2>/dev/null 1>/dev/null
+    popd -n +11 2>/dev/null 1>/dev/null
 
     #
     # Remove any other occurence of this dir, skipping the top of the stack
-    for ((cnt=1; cnt <= 15; cnt++)); do
+    for ((cnt=1; cnt <= 10; cnt++)); do
         x2="$(dirs +${cnt} 2>/dev/null)"
         [[ $? -ne 0 ]] && return 0
         [[ ${x2:0:1} == '~' ]] && x2="${HOME}${x2:1}"

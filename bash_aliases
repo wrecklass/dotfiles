@@ -1,6 +1,6 @@
 # Detect which `ls` flavor is in use
 
-[[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
+# [[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
 # echo ".bash_aliases"
 
 hub_path=$(command -v hub)
@@ -34,7 +34,9 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 alias sal='source ~/.bash_aliases'
-alias b64="build64"
+#alias b64="build64"
+
+alias code='/Users/smartin/Applications/Visual Studio Code.app//Contents/Resources/app/bin/code'
 
 # common typos
 # Because I'm occasionally dislexic:
@@ -84,6 +86,7 @@ alias hp='hashapass.sh'
 
 alias irb='irb --readline -r irb/completion'
 
+alias kc='kubectl'
 alias ppath='echo -e ${PATH//:/\\n}'
 
 # IP addresses
