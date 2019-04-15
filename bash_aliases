@@ -41,6 +41,8 @@ alias b64="build64"
 alias cate='cat'
 
 alias cls=clear
+alias clar=clear
+alias cler=clear
 alias comcast='ftp upload.comcast.net'
 
 colordiff="$(command -v colordiff)"
@@ -145,7 +147,11 @@ alias vm='mv -i'
 alias s7='secure7'
 alias sb='cd /usr/local/streambaby ; ./streambaby_high &> ~/.log/streambaby.log &'
 alias scc='less $HOME/bin/screencheat'
-alias sec='/usr/bin/vim $HOME/bin/.secret'
+if [ -x $HOME/bin/vim ];then
+  alias sec='$HOME/bin/vim $HOME/bin/.secret'
+else
+  alias sec='/usr/bin/vim $HOME/bin/.secret'
+fi
 alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
 # alias sensu='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user sensu'
 alias svi='sudo vim'

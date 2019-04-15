@@ -70,11 +70,20 @@ else
 fi
 
 # Import all of the files we use
-for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
+#for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
+for file in ~/.{bash_aliases,path,extra,exports}; do
   #echo ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
+
+function _update_ps1() {
+  PS1="$($GOPATH/bin/powerline-go -numeric-exit-codes -newline -colorize-hostname -cwd-mode plain -error $? -modules-right termtitle)"
+}
+
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
 
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then
