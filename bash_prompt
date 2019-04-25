@@ -94,7 +94,7 @@ fi;
 
 # Set the terminal title to the current working directory.
 PS1="\[\033]0;\w\007\]";
-PS1+="\[${bold}\]\n"; # newline
+PS1+="\[${bold}\]\D{%c}\n"; # newline
 PS1+='$(r=$?; test $r -ne 0 && echo "\[\e[1;31m\][ret:$r] ")'
 PS1+="\[${userStyle}\]${userName}"; # username
 PS1+="\[${white}\]@";

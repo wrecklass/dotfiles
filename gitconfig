@@ -1,4 +1,5 @@
 [core]
+  autocrlf = false
 	editor = /usr/bin/vim
 [push]
 	default = simple
@@ -13,12 +14,14 @@
   la = "!git config -l | grep alias "
 	rv = remote -v
 	r = remote -v
+  z = status -z -u
   # Add a new remote to the current repository, $1=Name(origin), $2=URL(git@github.com/...)
   ra = "!f() { git remote add $1 $2; }; f"
 
   # some log aliases
   history = log
   h = !git log | cat
+	last = log -1 HEAD
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -170,16 +173,16 @@
   sa = stash apply
   ss = stash save
 [user]
-	name = Steve Martin
-	email = smartin5590+github@gmail.com
+	name = Stephen.W.Martin
+	email = stephen.w.martin@charter.com
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
 [mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	cmd = /Users/p2708440/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-  required = true
+	required = true
 	process = git-lfs filter-process

@@ -1,6 +1,6 @@
 # Detect which `ls` flavor is in use
 
-[[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
+# [[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
 # echo ".bash_aliases"
 
 hub_path=$(command -v hub)
@@ -34,13 +34,17 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 alias sal='source ~/.bash_aliases'
-alias b64="build64"
+#alias b64="build64"
+
+alias code='/Users/smartin/Applications/Visual Studio Code.app//Contents/Resources/app/bin/code'
 
 # common typos
 # Because I'm occasionally dislexic:
 alias cate='cat'
 
 alias cls=clear
+alias clar=clear
+alias cler=clear
 alias comcast='ftp upload.comcast.net'
 
 colordiff="$(command -v colordiff)"
@@ -82,6 +86,7 @@ alias hp='hashapass.sh'
 
 alias irb='irb --readline -r irb/completion'
 
+alias kc='kubectl'
 alias ppath='echo -e ${PATH//:/\\n}'
 
 # IP addresses
@@ -145,7 +150,11 @@ alias vm='mv -i'
 alias s7='secure7'
 alias sb='cd /usr/local/streambaby ; ./streambaby_high &> ~/.log/streambaby.log &'
 alias scc='less $HOME/bin/screencheat'
-alias sec='/usr/bin/vim $HOME/bin/.secret'
+if [ -x $HOME/bin/vim ];then
+  alias sec='$HOME/bin/vim $HOME/bin/.secret'
+else
+  alias sec='/usr/bin/vim $HOME/bin/.secret'
+fi
 alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
 # alias sensu='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user sensu'
 alias svi='sudo vim'
