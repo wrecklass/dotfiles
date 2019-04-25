@@ -14,6 +14,15 @@ nmap <leader>w :w!<cr>
 " typing ,q will write file and quit
 nmap <leader>q :wq<cr>
 
+" Toggle line numbers
+nmap \l :setlocal number!<cr>
+
+" Toggle Paste mode
+nmap \o :setlocal paste!<cr>
+
+" Turn off hlsearch temporarily
+nmap \q :nohlsearch<cr>
+
 set novisualbell
 set noerrorbells
 set t_vb=
@@ -56,7 +65,7 @@ set ruler
 
 set incsearch
 set nobackup
-set hls
+set hlsearch
 set ignorecase
 set smartcase
 " set foldmethod=indent

@@ -9,9 +9,11 @@ alias cde="_cde"
 alias cdf="_cdf"
 alias cdg="_cdg"
 alias cdm="_cdm"
+alias cdn="_cdn"
 alias cdl="_cdl"
 alias cdp="_cdp"
 alias cdr="_cdr"
+alias cdrep="_cdrep"
 alias cds="_cds"
 alias cdsc="_cdsc"
 alias cdsa="_cdsa"
@@ -107,6 +109,22 @@ _cdm() {
   fi
 }
 
+_cdn() {
+   if [ -d "/d/Users/${USER}/NextCloud" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/d/Users/${USER}/NextCloud/${*}"
+    else
+        cd_func "/d/Users/${USER}/NextCloud"
+    fi
+  elif [ -d "/c/Users/${USER}/NextCloud" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/c/Users/${USER}/NextCloud/${*}"
+    else
+        cd_func "/c/Users/${USER}/NextCloud"
+    fi
+  fi
+}
+
 _cdl() {
   if [ -d "/d/Users/${USER}/Downloads/" ];then
     if [ $# -gt 0 ]; then
@@ -144,6 +162,24 @@ _cdr() {
             cd_func "/d/Users/${USER}/Dropbox/${*}"
         else
             cd_func "/d/Users/${USER}/Dropbox/"
+        fi
+        return
+    fi
+}
+
+_cdrep() {
+    if [ -d "/c/Apps/World_Of_Warships_NA/replays" ];then
+        if [ $# -gt 0 ]; then
+            cd_func "/c/Apps/World_Of_Warships_NA/replays/${*}"
+        else
+            cd_func "/c/Apps/World_Of_Warships_NA/replays/"
+        fi
+        return
+    elif [ -d "/d/Apps/World_Of_Warships_NA/replays" ];then
+        if [ $# -gt 0 ]; then
+            cd_func "/d/Apps/World_Of_Warships_NA/replays/${*}"
+        else
+            cd_func "/d/Apps/World_Of_Warships_NA/replays/"
         fi
         return
     fi
