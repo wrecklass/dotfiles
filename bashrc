@@ -3,10 +3,10 @@
 # If not running interactively, don't do anything
 #echo ".bashrc"
 
-#case $- in
-#*i*) ;;
-#*) return;;
-#esac
+case $- in
+  *i*) ;;
+  *) return;;
+esac
 
 # DigitalOcean Token:
 export TOKEN='fa3acf68894c3e9e6448989865e92c4c219e2b8f9174a3aec798d32556c75730'
