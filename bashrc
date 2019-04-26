@@ -79,11 +79,13 @@ done
 unset file
 
 function _update_ps1() {
-  PS1="$($GOPATH/bin/powerline-go -numeric-exit-codes -newline -colorize-hostname -cwd-mode plain -error $? -modules-right termtitle)"
+  PS1="$($GOPATH/bin/powerline-go -numeric-exit-codes -modules "nix-shell,venv,user,host,ssh,cwd,git,hg,jobs,exit,root,vgo" -colorize-hostname -newline -cwd-mode plain -error $? -modules-right termtitle)"
 }
 
 if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
   PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+else
+  source $HOME/.bash_prompt
 fi
 
 # Get our functions
