@@ -3,10 +3,10 @@
 # If not running interactively, don't do anything
 #echo ".bashrc"
 
-#case $- in
-#*i*) ;;
-#*) return;;
-#esac
+case $- in
+  *i*) ;;
+  *) return;;
+esac
 
 # DigitalOcean Token:
 export TOKEN='fa3acf68894c3e9e6448989865e92c4c219e2b8f9174a3aec798d32556c75730'
@@ -71,11 +71,22 @@ else
 fi
 
 # Import all of the files we use
-for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
+#for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
+for file in ~/.{bash_aliases,path,extra,exports}; do
   #echo ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
+
+function _update_ps1() {
+  PS1="$($GOPATH/bin/powerline-go -numeric-exit-codes -modules "nix-shell,venv,user,host,ssh,cwd,git,hg,jobs,exit,root,vgo" -colorize-hostname -newline -cwd-mode plain -error $? -modules-right termtitle)"
+}
+
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+else
+  source $HOME/.bash_prompt
+fi
 
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then

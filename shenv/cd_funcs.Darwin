@@ -134,9 +134,9 @@ _cdf() {
 
 _cdp() {
     if [ $# -gt 0 ]; then
-        cd_func "~/src/gocode/src/github.com/wrecklass/flagship/${*}"
+        cd_func "~/src/charter/Containerization/security-sidecar-crypto/${*}"
     else
-        cd_func "~/src/gocode/src/github.com/wrecklass/flagship"
+        cd_func "~/src/charter/Containerization/security-sidecar-crypto"
     fi
 }
 

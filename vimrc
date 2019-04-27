@@ -15,6 +15,15 @@ nmap <leader>w :w!<cr>
 " typing ,q will write file and quit
 nmap <leader>q :wq<cr>
 
+" Toggle line numbers
+nmap \l :setlocal number!<cr>
+
+" Toggle Paste mode
+nmap \o :setlocal paste!<cr>
+
+" Turn off hlsearch temporarily
+nmap \q :nohlsearch<cr>
+
 set novisualbell
 set noerrorbells
 set t_vb=
@@ -71,7 +80,7 @@ set ruler
 
 set incsearch
 set nobackup
-set hls
+set hlsearch
 set ignorecase
 set smartcase
 " set foldmethod=indent
@@ -117,9 +126,14 @@ map <c-space> ?
 " set cinkeys
 " set cinwords
 
+" viminfo reference:
+" '10  : marks will be remembered to 10 previously edited files
+" "100 : will saveup to 100 lines for each register
+" :20  : up to 20 lines of command line history will be remembered
+" %    : saves and restores buffer list
+" n... : Name and locateion of viminfo file
 " set viminfo='10,\"100,:20,%,n~/.viminfo
-set viminfo='20,\"100,:100,%  " read/write .viminfo, with no more
-" than 50 lines of registers
+set viminfo='20,\"100,:100,%,n~/.viminfo
 
 set history=50        " Keep 50 lines of command line history
 
@@ -290,3 +304,14 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
+set backupskip+=*.asc
+" set viminfo=
+
+augroup GPG
+  autocmd!
+  autocmd BufReadPost  *.asc :%!gpg -r stephen -q -d
+  autocmd BufReadPost  *.asc |redraw!
+  autocmd BufWritePre  *.asc :%!gpg -r stephen -q -e -a
+  autocmd BufWritePost *.asc u
+  autocmd VimLeave     *.asc :!clear
+augroup END
