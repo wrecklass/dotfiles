@@ -5,6 +5,7 @@
 " endif
 "
 set encoding=utf8
+set nocompatible
 
 let mapleader = ","
 let g:mapleader = ","
@@ -34,6 +35,20 @@ filetype off
 filetype plugin indent on
 set rtp+=/usr/local/go/misc/vim
 filetype on
+
+""""""""""""""""""""
+" Finding Files:
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+" Dangerous when used in upper level directories
+" set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" End Files Settings
+""""""""""""""""""""
 
 set autoread
 
@@ -151,7 +166,7 @@ set mouse=a
 "nmap <F8> :TagbarToggle<CR>
 
 " Pathogen bundle manager:
-call pathogen#infect()
+" call pathogen#infect()
 " map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " map <Leader>t <plug>NERDTreeFocusToggle<CR>
 " let g:nerdtree_tabs_open_on_console_startup=0
