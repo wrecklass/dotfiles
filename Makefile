@@ -9,3 +9,4 @@ dotfiles:
 	done
 	rm -rf ~/.vim
 	cp -r ./vim ~/.vim/
+	find ~/.vim/pack -type d -name .git -exec rm -rf {} +
