@@ -75,7 +75,11 @@ set nosmartindent
 set ruler
 " set statusline=~
 
+" Use relative number, but show current line number
+set number
 set relativenumber
+
+" Define search preferences
 set incsearch
 set nobackup
 set hlsearch

@@ -173,8 +173,8 @@
   sa = stash apply
   ss = stash save
 [user]
-	name = Stephen.W.Martin
-	email = stephen.w.martin@charter.com
+	name = Stephen Martin
+	email = smartin5590@gmail.com
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
