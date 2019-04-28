@@ -92,20 +92,10 @@ for file in ~/.{bash_aliases,path,extra,exports}; do
 done
 unset file
 
-IGNORE_SUFFIXES=".off ~ ^ , .bak .new .rpmsave .rpmorig .rpmnew .swp"
-
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then
   for SCRIPT in "${HOME}"/.functions/*; do
-    SKIP=false
-    for SUFFIX in $IGNORE_SUFFIXES ; do
-      if [ ! "$(basename $SCRIPT $SUFFIX)" = "$(basename $SCRIPT)" ]; then
-        SKIP=true
-        log "Skipping file based on suffix: $SCRIPT"
-        break
-      fi
-    done
-    if [ "$SKIP" = "true" ]; then
+    if [[ "${SCRIPT}" =~ ".settitle" ]];then
       continue
     fi
     [ -r "${SCRIPT}" ] && source "${SCRIPT}"
