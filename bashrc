@@ -13,7 +13,7 @@ VERBOSE=0
 
 log() {
     if [ $VERBOSE -eq 1 ];then
-      dt=`date`
+      dt=$(date)
       echo "${dt}-BASHRC[$$]: $*"
     fi
 }

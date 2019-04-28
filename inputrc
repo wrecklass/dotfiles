@@ -72,6 +72,8 @@
   set output-meta on
   set convert-meta off
 
+  Control-w: unix-filename-rubout
+
   # Match all files
   #set match-hidden-files on
 
