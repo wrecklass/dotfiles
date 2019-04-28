@@ -27,7 +27,10 @@ alias mkcd="_mkcd"
 alias cd="cd_func"
 
 PROGDIR="$(cygpath "$PROGRAMFILES")"
+export PROGDIR
+
 PROGDIR_X86="${PROGDIR} (x86)"
+export PROGDIR_X86
 
 # ctrl-w shows the menu
 # bind -x "\"\C-w\":cd_func -- ;"
@@ -339,9 +342,8 @@ cd_func() {
 
     #
     # Now change to the new dir and add to the top of the stack
-    pushd "${the_new_dir}" > /dev/null
-    settitle "-$(basename $SHELL) : ${PWD/$HOME/'~'}"
-    [[ $? -ne 0 ]] && return 1
+    pushd "${the_new_dir}" > /dev/null || return
+    settitle "-$(basename $SHELL) : ${PWD/$HOME/'~'}" 2>/dev/null
     the_new_dir=$(pwd)
 
     #
@@ -351,12 +353,12 @@ cd_func() {
     #
     # Remove any other occurence of this dir, skipping the top of the stack
     for ((cnt=1; cnt <= 10; cnt++)); do
-        x2="$(dirs +${cnt} 2>/dev/null)"
-        [[ $? -ne 0 ]] && return 0
+        x2="$(dirs +${cnt} 2>/dev/null)" || return 0
+        # [[ $? -ne 0 ]] && return 0
         [[ ${x2:0:1} == '~' ]] && x2="${HOME}${x2:1}"
         if [[ "${x2}" == "${the_new_dir}" ]]; then
             popd -n +$cnt 2>/dev/null 1>/dev/null
-            cnt=cnt-1
+            cnt=$((cnt-1))
         fi
     done
 

@@ -165,7 +165,7 @@ set mouse=a
 "nmap <F8> :TagbarToggle<CR>
 
 " Pathogen bundle manager:
-call pathogen#infect()
+" call pathogen#infect()
 " map <Leader>n <plug>NERDTreeTabsToggle<CR>
 " map <Leader>t <plug>NERDTreeFocusToggle<CR>
 " let g:nerdtree_tabs_open_on_console_startup=0

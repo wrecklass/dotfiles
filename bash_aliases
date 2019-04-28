@@ -1,11 +1,11 @@
-# Detect which `ls` flavor is in use
+#!/bin/bash
 
 # [[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
 # echo ".bash_aliases"
 
 hub_path=$(command -v hub)
 if [ -n "${hub_path}" ];then
-  alias git="${hub_path}"
+  alias git="\${hub_path}"
 fi
 
 # Lock the screen (when going AFK) MacOS Only
@@ -20,11 +20,11 @@ alias kctx='kubectx'
 # Allow aliases to be sudoed
 alias sudo='sudo '
 
+# Detect which `ls` flavor is in use
+export colorflag="-G"
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
-else # OS X `ls`
-	colorflag="-G"
-fi
+fi # OS X `ls`
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -47,10 +47,11 @@ alias clar=clear
 alias cler=clear
 alias comcast='ftp upload.comcast.net'
 
-colordiff="$(command -v colordiff)"
-if [ "$?" -eq 0 ];then
+command -v colordiff &> /dev/null
+if command -v colordiff &> /dev/null; then
   alias diff='colordiff'
 fi
+
 if [ "$UNAME" == "cygwin" ];then
   alias diff="diff --color"
 fi
@@ -69,7 +70,7 @@ alias get='git'
 complete -o default -o nospace -F _git g
 complete -o default -o nospace -F _git get
 
-alias gc=". $HOME/bin/gitdate && git commit -v "
+alias gc=". \$HOME/bin/gitdate && git commit -v "
 
 alias grep='grep -a --color=always'
 alias gpre='grep -a --color=always'
@@ -150,7 +151,7 @@ alias vm='mv -i'
 alias s7='secure7'
 alias sb='cd /usr/local/streambaby ; ./streambaby_high &> ~/.log/streambaby.log &'
 alias scc='less $HOME/bin/screencheat'
-if [ -x $HOME/bin/vim ];then
+if [ -x "$HOME/bin/vim" ];then
   alias sec='$HOME/bin/vim $HOME/bin/.secret'
 else
   alias sec='/usr/bin/vim $HOME/bin/.secret'
@@ -171,7 +172,7 @@ alias ta='terraform apply ./flagship.plan'
 alias tg='tivoget.rb'
 alias tivo='remote.pyw 192.168.1.20 &'
 alias tivol='remote.pyw --landscape 192.168.1.20 &'
-alias tivokeys="clear;cat $HOME/bin/keys"
+alias tivokeys="clear;cat \$HOME/bin/keys"
 alias tomcat='catalina'
 # alias todo='~/bin/todo.sh'
 # alias t='~/bin/todo.sh'
@@ -185,10 +186,10 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-alias vi="$EDITOR"
-alias vim="$EDITOR"
+alias vi="\$EDITOR"
+alias vim="\$EDITOR"
 alias vib='$EDITOR ~/.bashrc'
-alias iv="$EDITOR"
+alias iv="\$EDITOR"
 
 alias week='date +%V'
 
