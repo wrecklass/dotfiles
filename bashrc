@@ -1,12 +1,24 @@
 #!/bin/bash
 # ulimit -u 1024
 # If not running interactively, don't do anything
-# echo '.bashrc'
+# shellcheck disable=SC1090
+# shellcheck disable=SC1091
 
 case $- in
   *i*) ;;
   *) return;;
 esac
+
+VERBOSE=0
+
+log() {
+    if [ $VERBOSE -eq 1 ];then
+      dt=`date`
+      echo "${dt}-BASHRC[$$]: $*"
+    fi
+}
+
+log '.bashrc'
 
 # DigitalOcean Token:
 export TOKEN='fa3acf68894c3e9e6448989865e92c4c219e2b8f9174a3aec798d32556c75730'
@@ -46,13 +58,17 @@ UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
 
 # Variables specific to the OS environment
-for file in ${HOME}/.shenv/*.${UNAME} ; do
+for file in "${HOME}"/.shenv/*."${UNAME}" ; do
   [[ -r "${file}" ]] && source "${file}" || printf "No such file: %s\n" "${file}"
 done
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  if [ -r ~/.dircolors ];then
+    eval "$(dircolors -b ~/.dircolors)" 
+  else
+    eval "$(dircolors -b)"
+  fi
   alias vdir='vdir --color=auto'
 fi
 
@@ -64,29 +80,39 @@ elif [ -r /usr/local/etc/bash_completion ];then
   source /usr/local/etc/bash_completion
 elif [ -r /etc/bash_completion ];then
   source /etc/bash_completion
-elif [ -r /usr/share/bash-completion/bash_completion ];then
-  source /usr/share/bash-completion/bash_completion
 else
-  echo "No bash_completion script!"
+  log "No bash_completion script!"
 fi
 
 # Import all of the files we use
 #for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
 for file in ~/.{bash_aliases,path,extra,exports}; do
-  #echo ".bash_profile file:${file}"
+  log ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
 
+IGNORE_SUFFIXES=".off ~ ^ , .bak .new .rpmsave .rpmorig .rpmnew .swp"
+
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then
-  for file in ${HOME}/.functions/*
-  do
-    [ -r "${file}" ] && . "${file}"
+  for SCRIPT in "${HOME}"/.functions/*; do
+    SKIP=false
+    for SUFFIX in $IGNORE_SUFFIXES ; do
+      if [ ! "$(basename $SCRIPT $SUFFIX)" = "$(basename $SCRIPT)" ]; then
+        SKIP=true
+        log "Skipping file based on suffix: $SCRIPT"
+        break
+      fi
+    done
+    if [ "$SKIP" = "true" ]; then
+      continue
+    fi
+    [ -r "${SCRIPT}" ] && source "${SCRIPT}"
   done
 else
-  echo "Missing ${HOME}/.functions directory"
-  echo "Make sure the directory hasn't been moved or changed."
+  log "Missing ${HOME}/.functions directory"
+  log "Make sure the directory hasn't been moved or changed."
 fi
 
 unset UNAMECMD

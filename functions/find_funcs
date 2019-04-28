@@ -60,6 +60,7 @@ _ffn() {
     find . -type f -name "$1"
 }
 
+# shellcheck disable=SC2046
 _vif() {
   vi $(find . -name "$1")
 }
