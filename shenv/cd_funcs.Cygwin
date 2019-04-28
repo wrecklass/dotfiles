@@ -4,7 +4,8 @@ alias cd2="_cd2"
 alias cda="_cda"
 alias cdc="_cdc"
 alias cdd="_cdd"
-alias cdo="_cdd"
+alias cdo="_cdot"
+alias cdot="_cdot"
 alias cde="_cde"
 alias cdf="_cdf"
 alias cdg="_cdg"
@@ -69,6 +70,15 @@ _cdd() {
         cd_func "$(cygpath --mydocs)/${*}"
     else
         cd_func "$(cygpath --mydocs)"
+    fi
+}
+
+_cdot() {
+    dir=$(dirname $(ls -ld "$HOME/.bashrc" | awk '{print $NF}'))
+    if [ $# -gt 0 ]; then
+        cd_func "$dir/${*}"
+    else
+        cd_func "$dir"
     fi
 }
 

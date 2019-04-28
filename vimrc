@@ -162,6 +162,8 @@ syntax enable
 "colorscheme SlateDark
 "colorscheme Panda02
 
+packadd! matchit
+
 " Take from the Debian package and the example on $VIM/vim_eaemples
 if has("autocmd")
 
