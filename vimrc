@@ -1,27 +1,27 @@
-" source $VIM/vim70/mswin.vim
-
 " if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 " set filencodings=utf-8,latin1
 " endif
 "
-set encoding=utf8
+" AUTOCOMPLETE
+" :help |ins-completion|
 
+" High-Lights:
+" - ^x^n for JUST this file
+" - ^x^f for Filenames (in subdirectories if turned on)
+" - ^x^] for tags only
+" - ^n for anything specified by the 'complete' option
+
+" NOW We Can:
+" - Use ^n and ^p to go back and forth in the suggestion list
+"
+" END AUTOCOMPLETE
+
+" Set the map keys leader to comma:
 let mapleader = ","
 let g:mapleader = ","
 
-" typing ,w will write file
-nmap <leader>w :w!<cr>
-" typing ,q will write file and quit
-nmap <leader>q :wq<cr>
-
-" Toggle line numbers
-nmap \l :setlocal number!<cr>
-
-" Toggle Paste mode
-nmap \o :setlocal paste!<cr>
-
-" Turn off hlsearch temporarily
-nmap \q :nohlsearch<cr>
+set encoding=utf8
+set nocompatible
 
 set novisualbell
 set noerrorbells
@@ -44,11 +44,24 @@ filetype plugin indent on
 set rtp+=/usr/local/go/misc/vim
 filetype on
 
+""""""""""""""""""""
+" Finding Files:
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+" Dangerous when used in upper level directories
+" set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" End Files Settings
+""""""""""""""""""""
+
 set autoread
 
 " For chess Portable Game Notation (pgn) files:
 " au BufNewFile,BufRead *.pgn setf pgn
-
 
 "Strong Encryption:
 if !has('nvim')
@@ -59,10 +72,10 @@ endif
 set nocindent
 set nosmartindent
 
-
 set ruler
 " set statusline=~
 
+set relativenumber
 set incsearch
 set nobackup
 set hlsearch
@@ -75,6 +88,20 @@ set bs=2
 set switchbuf=usetab,newtab
 
 " set tags=~/src/patchsimple_agent/tags
+
+" typing ,w will write file
+nmap <leader>w :w!<cr>
+" typing ,q will write file and quit
+nmap <leader>q :wq<cr>
+
+" Toggle line numbers
+nmap \l :setlocal number!<cr>
+
+" Toggle Paste mode
+nmap \o :setlocal paste!<cr>
+
+" Turn off hlsearch temporarily
+nmap \q :nohlsearch<cr>
 
 " switch window and maximize
 " map <C-J> <C-W>j<C-W>_
@@ -89,6 +116,10 @@ map <C-l> <C-W>l
 
 " Use ,pp to toggle Paste mode
 map <leader>pp :setlocal paste!<cr>
+
+map <leader>h :nohlsearch<cr>
+
+map <leader>l :setlocal relativenumber!<cr>
 
 " ,m to erase all C-M's in a Dos file. Remembers location
 noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
