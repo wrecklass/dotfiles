@@ -10,6 +10,6 @@ if [[ "$HISTFILE" =~ "tty" ]];then
   # Doesn't seem to work:
   #export HISTFILESIZE=50000
   echo "Buh-bye"
-  sleep 1
+  sleep 0.3
 fi
 

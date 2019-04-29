@@ -1,3 +1,4 @@
+#!/bin/bash
 # To the extent possible under law, the author(s) have dedicated all 
 # copyright and related and neighboring rights to this software to the 
 # public domain worldwide. This software is distributed without any warranty. 
@@ -27,9 +28,8 @@
 # export LANG=$(locale -uU)
 
 # echo "bash_profile"
-for file in ~/.bashrc; do
-  [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
-done
+# shellcheck source=/dev/null
+[[ -r "$HOME/.bashrc" ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 unset file
 
 # Enable some Bash 4 features when possible:
