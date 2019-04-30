@@ -73,11 +73,6 @@ set autoread
 " For chess Portable Game Notation (pgn) files:
 " au BufNewFile,BufRead *.pgn setf pgn
 
-"Strong Encryption:
-if !has('nvim')
-  set cm=blowfish2
-endif
-
 " Indenting:
 set nocindent
 set nosmartindent
