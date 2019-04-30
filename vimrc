@@ -20,6 +20,9 @@
 let mapleader = ","
 let g:mapleader = ","
 
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dark'
+
 set encoding=utf8
 set nocompatible
 
