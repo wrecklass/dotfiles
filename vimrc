@@ -1,3 +1,6 @@
+" ~/.vimrc
+" Section Notes
+
 " if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 " set filencodings=utf-8,latin1
 " endif
@@ -16,12 +19,21 @@
 "
 " END AUTOCOMPLETE
 
+" Section Bootstrap
+
+setglobal nocompatible
+setglobal pastetoggle=<F2>
+
+filetype off
+filetype plugin indent on
+set rtp+=/usr/local/go/misc/vim
+filetype on
+
 " Set the map keys leader to comma:
 let mapleader = ","
 let g:mapleader = ","
 
 set encoding=utf8
-set nocompatible
 
 set novisualbell
 set noerrorbells
@@ -38,11 +50,6 @@ set expandtab
 if has ("gui")
   set guifont=Consolas:h9:cANSI
 endif
-
-filetype off
-filetype plugin indent on
-set rtp+=/usr/local/go/misc/vim
-filetype on
 
 """"""""""""""""""""
 " Finding Files:

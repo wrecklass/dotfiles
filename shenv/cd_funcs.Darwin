@@ -32,7 +32,7 @@ settitle()
 }
 
 _cdot() {
- cd_func "$(dirname \"$(find \"$HOME\"/.bashrc -ls | awk '{print $NF}')\")"
+  cd_func $(dirname $(find "$HOME"/.bashrc -ls | awk '{print $NF}'))
 }
 
 _cda() {
