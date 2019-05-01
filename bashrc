@@ -13,7 +13,7 @@ VERBOSE=0
 
 log() {
     if [ $VERBOSE -eq 1 ];then
-      dt=`date`
+      dt=$(date)
       echo "${dt}-BASHRC[$$]: $*"
     fi
 }
@@ -86,7 +86,7 @@ fi
 
 # Import all of the files we use
 #for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
-for file in ~/.{bash_aliases,path,extra,exports}; do
+for file in ~/.{bash_aliases, path, extra, exports}; do
   log ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done

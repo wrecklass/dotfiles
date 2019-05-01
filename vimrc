@@ -1,3 +1,6 @@
+" ~/.vimrc
+" Section Notes
+
 " if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 " set filencodings=utf-8,latin1
 " endif
@@ -16,16 +19,25 @@
 "
 " END AUTOCOMPLETE
 
+" Section Bootstrap
+
+setglobal nocompatible
+setglobal pastetoggle=<F2>
+
+filetype off
+filetype plugin indent on
+set rtp+=/usr/local/go/misc/vim
+filetype on
+
 " Set the map keys leader to comma:
 let mapleader = ","
 let g:mapleader = ","
 
 " Powerline Font
 let g:airline_powerline_fonts = 1
-let g:airline_theme='cool'
+let g:airline_theme='dark'
 
 set encoding=utf8
-set nocompatible
 
 set novisualbell
 set noerrorbells
@@ -42,11 +54,6 @@ set expandtab
 if has ("gui")
   set guifont=Consolas:h9:cANSI
 endif
-
-filetype off
-filetype plugin indent on
-set rtp+=/usr/local/go/misc/vim
-filetype on
 
 """"""""""""""""""""
 " Finding Files:
@@ -66,11 +73,6 @@ set autoread
 
 " For chess Portable Game Notation (pgn) files:
 " au BufNewFile,BufRead *.pgn setf pgn
-
-"Strong Encryption:
-if !has('nvim')
-  set cm=blowfish2
-endif
 
 " Indenting:
 set nocindent
