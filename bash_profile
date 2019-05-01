@@ -27,7 +27,7 @@
 # Set user-defined locale
 # export LANG=$(locale -uU)
 
-echo "bash_profile"
+# echo "bash_profile"
 # shellcheck source=/dev/null
 [[ $- == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 unset file
