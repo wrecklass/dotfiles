@@ -303,6 +303,12 @@ else
   set autoindent
 endif " has ("autocmd")
 
+augroup remember_folds
+	autocmd!
+	autocmd BufWinLeave * mkview
+	autocmd BufWinEnter * silent! loadview
+augroup END
+
 " Section: Function definitions
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
