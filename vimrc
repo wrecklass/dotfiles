@@ -20,6 +20,10 @@
 let mapleader = ","
 let g:mapleader = ","
 
+" Powerline Font
+let g:airline_powerline_fonts = 1
+let g:airline_theme='cool'
+
 set encoding=utf8
 set nocompatible
 
