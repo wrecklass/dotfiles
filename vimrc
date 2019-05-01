@@ -31,6 +31,7 @@ filetype plugin indent on
 set rtp+=/usr/local/go/misc/vim
 filetype on
 
+" Powerline Font
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 

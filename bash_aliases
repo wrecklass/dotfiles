@@ -201,4 +201,3 @@ alias x='chmod +x '
 
 # alias rout='route add 172.0.0.0 mask 255.0.0.0 '
 
-alias git=hub
