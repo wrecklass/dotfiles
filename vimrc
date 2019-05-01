@@ -173,7 +173,6 @@ setglobal expandtab
 set nocindent
 set nosmartindent
 
-
 setglobal textwidth=78
 setglobal backspace=2
 setglobal complete-=i         " Searching includes can be slow
