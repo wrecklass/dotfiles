@@ -22,9 +22,9 @@
 
 " Section: Bootstrap
 
-setglobal nocompatible
-setglobal pastetoggle=<F2>
-setglobal nobackup
+set nocompatible
+set pastetoggle=<F2>
+set nobackup
 
 filetype off
 filetype plugin indent on
@@ -35,13 +35,13 @@ filetype on
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
-setglobal encoding=utf8
-setglobal autoread
-setglobal switchbuf=usetab,newtab
+set encoding=utf8
+set autoread
+set switchbuf=usetab,newtab
 
 " Use relative number, but show current line number
-setglobal number
-setglobal relativenumber
+set number
+set relativenumber
 
 " viminfo reference:
 " '10  : marks will be remembered to 10 previously edited files
@@ -63,7 +63,7 @@ set smartcase
 set incsearch
 set hlsearch
 set ignorecase
-setglobal path=.,,
+set path=.,,
 
 autocmd FileType c,cpp             setlocal path+=/usr/include include&
 autocmd FileType sh,zsh,csh,tcsh   setlocal include=^\\s*\\%(\\.\\\|source\\)\\s
@@ -112,10 +112,10 @@ noremap <leader>p :cp<cr>
 
 " Section: Displaying text
 
-setglobal display=lastline
-setglobal scrolloff=2
-setglobal sidescrolloff=5
-setglobal lazyredraw
+set display=lastline
+set scrolloff=2
+set sidescrolloff=5
+set lazyredraw
 set cmdheight=2
 
 " Section: Windows
@@ -128,10 +128,10 @@ if empty(&g:statusline)
   "set statusline=%<%-40.50F\ %h%m%r=%-14.(%l/%L,%c%V%)\ %P
   set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 endif
-setglobal titlestring=%{v:progname}\ %{tolower(empty(v:servername)?'':'--servername\ '.v:servername.'\ ')}%{fnamemodify(getcwd(),':~')}%{exists('$SSH_TTY')?'\ <'.hostname().'>':''}
-setglobal iconstring=%{tolower(empty(v:servername)?v:progname\ :\ v:servername)}%{exists('$SSH_TTY')?'@'.hostname():''}
+set titlestring=%{v:progname}\ %{tolower(empty(v:servername)?'':'--servername\ '.v:servername.'\ ')}%{fnamemodify(getcwd(),':~')}%{exists('$SSH_TTY')?'\ <'.hostname().'>':''}
+set iconstring=%{tolower(empty(v:servername)?v:progname\ :\ v:servername)}%{exists('$SSH_TTY')?'@'.hostname():''}
 
-autocmd SourcePre */macros/less.vim setglobal laststatus=0 showtabline=0
+autocmd SourcePre */macros/less.vim set laststatus=0 showtabline=0
 
 " From tpope C-j and C-k just toggle
 nnoremap <C-j> <C-w>w
@@ -146,8 +146,8 @@ nnoremap <C-l> <C-W>l
 " Section: GUI
 
 " Don't use GVim...
-setglobal mousemodel=popup
-setglobal mouse=a
+set mousemodel=popup
+set mouse=a
 " Allow the mouse to interact with tabs:
 if has ("gui")
   set guifont=Consolas:h9:cANSI
@@ -165,36 +165,36 @@ set tm=500
 " Section: Editing text and indent
 
 " Tabs:
-setglobal tabstop=2
-setglobal shiftwidth=2
-setglobal expandtab
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " Indenting:
 set nocindent
 set nosmartindent
 
-setglobal textwidth=78
-setglobal backspace=2
-setglobal complete-=i         " Searching includes can be slow
-setglobal infercase
-setglobal showmatch
-setglobal virtualedit=block
+set textwidth=78
+set backspace=2
+set complete-=i         " Searching includes can be slow
+set infercase
+set showmatch
+set virtualedit=block
 
-setglobal noshiftround
-setglobal nosmarttab
-setglobal noautoindent
-setglobal omnifunc=syntaxcomplete#Complete
-setglobal completefunc=syntaxcomplete#Complete
+set noshiftround
+set nosmarttab
+set noautoindent
+set omnifunc=syntaxcomplete#Complete
+set completefunc=syntaxcomplete#Complete
 
 autocmd FileType json set sw=2 et
 
 " Section: Folding and Comments
 
 if has('folding')
-  setglobal foldmethod=manual
-  setglobal foldopen+=jump
+  set foldmethod=manual
+  set foldopen+=jump
 endif
-" setglobal commentstring=\"%s
+" set commentstring=\"%s
 
 
 autocmd FileType c,cpp,cs,java        setlocal commentstring=//\ %s
@@ -210,8 +210,8 @@ autocmd FileType xdefaults            setlocal commentstring=!%s
 let mapleader = ","
 let g:mapleader = ","
 
-setglobal timeoutlen=2500
-setglobal ttimeoutlen=100
+set timeoutlen=2500
+set ttimeoutlen=100
 
 if has('digraphs')
   digraph ,. 8230
@@ -256,8 +256,8 @@ noremap <c-space> ?
 
 " Section: Reading and writing files
 
-setglobal fileformats=unix,dos
-setglobal backupskip+=/private/tmp/*
+set fileformats=unix,dos
+set backupskip+=/private/tmp/*
 
 " Section: Command line editing
 
@@ -302,12 +302,6 @@ if has("autocmd")
 else
   set autoindent
 endif " has ("autocmd")
-
-augroup remember_folds
-	autocmd!
-	autocmd BufWinLeave * mkview
-	autocmd BufWinEnter * silent! loadview
-augroup END
 
 " Section: Function definitions
 
@@ -376,7 +370,7 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
-setglobal backupskip+=*.asc
+set backupskip+=*.asc
 " set viminfo=
 
 augroup GPG
@@ -388,4 +382,4 @@ augroup GPG
   autocmd VimLeave     *.asc :!clear
 augroup END
 
-"vim: set et sw=2 foldmethod=manual
+" vim: set et sw=2 foldmethod=manual

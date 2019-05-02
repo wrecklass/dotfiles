@@ -173,7 +173,6 @@ alias tg='tivoget.rb'
 alias tivo='remote.pyw 192.168.1.20 &'
 alias tivol='remote.pyw --landscape 192.168.1.20 &'
 alias tivokeys="clear;cat \$HOME/bin/keys"
-alias tomcat='catalina'
 # alias todo='~/bin/todo.sh'
 # alias t='~/bin/todo.sh'
 alias xtar="tar xvf"
