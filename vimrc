@@ -173,7 +173,7 @@ set expandtab
 set nocindent
 set nosmartindent
 
-set textwidth=78
+set textwidth=0
 set backspace=2
 set complete-=i         " Searching includes can be slow
 set infercase
