@@ -1,4 +1,5 @@
 " ~/.vimrc
+" Tue May  7 15:06:37 MDT 2019
 
 " Section: Notes
 
@@ -123,6 +124,7 @@ set cmdheight=2
 set ruler
 set laststatus=2
 set showtabline=2
+
 " When using airline, this doesn't matter
 if empty(&g:statusline)
   "set statusline=%<%-40.50F\ %h%m%r=%-14.(%l/%L,%c%V%)\ %P
@@ -186,21 +188,18 @@ set noautoindent
 set omnifunc=syntaxcomplete#Complete
 set completefunc=syntaxcomplete#Complete
 
-autocmd FileType json set sw=2 et
-
 " Section: Folding and Comments
 
 if has('folding')
   set foldmethod=manual
   set foldopen+=jump
 endif
-" set commentstring=\"%s
-
 
 autocmd FileType c,cpp,cs,java        setlocal commentstring=//\ %s
 autocmd FileType desktop              setlocal commentstring=#\ %s
 autocmd FileType sql                  setlocal commentstring=--\ %s
 autocmd FileType xdefaults            setlocal commentstring=!%s
+autocmd FileType json set sw=2 et
 
 " Using vim-commentary for comment toggle
 
@@ -284,7 +283,8 @@ if has("autocmd")
         \  endif
 
   set viminfo^=%
-  au FileType text set tw=78
+  " ********* Don't like tw != 0 *********
+  " au FileType text set tw=78
 
   " Set some sensible defaults for editing C-files
   " augroup cprog
@@ -371,7 +371,6 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 set backupskip+=*.asc
-" set viminfo=
 
 augroup GPG
   autocmd!
