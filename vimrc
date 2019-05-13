@@ -217,8 +217,14 @@ if has('digraphs')
   digraph ,. 8230
 endif
 
+cnoremap <C-a>        <Home>
+cnoremap <C-b>        <Left>
+cnoremap <C-f>        <Right>
+cnoremap <C-d>        <Delete>
+cnoremap <C-g>        <C-c>
+
 inoremap <C-J>        <Down>
-inoremap <C-K><C-K>   <Up>
+" inoremap <C-K><C-K>   <Up>
 
 " typing ,w will write file
 nnoremap <leader>w :w!<cr>
@@ -227,21 +233,21 @@ nnoremap <leader>q :wq<cr>
 
 " Toggle line numbers
 nnoremap \l :setlocal number!<cr>
-
-" Toggle Paste mode
-nnoremap \o :setlocal paste!<cr>
+noremap <leader>l :setlocal relativenumber!<cr>
 
 " Turn off hlsearch temporarily
 nnoremap \q :nohlsearch<cr>
+noremap <leader>h :nohlsearch<cr>
+
+" Toggle case sensitive search
+nnoremap <leader>i :setlocal ic!<cr>
+
 " noremap j gj
 " noremap k gk
 
 " Use ,pp to toggle Paste mode
 noremap <leader>pp :setlocal paste!<cr>
-
-noremap <leader>h :nohlsearch<cr>
-
-noremap <leader>l :setlocal relativenumber!<cr>
+nnoremap \o :setlocal paste!<cr>
 
 " ,m to erase all C-M's in a Dos file. Remembers location
 noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
