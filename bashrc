@@ -23,7 +23,7 @@ log '.bashrc'
 # DigitalOcean Token:
 export TOKEN='fa3acf68894c3e9e6448989865e92c4c219e2b8f9174a3aec798d32556c75730'
 
-CDPATH="~:~/src"
+CDPATH=".:~:~/src"
 
 shopt -s cdspell
 shopt -s dirspell
@@ -60,8 +60,14 @@ UNAMECMD=$(command -v uname)
 UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
 
+FZF=$(command -v fzf)
 # Variables specific to the OS environment
 for file in "${HOME}"/.shenv/*."${UNAME}" ; do
+  if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
+    # printf "Not sourcing %s\n" "${file}"
+    continue
+  fi
+  # printf "Sourcing %s\n" "${file}"
   [[ -r "${file}" ]] && source "${file}" || printf "No such file: %s\n" "${file}"
 done
 

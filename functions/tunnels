@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Stash Tunnel
 function stashTunnel() {
   ssh -L 7999:69.76.27.1:7999 globaljump
+}
+
+# JenkinsDocker tunnel
+function jdtunnel() {
+  sudo ssh  -i /Users/p2708440/.ssh/id_rsa  -L443:69.76.27.8:443 p2708440@66.74.164.102
 }

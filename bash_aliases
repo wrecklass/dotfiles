@@ -159,6 +159,7 @@ fi
 alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
 # alias sensu='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user sensu'
 alias svi='sudo vim'
+alias via='vi ~/.ssh/assh.yml'
 alias sw='telnet  towel.blinkenlights.nl'
 alias sx='startxwin.sh > .xwin_errors 2>&1'
 
