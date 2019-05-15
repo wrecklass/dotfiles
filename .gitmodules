@@ -16,3 +16,9 @@
 [submodule "vim/pack/airblade/start/vim-gitgutter"]
 	path = vim/pack/airblade/start/vim-gitgutter
 	url = ssh://git@github.com/airblade/vim-gitgutter
+[submodule "vim/pack/tpope/start/eunuch"]
+	path = vim/pack/tpope/start/eunuch
+	url = https://tpope.io/vim/eunuch.git
+[submodule "vim/pack/scrooloose/start/nerdtree"]
+	path = vim/pack/scrooloose/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
