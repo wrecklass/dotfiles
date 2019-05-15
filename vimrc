@@ -263,9 +263,6 @@ noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 noremap <space> /
 noremap <c-space> ?
 
-" noremap \ :'a,'bs/^/  /g<C-M>
-" noremap = :'a,'bs/^ //g<C-M>
-
 " noremap <leader>s ?(<CR>ldt,pldt)%p
 
 " Section: Reading and writing files
