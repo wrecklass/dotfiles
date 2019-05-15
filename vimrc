@@ -224,6 +224,8 @@ if has('digraphs')
   digraph ,. 8230
 endif
 
+nmap      <C-n>        :NERDTreeToggle<CR>
+
 cnoremap <C-a>        <Home>
 cnoremap <C-b>        <Left>
 cnoremap <C-f>        <Right>
