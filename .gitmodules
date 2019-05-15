@@ -19,3 +19,6 @@
 [submodule "vim/pack/scrooloose/start/nerdtree"]
 	path = vim/pack/scrooloose/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/pack/tpope/start/surround"]
+	path = vim/pack/tpope/start/surround
+	url = https://tpope.io/surround
