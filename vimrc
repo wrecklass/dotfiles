@@ -45,12 +45,11 @@ set number
 set relativenumber
 
 " viminfo reference:
-" '10  : marks will be remembered to 10 previously edited files
+" '20  : marks will be remembered to 20 previously edited files
 " "100 : will saveup to 100 lines for each register
-" :20  : up to 20 lines of command line history will be remembered
+" :100  : up to 100 lines of command line history will be remembered
 " %    : saves and restores buffer list
-" n... : Name and locateion of viminfo file
-" set viminfo='10,\"100,:20,%,n~/.viminfo
+" n... : Name and location of viminfo file
 set viminfo='20,\"100,:100,%,n~/.viminfo
 
 " syntax on
@@ -59,7 +58,6 @@ syntax enable
 packadd! matchit
 
 " Section: Moving around, searching, patterns and tags
-
 
 " Set the cursor to different sizes for Insert, Replace and Normal mode
 " Insert = | (Bar Cursor)
@@ -220,6 +218,7 @@ let g:mapleader = ","
 
 set timeoutlen=2500
 set ttimeoutlen=100
+set updatetime=500
 
 if has('digraphs')
   digraph ,. 8230
@@ -295,6 +294,7 @@ if has("autocmd")
         \  endif
 
   set viminfo^=%
+
   " ********* Don't like tw != 0 *********
   " au FileType text set tw=78
 
