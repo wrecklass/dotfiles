@@ -7,8 +7,8 @@
 [submodule "vim/pack/tpope/start/fugitive"]
 	path = vim/pack/tpope/start/fugitive
 	url = https://tpope.io/vim-fugitive.git
-[submodule "vim/pack/tpope/start/airline"]
-	path = vim/pack/tpope/start/airline
+[submodule "vim/pack/tpope/start/vim-airline"]
+	path = vim/pack/tpope/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
 [submodule "vim/pack/tpope/start/vim-airline-themes"]
 	path = vim/pack/tpope/start/vim-airline-themes
