@@ -60,6 +60,15 @@ packadd! matchit
 
 " Section: Moving around, searching, patterns and tags
 
+
+" Set the cursor to different sizes for Insert, Replace and Normal mode
+" Insert = | (Bar Cursor)
+" Replace = _ (Underscore)
+
+let &t_SI="\<Esc>[5 q"
+let &t_SR="\<Esc>[3 q"
+let &t_EI="\<Esc>[0 q"
+
 set smartcase
 set incsearch
 set hlsearch
