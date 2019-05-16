@@ -95,7 +95,7 @@ fi
 
 # Import all of the files we use
 #for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
-for file in ~/.{bash_aliases,path,extra,exports}; do
+for file in ~/.{bash_aliases,path,extra,exports,override}; do
   log ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done

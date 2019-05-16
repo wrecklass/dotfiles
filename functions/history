@@ -20,6 +20,10 @@ _h () {
     fi
 }
 
+if [[ ! -e "${HOME}/.bash_history_tmp" ]];then
+  cp "${HOME}/.bash_history" "${HOME}/.bash_history_tmp"
+fi
+
 export PROMPT_COMMAND="_bash_history_sync;$PROMPT_COMMAND"
 # printf "Prompt Command %s\n" "$PROMPT_COMMAND"
 export PROMPT_COMMAND
