@@ -40,7 +40,7 @@ shopt -s histappend
 # Change to specific history file
 TTY="$(basename $(tty))"
 tmpHISTFile="$HOME/.history/history_session.$TTY"
-cat "$HOME/.bash_history_tmp" | tail -n 10000 >> "$tmpHISTFile"
+cat "$HOME/.bash_history_tmp" | tail -n 5000 >> "$tmpHISTFile"
 
 # Store lots of history to go back in time
 # And file size stored
