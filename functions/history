@@ -7,7 +7,7 @@ _bash_history_sync() {
   builtin history -r
 }
 
-history() {
+function history() {
   _bash_history_sync
   builtin history "$@"
 }
