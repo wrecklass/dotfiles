@@ -35,6 +35,10 @@ _dush() {
   }'
 }
 
+path() {
+  echo "$PATH" | sed -e 's/:/\n/g'
+}
+
 
 # Determine size of a file or total size of a directory
 fs() {
