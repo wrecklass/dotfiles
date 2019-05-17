@@ -64,8 +64,8 @@ fi
 export HOMEBREW_GITHUB_API_TOKEN='8be9d6431b1f00d3890ace3db33202189416f4c0'
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/p2708440/src/google-cloud-sdk/path.bash.inc' ]; then source '/Users/p2708440/src/google-cloud-sdk/path.bash.inc'; fi
+if [ -f "${HOME}/src/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/src/google-cloud-sdk/path.bash.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/p2708440/src/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/p2708440/src/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f "${HOME}/src/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/src/google-cloud-sdk/completion.bash.inc"; fi
 
