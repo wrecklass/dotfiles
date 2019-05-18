@@ -107,7 +107,7 @@ plugins=(
 )
 
 function powerline_precmd() {
-    PS1="$($GOPATH/bin/powerline-go -modules 'nix-shell,venv,user,host,ssh,cwd,perms,jobs,newline,git,hg,exit,root' -numeric-exit-codes -colorize-hostname -cwd-mode plain -error $? -shell zsh)"
+  PS1="$($GOPATH/bin/powerline-go -modules 'nix-shell,venv,user,host,ssh,cwd,perms,jobs,newline,git,hg,exit,root' -numeric-exit-codes -colorize-hostname -newline -cwd-mode plain -error $? -shell zsh)"
 }
 
 function install_powerline_precmd() {
@@ -120,7 +120,9 @@ function install_powerline_precmd() {
 }
 
 if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
+  install_powerline_precmd
+else
+  source $HOME/.bash_prompt
 fi
 
 export PATH="/usr/local/Cellar/coreutils/8.30/libexec/gnubin:$PATH"

@@ -36,8 +36,6 @@ alias -- -="cd -"
 alias sal='source ~/.bash_aliases'
 #alias b64="build64"
 
-alias code='/Users/smartin/Applications/Visual Studio Code.app//Contents/Resources/app/bin/code'
-
 # common typos
 # Because I'm occasionally dislexic:
 alias cate='cat'
