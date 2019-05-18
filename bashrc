@@ -12,13 +12,13 @@ esac
 VERBOSE=0
 
 log() {
-    if [ $VERBOSE -eq 1 ];then
-      dt=$(date)
-      echo "${dt}-BASHRC[$$]: $*"
+    if [ "$VERBOSE" -eq 1 ];then
+      dt="$(date)"
+      printf "%s-%s: %s\n" "${dt}" "BASHRC[$$]" "$*"
     fi
 }
 
-log '.bashrc'
+log ".bashrc"
 
 CDPATH=".:~:~/src"
 
@@ -47,7 +47,7 @@ export LESS='FXR'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 
 # Make sure we only source this once
-# [[ -z ${CYG_HOME_BASHRC} ]] && CYG_HOME_BASHRC="1" || return 0
+# [[ -z "${CYG_HOME_BASHRC}" ]] && CYG_HOME_BASHRC="1" || return 0
 
 UNAMECMD=$(command -v uname)
 : ${HOME=~}
@@ -69,9 +69,9 @@ for file in "${HOME}"/.shenv/*."${UNAME}" ; do
 done
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
+if [ -x '/usr/bin/dircolors' ]; then
   if [ -r ~/.dircolors ];then
-    eval "$(dircolors -b ~/.dircolors)" 
+    eval "$(dircolors -b '~/.dircolors')" 
   else
     eval "$(dircolors -b)"
   fi
@@ -80,12 +80,12 @@ fi
 
 export PATH
 
-if [ -r /usr/share/bash-completion/bash_completion ];then
-  source /usr/share/bash-completion/bash_completion
-elif [ -r /usr/local/etc/bash_completion ];then
-  source /usr/local/etc/bash_completion
-elif [ -r /etc/bash_completion ];then
-  source /etc/bash_completion
+if [ -r "/usr/share/bash-completion/bash_completion" ];then
+  source "/usr/share/bash-completion/bash_completion"
+elif [ -r "/usr/local/etc/bash_completion" ];then
+  source "/usr/local/etc/bash_completion"
+elif [ -r "/etc/bash_completion" ];then
+  source "/etc/bash_completion"
 else
   log "No bash_completion script!"
 fi

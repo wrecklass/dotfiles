@@ -1,6 +1,6 @@
-.PHONY: all bin dotfiles submodules
+.PHONY: all dotfiles submodules
 
-all: bin dotfiles
+all: dotfiles
 
 submodules:
 	git submodule init ./vim/pack
