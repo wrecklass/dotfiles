@@ -4,7 +4,13 @@ alias cdd="_cdd"
 alias cde="_cde"
 alias cdl="_cdl"
 alias mkcd="_mkcd"
+alias cdot="_cdot"
+alias cdo="_cdot"
 alias cd="cd_func"
+
+_cdot() {
+  cd_func $(dirname $(find "$HOME"/.bashrc -ls | awk '{print $NF}'))
+}
 
 _cdd() {
     if [ $# -gt 0 ]; then

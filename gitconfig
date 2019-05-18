@@ -112,7 +112,7 @@
   # Clean up and start some new work
   bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
   # Rename 'branch' to 'done-branch'
-  done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
+  done = "!f() { git branch | grep \"$1\" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
 
   # Mark a file to make git assume it is unchanged (don't commit it)
   assume = update-index --assume-unchanged
@@ -173,8 +173,8 @@
   sa = stash apply
   ss = stash save
 [user]
-	name = Stephen.W.Martin
-	email = stephen.w.martin@charter.com
+	name = Stephen Martin
+	email = smartin5590@gmail.com
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 

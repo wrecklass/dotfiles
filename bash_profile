@@ -29,7 +29,7 @@
 
 # echo "bash_profile"
 # shellcheck source=/dev/null
-[[ -r "$HOME/.bashrc" ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+[[ $- == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 unset file
 
 # Enable some Bash 4 features when possible:
@@ -62,8 +62,8 @@ if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]];then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/p2708440/src/google-cloud-sdk/path.bash.inc' ]; then source '/Users/p2708440/src/google-cloud-sdk/path.bash.inc'; fi
+if [ -f "${HOME}/src/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/src/google-cloud-sdk/path.bash.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/p2708440/src/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/p2708440/src/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f "${HOME}/src/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/src/google-cloud-sdk/completion.bash.inc"; fi
 

@@ -4,7 +4,8 @@ alias cd2="_cd2"
 alias cda="_cda"
 alias cdc="_cdc"
 alias cdd="_cdd"
-alias cdo="_cdd"
+alias cdo="_cdot"
+alias cdot="_cdot"
 alias cde="_cde"
 alias cdf="_cdf"
 alias cdg="_cdg"
@@ -35,10 +36,10 @@ export PROGDIR_X86
 # ctrl-w shows the menu
 # bind -x "\"\C-w\":cd_func -- ;"
 
-settitle()
-{
-  echo -ne "\e]2;$@\a\e]1;$@\a";
-}
+# settitle()
+# {
+#   echo -ne "\e]2;$@\a\e]1;$@\a";
+# }
 
 _cd2() {
     if [ $# -gt 0 ]; then
@@ -69,6 +70,15 @@ _cdd() {
         cd_func "$(cygpath --mydocs)/${*}"
     else
         cd_func "$(cygpath --mydocs)"
+    fi
+}
+
+_cdot() {
+    dir=$(dirname $(find "$HOME/.bashrc" -ls | awk '{print $NF}'))
+    if [ $# -gt 0 ]; then
+        cd_func "$dir/${*}"
+    else
+        cd_func "$dir"
     fi
 }
 
@@ -343,7 +353,7 @@ cd_func() {
     #
     # Now change to the new dir and add to the top of the stack
     pushd "${the_new_dir}" > /dev/null || return
-    settitle "-$(basename $SHELL) : ${PWD/$HOME/'~'}" 2>/dev/null
+    # settitle "-$(basename $SHELL) : ${PWD/$HOME/'~'}" 2>/dev/null
     the_new_dir=$(pwd)
 
     #
@@ -362,7 +372,7 @@ cd_func() {
         fi
     done
 
-    settitle "-$(basename $SHELL) : ${PWD/$HOME/'~'}"
+    # settitle "-$(basename $SHELL) : ${PWD/$HOME/'~'}"
     return 0
 }
 

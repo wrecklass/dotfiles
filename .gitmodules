@@ -1,0 +1,24 @@
+[submodule "vim/pack/tpope/start/commentary"]
+	path = vim/pack/tpope/start/commentary
+	url = https://tpope.io/vim/commentary.git
+[submodule "vim/pack/tpope/start/fugitive"]
+	path = vim/pack/tpope/start/fugitive
+	url = https://tpope.io/vim-fugitive.git
+[submodule "vim/pack/tpope/start/vim-airline"]
+	path = vim/pack/tpope/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "vim/pack/tpope/start/vim-airline-themes"]
+	path = vim/pack/tpope/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "vim/pack/airblade/start/vim-gitgutter"]
+	path = vim/pack/airblade/start/vim-gitgutter
+	url = ssh://git@github.com/airblade/vim-gitgutter
+[submodule "vim/pack/tpope/start/eunuch"]
+	path = vim/pack/tpope/start/eunuch
+	url = https://tpope.io/vim/eunuch.git
+[submodule "vim/pack/scrooloose/start/nerdtree"]
+	path = vim/pack/scrooloose/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/pack/tpope/start/surround"]
+	path = vim/pack/tpope/start/surround
+	url = https://tpope.io/surround

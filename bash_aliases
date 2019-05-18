@@ -36,8 +36,6 @@ alias -- -="cd -"
 alias sal='source ~/.bash_aliases'
 #alias b64="build64"
 
-alias code='/Users/smartin/Applications/Visual Studio Code.app//Contents/Resources/app/bin/code'
-
 # common typos
 # Because I'm occasionally dislexic:
 alias cate='cat'
@@ -159,6 +157,7 @@ fi
 alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
 # alias sensu='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user sensu'
 alias svi='sudo vim'
+alias via='vi ~/.ssh/assh.yml'
 alias sw='telnet  towel.blinkenlights.nl'
 alias sx='startxwin.sh > .xwin_errors 2>&1'
 
@@ -173,7 +172,6 @@ alias tg='tivoget.rb'
 alias tivo='remote.pyw 192.168.1.20 &'
 alias tivol='remote.pyw --landscape 192.168.1.20 &'
 alias tivokeys="clear;cat \$HOME/bin/keys"
-alias tomcat='catalina'
 # alias todo='~/bin/todo.sh'
 # alias t='~/bin/todo.sh'
 alias xtar="tar xvf"

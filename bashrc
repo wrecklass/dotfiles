@@ -1,17 +1,29 @@
 #!/bin/bash
 # ulimit -u 1024
 # If not running interactively, don't do anything
-#echo ".bashrc"
+# shellcheck disable=SC1090
+# shellcheck disable=SC1091
 
 case $- in
   *i*) ;;
   *) return;;
 esac
 
-# DigitalOcean Token:
-export TOKEN='fa3acf68894c3e9e6448989865e92c4c219e2b8f9174a3aec798d32556c75730'
+VERBOSE=0
+
+log() {
+    if [ $VERBOSE -eq 1 ];then
+      dt=$(date)
+      echo "${dt}-BASHRC[$$]: $*"
+    fi
+}
+
+log '.bashrc'
+
+CDPATH=".:~:~/src"
 
 shopt -s cdspell
+shopt -s dirspell
 shopt -s nocaseglob
 shopt -s hostcomplete
 shopt -s no_empty_cmd_completion
@@ -45,14 +57,24 @@ UNAMECMD=$(command -v uname)
 UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
 
+FZF=$(command -v fzf)
 # Variables specific to the OS environment
-for file in ${HOME}/.shenv/*.${UNAME} ; do
+for file in "${HOME}"/.shenv/*."${UNAME}" ; do
+  if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
+    # printf "Not sourcing %s\n" "${file}"
+    continue
+  fi
+  # printf "Sourcing %s\n" "${file}"
   [[ -r "${file}" ]] && source "${file}" || printf "No such file: %s\n" "${file}"
 done
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  if [ -r ~/.dircolors ];then
+    eval "$(dircolors -b ~/.dircolors)" 
+  else
+    eval "$(dircolors -b)"
+  fi
   alias vdir='vdir --color=auto'
 fi
 
@@ -64,29 +86,30 @@ elif [ -r /usr/local/etc/bash_completion ];then
   source /usr/local/etc/bash_completion
 elif [ -r /etc/bash_completion ];then
   source /etc/bash_completion
-elif [ -r /usr/share/bash-completion/bash_completion ];then
-  source /usr/share/bash-completion/bash_completion
 else
-  echo "No bash_completion script!"
+  log "No bash_completion script!"
 fi
 
 # Import all of the files we use
 #for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
-for file in ~/.{bash_aliases,path,extra,exports}; do
-  #echo ".bash_profile file:${file}"
+for file in ~/.{bash_aliases,path,extra,exports,override}; do
+  log ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
 
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then
-  for file in ${HOME}/.functions/*
-  do
-    [ -r "${file}" ] && . "${file}"
+  for SCRIPT in "${HOME}"/.functions/*; do
+    if [[ "${SCRIPT}" =~ "settitle" ]];then
+      continue
+    fi
+    [ -r "${SCRIPT}" ] && source "${SCRIPT}"
   done
 else
-  echo "Missing ${HOME}/.functions directory"
-  echo "Make sure the directory hasn't been moved or changed."
+  log "Missing ${HOME}/.functions directory"
+  log "Make sure the directory hasn't been moved or changed."
 fi
 
 unset UNAMECMD
+
