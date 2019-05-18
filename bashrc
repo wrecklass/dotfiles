@@ -20,9 +20,6 @@ log() {
 
 log '.bashrc'
 
-# DigitalOcean Token:
-export TOKEN='fa3acf68894c3e9e6448989865e92c4c219e2b8f9174a3aec798d32556c75730'
-
 CDPATH=".:~:~/src"
 
 shopt -s cdspell

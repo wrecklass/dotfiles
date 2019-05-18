@@ -7,4 +7,5 @@ function vimdoc() {
     echo vim -u NONE -c "helptags ${dir}" -c q
     vim -u NONE -c "helptags ${dir}" -c q
   done
+  cd -
 }
