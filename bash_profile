@@ -29,7 +29,8 @@
 
 # echo "bash_profile"
 # shellcheck source=/dev/null
-[[ "$-" == "*i*" ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+
+[[ "$-" == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 unset file
 
 # Enable some Bash 4 features when possible:
