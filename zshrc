@@ -12,6 +12,9 @@ export HISTCONTROL='erasedups:ignoreboth'
 export HISTIGNORE="x:h:history:ls:ps:ll:exit"
 export HISTSIZE=7000
 export HISTFILESIZE=${HISTSIZE}
+export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+export LESS='FXR'
+export LSCOLORS='Gxfxcxdxdxegedabagacad'
 ################################# END MY DATA ################################
 
 # Path to your oh-my-zsh installation.
