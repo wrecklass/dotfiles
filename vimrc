@@ -36,6 +36,8 @@ filetype on
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
+set background=dark
+
 set encoding=utf8
 set autoread
 set switchbuf=usetab,newtab
@@ -99,29 +101,10 @@ noremap <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><righ
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 
-" Do :help cope if you are unsure what cope is. It's super useful!
-"
-" When you search with vimgrep, display your results in cope by doing:
-"   <leader>cc
-"
-" To go to the next search result do:
-"   <leader>n
-"
-" To go to the previous search results do:
-"   <leader>p
-"
-" Open the error file in a new Tab by switchign to the buffer and:
-"   <leader>co
-"
-noremap <leader>cc :botright cope<cr>
-noremap <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-noremap <leader>n :cn<cr>
-noremap <leader>p :cp<cr>
-
 " Section: Displaying text
 
 set display=lastline
-set scrolloff=2
+set scrolloff=999
 set sidescrolloff=5
 set lazyredraw
 set cmdheight=2
@@ -170,6 +153,7 @@ set noerrorbells
 set showcmd
 set t_vb=
 set tm=500
+set t_Co=256
 
 " Section: Editing text and indent
 
@@ -183,6 +167,8 @@ set nocindent
 set nosmartindent
 
 set textwidth=0
+" set colorcolumn=80
+set cursorline
 set backspace=2
 set complete-=i         " Searching includes can be slow
 set infercase
@@ -225,12 +211,42 @@ if has('digraphs')
 endif
 
 nmap     <C-n>        :NERDTreeToggle<CR>
+nmap     <leader>n    :NERDTreeToggle<CR>
+map      \|           :NERDTreeFind<CR>
 
 cnoremap <C-a>        <Home>
 cnoremap <C-b>        <Left>
 cnoremap <C-f>        <Right>
 cnoremap <C-d>        <Delete>
 cnoremap <C-g>        <C-c>
+
+" avoid accidentally holding down shift while typing :w :q &c.
+cabbrev  W   w
+cabbrev  Q   q
+cabbrev  Wq  wq
+
+" Use Cap-Q for macros, to avoid accidentlly starting them with q
+" which gets annoying
+noremap  Q   q
+noremap  q   <Nop>
+
+" Map jj to Escape easily
+" Really helpful when in insert mode and start typing j to navigate
+inoremap jj  <Esc>
+
+" Remap Y to be consistent with C and D
+map Y y$
+
+" Source vimrc without restarting vim
+" mnemonics Vimrc or Source
+map      <leader>V           :source $MYVIMRC<CR>
+map      <leader>S           :source $MYVIMRC<CR>
+
+" Easy split vertical
+nnoremap  <leader>v    :vs<CR>
+
+"  ,s to start a substitution
+noremap <leader>s   :%s/
 
 inoremap <C-J>        <Down>
 " inoremap <C-K><C-K>   <Up>

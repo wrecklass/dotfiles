@@ -22,3 +22,12 @@
 [submodule "vim/pack/tpope/start/surround"]
 	path = vim/pack/tpope/start/surround
 	url = https://tpope.io/surround
+[submodule "vim/pack/ervandew/start/supertab"]
+	path = vim/pack/ervandew/start/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "vim/pack/plasticboy/start/vim-markdown"]
+	path = vim/pack/plasticboy/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
+[submodule "vim/pack/godlygeek/start/tabular"]
+	path = vim/pack/godlygeek/start/tabular
+	url = https://github.com/godlygeek/tabular
