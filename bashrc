@@ -50,8 +50,8 @@ export LSCOLORS='Gxfxcxdxdxegedabagacad'
 # [[ -z "${CYG_HOME_BASHRC}" ]] && CYG_HOME_BASHRC="1" || return 0
 
 UNAMECMD=$(command -v uname)
-: ${HOME=~}
-: ${UNAME=$($UNAMECMD -s | tr '[:upper:]' '[:lower:]')}
+: "${HOME=~}"
+: "${UNAME=$($UNAMECMD -s | tr '[:upper:]' '[:lower:]')}"
 # Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
 # To make sourcing our defaults environment easier.
 UNAME="${UNAME/cygwin*/cygwin}"
@@ -70,10 +70,10 @@ done
 
 # enable color support of ls and also add handy aliases
 if [ -x '/usr/bin/dircolors' ]; then
-  if [ -r "~/.dircolors" ];then
-    eval $(dircolors -b "~/.dircolors") 
+  if [ -r "${HOME}/dircolors" ];then
+    eval "$(dircolors -b "${HOME}/dircolors")" 
   else
-    eval $(dircolors -b)
+    eval "$(dircolors -b)"
   fi
   alias vdir='vdir --color=auto'
 fi

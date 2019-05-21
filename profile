@@ -1,3 +1,4 @@
+#!/bin/bash
 # To the extent possible under law, the author(s) have dedicated all 
 # copyright and related and neighboring rights to this software to the 
 # public domain worldwide. This software is distributed without any warranty. 
@@ -29,14 +30,18 @@
 # This file is not read by bash(1) if ~/.bash_profile or ~/.bash_login
 # exists.
 #
+# Use shellcheck -x to allow the proper sourcing.
+
 # if running bash
 # echo ".profile"
 if [ -n "${BASH_VERSION}" ]; then
   if [ -f "${HOME}/.bash_profile" ]; then
     # This will source .bashrc for us.
+    # shellcheck source=./bash_profile
     source "${HOME}/.bash_profile"
   elif [ -f "${HOME}/.bashrc" ]; then
     # Ok, so we do it ourselves
+    # shellcheck source=./bashrc
     source "${HOME}/.bashrc"
   fi
 fi

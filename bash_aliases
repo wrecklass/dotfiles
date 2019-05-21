@@ -91,13 +91,6 @@ alias ppath='echo -e ${PATH//:/\\n}'
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-if ipconfig > /dev/null 2>&1; then # Windows ipconfig
-  alias localip="ipconfig | grep IPv4 | awk -F':' '{print \$2}'"
-else # *ix ifconfig
-  alias localip="sudo ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
-  alias ips="sudo ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-fi
-
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias j='jobs'
 alias dot='ls -dAF ${colorflag} .*'
