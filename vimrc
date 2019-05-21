@@ -225,7 +225,7 @@ cabbrev  W   w
 cabbrev  Q   q
 cabbrev  Wq  wq
 
-" Use Cap-Q for macros, to avoid accidentlly starting them with q
+" Use Cap-Q for macros, to avoid accidentally starting them with q
 " which gets annoying
 noremap  Q   q
 noremap  q   <Nop>
