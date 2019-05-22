@@ -1,3 +1,6 @@
+# ~/.gitconfig
+#
+# {{{ Global Configuration
 [color]
   ui= true
 [color "branch"]
@@ -16,6 +19,27 @@
 	default = simple
 [credential]
 	helper = store
+[user]
+	name = Stephen Martin
+	email = smartin5590@gmail.com
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+[mergetool "mvimdiff"]
+	cmd = mvim -c 'Gdiff' $MERGED
+  keepbackup = false
+	trustExitCode = true
+[merge]
+  summary = true
+  verbosity = 1
+  tool = mvimdiff
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+# }}}
+# {{{ Aliases
 [alias]
   # XXX TEMPLATE: XXX
   # changeme = "!f() { changemetoo }; f"
@@ -187,22 +211,6 @@
   sl = stash list
   sa = stash apply
   ss = stash save
-[user]
-	name = Stephen Martin
-	email = smartin5590@gmail.com
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
-[mergetool "mvimdiff"]
-	cmd = mvim -c 'Gdiff' $MERGED
-  keepbackup = false
-	trustExitCode = true
-[merge]
-  summary = true
-  verbosity = 1
-  tool = mvimdiff
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+# }}}
+
+# vim: set et sw=2 foldmethod=marker

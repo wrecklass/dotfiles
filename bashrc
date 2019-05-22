@@ -1,5 +1,6 @@
 #!/bin/bash
 # ulimit -u 1024
+# {{{ Interactivity checks
 # If not running interactively, don't do anything
 # shellcheck disable=SC1090
 # shellcheck disable=SC1091
@@ -8,7 +9,8 @@ case $- in
   *i*) ;;
   *) return;;
 esac
-
+# }}}
+# {{{ Logging
 VERBOSE=0
 
 log() {
@@ -19,8 +21,8 @@ log() {
 }
 
 log ".bashrc"
-
-CDPATH=".:~:~/src"
+# }}}
+# {{{ shopts
 
 shopt -s cdspell
 shopt -s dirspell
@@ -33,18 +35,24 @@ shopt -s autocd &> /dev/null
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+# }}}
+# {{{ Notes
 
 # The idea is to have a .bashrc file that can
 # be used on any *nix type system be it OS X,
 # linux or cygwin. The specific environment stuff
 # gets added from external files based on which
 # OS we find.
+# }}}
+# {{{ Export variables
 
 # export NETREGX="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
 # Better:
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
 export LESS='FXR'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
+export CDPATH=".:~:~/src"
+export PATH
 
 # Make sure we only source this once
 # [[ -z "${CYG_HOME_BASHRC}" ]] && CYG_HOME_BASHRC="1" || return 0
@@ -56,7 +64,8 @@ UNAMECMD=$(command -v uname)
 # To make sourcing our defaults environment easier.
 UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
-
+# }}}
+# {{{ Fuzzy searcher for file history
 FZF=$(command -v fzf)
 # Variables specific to the OS environment
 for file in "${HOME}"/.shenv/*."${UNAME}" ; do
@@ -67,7 +76,8 @@ for file in "${HOME}"/.shenv/*."${UNAME}" ; do
   # printf "Sourcing %s\n" "${file}"
   [[ -r "${file}" ]] && source "${file}" || printf "No such file: %s\n" "${file}"
 done
-
+# }}}
+# {{{ DIRCOLORS
 # enable color support of ls and also add handy aliases
 if [ -x '/usr/bin/dircolors' ]; then
   if [ -r "${HOME}/dircolors" ];then
@@ -77,8 +87,8 @@ if [ -x '/usr/bin/dircolors' ]; then
   fi
   alias vdir='vdir --color=auto'
 fi
-
-export PATH
+# }}}
+# {{{ bash_completion
 
 if [ -r "/usr/share/bash-completion/bash_completion" ];then
   source "/usr/share/bash-completion/bash_completion"
@@ -89,15 +99,17 @@ elif [ -r "/etc/bash_completion" ];then
 else
   log "No bash_completion script!"
 fi
-
+# }}}
+# {{{ Import our standard files and some specials
 # Import all of the files we use
-#for file in ~/.{bash_prompt,bash_aliases,path,extra,exports}; do
+# Note that bash_prompt is a case by case basis per OS
 for file in ~/.{bash_aliases,path,extra,exports,override}; do
   log ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
-
+# }}}
+# {{{ Functions
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then
   for SCRIPT in "${HOME}"/.functions/*; do
@@ -113,3 +125,6 @@ fi
 
 unset UNAMECMD
 
+# }}}
+
+# vim: set et sw=2 foldmethod=marker
