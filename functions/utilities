@@ -36,6 +36,9 @@ _dush() {
 }
 
 path() {
+  if [[ -n "$1" ]] && [[ -d "$1" ]];then
+    PATH="$PATH:$1"
+  fi
   echo "$PATH" | sed -e 's/:/\n/g'
 }
 
