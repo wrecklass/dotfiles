@@ -36,6 +36,7 @@
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  lshort = log --pretty=format:\"%h %cr %C(yellow)%cn %Cgreen%s%Creset\"
   lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
   # Added dates:
   ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
@@ -48,6 +49,7 @@
   # Because it sux that it can't figure this out:
   logs = log
   # Inspect recent history
+ 
   dl = !git ll -1
   dlc = diff --cached HEAD^
   # Find a file path in codebase:
@@ -154,7 +156,7 @@
   # Checkout commits I've made
   ours = "!f() { git co --ours $@ && git add $@; }; f"
   # Checkout commits from the repo that need merging with mine
-  theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+  theirs = "!f() { git co --theirs $@ && git add $@; }g f"
 
   # Basic shortcuts
   cp = cherry-pick
@@ -191,9 +193,14 @@
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
-[mergetool "sourcetree"]
-	cmd = /Users/p2708440/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+[mergetool "mvimdiff"]
+	cmd = mvim -c 'Gdiff' $MERGED
+  keepbackup = false
 	trustExitCode = true
+[merge]
+  summary = true
+  verbosity = 1
+  tool = mvimdiff
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
