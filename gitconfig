@@ -1,3 +1,14 @@
+[color]
+  ui= true
+[color "branch"]
+  current = green reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red
+  new = green
 [core]
   autocrlf = false
 	editor = /usr/bin/vim
@@ -88,6 +99,7 @@
 
   # Note that this adds UNTRACKED files to the repository:
   cm = !git add -A && git commit -m
+  ca = commit -am
   # Saves Work in Progress. Leaves untracked alone.
   wip = commit -am "WIP"
   # Likewise, saves it all as a (probably temporary) checkpoint:
@@ -134,6 +146,7 @@
   # Show verbose output of tags and branches and remotes
   tags = tag -l
   branches = branch -a
+  b  = branch -v
   bs = branch -a
   remotes = remote -v
 
