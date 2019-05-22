@@ -1,7 +1,7 @@
 " ~/.vimrc
-" Tue May  7 15:06:37 MDT 2019
+" Wednesday, May 22, 2019 5:19 PM
 
-" Section: Notes
+" {{{ Section: Notes
 
 " if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 " set filencodings=utf-8,latin1
@@ -20,8 +20,8 @@
 " - Use ^n and ^p to go back and forth in the suggestion list
 "
 " END AUTOCOMPLETE
-
-" Section: Bootstrap
+" }}}
+" {{{ Section: Bootstrap
 
 set nocompatible
 set pastetoggle=<F2>
@@ -58,8 +58,8 @@ set viminfo='20,\"100,:100,%,n~/.viminfo
 syntax enable
 
 packadd! matchit
-
-" Section: Moving around, searching, patterns and tags
+" }}}
+" {{{ Section: Moving around, searching, patterns and tags
 
 " Set the cursor to different sizes for Insert, Replace and Normal mode
 " Insert = | (Bar Cursor)
@@ -100,16 +100,16 @@ noremap <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><righ
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
-
-" Section: Displaying text
+" }}}
+" {{{ Section: Displaying text
 
 set display=lastline
 set scrolloff=999
 set sidescrolloff=5
 set lazyredraw
 set cmdheight=2
-
-" Section: Windows
+" }}}
+" {{{ Section: Windows
 
 set ruler
 set laststatus=2
@@ -134,8 +134,8 @@ nnoremap <C-l> <C-W>l
 " switch window and maximize
 " map <C-j> <C-W>j
 " map <C-k> <C-W>k
-
-" Section: GUI
+" }}}
+" {{{ Section: GUI
 
 " Don't use GVim...
 set mousemodel=popup
@@ -145,8 +145,8 @@ if has ("gui")
   set guifont=Consolas:h9:cANSI
 endif
 
-
-" Section: Messages and Info
+" }}}
+" {{{ Section: Messages and Info
 
 set novisualbell
 set noerrorbells
@@ -154,8 +154,8 @@ set showcmd
 set t_vb=
 set tm=500
 set t_Co=256
-
-" Section: Editing text and indent
+" }}}
+" {{{ Section: Editing text and indent
 
 " Tabs:
 set tabstop=2
@@ -181,10 +181,65 @@ set noautoindent
 set omnifunc=syntaxcomplete#Complete
 set completefunc=syntaxcomplete#Complete
 
-" Section: Folding and Comments
+" }}}
+" {{{ Section: Editing text and indent
+
+" Tabs:
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" Indenting:
+set nocindent
+set nosmartindent
+
+set textwidth=0
+" set colorcolumn=80
+set cursorline
+set backspace=2
+set complete-=i         " Searching includes can be slow
+set infercase
+set showmatch
+set virtualedit=block
+
+set noshiftround
+set nosmarttab
+set noautoindent
+set omnifunc=syntaxcomplete#Complete
+set completefunc=syntaxcomplete#Complete
+
+" }}}
+" {{{ Section: Editing text and indent
+
+" Tabs:
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" Indenting:
+set nocindent
+set nosmartindent
+
+set textwidth=0
+" set colorcolumn=80
+set cursorline
+set backspace=2
+set complete-=i         " Searching includes can be slow
+set infercase
+set showmatch
+set virtualedit=block
+
+set noshiftround
+set nosmarttab
+set noautoindent
+set omnifunc=syntaxcomplete#Complete
+set completefunc=syntaxcomplete#Complete
+
+" }}}
+" {{{ Section: Folding and Comments
 
 if has('folding')
-  set foldmethod=manual
+  set foldmethod=marker
   set foldopen+=jump
 endif
 
@@ -196,7 +251,8 @@ autocmd FileType json set sw=2 et
 
 " Using vim-commentary for comment toggle
 
-" Section: Maps
+" }}}
+" {{{ Section: Maps
 
 " Set the map keys leader to comma:
 let mapleader = ","
@@ -219,6 +275,7 @@ cnoremap <C-b>        <Left>
 cnoremap <C-f>        <Right>
 cnoremap <C-d>        <Delete>
 cnoremap <C-g>        <C-c>
+cmap w!! w !sudo tee % >/dev/null
 
 " avoid accidentally holding down shift while typing :w :q &c.
 cabbrev  W   w
@@ -282,24 +339,27 @@ noremap <c-space> ?
 
 " noremap <leader>s ?(<CR>ldt,pldt)%p
 
-" Section: Reading and writing files
+" }}}
+" {{{ Section: Reading and writing files
 
 set fileformats=unix,dos
 set backupskip+=/private/tmp/*
 
-" Section: Command line editing
+" }}}
+" {{{ Section: Command line editing
 
 set wildmenu
 set history=200        " Keep 200 lines of command line history
 set wildmode=full
 set wildignore+=tags,.*.un~,*.pyc
 
-" Section: Filetype settings
+" }}}
+" {{{ Section: Filetype settings
 
 autocmd FileType * setlocal nolinebreak
 autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
-
-" Section: AutoCmd
+" }}}
+" {{{ Section: AutoCmd
 
 " Take from the Debian package and the example on $VIM/vim_examples
 if has("autocmd")
@@ -410,5 +470,6 @@ augroup GPG
   autocmd BufWritePost *.asc u
   autocmd VimLeave     *.asc :!clear
 augroup END
+" }}}
 
-" vim: set et sw=2 foldmethod=manual
+"vim: set et sw=2 foldmethod=marker
