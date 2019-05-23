@@ -11,6 +11,12 @@ _tomcat() {
       else
         printf "catalina is not running.\n"
       fi
+    elif [[ "$1" = "restart" ]];then
+      # Shut down if it is running
+      if psg "catalina.startup" > /dev/null 2>&1; then
+        "${clna}" stop
+      fi
+      "${clna}" start
     else
       "${clna}" "$@"
     fi
