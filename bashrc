@@ -32,6 +32,12 @@ shopt -s no_empty_cmd_completion
 # Older version of Bash may not like this one:
 shopt -s autocd &> /dev/null
 
+# Show expanded command before executing
+# Do the 'Are you sure' thing like ZSH
+shopt -s histverify
+shopt -s histreedit
+shopt -s histappend
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -45,6 +51,11 @@ shopt -s checkwinsize
 # OS we find.
 # }}}
 # {{{ Export variables
+
+export HISTCONTROL='erasedups:ignoreboth'
+export HISTIGNORE="x:h:history:ls:ps:ll:exit"
+export HISTSIZE=10000
+export HISTFILESIZE=7000
 
 # export NETREGX="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
 # Better:

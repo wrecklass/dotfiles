@@ -15,14 +15,14 @@ _filegrepip() {
 }
 
 function localip() {
-  if command -v ipconfig; then # Windows ipconfig
-    ipconfig | /usr/bin/grep IPv4 | awk -F':' '{print \$2}'
-  else # *nix ifconfig
+  if command -v ifconfig > /dev/null; then # Not Windows
     sudo ifconfig | /usr/bin/grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | /usr/bin/grep -Eo '([0-9]*\.){3}[0-9]*' | /usr/bin/grep -v '127.0.0.1'
+  else # Windows ipconfig
+    ipconfig | /usr/bin/grep IPv4 | awk -F':' '{print $2}'
   fi
 }
 
-if command -v ipconfig; then # Windows
+if command -v ifconfig > /dev/null; then # Not on Windows
 function ips() {
   sudo ifconfig -a | /usr/bin/grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'
 }

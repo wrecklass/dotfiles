@@ -1,5 +1,7 @@
 #!/bin/bash
 
+return
+
 _bash_history_sync() {
   builtin history -a
   HISTFILESIZE=$HISTSIZE
