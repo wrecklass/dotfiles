@@ -52,10 +52,7 @@ shopt -s checkwinsize
 # }}}
 # {{{ Export variables
 
-export HISTCONTROL='erasedups:ignoreboth'
-export HISTIGNORE="x:h:history:ls:ps:ll:exit"
-export HISTSIZE=10000
-export HISTFILESIZE=7000
+# History variables are in .functions/history
 
 # export NETREGX="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
 # Better:

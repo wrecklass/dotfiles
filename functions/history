@@ -1,6 +1,23 @@
 #!/bin/bash
 
+export HISTCONTROL='erasedups:ignoreboth'
+export HISTIGNORE="x:h:history:ls:ps:ll:exit"
+export HISTSIZE=10000
+export HISTFILESIZE=7000
+
+_h () {
+    if [ $# -gt 0 ]; then
+        history | grep -i "$*"
+    else
+        history
+    fi
+}
+
+alias h="_h"
+
 return
+### For now we're not doing this as it is only partially working.
+### Need to find a better way to do all of this
 
 _bash_history_sync() {
   builtin history -a
@@ -14,14 +31,6 @@ function history() {
   builtin history "$@"
 }
 
-_h () {
-    if [ $# -gt 0 ]; then
-        history | grep -i "$*"
-    else
-        history
-    fi
-}
-
 if [[ ! -e "${HOME}/.bash_history_tmp" ]];then
   cp "${HOME}/.bash_history" "${HOME}/.bash_history_tmp"
 fi
@@ -32,7 +41,6 @@ export PROMPT_COMMAND
 
 mkdir -p "$HOME/.history"
 
-alias h="_h"
 
 builtin history -c
 # Do the 'Are you sure' thing like ZSH
@@ -55,10 +63,6 @@ tmpHISTFile="$HOME/.history/history_session.$TTY"
 # Store lots of history to go back in time
 # And file size stored
 export HISTFILE="$tmpHISTFile"
-export HISTCONTROL='erasedups:ignoreboth'
-export HISTIGNORE="x:h:history:ls:ps:ll:exit"
-export HISTSIZE=10000
-export HISTFILESIZE=${HISTSIZE}
 # builtin history -r
 
 unset tmpHISTFile
