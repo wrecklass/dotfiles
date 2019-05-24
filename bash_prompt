@@ -74,7 +74,7 @@ if [[ "${USER}" == "root" ]]; then
 elif [[ "${UNAME}" == "cygwin" ]];then
   userStyle="${green}";
   userName="${USER}";
-  GREP='/usr/bin/grep'
+  GREP="$(command -v grep)"
   "${IDCMD}" -Gn 2>/dev/null | "${GREP}" -iq admin
   declare -i RETVAL="$?"
   if [ "$RETVAL" -eq 0 ];then

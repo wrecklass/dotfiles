@@ -11,7 +11,7 @@ _psg() {
 }
 
 _psgc() {
-    ps auxw | /usr/bin/grep -i "$*" | grep -v grep
+    ps auxw | grep -i "$*" | grep -v grep
 }
 
 _psl() {
