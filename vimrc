@@ -262,9 +262,8 @@ set timeoutlen=2500
 set ttimeoutlen=100
 set updatetime=500
 
-if has('digraphs')
-  digraph ,. 8230
-endif
+set tags+=.git/tags
+nnoremap  <leader>ct  :!ctags -Rf .git/tags<CR><CR>
 
 nmap     <C-n>        :NERDTreeToggle<CR>
 nmap     <leader>n    :NERDTreeToggle<CR>
@@ -291,6 +290,16 @@ noremap  q   <Nop>
 " Really helpful when in insert mode and start typing j to navigate
 inoremap jj  <Esc>
 
+inoremap <C-J>        <Down>
+" inoremap <C-K><C-K>   <Up>
+
+" Simple add closing block
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap " ""<Left>
+" inoremap ' ''<Left>
+
 " Remap Y to be consistent with C and D
 map Y y$
 
@@ -299,17 +308,20 @@ map Y y$
 map      <leader>V           :source $MYVIMRC<CR>
 map      <leader>S           :source $MYVIMRC<CR>
 
-" Easy split vertical
+" Easy vertical split
 nnoremap  <leader>v    :vs<CR>
 
-"  ,s to start a substitution
-noremap <leader>s   :%s/
+nnoremap <leader>k  :m-2<CR>==
+nnoremap <leader>j  :m+<CR>==
 
-inoremap <C-J>        <Down>
-" inoremap <C-K><C-K>   <Up>
+nnoremap  <leader>*  :s/\<<c-r><c-w>\>//g<Left><Left>
+
+"  ,s to start a substitution
+nnoremap <leader>s   :%s/
 
 " typing ,w will write file
 nnoremap <leader>w :w!<cr>
+
 " typing ,q will write file and quit
 nnoremap <leader>q :wq<cr>
 
