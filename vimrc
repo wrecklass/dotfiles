@@ -182,60 +182,6 @@ set omnifunc=syntaxcomplete#Complete
 set completefunc=syntaxcomplete#Complete
 
 " }}}
-" {{{ Section: Editing text and indent
-
-" Tabs:
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-" Indenting:
-set nocindent
-set nosmartindent
-
-set textwidth=0
-" set colorcolumn=80
-set cursorline
-set backspace=2
-set complete-=i         " Searching includes can be slow
-set infercase
-set showmatch
-set virtualedit=block
-
-set noshiftround
-set nosmarttab
-set noautoindent
-set omnifunc=syntaxcomplete#Complete
-set completefunc=syntaxcomplete#Complete
-
-" }}}
-" {{{ Section: Editing text and indent
-
-" Tabs:
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-" Indenting:
-set nocindent
-set nosmartindent
-
-set textwidth=0
-" set colorcolumn=80
-set cursorline
-set backspace=2
-set complete-=i         " Searching includes can be slow
-set infercase
-set showmatch
-set virtualedit=block
-
-set noshiftround
-set nosmarttab
-set noautoindent
-set omnifunc=syntaxcomplete#Complete
-set completefunc=syntaxcomplete#Complete
-
-" }}}
 " {{{ Section: Folding and Comments
 
 if has('folding')
@@ -346,8 +292,8 @@ nnoremap \o :setlocal paste!<cr>
 " ,m to erase all C-M's in a Dos file. Remembers location
 noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-noremap <space> /
-noremap <c-space> ?
+noremap <space> 8j
+" noremap <c-space> 8k
 
 " noremap <leader>s ?(<CR>ldt,pldt)%p
 
