@@ -31,6 +31,7 @@ filetype off
 filetype plugin indent on
 set rtp+=/usr/local/go/misc/vim
 filetype on
+set rtp+=/usr/local/opt/fzf
 
 " Powerline Font
 let g:airline_powerline_fonts = 1
