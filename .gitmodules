@@ -37,6 +37,3 @@
 [submodule "vim/pack/itspriddle/start/vim-shellcheck"]
 	path = vim/pack/itspriddle/start/vim-shellcheck
 	url = https://github.com/itspriddle/vim-shellcheck
-[submodule "vim/pack/tyru/start/open-browser"]
-	path = vim/pack/tyru/start/open-browser
-	url = https://github.com/tyru/open-browser.vim
