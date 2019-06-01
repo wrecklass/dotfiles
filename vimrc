@@ -32,6 +32,7 @@ filetype plugin indent on
 set rtp+=/usr/local/go/misc/vim
 filetype on
 set rtp+=/usr/local/opt/fzf
+set rtp+=~/.vim/pack/junegunn/start/fzf/autoload/fzf
 
 " Powerline Font
 let g:airline_powerline_fonts = 1
@@ -298,11 +299,11 @@ nnoremap \o :setlocal paste!<cr>
 noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "noremap <space> 8j
-noremap <space> :call smooth_scroll#down(&scroll,25,1)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll,25,1)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll,25,1)<CR>
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll/2,25,1)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll/2,25,1)<CR>
+noremap <silent> <space> :call smooth_scroll#down(&scroll,20,1)<CR>
+noremap <silent> <c-b>   :call smooth_scroll#up(&scroll,20,1)<CR>
+noremap <silent> <c-f>   :call smooth_scroll#down(&scroll,20,1)<CR>
+noremap <silent> <c-u>   :call smooth_scroll#up(&scroll/2,20,1)<CR>
+noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
 " noremap <c-space> 8k
 
 " noremap <leader>s ?(<CR>ldt,pldt)%p
