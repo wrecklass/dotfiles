@@ -31,3 +31,6 @@
 [submodule "vim/pack/godlygeek/start/tabular"]
 	path = vim/pack/godlygeek/start/tabular
 	url = https://github.com/godlygeek/tabular
+[submodule "vim/pack/terryma/start/vim-smooth-scroll"]
+	path = vim/pack/terryma/start/vim-smooth-scroll
+	url = https://github.com/terryma/vim-smooth-scroll

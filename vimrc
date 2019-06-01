@@ -292,7 +292,12 @@ nnoremap \o :setlocal paste!<cr>
 " ,m to erase all C-M's in a Dos file. Remembers location
 noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-noremap <space> 8j
+"noremap <space> 8j
+noremap <space> :call smooth_scroll#down(&scroll/2,25,1)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll/2,25,1)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll/2,25,1)<CR>
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll/2,25,1)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll/2,25,1)<CR>
 " noremap <c-space> 8k
 
 " noremap <leader>s ?(<CR>ldt,pldt)%p
