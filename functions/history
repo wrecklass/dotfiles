@@ -15,8 +15,8 @@ _h () {
 
 alias h="_h"
 
-return
 ### For now we're not doing this as it is only partially working.
+return
 ### Need to find a better way to do all of this
 
 _bash_history_sync() {

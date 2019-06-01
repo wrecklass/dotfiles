@@ -1,3 +1,4 @@
+#!/bin/bash
 # Bash Key bindings for fzf
 # ------------
 __fzf_select__() {
