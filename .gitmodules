@@ -34,3 +34,9 @@
 [submodule "vim/pack/terryma/start/vim-smooth-scroll"]
 	path = vim/pack/terryma/start/vim-smooth-scroll
 	url = https://github.com/terryma/vim-smooth-scroll
+[submodule "vim/pack/itspriddle/start/vim-shellcheck"]
+	path = vim/pack/itspriddle/start/vim-shellcheck
+	url = https://github.com/itspriddle/vim-shellcheck
+[submodule "vim/pack/tyru/start/open-browser"]
+	path = vim/pack/tyru/start/open-browser
+	url = https://github.com/tyru/open-browser.vim

@@ -36,6 +36,10 @@ filetype on
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
+" ShellCheck: 
+" let g:shellcheck_qf_open
+" let g:shellcheck_ll_open
+
 set background=dark
 
 set encoding=utf8
@@ -104,7 +108,7 @@ vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 " {{{ Section: Displaying text
 
 set display=lastline
-set scrolloff=999
+set scrolloff=15
 set sidescrolloff=5
 set lazyredraw
 set cmdheight=2
@@ -293,9 +297,9 @@ nnoremap \o :setlocal paste!<cr>
 noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "noremap <space> 8j
-noremap <space> :call smooth_scroll#down(&scroll/2,25,1)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll/2,25,1)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll/2,25,1)<CR>
+noremap <space> :call smooth_scroll#down(&scroll,25,1)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll,25,1)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll,25,1)<CR>
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll/2,25,1)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll/2,25,1)<CR>
 " noremap <c-space> 8k
