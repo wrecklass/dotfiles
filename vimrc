@@ -30,9 +30,12 @@ set nobackup
 filetype off
 filetype plugin indent on
 set rtp+=/usr/local/go/misc/vim
-filetype on
 set rtp+=/usr/local/opt/fzf
-set rtp+=~/.vim/pack/junegunn/start/fzf/autoload/fzf
+" FZF is so confusing
+" set rtp+=~/.vim/pack/junegunn/start/fzf/autoload/fzf
+" source   ~/.vim/pack/junegunn/start/fzf/autoload/fzf/vim.vim
+" source   ~/.vim/pack/junegunn/start/fzf/autoload/fzf/vim/complete.vim
+filetype on
 
 " Powerline Font
 let g:airline_powerline_fonts = 1
