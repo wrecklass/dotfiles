@@ -79,6 +79,7 @@ set smartcase
 set incsearch
 set hlsearch
 set ignorecase
+" Keep from searching outside of current dir
 set path=.,,
 
 autocmd FileType c,cpp             setlocal path+=/usr/include include&
