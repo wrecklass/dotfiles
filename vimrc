@@ -27,6 +27,11 @@ set nocompatible
 set pastetoggle=<F2>
 set nobackup
 
+" Temporary work around, needed to get 'gx' to work
+" Also added vim/plugin/netrwPlugin.vim with minor change
+" Probably won't work with Windows or Linux
+let g:netrw_browsex_viewer="open"
+
 filetype off
 filetype plugin indent on
 set rtp+=/usr/local/go/misc/vim
