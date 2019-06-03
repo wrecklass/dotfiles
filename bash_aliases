@@ -65,6 +65,32 @@ alias fiel='file'
 
 alias g="git"
 alias get='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gapa='git add --patch'
+alias gau='git add --update'
+
+alias gcm='git checkout master'
+alias gcd='git checkout develop'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+
+alias gcmsg='git commit -m'
+alias gcam='git commit -a -m'
+
+alias gcf='git config --list'
+
+alias gd='git diff'
+alias gdw='git diff --word-diff'
+
+alias gsu='git submodule update'
+
+alias gf='git fetch'
+alias gfa='git fetch --all --prune'
+alias gfo='git fetch origin'
+
+alias grv='git remote -v'
+
 complete -o default -o nospace -F _git g
 complete -o default -o nospace -F _git get
 
