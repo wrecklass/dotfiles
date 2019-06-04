@@ -1,7 +1,7 @@
 " ~/.vimrc
 " Wednesday, May 22, 2019 5:19 PM
 
-" {{{ Section: Notes
+" Section: Notes {{{
 
 " if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 " set filencodings=utf-8,latin1
@@ -21,7 +21,7 @@
 "
 " END AUTOCOMPLETE
 " }}}
-" {{{ Section: Bootstrap
+" Section: Bootstrap {{{
 
 set nocompatible
 set pastetoggle=<F2>
@@ -44,7 +44,7 @@ filetype on
 
 " Powerline Font
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dark'
+let g:airline_theme='gruvbox'
 
 " ShellCheck: 
 " let g:shellcheck_qf_open
@@ -73,7 +73,7 @@ syntax enable
 
 packadd! matchit
 " }}}
-" {{{ Section: Moving around, searching, patterns and tags
+" Section: Moving around, searching, patterns and tags {{{
 
 " Set the cursor to different sizes for Insert, Replace and Normal mode
 " Insert = | (Bar Cursor)
@@ -116,7 +116,7 @@ noremap <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><righ
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 " }}}
-" {{{ Section: Displaying text
+" Section: Displaying text {{{
 
 set display=lastline
 set scrolloff=15
@@ -124,7 +124,7 @@ set sidescrolloff=5
 set lazyredraw
 set cmdheight=2
 " }}}
-" {{{ Section: Windows
+" Section: Windows {{{
 
 set ruler
 set laststatus=2
@@ -150,18 +150,20 @@ nnoremap <C-l> <C-W>l
 " map <C-j> <C-W>j
 " map <C-k> <C-W>k
 " }}}
-" {{{ Section: GUI
+" Section: GUI {{{
 
 " Don't use GVim...
 set mousemodel=popup
 set mouse=a
 " Allow the mouse to interact with tabs:
 if has ("gui")
-  set guifont=Consolas:h9:cANSI
+  set guifont=Consolas:h14
 endif
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
 
 " }}}
-" {{{ Section: Messages and Info
+" Section: Messages and Info {{{
 
 set novisualbell
 set noerrorbells
@@ -170,7 +172,7 @@ set t_vb=
 set tm=500
 set t_Co=256
 " }}}
-" {{{ Section: Editing text and indent
+" Section: Editing text and indent {{{
 
 " Tabs:
 set tabstop=2
@@ -197,7 +199,7 @@ set omnifunc=syntaxcomplete#Complete
 set completefunc=syntaxcomplete#Complete
 
 " }}}
-" {{{ Section: Folding and Comments
+" Section: Folding and Comments {{{
 
 if has('folding')
   set foldmethod=marker
@@ -213,7 +215,7 @@ autocmd FileType json set sw=2 et
 " Using vim-commentary for comment toggle
 
 " }}}
-" {{{ Section: Maps
+" Section: Maps {{{
 
 " Set the map keys leader to comma:
 let mapleader = ","
@@ -254,11 +256,12 @@ inoremap jj  <Esc>
 inoremap <C-J>        <Down>
 " inoremap <C-K><C-K>   <Up>
 
+" Nice as this sounds, it gets in the way too often
 " Simple add closing block
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-inoremap " ""<Left>
+" inoremap ( ()<Left>
+" inoremap [ []<Left>
+" inoremap { {}<Left>
+" inoremap " ""<Left>
 " inoremap ' ''<Left>
 
 " Remap Y to be consistent with C and D
@@ -318,13 +321,13 @@ noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
 " noremap <leader>s ?(<CR>ldt,pldt)%p
 
 " }}}
-" {{{ Section: Reading and writing files
+" Section: Reading and writing files {{{
 
 set fileformats=unix,dos
 set backupskip+=/private/tmp/*
 
 " }}}
-" {{{ Section: Command line editing
+" Section: Command line editing {{{
 
 set wildmenu
 set history=200        " Keep 200 lines of command line history
@@ -332,12 +335,12 @@ set wildmode=full
 set wildignore+=tags,.*.un~,*.pyc
 
 " }}}
-" {{{ Section: Filetype settings
+" Section: Filetype settings {{{
 
 autocmd FileType * setlocal nolinebreak
 autocmd FileType xml,xsd,xslt,javascript setlocal ts=2
 " }}}
-" {{{ Section: AutoCmd
+" Section: AutoCmd {{{
 
 " Take from the Debian package and the example on $VIM/vim_examples
 if has("autocmd")
@@ -450,4 +453,4 @@ augroup GPG
 augroup END
 " }}}
 
-"vim: set et sw=2 foldmethod=marker
+" vim: set et sw=2 foldmethod=marker

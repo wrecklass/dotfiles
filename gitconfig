@@ -103,6 +103,8 @@
 
   # Pull in all of the remote changes including submodules
   p = !"git pull; git submodule foreach git pull origin master"
+  sm = submodule
+  sma =submodule add
 
   # Start new work
   up = !git pull --rebase --prune $@ && git submodule update --init --recursive
