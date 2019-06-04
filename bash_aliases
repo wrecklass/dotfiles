@@ -90,6 +90,8 @@ alias gfa='git fetch --all --prune'
 alias gfo='git fetch origin'
 
 alias grv='git remote -v'
+alias gss='git status -s'
+alias gs='git status'
 
 complete -o default -o nospace -F _git g
 complete -o default -o nospace -F _git get
