@@ -44,7 +44,7 @@ filetype on
 
 " Powerline Font
 let g:airline_powerline_fonts = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='papercolor'
 
 " ShellCheck: 
 " let g:shellcheck_qf_open
@@ -159,8 +159,19 @@ set mouse=a
 if has ("gui")
   set guifont=Consolas:h14
 endif
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
+
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.dark': { 
+  \       'override' : {
+  \         'folded_bg' : ['#8a8a8a', '245'],
+  \         'folded_fg' : ['#262626', '235'],
+  \       }
+  \     }
+  \   }
+  \ }
+
+colorscheme PaperColor
 
 " }}}
 " Section: Messages and Info {{{

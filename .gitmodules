@@ -46,3 +46,6 @@
 [submodule "vim/pack/morhetz/start/gruvbox"]
 	path = vim/pack/morhetz/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
+[submodule "vim/pack/NLKNguyen/start/papercolor-theme"]
+	path = vim/pack/NLKNguyen/start/papercolor-theme
+	url = https://github.com/NLKNguyen/papercolor-theme
