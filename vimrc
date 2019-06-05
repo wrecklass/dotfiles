@@ -299,6 +299,8 @@ nnoremap <leader>w :w!<cr>
 
 " typing ,q will write file and quit
 nnoremap <leader>q :wq<cr>
+nnoremap <leader>Q :q!<cr>
+nnoremap <leader>Z :wq!<cr>
 
 " Toggle line numbers
 nnoremap \l :setlocal number!<cr>
