@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# shellcheck disable=2012
 alias lso="_lso"
 alias llo="_lso"
 alias lsg="_lsg"

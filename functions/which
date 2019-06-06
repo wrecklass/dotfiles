@@ -1,17 +1,23 @@
-
-alias which="_which"
+#!/bin/bash
+WICH=""
+if [[ -x /usr/bin/which ]];then
+  WICH='/usr/bin/which'
+fi
 
 _which() {
-    if [ $# -eq 1 ]; then
-      TR=$(/usr/bin/which $1 2>/dev/null)
-      if [ $? -ne 0 ];then
-        TR=$(type -P $1) 
-        if [ -z "$TR" ];then
-          TR=$(type $1)
-        fi
-      fi
-      echo "$TR"
+  TR=''
+  if [ "$#" -eq 1 ]; then
+    if [[ -n "$WICH" ]];then
+      TR=$(${WICH} "$1" 2>/dev/null)
     else
-        return 1
+      TR=$(type -P "$1") 
+      if [ -z "$TR" ];then
+        TR=$(type "$1")
+      fi
     fi
+    echo "$TR"
+  else
+    return 1
+  fi
 }
+alias which="_which"
