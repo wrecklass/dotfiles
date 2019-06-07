@@ -101,20 +101,6 @@ autocmd FileType lua
       \ endif
 autocmd FileType ruby setlocal tags=./tags;
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vimgrep searching and cope displaying
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSelection('gv')<CR>
-
-" Open vimgrep and put the cursor in the right position
-noremap <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
-
-" Vimgreps in the current file
-noremap <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 " }}}
 " Section: Displaying text {{{
 
@@ -286,42 +272,40 @@ map      <leader>S           :source $MYVIMRC<CR>
 " Easy vertical split
 nnoremap  <leader>v    :vs<CR>
 
-nnoremap <leader>k  :m-2<CR>==
 nnoremap <leader>j  :m+<CR>==
+nnoremap <leader>k  :m-2<CR>==
 
-nnoremap  <leader>*  :s/\<<c-r><c-w>\>//g<Left><Left>
+" Globally search and replace the <word> under the cursor
+nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
 
 "  ,s to start a substitution
 nnoremap <leader>s   :%s/
 
 " typing ,w will write file
-nnoremap <leader>w :w!<cr>
+nnoremap <leader>w :w!<CR>
 
 " typing ,q will write file and quit
-nnoremap <leader>q :wq<cr>
-nnoremap <leader>Q :q!<cr>
-nnoremap <leader>Z :wq!<cr>
+nnoremap <leader>q :wq<CR>
+nnoremap <leader>Q :q!<CR>
+nnoremap <leader>Z :wq!<CR>
 
 " Toggle line numbers
-nnoremap \l :setlocal number!<cr>
-noremap <leader>l :setlocal relativenumber!<cr>
+nnoremap \l :setlocal number!<CR>
+noremap <leader>l :setlocal relativenumber!<CR>
 
 " Turn off hlsearch temporarily
-nnoremap \q :nohlsearch<cr>
-noremap <leader>h :nohlsearch<cr>
+nnoremap \q :nohlsearch<CR>
+noremap <leader>h :nohlsearch<CR>
 
 " Toggle case sensitive search
-nnoremap <leader>i :setlocal ic!<cr>
-
-" noremap j gj
-" noremap k gk
+nnoremap <leader>i :setlocal ic!<CR> :setlocal ic?<CR>
 
 " Use ,pp to toggle Paste mode
-noremap <leader>pp :setlocal paste!<cr>
-nnoremap \o :setlocal paste!<cr>
+noremap <leader>pp :setlocal paste!<CR>
+nnoremap \o :setlocal paste!<CR>
 
 " ,m to erase all C-M's in a Dos file. Remembers location
-noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
 "noremap <space> 8j
 noremap <silent> <space> :call smooth_scroll#down(&scroll,20,1)<CR>
@@ -332,6 +316,21 @@ noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
 " noremap <c-space> 8k
 
 " noremap <leader>s ?(<CR>ldt,pldt)%p
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vimgrep searching and cope displaying
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" When you press gv you vimgrep after the selected text
+vnoremap <silent> gv :call VisualSelection('gv')<CR>
+
+" Open vimgrep and put the cursor in the right position
+noremap <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
+
+" Vimgreps in the current file
+noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
+
+" When you press <leader>r you can search and replace the selected text
+vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 
 " }}}
 " Section: Reading and writing files {{{
