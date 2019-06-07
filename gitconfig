@@ -14,30 +14,31 @@
   new = green
 [core]
   autocrlf = false
-	editor = /usr/bin/vim
+  editor = /usr/bin/vim
+  excludesfile = /Users/p2708440/.gitignore_global
 [push]
-	default = simple
+  default = simple
 [credential]
-	helper = store
+  helper = store
 [user]
-	name = Stephen Martin
-	email = smartin5590@gmail.com
+  name = Stephen Martin
+  email = smartin5590@gmail.com
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
 [mergetool "mvimdiff"]
-	cmd = mvim -c 'Gdiff' $MERGED
+  cmd = mvim -c 'Gdiff' $MERGED
   keepbackup = false
-	trustExitCode = true
+  trustExitCode = true
 [merge]
   summary = true
   verbosity = 1
   tool = mvimdiff
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
 # }}}
 # {{{ Aliases
 [alias]
@@ -47,8 +48,8 @@
   aliases = config --get-regexp alias
 
   la = "!git config -l | grep alias "
-	rv = remote -v
-	r = remote -v
+  rv = remote -v
+  r = remote -v
   z = status -z -u
   # Add a new remote to the current repository, $1=Name(origin), $2=URL(git@github.com/...)
   ra = "!f() { git remote add $1 $2; }; f"
@@ -56,7 +57,7 @@
   # some log aliases
   history = log
   h = !git log | cat
-	last = log -1 HEAD
+  last = log -1 HEAD
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -116,7 +117,7 @@
   info = status
   # Edit the global config file
   # e = config --global -e
-	edit = !/usr/bin/vim ~/.gitconfig
+  edit = !/usr/bin/vim ~/.gitconfig
   e = !/usr/bin/vim ~/.gitconfig
   # Just show the date in compressed format
   dt  = !date +"%Y%m%dT%H%M%S"
@@ -215,4 +216,4 @@
   ss = stash save
 # }}}
 
-# vim: set et sw=2 foldmethod=marker
+#vim: set et sw=2 foldmethod=marker
