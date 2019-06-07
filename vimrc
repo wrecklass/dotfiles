@@ -150,8 +150,12 @@ let g:PaperColor_Theme_Options = {
   \   'theme': {
   \     'default.dark': { 
   \       'override' : {
-  \         'folded_bg' : ['#8a8a8a', '245'],
-  \         'folded_fg' : ['#262626', '235'],
+  \         'color00'       : ['#080808', '232'],
+  \         'cursorline'    : ['#444444', '238'],
+  \         'linenumber_bg' : ['#080808', '232'],
+  \         'linenumber_fg' : ['#767676', '243'],
+  \         'folded_bg'     : ['#6c6c6c', '242'],
+  \         'folded_fg'     : ['#262626', '235'],
   \       }
   \     }
   \   }
