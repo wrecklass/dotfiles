@@ -26,6 +26,8 @@
 set nocompatible
 set pastetoggle=<F2>
 set nobackup
+set nowritebackup
+set dir=/tmp,/var/tmp,~/tmp
 
 " Temporary work around, needed to get 'gx' to work
 " Also added vim/plugin/netrwPlugin.vim with minor change
