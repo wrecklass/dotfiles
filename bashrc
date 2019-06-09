@@ -20,7 +20,7 @@ case $- in
 esac
 # }}}
 # {{{ Logging
-VERBOSE=0
+declare -x -i VERBOSE=0
 
 _log() {
     if [ "$VERBOSE" -eq 1 ];then
@@ -133,7 +133,6 @@ else
 fi
 
 unset UNAMECMD
-unset VERBOSE
 # }}}
 
 #vim: set et sw=2 foldmethod=marker
