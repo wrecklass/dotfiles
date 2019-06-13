@@ -1,26 +1,35 @@
 #!/bin/bash
 # ulimit -u 1024
+# {{{ Notes
+
+# The idea is to have a .bashrc file that can
+# be used on any *nix type system be it OS X,
+# linux or cygwin. The specific environment stuff
+# gets added from external files based on which
+# OS we find.
+# }}}
 # {{{ Interactivity checks
 # If not running interactively, don't do anything
 # shellcheck disable=SC1090
 # shellcheck disable=SC1091
 
+[[ -z "${BASH_RC}" ]] && BASH_RC="1" || return 0
 case $- in
   *i*) ;;
   *) return;;
 esac
 # }}}
 # {{{ Logging
-VERBOSE=0
+declare -x -i VERBOSE=0
 
-log() {
+_log() {
     if [ "$VERBOSE" -eq 1 ];then
       dt="$(date)"
       printf "%s-%s: %s\n" "${dt}" "BASHRC[$$]" "$*"
     fi
 }
 
-log ".bashrc"
+_log ".bashrc"
 # }}}
 # {{{ shopts
 
@@ -41,14 +50,6 @@ shopt -s histappend
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-# }}}
-# {{{ Notes
-
-# The idea is to have a .bashrc file that can
-# be used on any *nix type system be it OS X,
-# linux or cygwin. The specific environment stuff
-# gets added from external files based on which
-# OS we find.
 # }}}
 # {{{ Export variables
 
@@ -73,16 +74,16 @@ UNAMECMD=$(command -v uname)
 UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
 # }}}
-# {{{ Fuzzy searcher for file history
+# {{{ shenv for different environments
 FZF=$(command -v fzf)
 # Variables specific to the OS environment
 for file in "${HOME}"/.shenv/*."${UNAME}" ; do
   if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
-    # printf "Not sourcing %s\n" "${file}"
+    _log "Not sourcing ${file}"
     continue
   fi
-  # printf "Sourcing %s\n" "${file}"
-  [[ -r "${file}" ]] && source "${file}" || printf "No such file: %s\n" "${file}"
+  _log "Sourcing ${file}"
+  [[ -r "${file}" ]] && source "${file}" || _log "No such file: ${file}"
 done
 # }}}
 # {{{ DIRCOLORS
@@ -105,14 +106,14 @@ elif [ -r "/usr/local/etc/bash_completion" ];then
 elif [ -r "/etc/bash_completion" ];then
   source "/etc/bash_completion"
 else
-  log "No bash_completion script!"
+  _log "No bash_completion script!"
 fi
 # }}}
 # {{{ Import our standard files and some specials
 # Import all of the files we use
 # Note that bash_prompt is a case by case basis per OS
 for file in ~/.{bash_aliases,path,extra,exports,override}; do
-  log ".bash_profile file:${file}"
+  _log ".bash_profile file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
@@ -127,14 +128,13 @@ if [ -d "${HOME}/.functions/" ];then
     [ -r "${SCRIPT}" ] && source "${SCRIPT}"
   done
 else
-  log "Missing ${HOME}/.functions directory"
-  log "Make sure the directory hasn't been moved or changed."
+  _log "Missing ${HOME}/.functions directory"
+  _log "Make sure the directory hasn't been moved or changed."
 fi
 
 unset UNAMECMD
-
 # }}}
 
-# vim: set et sw=2 foldmethod=marker
+#vim: set et sw=2 foldmethod=marker
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

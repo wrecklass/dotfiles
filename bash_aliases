@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# [[ -z "${CYG_HOME_ALIASES}" ]] && CYG_HOME_ALIASES="1" || return 0
-# echo ".bash_aliases"
+# If we've already read these, don't do it again
+[[ -z "${BASH_ALIASES}" ]] && BASH_ALIASES="1" || return 0
+ _log ".bash_aliases"
 
 hub_path=$(command -v hub)
 if [ -n "${hub_path}" ];then
-  alias git="\${hub_path}"
+  alias git="${hub_path}"
 fi
 
 # Lock the screen (when going AFK) MacOS Only
@@ -23,7 +24,7 @@ alias sudo='sudo '
 # Detect which `ls` flavor is in use
 export colorflag="-G"
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
+  colorflag="--color"
 fi # OS X `ls`
 
 alias ..="cd .."

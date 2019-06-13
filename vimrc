@@ -48,7 +48,7 @@ filetype on
 let g:airline_powerline_fonts = 1
 let g:airline_theme='papercolor'
 
-" ShellCheck: 
+" ShellCheck:
 " let g:shellcheck_qf_open
 " let g:shellcheck_ll_open
 
@@ -150,7 +150,7 @@ endif
 
 let g:PaperColor_Theme_Options = {
   \   'theme': {
-  \     'default.dark': { 
+  \     'default.dark': {
   \       'override' : {
   \         'color00'       : ['#080808', '232'],
   \         'cursorline'    : ['#444444', '238'],
@@ -234,6 +234,8 @@ nnoremap  <leader>ct  :!ctags -Rf .git/tags<CR><CR>
 nmap     <C-n>        :NERDTreeToggle<CR>
 nmap     <leader>n    :NERDTreeToggle<CR>
 map      \|           :NERDTreeFind<CR>
+
+map      -            :Explore<CR>
 
 cnoremap <C-a>        <Home>
 cnoremap <C-b>        <Left>
@@ -391,8 +393,8 @@ if has("autocmd")
 else
   set autoindent
 endif " has ("autocmd")
-
-" Section: Function definitions
+" }}}
+" Section: Function definitions {{{
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
