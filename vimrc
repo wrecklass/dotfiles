@@ -385,7 +385,7 @@ vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
-" Pressing <leader>r does search and replace on visual selection
+" Pressing <leader>r sets up search and replace on visual selection
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
 " Open vimgrep and put the cursor in the right position
