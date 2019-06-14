@@ -26,6 +26,20 @@
 set nocompatible
 set pastetoggle=<F2>
 set nobackup
+set nowritebackup
+set dir=/tmp,/var/tmp,~/tmp
+
+set langmenu=en
+let $LANG='en_US.UTF-8'
+" Reset menus
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+" Hide buffers that are abandoned
+set hid
+
+" Turn on magic for Regular Expressions
+set magic
 
 " Temporary work around, needed to get 'gx' to work
 " Also added vim/plugin/netrwPlugin.vim with minor change
@@ -46,7 +60,7 @@ filetype on
 let g:airline_powerline_fonts = 1
 let g:airline_theme='papercolor'
 
-" ShellCheck: 
+" ShellCheck:
 " let g:shellcheck_qf_open
 " let g:shellcheck_ll_open
 
@@ -139,6 +153,7 @@ nnoremap <C-l> <C-W>l
 " Section: GUI {{{
 
 " Don't use GVim...
+set t_Co=256
 set mousemodel=popup
 set mouse=a
 " Allow the mouse to interact with tabs:
@@ -147,21 +162,25 @@ if has ("gui")
 endif
 
 " color00 = Background
-let g:PaperColor_Theme_Options = {
+try
+  let g:PaperColor_Theme_Options = {
   \   'theme': {
-  \     'default.dark': { 
+  \     'default.dark': {
   \       'override' : {
-  \         'folded_bg'     : ['#767676', '243'],
-  \         'folded_fg'     : ['#262626', '235'],
   \         'color00'       : ['#080808', '232'],
+  \         'cursorline'    : ['#444444', '238'],
   \         'linenumber_fg' : ['#767676', '243'],
   \         'linenumber_bg' : ['#080808', '232'],
+  \         'folded_bg'     : ['#6c6c6c', '242'],
+  \         'folded_fg'     : ['#262626', '235'],
   \       }
   \     }
   \   }
   \ }
 
-colorscheme PaperColor
+  colorscheme PaperColor
+catch
+endtry
 
 " }}}
 " Section: Messages and Info {{{
@@ -171,7 +190,6 @@ set noerrorbells
 set showcmd
 set t_vb=
 set tm=500
-set t_Co=256
 " }}}
 " Section: Editing text and indent {{{
 
@@ -187,10 +205,16 @@ set nosmartindent
 set textwidth=0
 " set colorcolumn=80
 set cursorline
-set backspace=2
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 set complete-=i         " Searching includes can be slow
 set infercase
+
+" Show matching parens
 set showmatch
+" use this number of 1/10ths of seconds to show match
+set mat=5
+
 set virtualedit=block
 
 set noshiftround
@@ -205,6 +229,7 @@ set completefunc=syntaxcomplete#Complete
 if has('folding')
   set foldmethod=marker
   set foldopen+=jump
+  set foldcolumn=1
 endif
 
 autocmd FileType c,cpp,cs,java        setlocal commentstring=//\ %s
@@ -232,6 +257,8 @@ nnoremap  <leader>ct  :!ctags -Rf .git/tags<CR><CR>
 nmap     <C-n>        :NERDTreeToggle<CR>
 nmap     <leader>n    :NERDTreeToggle<CR>
 map      \|           :NERDTreeFind<CR>
+
+map      -            :Explore<CR>
 
 cnoremap <C-a>        <Home>
 cnoremap <C-b>        <Left>
@@ -270,11 +297,13 @@ map Y y$
 
 " Source vimrc without restarting vim
 " mnemonics Vimrc or Source
-map      <leader>V           :source $MYVIMRC<CR>
-map      <leader>S           :source $MYVIMRC<CR>
+map    <silent>  <leader>V    :source $MYVIMRC<CR>
+map    <silent>  <leader>S    :source $MYVIMRC<CR>
 
 " Easy vertical split
 nnoremap  <leader>v    :vs<CR>
+
+nnoremap  <leader>H    :sp<CR>
 
 nnoremap <leader>j  :m+<CR>==
 nnoremap <leader>k  :m-2<CR>==
@@ -308,7 +337,7 @@ nnoremap <leader>i :setlocal ic!<CR> :setlocal ic?<CR>
 noremap <leader>pp :setlocal paste!<CR>
 nnoremap \o :setlocal paste!<CR>
 
-" ,m to erase all C-M's in a Dos file. Remembers location
+" ,m to erase all ^M in a Dos file. Remembers location
 noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
 "noremap <space> 8j
@@ -322,19 +351,49 @@ noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
 " noremap <leader>s ?(<CR>ldt,pldt)%p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vimgrep searching and cope displaying
+" => Parenthesis/bracket
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+vnoremap $1 <esc>`>a)<esc>`<i(<esc>
+vnoremap $2 <esc>`>a]<esc>`<i[<esc>
+vnoremap $3 <esc>`>a}<esc>`<i{<esc>
+vnoremap $$ <esc>`>a"<esc>`<i"<esc>
+vnoremap $q <esc>`>a'<esc>`<i'<esc>
+vnoremap $e <esc>`>a"<esc>`<i"<esc>
+
+" Map auto complete of (, ", ', [
+inoremap $1 ()<esc>i
+inoremap $2 []<esc>i
+inoremap $3 {}<esc>i
+inoremap $4 {<esc>o}<esc>O
+inoremap $q ''<esc>i
+inoremap $e ""<esc>i
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General abbreviations
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+iab xdate <c-r>=strftime("%m/%d/%y %H:%M:%S")<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Fast editing and reloading of vimrc configs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>e :e! ~/.vimrc<cr>
+autocmd! BufWritePost ~/.vimrc source ~/.vimrc
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSelection('gv')<CR>
+vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
+
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+
+" Pressing <leader>r sets up search and replace on visual selection
+vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
 " Open vimgrep and put the cursor in the right position
-noremap <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
+noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 
 " Vimgreps in the current file
 noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 
 " }}}
 " Section: Reading and writing files {{{
@@ -348,8 +407,8 @@ set backupskip+=/private/tmp/*
 set wildmenu
 set history=200        " Keep 200 lines of command line history
 set wildmode=full
-set wildignore+=tags,.*.un~,*.pyc
-
+set wildignore+=tags,.*.un~,*.pyc,*.o
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 " }}}
 " Section: Filetype settings {{{
 
@@ -389,17 +448,19 @@ if has("autocmd")
 else
   set autoindent
 endif " has ("autocmd")
-
-" Section: Function definitions
+" }}}
+" Section: Function definitions {{{
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   exe "normal mz"
-  %s/\s\+$//ge
+  silent! %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+
+autocmd BufWritePre *.txt,*.js,*.sh,*.py,*.coffee :call DeleteTrailingWS()
+" autocmd BufWrite *.coffee :call DeleteTrailingWS()
+" autocmd BufWrite *.py :call DeleteTrailingWS()
 
 function! HasPaste()
   if &paste
@@ -410,22 +471,24 @@ function! HasPaste()
 endfunction
 
 function! CmdLine(str)
-  exe "menu Foo.Bar :" . a:str
-  emenu Foo.Bar
-  unmenu Foo
+  call feedkeys(":" . a:str)
+  " Old way
+  " exe "menu Foo.Bar :" . a:str
+  " emenu Foo.Bar
+  " unmenu Foo
 endfunction
 
-function! VisualSelection(direction) range
+function! VisualSelection(direction, extra_filter) range
   let l:saved_reg = @"
   execute "normal! vgvy"
 
-  let l:pattern = escape(@", '\\/.*$^~[]')
+  let l:pattern = escape(@", "\\/.*'$^~[]")
   let l:pattern = substitute(l:pattern, "\n$", "", "")
 
   if a:direction == 'b'
     execute "normal ?" . l:pattern . "^M"
   elseif a:direction == 'gv'
-    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+    call CmdLine("Ag " . l:pattern )
   elseif a:direction == 'replace'
     call CmdLine("%s" . '/'. l:pattern . '/')
   elseif a:direction == 'f'
