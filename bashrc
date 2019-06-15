@@ -20,7 +20,7 @@ case $- in
 esac
 # }}}
 # {{{ Logging
-declare -x -i VERBOSE=1
+declare -x -i VERBOSE=0
 
 _log() {
     if [ "$VERBOSE" -eq 1 ];then
