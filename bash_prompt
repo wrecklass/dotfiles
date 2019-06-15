@@ -4,15 +4,6 @@
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
 
-# UNAMECMD=$(command -v uname)
-# : ${HOME=~}
-# : ${UNAME=$($UNAMECMD)}
-# Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
-# To make sourcing our defaults environment easier.
-# UNAME=${UNAME/CYGWIN*/cygwin}
-# export UNAME
-# unset UNAMECMD
-
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
   export TERM='gnome-256color';
 elif infocmp xterm-256color >/dev/null 2>&1; then

@@ -20,7 +20,7 @@ case $- in
 esac
 # }}}
 # {{{ Logging
-declare -x -i VERBOSE=0
+declare -x -i VERBOSE=1
 
 _log() {
     if [ "$VERBOSE" -eq 1 ];then
@@ -75,9 +75,9 @@ UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
 # }}}
 # {{{ shenv for different environments
-FZF=$(command -v fzf)
 # Variables specific to the OS environment
 for file in "${HOME}"/.shenv/*."${UNAME}" ; do
+  FZF=$(command -v fzf)
   if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
     _log "Not sourcing ${file}"
     continue
