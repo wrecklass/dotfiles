@@ -60,7 +60,7 @@ shopt -s checkwinsize
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
 export LESS='FXR'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
-export CDPATH=".:~:~/src"
+# export CDPATH=".:~:~/src"
 export PATH
 
 # Make sure we only source this once
