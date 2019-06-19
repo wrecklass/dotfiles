@@ -26,8 +26,19 @@
 
 # Set user-defined locale
 # export LANG=$(locale -uU)
+# {{{ Logging
+declare -x -i VERBOSE=0
 
-# echo "bash_profile"
+_log() {
+    if [ "$VERBOSE" -eq 1 ];then
+      dt="$(date)"
+      printf "%s-%s: %s\n" "${dt}" "BASH_PROFILE[$$]" "$*"
+    fi
+}
+
+_log "bash_profile"
+# }}}
+
 # shellcheck source=/dev/null
 
 [[ "$-" == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"

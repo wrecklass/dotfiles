@@ -154,8 +154,10 @@ repo() {
 }
 
 # Get colors in manual pages
-alias man="_man"
-_man() {
+# _man is a keybinding function defined by man. 
+# So we must use __man here.
+alias man="__man"
+__man() {
 	env \
 		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
 		LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -166,7 +168,6 @@ _man() {
 		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 		man "$@"
 }
-
 
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location

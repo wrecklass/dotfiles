@@ -60,7 +60,7 @@ shopt -s checkwinsize
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
 export LESS='FXR'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
-export CDPATH=".:~:~/src"
+# export CDPATH=".:~:~/src"
 export PATH
 
 # Make sure we only source this once
@@ -75,9 +75,9 @@ UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
 # }}}
 # {{{ shenv for different environments
-FZF=$(command -v fzf)
 # Variables specific to the OS environment
 for file in "${HOME}"/.shenv/*."${UNAME}" ; do
+  FZF=$(command -v fzf)
   if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
     _log "Not sourcing ${file}"
     continue
@@ -135,6 +135,6 @@ fi
 unset UNAMECMD
 # }}}
 
-#vim: set et sw=2 foldmethod=marker
+# vim: set et sw=2 foldmethod=marker
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[[ -r "${HOME}/fzf.bash" ]] && source ~/.fzf.bash || echo ""

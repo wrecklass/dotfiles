@@ -9,9 +9,6 @@ if [ -n "${hub_path}" ];then
   alias git="${hub_path}"
 fi
 
-# Lock the screen (when going AFK) MacOS Only
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
 # Kubectl/kubernetes/k8s aliases
 alias nodes='kubectl get nodes'
 alias pods='kubectl get pods'

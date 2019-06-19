@@ -2,11 +2,13 @@
 
 alias cdd="_cdd"
 alias cde="_cde"
+alias cdg="_cdg"
+alias cdgo="_cdgo"
 alias cdl="_cdl"
-alias mkcd="_mkcd"
 alias cdot="_cdot"
 alias cdo="_cdot"
 alias cd="cd_func"
+alias mkcd="_mkcd"
 
 _cdot() {
   local mydir
@@ -19,6 +21,22 @@ _cdd() {
         cd_func "/home/${USER}/Documents/${*}"
     else
         cd_func "/home/${USER}/Documents/"
+    fi
+}
+
+_cdg() {
+    if [ $# -gt 0 ]; then
+        cd_func "/home/${USER}/src/github/${*}"
+    else
+        cd_func "/home/${USER}/src/github/"
+    fi
+}
+
+_cdgo() {
+    if [ $# -gt 0 ]; then
+        cd_func "$GOPATH/${*}"
+    else
+        cd_func "$GOPATH"
     fi
 }
 
