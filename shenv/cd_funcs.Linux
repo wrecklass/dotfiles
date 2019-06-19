@@ -12,8 +12,8 @@ alias mkcd="_mkcd"
 
 _cdot() {
   local mydir
-  mydir="$(find "$HOME/.bashrc" -ls | awk '{print $NF}')"
-  cd_func "$(dirname "$mydir")"
+  mydir="$(dirname $(readlink "$HOME/.bashrc"))"
+  cd_func "$mydir"
 }
 
 _cdd() {
