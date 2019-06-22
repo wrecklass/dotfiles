@@ -279,7 +279,7 @@ noremap  q   <Nop>
 
 " Map jj to Escape easily
 " Really helpful when in insert mode and start typing j to navigate
-inoremap jj  <Esc>
+" inoremap jj  <Esc>
 
 inoremap <C-J>        <Down>
 " inoremap <C-K><C-K>   <Up>
