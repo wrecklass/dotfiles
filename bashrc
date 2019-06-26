@@ -13,6 +13,7 @@
 # shellcheck disable=SC1090
 # shellcheck disable=SC1091
 
+# Only source this once
 [[ -z "${BASH_RC}" ]] && BASH_RC="1" || return 0
 case $- in
   *i*) ;;

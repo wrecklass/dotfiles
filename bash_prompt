@@ -4,6 +4,9 @@
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
 
+# Only source this file one time
+[[ -z "${BASH_PROMPT}" ]] && BASH_PROMPT="1" || return 0
+
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
   export TERM='gnome-256color';
 elif infocmp xterm-256color >/dev/null 2>&1; then
