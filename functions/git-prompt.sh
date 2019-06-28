@@ -96,6 +96,12 @@
 
 # printf "git-prompt.sh\n"
 
+# GIT_PS1_SHOWDIRTYSTATE=1
+# GIT_PS1_SHOWUPSTREAM="verbose name"
+# GIT_PS1_SHOWSTASHSTATE=1
+# GIT_PS1_SHOWUNTRACKEDFILES=1
+
+
 # check whether printf supports -v
 __git_printf_supports_v=
 printf -v __git_printf_supports_v -- '%s' yes >/dev/null 2>&1
@@ -478,6 +484,7 @@ __git_ps1 ()
 		if [ -n "${GIT_PS1_SHOWDIRTYSTATE-}" ] &&
 		   [ "$(git config --bool bash.showDirtyState)" != "false" ]
 		then
+      # printf "\n\nchecking for dirty git\n\n"
 			git diff --no-ext-diff --quiet || w="*"
 			git diff --no-ext-diff --cached --quiet || i="+"
 			if [ -z "$short_sha" ] && [ -z "$i" ]; then

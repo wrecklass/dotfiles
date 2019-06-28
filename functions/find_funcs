@@ -3,6 +3,8 @@
 alias ff='_ff'
 alias ffd='_ffd'
 alias ffl='_ffl'
+alias ffn='_ffn'
+alias vif='_vif'
 alias grepr="_grepr"
 alias greprl="_greprl"
 alias greplr="_greprl"
@@ -54,3 +56,11 @@ _ffl() {
     find "${FF_DIR}" -type f -ls
 }
 
+_ffn() {
+    find . -type f -name "$1"
+}
+
+# shellcheck disable=SC2046
+_vif() {
+  vi $(find . -name "$1")
+}

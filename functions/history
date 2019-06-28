@@ -1,16 +1,9 @@
 #!/bin/bash
 
-_bash_history_sync() {
-  builtin history -a
-  HISTFILESIZE=$HISTSIZE
-  builtin history -c
-  builtin history -r
-}
-
-history() {
-  _bash_history_sync
-  builtin history "$@"
-}
+export HISTCONTROL='erasedups:ignoreboth'
+export HISTIGNORE="x:h:history:ls:ps:ll:exit"
+export HISTSIZE=10000
+export HISTFILESIZE=7000
 
 _h () {
     if [ $# -gt 0 ]; then
@@ -20,13 +13,34 @@ _h () {
     fi
 }
 
+alias h="_h"
+
+### For now we're not doing this as it is only partially working.
+return
+### Need to find a better way to do all of this
+
+_bash_history_sync() {
+  builtin history -a
+  HISTFILESIZE=$HISTSIZE
+  builtin history -c
+  builtin history -r
+}
+
+function history() {
+  _bash_history_sync
+  builtin history "$@"
+}
+
+if [[ ! -e "${HOME}/.bash_history_tmp" ]];then
+  cp "${HOME}/.bash_history" "${HOME}/.bash_history_tmp"
+fi
+
 export PROMPT_COMMAND="_bash_history_sync;$PROMPT_COMMAND"
 # printf "Prompt Command %s\n" "$PROMPT_COMMAND"
 export PROMPT_COMMAND
 
 mkdir -p "$HOME/.history"
 
-alias h="_h"
 
 builtin history -c
 # Do the 'Are you sure' thing like ZSH
@@ -38,17 +52,17 @@ shopt -s histappend
 #builtin history -c && builtin history -r
 
 # Change to specific history file
-TTY="$(basename $(tty))"
+TTY=$(basename "$(tty)")
+if [[ -z "$TTY" ]]; then
+  printf "ERROR, tty returned null value: %s\n" "$(tty)"
+  TTY="$$"
+fi
 tmpHISTFile="$HOME/.history/history_session.$TTY"
-cat "$HOME/.bash_history_tmp" | tail -n 10000 >> "$tmpHISTFile"
+<"$HOME/.bash_history_tmp" tail -n 5000 > "$tmpHISTFile"
 
 # Store lots of history to go back in time
 # And file size stored
 export HISTFILE="$tmpHISTFile"
-export HISTCONTROL='erasedups:ignoreboth'
-export HISTIGNORE="h:history:ls:ps:ll:exit"
-export HISTSIZE=10000
-export HISTFILESIZE=${HISTSIZE}
 # builtin history -r
 
 unset tmpHISTFile

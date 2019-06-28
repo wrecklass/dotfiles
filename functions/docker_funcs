@@ -35,12 +35,12 @@ docker-build() {
 
 # runs docker exec in the latest container
 docker-exec-last() {
-  docker exec -ti $( docker ps -a -q -l) /bin/bash
+  docker exec -ti "$( docker ps -a -q -l)" /bin/bash
 }
 
 docker-get-ip() {
   # Usage: docker-get-ip (name or sha)
-  [ -n "$1" ] && docker inspect --format "{{ .NetworkSettings.IPAddress }}" $1
+  [ -n "$1" ] && docker inspect --format "{{ .NetworkSettings.IPAddress }}" "$1"
 }
 
 docker-get-id() {
@@ -59,7 +59,9 @@ docker-get-state() {
 }
 
 docker-memory() {
-  for line in `docker ps | awk '{print $1}' | grep -v CONTAINER`; do docker ps | grep $line | awk '{printf $NF" "}' && echo $(( `cat /sys/fs/cgroup/memory/docker/$line*/memory.usage_in_bytes` / 1024 / 1024 ))MB ; done
+  for line in $(docker ps | awk '{print $1}' | grep -v CONTAINER); do
+    docker ps | grep "$line" | awk '{printf $NF" "}' && echo $(( $(cat "/sys/fs/cgroup/memory/docker/$line*/memory.usage_in_bytes") / 1024 / 1024 ))MB 
+  done
 }
 
 # keeps the commmand history when running a container
@@ -67,7 +69,7 @@ basher() {
     if [[ $1 = 'run' ]]
     then
         shift
-        docker run -e HIST_FILE=/root/.bash_history -v $HOME/.bash_history:/root/.bash_history "$@"
+        docker run -e HIST_FILE=/root/.bash_history -v "$HOME"/.bash_history:/root/.bash_history "$@"
     else
         docker "$@"
     fi

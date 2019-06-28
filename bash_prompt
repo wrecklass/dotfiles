@@ -4,62 +4,57 @@
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
 
-# UNAMECMD=$(command -v uname)
-# : ${HOME=~}
-# : ${UNAME=$($UNAMECMD)}
-# Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
-# To make sourcing our defaults environment easier.
-# UNAME=${UNAME/CYGWIN*/cygwin}
-# export UNAME
-# unset UNAMECMD
+# Only source this file one time
+[[ -z "${BASH_PROMPT}" ]] && BASH_PROMPT="1" || return 0
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
   export TERM='gnome-256color';
 elif infocmp xterm-256color >/dev/null 2>&1; then
   export TERM='xterm-256color';
 fi;
+declare -i r
 
-IDCMD=$(which id)
+IDCMD=$(command -v id)
 
-KUBE=$(command -v kubectl)
+# KUBE=$(command -v kubectl)
 if [ -x "${KUBE}" ];then
   prompt_kube() {
     echo -n "$(kubectl config current-context 2>/dev/null)"
   }
 fi
 
-GIT_PS1_DESCRIBE_STYLE=default
-GIT_PS1_SHOWCOLORHINTS=1
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUPSTREAM=verbose
+# GIT_PS1_DESCRIBE_STYLE=default
+# GIT_PS1_SHOWCOLORHINTS=1
+# GIT_PS1_SHOWDIRTYSTATE=1
+# GIT_PS1_SHOWSTASHSTATE=1
+# GIT_PS1_SHOWUPSTREAM=verbose
 
 if tput setaf 1 &> /dev/null; then
   tput sgr0; # reset colors
   bold=$(tput bold);
   reset=$(tput sgr0);
   # Solarized colors, taken from http://git.io/solarized-colors.
-  black=$(tput setaf 0);
-  blue=$(tput setaf 33);
-  cyan=$(tput setaf 37);
+  # black=$(tput setaf 0);
+  # blue=$(tput setaf 33);
+  # cyan=$(tput setaf 37);
   green=$(tput setaf 64);
   orange=$(tput setaf 166);
-  purple=$(tput setaf 125);
+  # purple=$(tput setaf 125);
   red=$(tput setaf 124);
-  violet=$(tput setaf 61);
+  # violet=$(tput setaf 61);
   white=$(tput setaf 15);
   yellow=$(tput setaf 136);
 else
   bold='';
   reset="\e[0m";
-  black="\e[1;30m";
-  blue="\e[1;34m";
-  cyan="\e[1;36m";
+  # black="\e[1;30m";
+  # blue="\e[1;34m";
+  # cyan="\e[1;36m";
   green="\e[1;32m";
   orange="\e[1;33m";
-  purple="\e[1;35m";
+  # purple="\e[1;35m";
   red="\e[1;31m";
-  violet="\e[1;35m";
+  # violet="\e[1;35m";
   white="\e[1;37m";
   yellow="\e[1;33m";
 fi;
@@ -73,7 +68,7 @@ if [[ "${USER}" == "root" ]]; then
 elif [[ "${UNAME}" == "cygwin" ]];then
   userStyle="${green}";
   userName="${USER}";
-  GREP='/usr/bin/grep'
+  GREP="$(command -v grep)"
   "${IDCMD}" -Gn 2>/dev/null | "${GREP}" -iq admin
   declare -i RETVAL="$?"
   if [ "$RETVAL" -eq 0 ];then

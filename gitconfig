@@ -1,9 +1,46 @@
+# ~/.gitconfig
+#
+# {{{ Global Configuration
+[color]
+  ui= true
+[color "branch"]
+  current = green reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red
+  new = green
 [core]
-	editor = /usr/bin/vim
+  autocrlf = false
+  editor = /usr/bin/vim
+  excludesfile = /Users/p2708440/.gitignore_global
 [push]
-	default = simple
+  default = simple
 [credential]
-	helper = store
+  helper = store
+[user]
+  name = Stephen Martin
+  email = smartin5590@gmail.com
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+[mergetool "mvimdiff"]
+  cmd = mvim -c 'Gdiff' $MERGED
+  keepbackup = false
+  trustExitCode = true
+[merge]
+  summary = true
+  verbosity = 1
+  tool = mvimdiff
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
+# }}}
+# {{{ Aliases
 [alias]
   # XXX TEMPLATE: XXX
   # changeme = "!f() { changemetoo }; f"
@@ -11,8 +48,8 @@
   aliases = config --get-regexp alias
 
   la = "!git config -l | grep alias "
-	rv = remote -v
-	r = remote -v
+  rv = remote -v
+  r = remote -v
   z = status -z -u
   # Add a new remote to the current repository, $1=Name(origin), $2=URL(git@github.com/...)
   ra = "!f() { git remote add $1 $2; }; f"
@@ -20,10 +57,11 @@
   # some log aliases
   history = log
   h = !git log | cat
-	last = log -1 HEAD
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  last = log -1 HEAD
+  l = log --pretty=oneline -n 24 --graph --abbrev-commit
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  lshort = log --pretty=format:\"%h %cr %C(yellow)%cn %Cgreen%s%Creset\"
   lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
   # Added dates:
   ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
@@ -36,6 +74,7 @@
   # Because it sux that it can't figure this out:
   logs = log
   # Inspect recent history
+ 
   dl = !git ll -1
   dlc = diff --cached HEAD^
   # Find a file path in codebase:
@@ -65,6 +104,8 @@
 
   # Pull in all of the remote changes including submodules
   p = !"git pull; git submodule foreach git pull origin master"
+  sm = submodule
+  sma =submodule add
 
   # Start new work
   up = !git pull --rebase --prune $@ && git submodule update --init --recursive
@@ -76,7 +117,7 @@
   info = status
   # Edit the global config file
   # e = config --global -e
-	edit = !/usr/bin/vim ~/.gitconfig
+  edit = !/usr/bin/vim ~/.gitconfig
   e = !/usr/bin/vim ~/.gitconfig
   # Just show the date in compressed format
   dt  = !date +"%Y%m%dT%H%M%S"
@@ -87,6 +128,7 @@
 
   # Note that this adds UNTRACKED files to the repository:
   cm = !git add -A && git commit -m
+  ca = commit -am
   # Saves Work in Progress. Leaves untracked alone.
   wip = commit -am "WIP"
   # Likewise, saves it all as a (probably temporary) checkpoint:
@@ -111,7 +153,7 @@
   # Clean up and start some new work
   bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
   # Rename 'branch' to 'done-branch'
-  done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
+  done = "!f() { git branch | grep \"$1\" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
 
   # Mark a file to make git assume it is unchanged (don't commit it)
   assume = update-index --assume-unchanged
@@ -133,6 +175,7 @@
   # Show verbose output of tags and branches and remotes
   tags = tag -l
   branches = branch -a
+  b  = branch -v
   bs = branch -a
   remotes = remote -v
 
@@ -140,7 +183,7 @@
   # Checkout commits I've made
   ours = "!f() { git co --ours $@ && git add $@; }; f"
   # Checkout commits from the repo that need merging with mine
-  theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+  theirs = "!f() { git co --theirs $@ && git add $@; }g f"
 
   # Basic shortcuts
   cp = cherry-pick
@@ -171,17 +214,6 @@
   sl = stash list
   sa = stash apply
   ss = stash save
-[user]
-	name = Steve Martin
-	email = smartin5590+github@gmail.com
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
-[mergetool "sourcetree"]
-	cmd = /Users/p2708440/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+# }}}
+
+#vim: set et sw=2 foldmethod=marker

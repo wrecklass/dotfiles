@@ -2,15 +2,41 @@
 
 alias cdd="_cdd"
 alias cde="_cde"
+alias cdg="_cdg"
+alias cdgo="_cdgo"
 alias cdl="_cdl"
-alias mkcd="_mkcd"
+alias cdot="_cdot"
+alias cdo="_cdot"
 alias cd="cd_func"
+alias mkcd="_mkcd"
+
+_cdot() {
+  local mydir
+  mydir="$(dirname $(readlink "$HOME/.bashrc"))"
+  cd_func "$mydir"
+}
 
 _cdd() {
     if [ $# -gt 0 ]; then
         cd_func "/home/${USER}/Documents/${*}"
     else
         cd_func "/home/${USER}/Documents/"
+    fi
+}
+
+_cdg() {
+    if [ $# -gt 0 ]; then
+        cd_func "/home/${USER}/src/github/${*}"
+    else
+        cd_func "/home/${USER}/src/github/"
+    fi
+}
+
+_cdgo() {
+    if [ $# -gt 0 ]; then
+        cd_func "$GOPATH/${*}"
+    else
+        cd_func "$GOPATH"
     fi
 }
 
@@ -70,8 +96,7 @@ cd_func() {
 
     #
     # Now change to the new dir and add to the top of the stack
-    pushd "${the_new_dir}" > /dev/null
-    [[ $? -ne 0 ]] && return 1
+    pushd "${the_new_dir}" > /dev/null || return
     the_new_dir=$(pwd)
 
     #
@@ -81,12 +106,11 @@ cd_func() {
     #
     # Remove any other occurence of this dir, skipping the top of the stack
     for ((cnt=1; cnt <= 10; cnt++)); do
-        x2=$(dirs +${cnt} 2>/dev/null)
-        [[ $? -ne 0 ]] && return 0
+        x2=$(dirs +${cnt} 2>/dev/null) || return 0
         [[ ${x2:0:1} == '~' ]] && x2="${HOME}${x2:1}"
         if [[ "${x2}" == "${the_new_dir}" ]]; then
             popd -n +$cnt 2>/dev/null 1>/dev/null
-            cnt=cnt-1
+            cnt=$((cnt - 1))
         fi
     done
 

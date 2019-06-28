@@ -1,3 +1,4 @@
+#!/bin/bash
 # To the extent possible under law, the author(s) have dedicated all 
 # copyright and related and neighboring rights to this software to the 
 # public domain worldwide. This software is distributed without any warranty. 
@@ -26,10 +27,24 @@
 # Set user-defined locale
 # export LANG=$(locale -uU)
 
-# echo "bash_profile"
-for file in ~/.bashrc; do
-  [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
-done
+# Set this and only source file once
+[[ -z "${BASH_PROFILE}" ]] && BASH_PROFILE="1" || return 0
+# {{{ Logging
+declare -x -i VERBOSE=0
+
+_log() {
+    if [ "$VERBOSE" -eq 1 ];then
+      dt="$(date)"
+      printf "%s-%s: %s\n" "${dt}" "BASH_PROFILE[$$]" "$*"
+    fi
+}
+
+_log "bash_profile"
+# }}}
+
+# shellcheck source=/dev/null
+
+[[ "$-" == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 unset file
 
 # Enable some Bash 4 features when possible:
@@ -62,8 +77,8 @@ if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]];then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/p2708440/src/google-cloud-sdk/path.bash.inc' ]; then source '/Users/p2708440/src/google-cloud-sdk/path.bash.inc'; fi
+if [ -f "${HOME}/src/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/src/google-cloud-sdk/path.bash.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/p2708440/src/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/p2708440/src/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f "${HOME}/src/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/src/google-cloud-sdk/completion.bash.inc"; fi
 

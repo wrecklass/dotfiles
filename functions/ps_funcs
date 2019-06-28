@@ -1,17 +1,23 @@
 #!/bin/bash
 
 alias psg='_psg'
+alias psgi='_psgi'
 alias psgc='_psgc'
 alias psl='_psl'
 alias psn='_psn'
 alias psw='tasklist'
 
 _psg() {
-    ps auxw | grep -i "$*" | grep -v grep
+    pgrep -lf "$*"
 }
 
+_psgi() {
+    pgrep -lfi "$*"
+}
+
+# shellcheck disable=2009
 _psgc() {
-    ps auxw | /usr/bin/grep -i "$*" | grep -v grep
+    ps auxw | grep -i "$*" | grep -v grep
 }
 
 _psl() {
