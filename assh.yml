@@ -1,0 +1,89 @@
+hosts:
+
+  devops:
+    HostName: 172.28.165.59
+
+  olympus:
+    User: p2708440
+    HostName: 10.2.0.123
+    Gateways: [devops]
+
+  globaljump:
+    HostName: 66.74.164.102
+
+  jd:
+    User: smartin
+    HostName: 10.2.0.19
+    Gateways: [devbox]
+
+  jdl:
+    User: smartin
+    HostName: 10.2.64.111
+    Gateways: [olympus]
+
+  jds:
+    User: P2708440
+    HostName: 10.2.0.110
+    Gateways: [devops]
+
+  poodle:
+    User: smartin
+    HostName: 192.168.1.40
+
+  puddle:
+    User: smartin
+    HostName: 192.168.1.40
+    Gateways: [rasp]
+
+  rasp:
+    Port: 22000
+    User: smartin
+    HostName: kdyfish.asuscomm.com
+
+  oc:
+    Hostname: oc.kdyfish.net
+    Port: 22
+
+  dns:
+    Hostname: century.kdyfish.org
+
+  century:
+    Hostname: century.kdyfish.org
+
+  dnstwo:
+    Hostname: dns2.kdyfish.org
+
+  socrates:
+    Hostname: 192.168.1.125
+
+  devgraf:
+    User: p2708440
+    Hostname: 52.35.182.201
+
+  devsensu:
+    User: p2708440
+    Hostname: 52.35.182.201
+
+  rasp3:
+    Hostname: 192.168.1.34
+
+  jds:
+    Hostname: 52.24.28.223
+
+  olympus:
+    Hostname: 35.162.166.61
+
+  bastion.engprod:
+    IdentityFile: /home/smartin/.ssh/kubernetes160.pem
+    User: centos
+    Hostname: 34.207.67.29
+
+  kubebox:
+    User: centos
+    IdentityFile: /home/smartin/.ssh/kubernetes160.pem
+    Hostname: bastion.oneapp-k8s.engprod-charter.net
+
+defaults:
+  ConnectionTimeout: 15
+  Port: 22
+  User: smartin
