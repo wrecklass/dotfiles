@@ -56,22 +56,8 @@ hosts:
   socrates:
     Hostname: 192.168.1.125
 
-  devgraf:
-    User: p2708440
-    Hostname: 52.35.182.201
-
-  devsensu:
-    User: p2708440
-    Hostname: 52.35.182.201
-
   rasp3:
     Hostname: 192.168.1.34
-
-  jds:
-    Hostname: 52.24.28.223
-
-  olympus:
-    Hostname: 35.162.166.61
 
   bastion.engprod:
     IdentityFile: /home/smartin/.ssh/kubernetes160.pem
@@ -87,3 +73,6 @@ defaults:
   ConnectionTimeout: 15
   Port: 22
   User: smartin
+  Hooks:
+    AfterConfigWrite:
+      - write "{{.SSHConfigPath}} has been rewritten!"

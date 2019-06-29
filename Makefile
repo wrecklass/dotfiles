@@ -10,10 +10,11 @@ submodules:
 # Ignore Readme and Makefile
 # Vim is handled below
 dotfiles:
-	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name ".[a-z]*" -not -name "README.md" -not -name "vim" -not -name "Makefile"); do \
+	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name ".[a-z]*" -not -name "README.md" -not -name "vim" -not -name "Makefile" -not -name "assh.yml"); do \
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
+	cp -f assh.yml ~/.ssh/assh.yml
 
 # Vim requires a regular directory tree, it doesn't seem to accept a file link
 # We kill it and recreate it each time, so everything has to be in the repo
