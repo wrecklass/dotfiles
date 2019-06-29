@@ -158,7 +158,8 @@ set mousemodel=popup
 set mouse=a
 " Allow the mouse to interact with tabs:
 if has ("gui")
-  set guifont=Consolas:h14
+  " set guifont=Consolas:h14
+  set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h13
 endif
 
 " color00 = Background

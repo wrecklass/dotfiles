@@ -58,7 +58,7 @@
   history = log
   h = !git log | cat
   last = log -1 HEAD
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  l = log --pretty=oneline -n 24 --graph --abbrev-commit
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   lshort = log --pretty=format:\"%h %cr %C(yellow)%cn %Cgreen%s%Creset\"

@@ -91,6 +91,7 @@ alias grv='git remote -v'
 alias gss='git status -s'
 alias gs='git status'
 
+# So these two aliases do bash_completion from git
 complete -o default -o nospace -F _git g
 complete -o default -o nospace -F _git get
 
@@ -112,13 +113,18 @@ alias hp='hashapass.sh'
 alias irb='irb --readline -r irb/completion'
 
 alias kc='kubectl'
+complete -o default -o nospace -F __start_kubectl kc
+
 alias ppath='echo -e ${PATH//:/\\n}'
 
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
 alias j='jobs'
+
+# File lists 'ls'
 alias dot='ls -dAF ${colorflag} .*'
 alias l.='ls -dAF ${colorflag} .*'
 alias ll.='ls -ldF ${colorflag} .*'
@@ -140,9 +146,9 @@ alias llg='ls -lF ${colorflag}'
 
 alias md='mkdir'
 alias mdp='mkdir -p'
-alias mypid='kindlepid.py B001BFB781653202'
-alias mplayer='mplayer'
-#alias mysql='start mysql'
+# alias mypid='kindlepid.py B001BFB781653202'
+# alias mplayer='mplayer'
+# alias mysql='start mysql'
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
@@ -154,7 +160,7 @@ alias now='date +"%T"'
 alias nowtime='now'
 alias nowdate='date +"%d-%m-%Y"'
 
-alias pp='ping google.com'
+alias pp='ping 8.8.8.8'
 alias fastping='ping -c 10 -i .2'
 alias r='fc -s'
 alias ri='ri -f bs '
@@ -165,8 +171,8 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias vm='mv -i'
 
-alias s7='secure7'
-alias sb='cd /usr/local/streambaby ; ./streambaby_high &> ~/.log/streambaby.log &'
+# alias s7='secure7'
+# alias sb='cd /usr/local/streambaby ; ./streambaby_high &> ~/.log/streambaby.log &'
 alias scc='less $HOME/bin/screencheat'
 if [ -x "$HOME/bin/vim" ];then
   alias sec='$HOME/bin/vim $HOME/bin/.secret'
@@ -178,7 +184,7 @@ alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
 alias svi='sudo vim'
 alias via='vi ~/.ssh/assh.yml'
 alias sw='telnet  towel.blinkenlights.nl'
-alias sx='startxwin.sh > .xwin_errors 2>&1'
+# alias sx='startxwin.sh > .xwin_errors 2>&1'
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
@@ -187,15 +193,11 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 alias untar='tar xvf'
 alias tp='terraform plan -out ./flagship.plan'
 alias ta='terraform apply ./flagship.plan'
-alias tg='tivoget.rb'
-alias tivo='remote.pyw 192.168.1.20 &'
-alias tivol='remote.pyw --landscape 192.168.1.20 &'
-alias tivokeys="clear;cat \$HOME/bin/keys"
 # alias todo='~/bin/todo.sh'
 # alias t='~/bin/todo.sh'
 alias xtar="tar xvf"
 alias ctar="tar cvf"
-alias ttar="tar cvf"
+alias ttar="tar tvf"
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
@@ -215,6 +217,4 @@ alias httpd.rb='ruby -run -e httpd . -p 8000'
 
 # alias xh='xhost +'
 alias x='chmod +x '
-
-# alias rout='route add 172.0.0.0 mask 255.0.0.0 '
 

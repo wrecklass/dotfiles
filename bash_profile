@@ -26,6 +26,9 @@
 
 # Set user-defined locale
 # export LANG=$(locale -uU)
+
+# Set this and only source file once
+[[ -z "${BASH_PROFILE}" ]] && BASH_PROFILE="1" || return 0
 # {{{ Logging
 declare -x -i VERBOSE=0
 
