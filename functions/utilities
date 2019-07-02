@@ -1,3 +1,4 @@
+#!/bin/bash
 # Misc. Utilities
 
 alias err='_err'
@@ -36,8 +37,12 @@ _dush() {
 }
 
 path() {
-  if [[ -n "$1" ]] && [[ -d "$1" ]];then
-    PATH="$PATH:$1"
+
+  local tmp="${1%/}"
+  if [[ -n "${tmp}" ]] && [[ -d "${tmp}" ]];then
+    if ! grep -q "${tmp}" <<<${PATH} ; then
+      PATH="$PATH:${tmp}"
+    fi
   fi
   echo "$PATH" | tr ':' '\n'
 }
