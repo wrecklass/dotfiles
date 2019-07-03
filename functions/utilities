@@ -41,7 +41,7 @@ path() {
   local tmp="${1%/}"
   if [[ -n "${tmp}" ]] && [[ -d "${tmp}" ]];then
     if ! grep -q "${tmp}" <<<${PATH} ; then
-      PATH="$PATH:${tmp}"
+      PATH="${tmp}:$PATH"
     fi
   fi
   echo "$PATH" | tr ':' '\n'
