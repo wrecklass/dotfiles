@@ -158,6 +158,13 @@ repo() {
 	fi
 }
 
+YUM=$(command -v yum)
+if [[ -z "${YUM}" ]];then
+  function yum() {
+    echo "Must be a debian system, ust apt."
+  }
+fi
+
 # Get colors in manual pages
 # _man is a keybinding function defined by man. 
 # So we must use __man here.
