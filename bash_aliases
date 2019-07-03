@@ -120,7 +120,7 @@ alias ppath='echo -e ${PATH//:/\\n}'
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 alias j='jobs'
 
