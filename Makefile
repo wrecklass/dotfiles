@@ -35,6 +35,6 @@ help:
 	@echo  '  dotfiles    - install all of the dotfiles to HOME: [$(HOME)],'
 	@echo  '                ignoring vim which must be copied'
 	@echo  '  submodules  - clone the submodules to appropriate locations'
-	@echo  '  vimdocs     - create the vim module helptags'
 	@echo  '  vimfiles    - copy the vim directory to HOME/.vim: [$(HOME)/.vim/]'
+	@echo  '  vimdocs     - create the vim module helptags'
 	@echo  ''
