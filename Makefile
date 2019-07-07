@@ -1,9 +1,10 @@
-
-# Project name for bintray
+# Project name
 PROJECT_NAME=dotfiles
 
-.PHONY := all
-all: dotfiles vimfiles vimdocs ## Install everything
+.DEFAULT_GOAL := deploy
+
+.PHONY := deploy
+deploy: dotfiles vimfiles vimdocs ## Install everything (default)
 
 .PHONY := submodules
 submodules: ## Pull in the git submodules
@@ -38,3 +39,4 @@ help:
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
 	 awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-30s\033[0m %s\n", $$1, $$2}'
 	@echo
+
