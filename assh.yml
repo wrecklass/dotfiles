@@ -1,31 +1,5 @@
 hosts:
 
-  devops:
-    HostName: 172.28.165.59
-
-  olympus:
-    User: p2708440
-    HostName: 10.2.0.123
-    Gateways: [devops]
-
-  globaljump:
-    HostName: 66.74.164.102
-
-  jd:
-    User: smartin
-    HostName: 10.2.0.19
-    Gateways: [devbox]
-
-  jdl:
-    User: smartin
-    HostName: 10.2.64.111
-    Gateways: [olympus]
-
-  jds:
-    User: P2708440
-    HostName: 10.2.0.110
-    Gateways: [devops]
-
   poodle:
     User: smartin
     HostName: 192.168.1.40
@@ -60,24 +34,18 @@ hosts:
     User: smartin
     Hostname: 192.168.1.125
 
+  rasp4:
+    User: smartin
+    Hostname: 192.168.1.36
+
   rasp3:
     User: smartin
     Hostname: 192.168.1.34
 
-  bastion.engprod:
-    IdentityFile: /home/smartin/.ssh/kubernetes160.pem
-    User: centos
-    Hostname: 34.207.67.29
-
-  kubebox:
-    User: centos
-    IdentityFile: /home/smartin/.ssh/kubernetes160.pem
-    Hostname: bastion.oneapp-k8s.engprod-charter.net
-
 defaults:
   ConnectionTimeout: 15
   Port: 22
-  User: p2708440
+  User: smartin
   Hooks:
     AfterConfigWrite:
       - write "{{.SSHConfigPath}} has been rewritten!"
