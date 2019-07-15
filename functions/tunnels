@@ -1,5 +1,9 @@
 #!/bin/bash
 
+alias tmsh='tsh'
+alias tmssh='tsh'
+alias tmuxsh='tsh'
+
 # Ssh to somewhere and attach or start a tmux session.
 tsh () {
   if [[ -n "$1" ]];then
