@@ -19,7 +19,7 @@ export LSCOLORS='Gxfxcxdxdxegedabagacad'
 ################################# END MY DATA ################################
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/smartin/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -90,13 +90,8 @@ plugins=(
   gnu-utils
   go
   history
-  jira
   jsontools
   jump
-  k
-  kops
-  kubectl
-  minikube
   osx
   rand-quote
   rsync
@@ -104,7 +99,6 @@ plugins=(
   thefuck
   tmux
   web-search
-  hlpz
 )
 
 function powerline_precmd() {
@@ -126,7 +120,7 @@ else
   source $HOME/.bash_prompt
 fi
 
-export PATH="/usr/local/Cellar/coreutils/8.30/libexec/gnubin:$PATH"
+export PATH="/home/smartin/.local/bin:/usr/local/Cellar/coreutils/8.30/libexec/gnubin:$PATH"
 export MANPAGES="/usr/local/Cellar/coreutils/8.30/libexec/gnuman:$PATH"
 source $ZSH/oh-my-zsh.sh
 
