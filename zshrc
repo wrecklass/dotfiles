@@ -120,6 +120,7 @@ else
   source $HOME/.bash_prompt
 fi
 
+export EDITOR="/usr/bin/vim"
 export PATH="/home/smartin/.local/bin:/usr/local/Cellar/coreutils/8.30/libexec/gnubin:$PATH"
 export MANPAGES="/usr/local/Cellar/coreutils/8.30/libexec/gnuman:$PATH"
 source $ZSH/oh-my-zsh.sh
