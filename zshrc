@@ -1,13 +1,10 @@
 #!/usr/local/bin/zsh
 ################################# START MY DATA ##############################
 # My personal vars
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home"
-export JIRA_URL='https://jira.charter.com'
-export JIRA_NAME='p2708440'
-export JIRA_PREFIX='CLOUDINFRS-'
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 export FZF_BASE='/usr/local/opt/fzf'
 
-export GOROOT='/usr/local/go'
+export GOROOT='/usr/lib/go'
 export GOPATH="$HOME/src/gocode"
 export HISTCONTROL='erasedups:ignoreboth'
 export HISTIGNORE="x:h:history:ls:ps:ll:exit"
@@ -17,6 +14,12 @@ export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
 export LESS='FXR'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 ################################# END MY DATA ################################
+
+# If we have wireless interface, make sure it isn't powered down.
+WLINF="$(ifconfig  | sed  -n -e 's#^\(wl.*\):.*#\1#p')"
+if [[ -n "$WNINF" ]];then
+  sudo iwconfig "${WNINF}" power off
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -100,6 +103,8 @@ plugins=(
   tmux
   web-search
 )
+
+export POWERLINE_MODULES="user,host,ssh,cwd,perms,jobs,newline,kube,git,hg,exit,root"
 
 function powerline_precmd() {
   PS1="$($GOPATH/bin/powerline-go -modules 'nix-shell,venv,user,host,ssh,cwd,perms,jobs,newline,git,hg,exit,root' -numeric-exit-codes -colorize-hostname -cwd-mode plain -error $? -shell zsh)"
