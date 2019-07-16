@@ -131,8 +131,14 @@ export MANPAGES="/usr/local/Cellar/coreutils/8.30/libexec/gnuman:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+#
+# For local Rust install
+MANPATH="/usr/share/man"
+MANPATH+=":/home/smartin/.rustup/toolchains/beta-x86_64-unknown-linux-gnu/share/man"
+export MANPATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
