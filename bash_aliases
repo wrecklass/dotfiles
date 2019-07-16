@@ -215,6 +215,9 @@ alias week='date +%V'
 alias httpd.py='python -m SimpleHTTPServer'
 alias httpd.rb='ruby -run -e httpd . -p 8000'
 
+# Because we do this so often
+alias xit='exit'
+
 # alias xh='xhost +'
 alias x='chmod +x '
 
