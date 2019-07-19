@@ -4,7 +4,7 @@ PROJECT_NAME=dotfiles
 .DEFAULT_GOAL := deploy
 
 .PHONY := deploy
-deploy: dotfiles vimfiles vimdocs ## Install everything (default)
+deploy: dotfiles fishconf vimfiles vimdocs ## Install everything (default)
 
 .PHONY := submodules
 submodules: ## Pull in the git submodules
@@ -13,14 +13,21 @@ submodules: ## Pull in the git submodules
 
 # Ignore the dotfiles in dotfiles
 # Ignore Readme and Makefile
-# Vim is handled below
+# Fish and Vim is handled below
 .PHONY := dotfiles
 dotfiles:                ## Install (link) the dotfiles
-	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name ".[a-z]*" -not -name "README.md" -not -name "vim" -not -name "Makefile" -not -name "assh.yml"); do \
+	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name ".[a-z]*" -not -name "README.md" -not -name "vim" -not -name "Makefile" -not -name "assh.yml" -not -name "fish"); do \
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
 	cp -f assh.yml ~/.ssh/assh.yml
+
+
+# Fish goes to the .config dir
+.PHONY := fishconf
+fishconf:                    ## link fish to the $HOME/.config/ directory
+	@echo Linking fish
+	/usr/bin/ln -sfn $$PWD/fish $$HOME/.config/
 
 # Vim requires a regular directory tree, it doesn't seem to accept a file link
 # We kill it and recreate it each time, so everything has to be in the repo
