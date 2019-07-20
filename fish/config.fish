@@ -3,7 +3,7 @@
 set -gx EDITOR /usr/bin/vim
 set -gx GOROOT /usr/lib/go
 set -gx GOPATH $HOME/src/gocode
-set -gx PATH $HOME/bin $HOME/.cargo/bin $GOROOT/bin $PATH
+set -gx PATH $HOME/bin $GOPATH/bin $HOME/.cargo/bin $GOROOT/bin $PATH
 
 if status --is-interactive
   abbr --add --global gco 'git checkout'

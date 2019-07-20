@@ -4,7 +4,9 @@ SETUVAR __fish_classic_git_prompt_initialized:\x1d
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
+SETUVAR _fish_abbr__2D_2D_:cdh
 SETUVAR _fish_abbr_cdo:cd\x20/home/smartin/src/dotfiles/
+SETUVAR _fish_abbr_cds:cd\x20/home/smartin/src
 SETUVAR _fish_abbr_cls:clear
 SETUVAR _fish_abbr_gbb:git\x20branches
 SETUVAR _fish_abbr_gco:git\x20checkout
