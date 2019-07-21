@@ -27,7 +27,7 @@ dotfiles:                ## Install (link) the dotfiles
 .PHONY := fishconf
 fishconf:                    ## link fish to the $HOME/.config/ directory
 	@echo Linking fish
-	/usr/bin/ln -sfn $$PWD/fish $$HOME/.config/
+	/bin/ln -sfn $$PWD/fish $$HOME/.config/
 
 # Vim requires a regular directory tree, it doesn't seem to accept a file link
 # We kill it and recreate it each time, so everything has to be in the repo
