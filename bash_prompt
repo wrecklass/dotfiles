@@ -16,7 +16,7 @@ declare -i r
 
 IDCMD=$(command -v id)
 
-# KUBE=$(command -v kubectl)
+KUBE=$(command -v kubectl)
 if [ -x "${KUBE}" ];then
   prompt_kube() {
     echo -n "$(kubectl config current-context 2>/dev/null)"

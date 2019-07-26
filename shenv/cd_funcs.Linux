@@ -7,6 +7,7 @@ alias cdgo="_cdgo"
 alias cdl="_cdl"
 alias cdot="_cdot"
 alias cdo="_cdot"
+alias cds="_cds"
 alias cd="cd_func"
 alias mkcd="_mkcd"
 
@@ -14,6 +15,14 @@ _cdot() {
   local mydir
   mydir="$(dirname $(readlink "$HOME/.bashrc"))"
   cd_func "$mydir"
+}
+
+_cds() {
+    if [ $# -gt 0 ]; then
+        cd_func "${HOME}/src/${*}"
+    else
+        cd_func "${HOME}/src/"
+    fi
 }
 
 _cdd() {

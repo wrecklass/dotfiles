@@ -6,14 +6,18 @@
 
 hub_path=$(command -v hub)
 if [ -n "${hub_path}" ];then
-  alias git="${hub_path}"
+  # alias git="${hub_path}"
+  eval "$(hub alias -s)"
 fi
 
+
 # Kubectl/kubernetes/k8s aliases
-alias nodes='kubectl get nodes'
-alias pods='kubectl get pods'
-alias kns='kubens'
-alias kctx='kubectx'
+# alias kc='kubectl'
+# complete -o default -o nospace -F __start_kubectl kc
+#alias nodes='kubectl get nodes'
+#alias pods='kubectl get pods'
+#alias kns='kubens'
+#alias kctx='kubectx'
 
 # Allow aliases to be sudoed
 alias sudo='sudo '
@@ -112,9 +116,6 @@ alias hp='hashapass.sh'
 
 alias irb='irb --readline -r irb/completion'
 
-alias kc='kubectl'
-complete -o default -o nospace -F __start_kubectl kc
-
 alias ppath='echo -e ${PATH//:/\\n}'
 
 # IP addresses
@@ -126,6 +127,7 @@ alias j='jobs'
 
 # File lists 'ls'
 alias dot='ls -dAF ${colorflag} .*'
+alias dolt='ls -dlAF ${colorflag} .*'
 alias l.='ls -dAF ${colorflag} .*'
 alias ll.='ls -ldF ${colorflag} .*'
 alias l='ls -lF ${colorflag}'

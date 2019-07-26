@@ -104,10 +104,11 @@ plugins=(
   web-search
 )
 
-export POWERLINE_MODULES="user,host,ssh,cwd,perms,jobs,newline,kube,git,hg,exit,root"
+export POWERLINE_MODULES="user,host,ssh,cwd,perms,jobs,newline,git,hg,exit,root"
 
 function powerline_precmd() {
-  PS1="$($GOPATH/bin/powerline-go -modules 'nix-shell,venv,user,host,ssh,cwd,perms,jobs,newline,git,hg,exit,root' -numeric-exit-codes -colorize-hostname -cwd-mode plain -error $? -shell zsh)"
+  # PS1="$($GOPATH/bin/powerline-go -modules 'nix-shell,venv,user,host,ssh,cwd,perms,jobs,newline,git,hg,exit,root' -numeric-exit-codes -colorize-hostname -cwd-mode plain -error $? -shell zsh)"
+  PS1="$($GOPATH/bin/powerline-go -modules "$POWERLINE_MODULES" -colorize-hostname -cwd-mode plain -error $? -shell zsh)"
 }
 
 function install_powerline_precmd() {
