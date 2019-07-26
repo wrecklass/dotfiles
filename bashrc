@@ -123,7 +123,7 @@ unset file
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then
   for SCRIPT in "${HOME}"/.functions/*; do
-    if [[ "${SCRIPT}" =~ "settitle" ]];then
+    if [[ "${SCRIPT}" =~ "off" ]];then
       continue
     fi
     [ -r "${SCRIPT}" ] && source "${SCRIPT}"
