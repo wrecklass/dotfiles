@@ -85,7 +85,9 @@ set viminfo='20,\"100,:100,%,n~/.viminfo
 " syntax on
 syntax enable
 
-packadd! matchit
+if v:version > 800
+  packadd! matchit
+endif
 " }}}
 " Section: Moving around, searching, patterns and tags {{{
 
@@ -94,8 +96,11 @@ packadd! matchit
 " Replace = _ (Underscore)
 
 let &t_SI="\<Esc>[5 q"
-let &t_SR="\<Esc>[3 q"
 let &t_EI="\<Esc>[0 q"
+
+if v:version > 800
+  let &t_SR="\<Esc>[3 q"
+endif
 
 set smartcase
 set incsearch
