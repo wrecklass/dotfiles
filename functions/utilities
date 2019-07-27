@@ -18,7 +18,7 @@ function _err {
 }
 
 _dush() {
-  du -sk "$@" | sort -g | awk '{ 
+  sudo du -sk "$@" 2> /dev/null | sort -g | awk '{ 
 
     numBytes = $1 * 1024; 
     numUnits = split("B K M G T P", unit); 
