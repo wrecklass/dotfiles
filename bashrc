@@ -109,6 +109,12 @@ elif [ -r "/etc/bash_completion" ];then
 else
   _log "No bash_completion script!"
 fi
+
+# completion for hub command
+if [ -f $GOPATH/src/github.com/github/hub/etc/hub.bash_completion ]; then
+  source $GOPATH/src/github.com/github/hub/etc/hub.bash_completion
+fi
+
 # }}}
 # {{{ Import our standard files and some specials
 # Import all of the files we use
