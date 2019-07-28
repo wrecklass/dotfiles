@@ -83,8 +83,14 @@ for file in "${HOME}"/.shenv/*."${UNAME}" ; do
     _log "Not sourcing ${file}"
     continue
   fi
+
   _log "Sourcing ${file}"
-  [[ -r "${file}" ]] && source "${file}" || _log "No such file: ${file}"
+ 
+  if [[ -r "${file}" ]]; then
+    source "${file}"
+  else
+    _log "No such file: ${file}"
+  fi
 done
 # }}}
 # {{{ DIRCOLORS
@@ -111,8 +117,8 @@ else
 fi
 
 # completion for hub command
-if [ -f $GOPATH/src/github.com/github/hub/etc/hub.bash_completion ]; then
-  source $GOPATH/src/github.com/github/hub/etc/hub.bash_completion
+if [ -f "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion" ]; then
+  source "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion"
 fi
 
 # }}}
