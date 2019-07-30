@@ -66,6 +66,7 @@ alias dust='du -sh * | sort -h'
 alias fild='file'
 alias fiel='file'
 
+alias bit="git"
 alias g="git"
 alias get='git'
 alias ga='git add'
