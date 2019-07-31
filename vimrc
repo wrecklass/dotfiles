@@ -377,7 +377,7 @@ vnoremap $e <esc>`>a"<esc>`<i"<esc>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General abbreviations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab xdate <c-r>=strftime("%m/%d/%y %H:%M:%S")<cr>
+iab ddate <c-r>=strftime("%m/%d/%y %H:%M:%S")<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
