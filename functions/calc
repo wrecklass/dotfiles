@@ -2,9 +2,9 @@
 # Simple calculator
 calc() {
   local result=""
-  result="$(printf "scale=10;%s" "$*\n" | bc --mathlib | tr -d '\\\n')"
+  #result="$(printf "scale=4;%s\n" "$*" | bc --mathlib | tr -d '\\\n')"
+  result="$(printf "scale=10;%s\n" "$*" | bc --mathlib )"
   #                       └─ default (when `--mathlib` is used) is 20
-
 
   if [[ "$result" == *.* ]]; then
     # improve the output for decimal numbers

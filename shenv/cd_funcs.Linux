@@ -7,6 +7,7 @@ alias cdgo="_cdgo"
 alias cdl="_cdl"
 alias cdot="_cdot"
 alias cdo="_cdot"
+alias cdp="_cdp"
 alias cds="_cds"
 alias cd="cd_func"
 alias mkcd="_mkcd"
@@ -22,6 +23,14 @@ _cds() {
         cd_func "${HOME}/src/${*}"
     else
         cd_func "${HOME}/src/"
+    fi
+}
+
+_cdp() {
+    if [ $# -gt 0 ]; then
+        cd_func "/home/${USER}/Pictures/${*}"
+    else
+        cd_func "/home/${USER}/Pictures/"
     fi
 }
 

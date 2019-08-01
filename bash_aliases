@@ -169,6 +169,8 @@ alias fastping='ping -c 10 -i .2'
 alias r='fc -s'
 alias ri='ri -f bs '
 alias rit='ri -T -f bs '
+
+alias trash="gio trash"
 alias rm='rm -i'
 alias mr='rm -i'
 alias cp='cp -i'
