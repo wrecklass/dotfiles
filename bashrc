@@ -59,10 +59,11 @@ shopt -s checkwinsize
 # export NETREGX="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
 # Better:
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
-export LESS='FXR'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 # export CDPATH=".:~:~/src"
 export PATH
+export LESS='FXR'
+[[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"
 
 # Make sure we only source this once
 # [[ -z "${CYG_HOME_BASHRC}" ]] && CYG_HOME_BASHRC="1" || return 0
