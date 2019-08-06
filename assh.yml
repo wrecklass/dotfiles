@@ -1,5 +1,9 @@
 hosts:
 
+  tiggeroo:
+    User: Kelly
+    Hostname: tiggeroo
+
   poodle:
     User: smartin
     HostName: 192.168.1.40
@@ -47,5 +51,24 @@ defaults:
   Port: 22
   User: smartin
   Hooks:
+    BeforeConfigWrite:
+      - 'exec set -x ; cp {{.SSHConfigPath}} {{.SSHConfigPath}}.bak'
+
     AfterConfigWrite:
-      - write "{{.SSHConfigPath}} has been rewritten!"
+      - write  "{{.SSHConfigPath}} has been rewritten!"
+      - notify "{{.SSHConfigPath}} has been rewritten!"
+
+    OnConnect:
+      # Log internal information to a file
+      - exec printf '{{.}}' | jq . >> ~/.ssh/last_connected_host.txt
+      
+      # Write the host prototype to the terminal stderr
+      - write New SSH connection to {{.Host.Prototype}}
+
+    ONDisconnect:
+      # write on terminal and in desktop notification some statistics about the finished connection
+      - "write SSH connection to {{.Host.HostName}} closed, {{.Stats.WrittenBytes}} bytes written in {{.Stats.ConnectionDuration}} ({{.Stats.AverageSpeed}}bps)"
+      - "notify SSH connection to {{.Host.HostName}} closed, {{.Stats.WrittenBytes}} bytes written in {{.Stats.ConnectionDuration}} ({{.Stats.AverageSpeed}}bps)"
+
+ASSHBinaryPath: ~/src/gocode/bin/assh
+

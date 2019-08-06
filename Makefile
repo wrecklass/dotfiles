@@ -1,13 +1,13 @@
 # Project name
 PROJECT_NAME=dotfiles
 
-.DEFAULT_GOAL := deploy
+.DEFAULT_GOAL := help
 
 .PHONY := deploy
-deploy: dotfiles fishconf vimfiles vimdocs ## Install everything (default)
+deploy: dotfiles fishconf vimfiles vimdocs ## Install everything, use this one to do it all
 
 .PHONY := submodules
-submodules: ## Pull in the git submodules
+submodules:          ## Pull in the git submodules
 	git submodule init ./vim/pack
 	git submodule update ./vim/pack
 
@@ -15,18 +15,19 @@ submodules: ## Pull in the git submodules
 # Ignore Readme and Makefile
 # Fish and Vim is handled below
 .PHONY := dotfiles
-dotfiles:                ## Install (link) the dotfiles
+dotfiles:            ## Install (link) the dotfiles
 	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name ".[a-z]*" -not -name "README.md" -not -name "vim" -not -name "Makefile" -not -name "assh.yml" -not -name "fish"); do \
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
-	cp -f assh.yml ~/.ssh/assh.yml
+	ln -sfn $$PWD/assh.yml ~/.ssh/
 
 
 # Fish goes to the .config dir
 .PHONY := fishconf
-fishconf:                    ## link fish to the $HOME/.config/ directory
+fishconf:            ## link fish to the $HOME/.config/ directory
 	@echo Linking fish
+	mkdir -p $$HOME/.config
 	ln -sfn $$PWD/fish $$HOME/.config/
 
 # Vim requires a regular directory tree, it doesn't seem to accept a file link
@@ -41,7 +42,7 @@ vimdocs:             ## Create the vim helptags
 	find "$(HOME)/.vim/" -type d -name doc -exec vim -u NONE -c "helptags {}" -c q \;
 
 .PHONY := help
-help:
+help:                ## List targets (default)
 	@echo 'Management commands for ${PROJECT_NAME}:'
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
 	 awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-30s\033[0m %s\n", $$1, $$2}'
