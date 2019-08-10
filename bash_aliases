@@ -101,7 +101,7 @@ alias gs='git status'
 complete -o default -o nospace -F _git g
 complete -o default -o nospace -F _git get
 
-alias gc=". \$HOME/bin/gitdate && git commit -v "
+alias gc="eval \$(\$HOME/bin/gitdate0 && git commit -v "
 
 alias grep='grep -a --color=always'
 alias gpre='grep -a --color=always'
@@ -217,6 +217,7 @@ alias vib='$EDITOR ~/.bashrc'
 alias iv="\$EDITOR"
 
 alias week='date +%V'
+alias wcl='wc -l'
 
 alias httpd.py='python -m SimpleHTTPServer'
 alias httpd.rb='ruby -run -e httpd . -p 8000'

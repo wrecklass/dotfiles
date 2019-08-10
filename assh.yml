@@ -24,11 +24,11 @@ hosts:
 
   dns:
     User: smartin
-    Hostname: century.kdyfish.org
+    Hostname: dns
 
   century:
     User: smartin
-    Hostname: century.kdyfish.org
+    Hostname: century
 
   dnstwo:
     User: smartin
@@ -56,7 +56,7 @@ defaults:
 
     AfterConfigWrite:
       - write  "{{.SSHConfigPath}} has been rewritten!"
-      - notify "{{.SSHConfigPath}} has been rewritten!"
+      # - notify "{{.SSHConfigPath}} has been rewritten!"
 
     OnConnect:
       # Log internal information to a file
@@ -68,7 +68,7 @@ defaults:
     ONDisconnect:
       # write on terminal and in desktop notification some statistics about the finished connection
       - "write SSH connection to {{.Host.HostName}} closed, {{.Stats.WrittenBytes}} bytes written in {{.Stats.ConnectionDuration}} ({{.Stats.AverageSpeed}}bps)"
-      - "notify SSH connection to {{.Host.HostName}} closed, {{.Stats.WrittenBytes}} bytes written in {{.Stats.ConnectionDuration}} ({{.Stats.AverageSpeed}}bps)"
+      # - "notify SSH connection to {{.Host.HostName}} closed, {{.Stats.WrittenBytes}} bytes written in {{.Stats.ConnectionDuration}} ({{.Stats.AverageSpeed}}bps)"
 
 ASSHBinaryPath: ~/src/gocode/bin/assh
 
