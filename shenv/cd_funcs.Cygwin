@@ -75,7 +75,7 @@ _cdd() {
 }
 
 _cdot() {
-    dir=$(dirname "$(find "$HOME/.bashrc" -ls | awk '{print $NF}')")
+    dir="$(dirname $(readlink "$HOME/.bashrc"))"
     if [ $# -gt 0 ]; then
         cd_func "$dir/${*}"
     else

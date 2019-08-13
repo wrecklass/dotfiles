@@ -6,14 +6,18 @@
 
 hub_path=$(command -v hub)
 if [ -n "${hub_path}" ];then
-  alias git="${hub_path}"
+  # alias git="${hub_path}"
+  eval "$(hub alias -s)"
 fi
 
+
 # Kubectl/kubernetes/k8s aliases
-alias nodes='kubectl get nodes'
-alias pods='kubectl get pods'
-alias kns='kubens'
-alias kctx='kubectx'
+# alias kc='kubectl'
+# complete -o default -o nospace -F __start_kubectl kc
+#alias nodes='kubectl get nodes'
+#alias pods='kubectl get pods'
+#alias kns='kubens'
+#alias kctx='kubectx'
 
 # Allow aliases to be sudoed
 alias sudo='sudo '
@@ -30,6 +34,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
+alias -- --="cd --"
 
 alias sal='source ~/.bash_aliases'
 #alias b64="build64"
@@ -61,6 +66,7 @@ alias dust='du -sh * | sort -h'
 alias fild='file'
 alias fiel='file'
 
+alias bit="git"
 alias g="git"
 alias get='git'
 alias ga='git add'
@@ -91,10 +97,11 @@ alias grv='git remote -v'
 alias gss='git status -s'
 alias gs='git status'
 
+# So these two aliases do bash_completion from git
 complete -o default -o nospace -F _git g
 complete -o default -o nospace -F _git get
 
-alias gc=". \$HOME/bin/gitdate && git commit -v "
+alias gc="eval \$(\$HOME/bin/gitdate0 && git commit -v "
 
 alias grep='grep -a --color=always'
 alias gpre='grep -a --color=always'
@@ -111,15 +118,18 @@ alias hp='hashapass.sh'
 
 alias irb='irb --readline -r irb/completion'
 
-alias kc='kubectl'
 alias ppath='echo -e ${PATH//:/\\n}'
 
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
 alias j='jobs'
+
+# File lists 'ls'
 alias dot='ls -dAF ${colorflag} .*'
+alias dolt='ls -dlAF ${colorflag} .*'
 alias l.='ls -dAF ${colorflag} .*'
 alias ll.='ls -ldF ${colorflag} .*'
 alias l='ls -lF ${colorflag}'
@@ -140,9 +150,9 @@ alias llg='ls -lF ${colorflag}'
 
 alias md='mkdir'
 alias mdp='mkdir -p'
-alias mypid='kindlepid.py B001BFB781653202'
-alias mplayer='mplayer'
-#alias mysql='start mysql'
+# alias mypid='kindlepid.py B001BFB781653202'
+# alias mplayer='mplayer'
+# alias mysql='start mysql'
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
@@ -154,19 +164,21 @@ alias now='date +"%T"'
 alias nowtime='now'
 alias nowdate='date +"%d-%m-%Y"'
 
-alias pp='ping google.com'
+alias pp='ping 8.8.8.8'
 alias fastping='ping -c 10 -i .2'
 alias r='fc -s'
 alias ri='ri -f bs '
 alias rit='ri -T -f bs '
+
+alias trash="gio trash"
 alias rm='rm -i'
 alias mr='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias vm='mv -i'
 
-alias s7='secure7'
-alias sb='cd /usr/local/streambaby ; ./streambaby_high &> ~/.log/streambaby.log &'
+# alias s7='secure7'
+# alias sb='cd /usr/local/streambaby ; ./streambaby_high &> ~/.log/streambaby.log &'
 alias scc='less $HOME/bin/screencheat'
 if [ -x "$HOME/bin/vim" ];then
   alias sec='$HOME/bin/vim $HOME/bin/.secret'
@@ -178,7 +190,7 @@ alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
 alias svi='sudo vim'
 alias via='vi ~/.ssh/assh.yml'
 alias sw='telnet  towel.blinkenlights.nl'
-alias sx='startxwin.sh > .xwin_errors 2>&1'
+# alias sx='startxwin.sh > .xwin_errors 2>&1'
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
@@ -187,15 +199,11 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 alias untar='tar xvf'
 alias tp='terraform plan -out ./flagship.plan'
 alias ta='terraform apply ./flagship.plan'
-alias tg='tivoget.rb'
-alias tivo='remote.pyw 192.168.1.20 &'
-alias tivol='remote.pyw --landscape 192.168.1.20 &'
-alias tivokeys="clear;cat \$HOME/bin/keys"
 # alias todo='~/bin/todo.sh'
 # alias t='~/bin/todo.sh'
 alias xtar="tar xvf"
 alias ctar="tar cvf"
-alias ttar="tar cvf"
+alias ttar="tar tvf"
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
@@ -209,12 +217,14 @@ alias vib='$EDITOR ~/.bashrc'
 alias iv="\$EDITOR"
 
 alias week='date +%V'
+alias wcl='wc -l'
 
 alias httpd.py='python -m SimpleHTTPServer'
 alias httpd.rb='ruby -run -e httpd . -p 8000'
 
+# Because we do this so often
+alias xit='exit'
+
 # alias xh='xhost +'
 alias x='chmod +x '
-
-# alias rout='route add 172.0.0.0 mask 255.0.0.0 '
 

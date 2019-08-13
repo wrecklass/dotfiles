@@ -1,3 +1,4 @@
+#!/bin/bash
 # Misc. Utilities
 
 alias err='_err'
@@ -17,7 +18,7 @@ function _err {
 }
 
 _dush() {
-  du -sk "$@" | sort -g | awk '{ 
+  sudo du -sk "$@" 2> /dev/null | sort -g | awk '{ 
 
     numBytes = $1 * 1024; 
     numUnits = split("B K M G T P", unit); 
@@ -36,8 +37,12 @@ _dush() {
 }
 
 path() {
-  if [[ -n "$1" ]] && [[ -d "$1" ]];then
-    PATH="$PATH:$1"
+
+  local tmp="${1%/}"
+  if [[ -n "${tmp}" ]] && [[ -d "${tmp}" ]];then
+    if ! grep -q "${tmp}" <<<${PATH} ; then
+      PATH="${tmp}:$PATH"
+    fi
   fi
   echo "$PATH" | tr ':' '\n'
 }
@@ -133,29 +138,38 @@ v() {
 
 # Call from a local repo to open the repository on github/bitbucket in browser
 repo() {
-	local giturl=$(git config --get remote.origin.url | sed 's/git@/\/\//g' | sed 's/.git$//' | sed 's/https://g' | sed 's/:/\//g')
-	if [[ $giturl == "" ]]; then
-		echo "Not a git repository or no remote.origin.url is set."
-	else
-		local gitbranch=$(git rev-parse --abbrev-ref HEAD)
-		local giturl="http:${giturl}"
+  local giturl=$(git config --get remote.origin.url | sed 's/git@/\/\//g' | sed 's/.git$//' | sed 's/https://g' | sed 's/:/\//g')
+  if [[ $giturl == "" ]]; then
+    echo "Not a git repository or no remote.origin.url is set."
+  else
+    local gitbranch=$(git rev-parse --abbrev-ref HEAD)
+    local giturl="http:${giturl}"
 
-		if [[ $gitbranch != "master" ]]; then
-			if echo "${giturl}" | grep -i "bitbucket" > /dev/null ; then
-				local giturl="${giturl}/branch/${gitbranch}"
-                    	else
-                    		local giturl="${giturl}/tree/${gitbranch}"
-                    	fi
-		fi
+    if [[ $gitbranch != "master" ]]; then
+      if echo "${giturl}" | grep -i "bitbucket" > /dev/null ; then
+        local giturl="${giturl}/branch/${gitbranch}"
+      else
+        local giturl="${giturl}/tree/${gitbranch}"
+      fi
+    fi
 
-		echo $giturl
-		open $giturl
-	fi
+    echo $giturl
+    open $giturl
+  fi
 }
 
+YUM=$(command -v yum)
+if [[ -z "${YUM}" ]];then
+  function yum() {
+    echo "Must be a debian system, use apt."
+  }
+fi
+
 # Get colors in manual pages
-alias man="_man"
-_man() {
+# _man is a keybinding function defined by man. 
+# So we must use __man here.
+alias man="__man"
+__man() {
 	env \
 		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
 		LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -166,7 +180,6 @@ _man() {
 		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 		man "$@"
 }
-
 
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location

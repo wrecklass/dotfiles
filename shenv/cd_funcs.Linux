@@ -2,16 +2,36 @@
 
 alias cdd="_cdd"
 alias cde="_cde"
+alias cdg="_cdg"
+alias cdgo="_cdgo"
 alias cdl="_cdl"
-alias mkcd="_mkcd"
 alias cdot="_cdot"
 alias cdo="_cdot"
+alias cdp="_cdp"
+alias cds="_cds"
 alias cd="cd_func"
+alias mkcd="_mkcd"
 
 _cdot() {
   local mydir
-  mydir="$(find "$HOME/.bashrc" -ls | awk '{print $NF}')"
-  cd_func "$(dirname "$mydir")"
+  mydir="$(dirname $(readlink "$HOME/.bashrc"))"
+  cd_func "$mydir"
+}
+
+_cds() {
+    if [ $# -gt 0 ]; then
+        cd_func "${HOME}/src/${*}"
+    else
+        cd_func "${HOME}/src/"
+    fi
+}
+
+_cdp() {
+    if [ $# -gt 0 ]; then
+        cd_func "/home/${USER}/Pictures/${*}"
+    else
+        cd_func "/home/${USER}/Pictures/"
+    fi
 }
 
 _cdd() {
@@ -19,6 +39,22 @@ _cdd() {
         cd_func "/home/${USER}/Documents/${*}"
     else
         cd_func "/home/${USER}/Documents/"
+    fi
+}
+
+_cdg() {
+    if [ $# -gt 0 ]; then
+        cd_func "/home/${USER}/src/github/${*}"
+    else
+        cd_func "/home/${USER}/src/github/"
+    fi
+}
+
+_cdgo() {
+    if [ $# -gt 0 ]; then
+        cd_func "$GOPATH/${*}"
+    else
+        cd_func "$GOPATH"
     fi
 }
 
@@ -54,7 +90,10 @@ cd_func() {
     local x2 the_new_dir adir index
     local -i cnt
 
-    if [[ $1 == "--" ]]; then
+    if [[ $1 == "--help" ]]; then
+      builtin help cd
+      return 0
+    elif [[ $1 == "--" ]]; then
         dirs -v
         return 0
     fi

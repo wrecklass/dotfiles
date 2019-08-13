@@ -30,7 +30,7 @@ set nowritebackup
 set dir=/tmp,/var/tmp,~/tmp
 
 set langmenu=en
-let $LANG='en_US.UTF-8'
+let LANG='en_US.UTF-8'
 " Reset menus
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
@@ -85,7 +85,9 @@ set viminfo='20,\"100,:100,%,n~/.viminfo
 " syntax on
 syntax enable
 
-packadd! matchit
+if v:version > 800
+  packadd! matchit
+endif
 " }}}
 " Section: Moving around, searching, patterns and tags {{{
 
@@ -94,8 +96,11 @@ packadd! matchit
 " Replace = _ (Underscore)
 
 let &t_SI="\<Esc>[5 q"
-let &t_SR="\<Esc>[3 q"
 let &t_EI="\<Esc>[0 q"
+
+if v:version > 800
+  let &t_SR="\<Esc>[3 q"
+endif
 
 set smartcase
 set incsearch
@@ -158,7 +163,8 @@ set mousemodel=popup
 set mouse=a
 " Allow the mouse to interact with tabs:
 if has ("gui")
-  set guifont=Consolas:h14
+  " set guifont=Consolas:h14
+  set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h13
 endif
 
 " color00 = Background
@@ -279,7 +285,7 @@ noremap  q   <Nop>
 
 " Map jj to Escape easily
 " Really helpful when in insert mode and start typing j to navigate
-inoremap jj  <Esc>
+" inoremap jj  <Esc>
 
 inoremap <C-J>        <Down>
 " inoremap <C-K><C-K>   <Up>
@@ -361,17 +367,17 @@ vnoremap $q <esc>`>a'<esc>`<i'<esc>
 vnoremap $e <esc>`>a"<esc>`<i"<esc>
 
 " Map auto complete of (, ", ', [
-inoremap $1 ()<esc>i
-inoremap $2 []<esc>i
-inoremap $3 {}<esc>i
-inoremap $4 {<esc>o}<esc>O
-inoremap $q ''<esc>i
-inoremap $e ""<esc>i
+" inoremap $1 ()<esc>i
+" inoremap $2 []<esc>i
+" inoremap $3 {}<esc>i
+" inoremap $4 {<esc>o}<esc>O
+" inoremap $q ''<esc>i
+" inoremap $e ""<esc>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General abbreviations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab xdate <c-r>=strftime("%m/%d/%y %H:%M:%S")<cr>
+iab ddate <c-r>=strftime("%m/%d/%y %H:%M:%S")<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs

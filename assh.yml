@@ -1,0 +1,74 @@
+hosts:
+
+  tiggeroo:
+    User: Kelly
+    Hostname: tiggeroo
+
+  poodle:
+    User: smartin
+    HostName: 192.168.1.40
+
+  puddle:
+    User: smartin
+    HostName: 192.168.1.40
+    Gateways: [rasp]
+
+  rasp:
+    User: smartin
+    Port: 22000
+    HostName: kdyfish.asuscomm.com
+
+  oc:
+    Hostname: oc.kdyfish.net
+    Port: 22
+
+  dns:
+    User: smartin
+    Hostname: dns
+
+  century:
+    User: smartin
+    Hostname: century
+
+  dnstwo:
+    User: smartin
+    Hostname: dns2.kdyfish.org
+
+  socrates:
+    User: smartin
+    Hostname: 192.168.1.125
+
+  rasp4:
+    User: smartin
+    Hostname: 192.168.1.36
+
+  rasp3:
+    User: smartin
+    Hostname: 192.168.1.34
+
+defaults:
+  ConnectionTimeout: 15
+  Port: 22
+  User: smartin
+  Hooks:
+    BeforeConfigWrite:
+      - 'exec set -x ; cp {{.SSHConfigPath}} {{.SSHConfigPath}}.bak'
+
+    AfterConfigWrite:
+      - write  "{{.SSHConfigPath}} has been rewritten!"
+      # - notify "{{.SSHConfigPath}} has been rewritten!"
+
+    OnConnect:
+      # Log internal information to a file
+      - exec printf '{{.}}' | jq . >> ~/.ssh/last_connected_host.txt
+      
+      # Write the host prototype to the terminal stderr
+      - write New SSH connection to {{.Host.Prototype}}
+
+    ONDisconnect:
+      # write on terminal and in desktop notification some statistics about the finished connection
+      - "write SSH connection to {{.Host.HostName}} closed, {{.Stats.WrittenBytes}} bytes written in {{.Stats.ConnectionDuration}} ({{.Stats.AverageSpeed}}bps)"
+      # - "notify SSH connection to {{.Host.HostName}} closed, {{.Stats.WrittenBytes}} bytes written in {{.Stats.ConnectionDuration}} ({{.Stats.AverageSpeed}}bps)"
+
+ASSHBinaryPath: ~/src/gocode/bin/assh
+

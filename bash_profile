@@ -27,7 +27,21 @@
 # Set user-defined locale
 # export LANG=$(locale -uU)
 
-# echo "bash_profile"
+# Set this and only source file once
+[[ -z "${BASH_PROFILE}" ]] && BASH_PROFILE="1" || return 0
+# {{{ Logging
+declare -x -i VERBOSE=0
+
+_log() {
+    if [ "$VERBOSE" -eq 1 ];then
+      dt="$(date)"
+      printf "%s-%s: %s\n" "${dt}" "BASH_PROFILE[$$]" "$*"
+    fi
+}
+
+_log "bash_profile"
+# }}}
+
 # shellcheck source=/dev/null
 
 [[ "$-" == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
@@ -67,4 +81,5 @@ if [ -f "${HOME}/src/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/src
 
 # The next line enables shell command completion for gcloud.
 if [ -f "${HOME}/src/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/src/google-cloud-sdk/completion.bash.inc"; fi
+
 

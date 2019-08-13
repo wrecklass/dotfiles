@@ -33,7 +33,18 @@
 # Use shellcheck -x to allow the proper sourcing.
 
 # if running bash
-# echo ".profile"
+# {{{ Logging
+declare -x -i VERBOSE=0
+
+_log() {
+    if [ "$VERBOSE" -eq 1 ];then
+      dt="$(date)"
+      printf "%s-%s: %s\n" "${dt}" "PROFILE[$$]" "$*"
+    fi
+}
+
+_log ".profile"
+# }}}
 if [ -n "${BASH_VERSION}" ]; then
   if [ -f "${HOME}/.bash_profile" ]; then
     # This will source .bashrc for us.
@@ -45,3 +56,5 @@ if [ -n "${BASH_VERSION}" ]; then
     source "${HOME}/.bashrc"
   fi
 fi
+_log ".profile done"
+

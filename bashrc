@@ -13,6 +13,7 @@
 # shellcheck disable=SC1090
 # shellcheck disable=SC1091
 
+# Only source this once
 [[ -z "${BASH_RC}" ]] && BASH_RC="1" || return 0
 case $- in
   *i*) ;;
@@ -58,10 +59,11 @@ shopt -s checkwinsize
 # export NETREGX="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"
 # Better:
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
-export LESS='FXR'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
-export CDPATH=".:~:~/src"
+# export CDPATH=".:~:~/src"
 export PATH
+export LESS='FXR'
+[[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"
 
 # Make sure we only source this once
 # [[ -z "${CYG_HOME_BASHRC}" ]] && CYG_HOME_BASHRC="1" || return 0
@@ -75,15 +77,21 @@ UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
 # }}}
 # {{{ shenv for different environments
-FZF=$(command -v fzf)
 # Variables specific to the OS environment
 for file in "${HOME}"/.shenv/*."${UNAME}" ; do
+  FZF=$(command -v fzf)
   if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
     _log "Not sourcing ${file}"
     continue
   fi
+
   _log "Sourcing ${file}"
-  [[ -r "${file}" ]] && source "${file}" || _log "No such file: ${file}"
+ 
+  if [[ -r "${file}" ]]; then
+    source "${file}"
+  else
+    _log "No such file: ${file}"
+  fi
 done
 # }}}
 # {{{ DIRCOLORS
@@ -108,6 +116,12 @@ elif [ -r "/etc/bash_completion" ];then
 else
   _log "No bash_completion script!"
 fi
+
+# completion for hub command
+if [ -f "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion" ]; then
+  source "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion"
+fi
+
 # }}}
 # {{{ Import our standard files and some specials
 # Import all of the files we use
@@ -122,7 +136,7 @@ unset file
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then
   for SCRIPT in "${HOME}"/.functions/*; do
-    if [[ "${SCRIPT}" =~ "settitle" ]];then
+    if [[ "${SCRIPT}" =~ "off" ]];then
       continue
     fi
     [ -r "${SCRIPT}" ] && source "${SCRIPT}"
@@ -137,4 +151,4 @@ unset UNAMECMD
 
 # vim: set et sw=2 foldmethod=marker
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[[ -r "${HOME}/fzf.bash" ]] && source ~/.fzf.bash || echo ""
