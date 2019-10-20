@@ -24,6 +24,8 @@ alias cdu="_cdu"
 alias cdv="_cdv"
 alias cdw="_cdw"
 alias cdwi="_cdwi"
+alias cdx="_cdx"
+alias cdxp="_cdx"
 alias cdz="_cdz"
 alias mkcd="_mkcd"
 alias cd="cd_func"
@@ -309,6 +311,22 @@ _cdwi() {
         cd_func "/c/apps/World of Warcraft/Interface/${*}"
     else
         cd_func "/c/apps/World of Warcraft/Interface"
+    fi
+  fi
+}
+
+_cdx() {
+  if [ -d "/c/Apps/XPlane/X-Plane 11" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/c/Apps/XPlane/X-Plane 11/${*}"
+    else
+        cd_func "/c/Apps/XPlane/X-Plane 11"
+    fi
+  elif [ -d "/e/Apps/X-Plane 11" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/e/Apps/X-Plane 11/${*}"
+    else
+        cd_func "/e/Apps/X-Plane 11"
     fi
   fi
 }
