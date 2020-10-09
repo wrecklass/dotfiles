@@ -16,6 +16,12 @@
   autocrlf = false
   editor = /usr/bin/vim
   excludesfile = /Users/p2708440/.gitignore_global
+  packedGitWindowSize = 512m
+	compression = 0
+[pack]
+  deltaCacheSize = 2047m
+  packSizeLimit = 2047m
+  windowMemory = 2047m
 [push]
   default = simple
 [credential]

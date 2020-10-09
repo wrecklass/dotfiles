@@ -20,7 +20,8 @@ dotfiles:            ## Install (link) the dotfiles
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
-	ln -sfn $$PWD/assh.yml ~/.ssh/
+	# ln -sfn $$PWD/assh.yml ~/.ssh/
+	cp ./assh.yml ~/.ssh/
 
 
 # Fish goes to the .config dir

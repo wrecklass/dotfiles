@@ -296,6 +296,12 @@ _cdw() {
     else
         cd_func "/c/apps/World of Warcraft"
     fi
+  elif [ -d "/e/apps/World of Warcraft/" ];then
+    if [ $# -gt 0 ]; then
+        cd_func "/e/apps/World of Warcraft/${*}"
+    else
+        cd_func "/e/apps/World of Warcraft"
+    fi
   fi
 }
 
