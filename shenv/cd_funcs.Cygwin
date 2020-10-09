@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alias cdark="_cdark"
 alias cd2="_cd2"
 alias cda="_cda"
 alias cdc="_cdc"
@@ -222,6 +223,14 @@ _cdsc() {
     else
       cd_func "/c/Users/${USER}/DropBox/Scripts/"
     fi
+  fi
+}
+
+_cdark() {
+  if [ -d "/e/Apps/SteamLibrary/steamapps/common/" ];then
+    cd_func "/e/Apps/SteamLibrary/steamapps/common/"
+  elif [ -d "/f/Apps/SteamLibrary/steamapps/common/" ];then
+    cd_func "/f/Apps/SteamLibrary/steamapps/common/"
   fi
 }
 
