@@ -15,7 +15,6 @@
 [core]
   autocrlf = false
   editor = /usr/bin/vim
-  excludesfile = /Users/p2708440/.gitignore_global
 [push]
   default = simple
 [credential]
@@ -218,3 +217,5 @@
 # }}}
 
 #vim: set et sw=2 foldmethod=marker
+[pull]
+	rebase = false
