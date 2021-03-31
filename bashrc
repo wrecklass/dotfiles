@@ -151,4 +151,4 @@ unset UNAMECMD
 
 # vim: set et sw=2 foldmethod=marker
 
-[[ -r "${HOME}/fzf.bash" ]] && source ~/.fzf.bash || echo ""
+[[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""

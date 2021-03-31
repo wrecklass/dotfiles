@@ -55,9 +55,17 @@ _cd2() {
 
 _cda() {
     if [ $# -gt 0 ]; then
-        cd_func "/c/Users/${USER}/AppData/${*}"
+        cd_func "$USERPROFILE/AppData/${*}"
     else
-        cd_func "/c/Users/${USER}/AppData/"
+        cd_func "$USERPROFILE/AppData/"
+    fi
+}
+
+_cdc() {
+    if [ $# -gt 0 ]; then
+        cd_func "$USERPROFILE/Saved Games/CD Projekt Red/${*}"
+    else
+        cd_func "$USERPROFILE/Saved Games/CD Projekt Red/"
     fi
 }
 
@@ -125,11 +133,11 @@ _cdm() {
     else
         cd_func "/d/Users/${USER}/Music"
     fi
-  elif [ -d "/c/Users/${USER}/Music" ];then
+  elif [ -d "$USERPROFILE/Music" ];then
     if [ $# -gt 0 ]; then
-        cd_func "/c/Users/${USER}/Music/${*}"
+        cd_func "$USERPROFILE/Music/${*}"
     else
-        cd_func "/c/Users/${USER}/Music"
+        cd_func "$USERPROFILE/Music"
     fi
   fi
 }
@@ -141,11 +149,11 @@ _cdn() {
     else
         cd_func "/d/Users/${USER}/NextCloud"
     fi
-  elif [ -d "/c/Users/${USER}/NextCloud" ];then
+  elif [ -d "$USERPROFILE/NextCloud" ];then
     if [ $# -gt 0 ]; then
-        cd_func "/c/Users/${USER}/NextCloud/${*}"
+        cd_func "$USERPROFILE/NextCloud/${*}"
     else
-        cd_func "/c/Users/${USER}/NextCloud"
+        cd_func "$USERPROFILE/NextCloud"
     fi
   fi
 }
@@ -157,11 +165,11 @@ _cdl() {
     else
         cd_func "/d/Users/${USER}/Downloads/"
     fi
-  elif [ -d "/c/Users/${USER}/Downloads/" ];then
+  elif [ -d "$USERPROFILE/Downloads/" ];then
     if [ $# -gt 0 ]; then
-        cd_func "/c/Users/${USER}/Downloads/${*}"
+        cd_func "$USERPROFILE/Downloads/${*}"
     else
-        cd_func "/c/Users/${USER}/Downloads/"
+        cd_func "$USERPROFILE/Downloads/"
     fi
   fi
 }
@@ -175,11 +183,11 @@ _cdp() {
 }
 
 _cdr() {
-    if [ -d "/c/Users/${USER}/Dropbox" ];then
+    if [ -d "$USERPROFILE/Dropbox" ];then
         if [ $# -gt 0 ]; then
-            cd_func "/c/Users/${USER}/Dropbox/${*}"
+            cd_func "$USERPROFILE/Dropbox/${*}"
         else
-            cd_func "/c/Users/${USER}/Dropbox/"
+            cd_func "$USERPROFILE/Dropbox/"
         fi
         return
     elif [ -d "/d/Users/${USER}/Dropbox" ];then
@@ -217,11 +225,11 @@ _cdsc() {
     else
       cd_func "/d/Users/${USER}/DropBox/Scripts/"
     fi
-  elif [ -d "/c/Users/${USER}/Dropbox/Scripts" ];then
+  elif [ -d "$USERPROFILE/Dropbox/Scripts" ];then
     if [ $# -gt 0 ]; then
-      cd_func "/c/Users/${USER}/DropBox/Scripts/${*}"
+      cd_func "$USERPROFILE/DropBox/Scripts/${*}"
     else
-      cd_func "/c/Users/${USER}/DropBox/Scripts/"
+      cd_func "$USERPROFILE/DropBox/Scripts/"
     fi
   fi
 }
@@ -267,11 +275,11 @@ _cdu() {
     else
         cd_func "/d/Users/${USER}"
     fi
-  elif [ -d "/c/Users/${USER}" ];then
+  elif [ -d "$USERPROFILE" ];then
     if [ $# -gt 0 ]; then
-        cd_func "/c/Users/${USER}/${*}"
+        cd_func "$USERPROFILE/${*}"
     else
-        cd_func "/c/Users/${USER}"
+        cd_func "$USERPROFILE"
     fi
   fi
 }
@@ -283,11 +291,11 @@ _cdv() {
     else
         cd_func "/d/Users/${USER}/Videos"
     fi
-  elif [ -d "/c/Users/${USER}/Videos" ];then
+  elif [ -d "$USERPROFILE/Videos" ];then
     if [ $# -gt 0 ]; then
-        cd_func "/c/Users/${USER}/Videos/${*}"
+        cd_func "$USERPROFILE/Videos/${*}"
     else
-        cd_func "/c/Users/${USER}/Videos"
+        cd_func "$USERPROFILE/Videos"
     fi
   fi
 }
