@@ -61,6 +61,7 @@ shopt -s checkwinsize
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 # export CDPATH=".:~:~/src"
+export ORIGPATH="${PATH}"
 export PATH
 export LESS='FXR'
 [[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"
