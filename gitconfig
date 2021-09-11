@@ -1,5 +1,3 @@
-# ~/.gitconfig
-#
 # {{{ Global Configuration
 [color]
   ui= true
@@ -13,15 +11,20 @@
   old = red
   new = green
 [core]
+  filemode = false
   autocrlf = false
   editor = /usr/bin/vim
 [push]
   default = simple
 [credential]
   helper = store
+# This is Git's per-user configuration file.
 [user]
   name = Stephen Martin
   email = smartin5590@gmail.com
+[github]
+  user = wrecklass
+  token = 64e2339ac0b58c376b568df45510dfdb
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
@@ -118,6 +121,8 @@
   # e = config --global -e
   edit = !/usr/bin/vim ~/.gitconfig
   e = !/usr/bin/vim ~/.gitconfig
+  # Saves Work in Progress. Leaves untracked alone.
+  wip = commit -am "WIP"
   # Just show the date in compressed format
   dt  = !date +"%Y%m%dT%H%M%S"
   # Longer format
@@ -182,7 +187,7 @@
   # Checkout commits I've made
   ours = "!f() { git co --ours $@ && git add $@; }; f"
   # Checkout commits from the repo that need merging with mine
-  theirs = "!f() { git co --theirs $@ && git add $@; }g f"
+  theirs = "!f() { git co --theirs $@ && git add $@; }; f"
 
   # Basic shortcuts
   cp = cherry-pick
