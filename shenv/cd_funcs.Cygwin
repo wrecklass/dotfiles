@@ -3,6 +3,8 @@
 alias cdark="_cdark"
 alias cd2="_cd2"
 alias cda="_cda"
+alias cdah="_cdah"
+alias cdahk="_cdah"
 alias cdc="_cdc"
 alias cdd="_cdd"
 alias cdo="_cdot"
@@ -61,6 +63,14 @@ _cda() {
     fi
 }
 
+_cdah() {
+    if [ $# -gt 0 ]; then
+        cd_func "$USERPROFILE/Nextcloud/scripts/${*}"
+    else
+        cd_func "$USERPROFILE/Nextcloud/scripts/"
+    fi
+}
+
 _cdc() {
     if [ $# -gt 0 ]; then
         cd_func "$USERPROFILE/Saved Games/CD Projekt Red/${*}"
@@ -104,9 +114,9 @@ _cde() {
 
 _cdf() {
     if [ $# -gt 0 ]; then
-        cd_func "$HOME/src/gocode/src/github.com/v1k0d3n/${*}"
+        cd_func "/c/Users/smartin/Projects/FlaskBlog/${*}"
     else
-        cd_func "$HOME/src/gocode/src/github.com/v1k0d3n"
+        cd_func "/c/Users/smartin/Projects/FlaskBlog/"
     fi
 }
 
@@ -176,9 +186,9 @@ _cdl() {
 
 _cdp() {
     if [ $# -gt 0 ]; then
-        cd_func "/home/${USER}/public_html/${*}"
+        cd_func "/c/Users/smartin/Projects/${*}"
     else
-        cd_func "/home/${USER}/public_html"
+        cd_func "/c/Users/smartin/Projects/"
     fi
 }
 
@@ -237,8 +247,8 @@ _cdsc() {
 _cdark() {
   if [ -d "/e/Apps/SteamLibrary/steamapps/common/" ];then
     cd_func "/e/Apps/SteamLibrary/steamapps/common/"
-  elif [ -d "/f/Apps/SteamLibrary/steamapps/common/" ];then
-    cd_func "/f/Apps/SteamLibrary/steamapps/common/"
+  elif [ -d "/f/SteamLibrary/steamapps/common/" ];then
+    cd_func "/f/SteamLibrary/steamapps/common/"
   fi
 }
 
