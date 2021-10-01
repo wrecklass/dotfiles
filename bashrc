@@ -61,7 +61,8 @@ shopt -s checkwinsize
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 # export CDPATH=".:~:~/src"
-#export PATH="/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/sbin:/usr/games:/usr/local/games:/snap/bin"
+export ORIGPATH="${PATH}"
+export PATH
 export LESS='FXR'
 [[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"
 
@@ -149,8 +150,7 @@ fi
 unset UNAMECMD
 # }}}
 
-# vim: set et sw=2 foldmethod=marker
-
-[[ -r "${HOME}/fzf.bash" ]] && source ~/.fzf.bash || echo ""
+[[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""
 
 complete -C /home/smartin/src/gocode/bin/gocomplete go
+# vim: set et sw=2 foldmethod=marker
