@@ -67,11 +67,19 @@ _cde() {
 }
 
 _cdl() {
+  if [ -d "/home/${USER}/Downloads" ];then
     if [ $# -gt 0 ]; then
-        cd_func "/home/${USER}/Downloads/${*}"
+      cd_func "/home/${USER}/Downloads/${*}"
     else
-        cd_func "/home/${USER}/Downloads/"
+      cd_func "/home/${USER}/Downloads/"
     fi
+  elif [ -d "/mnt/c/Users/${USER}/Downloads" ];then
+    if [ $# -gt 0 ]; then
+      cd_func "/mnt/c/Users/${USER}/Downloads/${*}"
+    else
+      cd_func "/mnt/c/Users/${USER}/Downloads/"
+    fi
+  fi
 }
 
 _mkcd() {
