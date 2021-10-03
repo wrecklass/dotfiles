@@ -152,5 +152,9 @@ unset UNAMECMD
 
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""
 
-complete -C /home/smartin/src/gocode/bin/gocomplete go
+GOC=$(command -v gocomplete)
+if [ -n "$GOC" ];then
+  complete -C $GOC go
+fi
+
 # vim: set et sw=2 foldmethod=marker
