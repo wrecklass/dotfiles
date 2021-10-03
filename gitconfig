@@ -38,6 +38,8 @@
   smudge = git-lfs smudge -- %f
   required = true
   process = git-lfs filter-process
+[pull]
+	rebase = false
 # }}}
 # {{{ Aliases
 [alias]
@@ -219,5 +221,3 @@
 # }}}
 
 #vim: set et sw=2 foldmethod=marker
-[pull]
-	rebase = false

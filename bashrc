@@ -150,7 +150,11 @@ fi
 unset UNAMECMD
 # }}}
 
-# vim: set et sw=2 foldmethod=marker
-
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""
-complete -C gocomplete go
+
+GOC=$(command -v gocomplete)
+if [ -n "$GOC" ];then
+  complete -C $GOC go
+fi
+
+# vim: set et sw=2 foldmethod=marker
