@@ -1,6 +1,6 @@
 #!/bin/bash
 WICH=""
-if [[ -x /usr/bin/which ]];then
+if [[ -x /usr/bin/which && "cygwin" != "$UNAME" ]];then
   WICH='/usr/bin/which'
 fi
 
