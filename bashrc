@@ -1,5 +1,4 @@
 #!/bin/bash
-# ulimit -u 1024
 # {{{ Notes
 
 # The idea is to have a .bashrc file that can
@@ -13,6 +12,7 @@
 # shellcheck disable=SC1090
 # shellcheck disable=SC1091
 
+# ulimit -u 1024
 # Only source this once
 [[ -z "${BASH_RC}" ]] && BASH_RC="1" || return 0
 case $- in
@@ -149,12 +149,12 @@ fi
 
 unset UNAMECMD
 # }}}
-
+# {{{ Appended by other programs
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""
 
 GOC=$(command -v gocomplete)
 if [ -n "$GOC" ];then
   complete -C $GOC go
 fi
-
+# }}
 # vim: set et sw=2 foldmethod=marker
