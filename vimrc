@@ -186,7 +186,7 @@ try
   \   }
   \ }
 
-  colorscheme papercolor
+  colorscheme Papercolor
 catch
 endtry
 
