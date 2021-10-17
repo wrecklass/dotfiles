@@ -36,7 +36,7 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
 " Hide buffers that are abandoned
-set hid
+set hidden
 
 " Turn on magic for Regular Expressions
 set magic
@@ -250,9 +250,9 @@ autocmd FileType json set sw=2 et
 " }}}
 " Section: Maps {{{
 
-" Set the map keys leader to comma:
-let mapleader = ","
-let g:mapleader = ","
+" Set the map keys leader to spaces:
+let mapleader = " "
+let g:mapleader = " "
 
 set timeoutlen=2500
 set ttimeoutlen=100
