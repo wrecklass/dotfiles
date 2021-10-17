@@ -164,7 +164,8 @@ set mouse=a
 " Allow the mouse to interact with tabs:
 if has ("gui")
   " set guifont=Consolas:h14
-  set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h13
+  " set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h13
+  set guifont=Fira\ Code:h14
 endif
 
 " color00 = Background
