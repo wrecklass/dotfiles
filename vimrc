@@ -193,7 +193,7 @@ endtry
 " }}}
 " Section: Messages and Info {{{
 
-set novisualbell
+set visualbell
 set noerrorbells
 set showcmd
 set t_vb=
