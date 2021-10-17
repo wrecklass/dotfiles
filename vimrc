@@ -168,9 +168,10 @@ if has ("gui")
   set guifont=Fira\ Code:h14
 endif
 
-" color00 = Background
+" autocmd vimenter * ++nested colorscheme gruvbox
+
 try
-  let g:PaperColor_Theme_Options = {
+  let g:papercolor_theme_options = {
   \   'theme': {
   \     'default.dark': {
   \       'override' : {
@@ -185,7 +186,7 @@ try
   \   }
   \ }
 
-  colorscheme PaperColor
+  colorscheme papercolor
 catch
 endtry
 
@@ -400,7 +401,7 @@ vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 
 " Vimgreps in the current file
-noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
+" noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
 
 " }}}
 " Section: Reading and writing files {{{
