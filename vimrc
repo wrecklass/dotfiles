@@ -23,11 +23,17 @@
 " }}}
 " Section: Bootstrap {{{
 
+set exrc
 set nocompatible
 set pastetoggle=<F2>
 set nobackup
+set noswapfile
+set undodir=~/.vim/undodir
+set undofile
 set nowritebackup
 set dir=/tmp,/var/tmp,~/tmp
+set signcolumn=yes
+set completeopt=menuone,noinsert,noselect
 
 set langmenu=en
 let LANG='en_US.UTF-8'
@@ -35,9 +41,26 @@ let LANG='en_US.UTF-8'
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+" Section: Searching {{{
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+" Keep from searching outside of current dir
+set path=.,,
+
+" }}}
+" Section: Messages and Info {{{
+
+set visualbell
+set noerrorbells
+set showcmd
+set showmode
+set t_vb=
+set tm=500
+" }}}
 " Hide buffers that are abandoned
 set hidden
-set signcolumn=yes
 
 " Turn on magic for Regular Expressions
 set magic
@@ -90,47 +113,15 @@ if v:version > 800
   packadd! matchit
 endif
 " }}}
-" Section: Moving around, searching, patterns and tags {{{
-
-" Set the cursor to different sizes for Insert, Replace and Normal mode
-" Insert = | (Bar Cursor)
-" Replace = _ (Underscore)
-
-let &t_SI="\<Esc>[5 q"
-let &t_EI="\<Esc>[0 q"
-
-if v:version > 800
-  let &t_SR="\<Esc>[3 q"
-endif
-
-set smartcase
-set incsearch
-set hlsearch
-set ignorecase
-" Keep from searching outside of current dir
-set path=.,,
-
-autocmd FileType c,cpp             setlocal path+=/usr/include include&
-autocmd FileType sh,zsh,csh,tcsh   setlocal include=^\\s*\\%(\\.\\\|source\\)\\s
-autocmd FileType dosbatch          setlocal include=^call | let &l:sua = tr($PATHEXT, ';', ',')
-autocmd FileType sh,zsh,csh,tcsh,dosbatch let &l:path =
-      \ tr($PATH, has('win32') ? ';' : ':', ',') . ',.'
-autocmd FileType lua
-      \ if expand('%:p') =~# '/awsome/' |
-      \   let &l:path = expand('~/.config/awsome') . ',/etc/xdg/awsome,/usr/share/awsome/lib,' . &l:path |
-      \ endif
-autocmd FileType ruby setlocal tags=./tags;
-
-" }}}
-" Section: Displaying text {{{
+" Section: Windows {{{
 
 set display=lastline
-set scrolloff=15
+set scrolloff=14
 set sidescrolloff=5
+" Do not update screen while macros play
 set lazyredraw
+" Give more space for message display:
 set cmdheight=2
-" }}}
-" Section: Windows {{{
 
 set ruler
 set laststatus=2
@@ -156,6 +147,31 @@ nnoremap <C-l> <C-W>l
 " map <C-j> <C-W>j
 " map <C-k> <C-W>k
 " }}}
+" Section: Moving around, patterns and tags {{{
+
+" Set the cursor to different sizes for Insert, Replace and Normal mode
+" Insert = | (Bar Cursor)
+" Replace = _ (Underscore)
+
+let &t_SI="\<Esc>[5 q"
+let &t_EI="\<Esc>[0 q"
+
+if v:version > 800
+  let &t_SR="\<Esc>[3 q"
+endif
+
+autocmd FileType c,cpp             setlocal path+=/usr/include include&
+autocmd FileType sh,zsh,csh,tcsh   setlocal include=^\\s*\\%(\\.\\\|source\\)\\s
+autocmd FileType dosbatch          setlocal include=^call | let &l:sua = tr($PATHEXT, ';', ',')
+autocmd FileType sh,zsh,csh,tcsh,dosbatch let &l:path =
+      \ tr($PATH, has('win32') ? ';' : ':', ',') . ',.'
+autocmd FileType lua
+      \ if expand('%:p') =~# '/awsome/' |
+      \   let &l:path = expand('~/.config/awsome') . ',/etc/xdg/awsome,/usr/share/awsome/lib,' . &l:path |
+      \ endif
+autocmd FileType ruby setlocal tags=./tags;
+
+" }}}
 " Section: GUI {{{
 
 " Don't use GVim...
@@ -166,7 +182,8 @@ set mouse=a
 if has ("gui")
   " set guifont=Consolas:h14
   " set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h13
-  set guifont=Fira\ Code:h14
+  set guifont=FiraCode\ NF:h14
+  set termguicolors
 endif
 
 " autocmd vimenter * ++nested colorscheme gruvbox
@@ -191,14 +208,6 @@ try
 catch
 endtry
 
-" }}}
-" Section: Messages and Info {{{
-
-set visualbell
-set noerrorbells
-set showcmd
-set t_vb=
-set tm=500
 " }}}
 " Section: Editing text and indent {{{
 
@@ -258,7 +267,7 @@ let g:mapleader = " "
 
 set timeoutlen=2500
 set ttimeoutlen=100
-set updatetime=500
+set updatetime=50
 
 set tags+=.git/tags
 nnoremap  <leader>ct  :!ctags -Rf .git/tags<CR><CR>
