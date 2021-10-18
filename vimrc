@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Wednesday, May 22, 2019 5:19 PM
-
+" {{{
 " Section: Notes {{{
 
 " if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
@@ -37,6 +37,7 @@ source $VIMRUNTIME/menu.vim
 
 " Hide buffers that are abandoned
 set hidden
+set signcolumn=yes
 
 " Turn on magic for Regular Expressions
 set magic
@@ -541,3 +542,4 @@ augroup END
 " }}}
 
 " vim: set et sw=2 foldmethod=marker
+" }}}
