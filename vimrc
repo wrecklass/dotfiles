@@ -221,7 +221,7 @@ set nocindent
 set nosmartindent
 
 set textwidth=0
-" set colorcolumn=80
+set colorcolumn=80
 set cursorline
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
