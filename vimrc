@@ -471,12 +471,17 @@ endif " has ("autocmd")
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
-  exe "normal mz"
+  let l:save = winsaveview()
   silent! %s/\s\+$//ge
-  exe "normal `z"
+  call winrestview(l:save)
 endfunc
 
-autocmd BufWritePre *.txt,*.js,*.sh,*.py,*.coffee :call DeleteTrailingWS()
+augroup THE_WRECK
+  autocmd!
+  autocmd BufWritePre * :call DeleteTrailingWS()
+augroup END
+
+" #autocmd BufWritePre *.txt,*.js,*.sh,*.py,*.coffee :call DeleteTrailingWS()
 " autocmd BufWrite *.coffee :call DeleteTrailingWS()
 " autocmd BufWrite *.py :call DeleteTrailingWS()
 
