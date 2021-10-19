@@ -34,6 +34,16 @@ _log ".bashrc"
 # }}}
 # {{{ shopts
 
+set -o vi
+
+if [[ -o emacs ]];then
+  echo "emacs mode"
+elif [[ -o vi ]]; then
+  echo "vi mode"
+else
+  echo "neither vi or emacs mode is set."
+fi
+
 shopt -s cdspell
 shopt -s dirspell
 shopt -s nocaseglob
@@ -72,7 +82,7 @@ export LESS='FXR'
 UNAMECMD=$(command -v uname)
 : "${HOME=~}"
 : "${UNAME=$($UNAMECMD -s | tr '[:upper:]' '[:lower:]')}"
-# Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
+# Change various versions of CYGWIN_NT-XX.X to just 'cygwin'
 # To make sourcing our defaults environment easier.
 UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
@@ -87,7 +97,7 @@ for file in "${HOME}"/.shenv/*."${UNAME}" ; do
   fi
 
   _log "Sourcing ${file}"
- 
+
   if [[ -r "${file}" ]]; then
     source "${file}"
   else
@@ -99,7 +109,7 @@ done
 # enable color support of ls and also add handy aliases
 if command -v dircolors > /dev/null 2>&1; then
   if [ -r "${HOME}/dircolors" ];then
-    eval "$(dircolors -b "${HOME}/dircolors")" 
+    eval "$(dircolors -b "${HOME}/dircolors")"
   else
     eval "$(dircolors -b)"
   fi
