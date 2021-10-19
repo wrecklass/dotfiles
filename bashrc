@@ -37,11 +37,11 @@ _log ".bashrc"
 set -o vi
 
 if [[ -o emacs ]];then
-  echo "emacs mode"
+  _log "emacs mode"
 elif [[ -o vi ]]; then
-  echo "vi mode"
+  _log "vi mode"
 else
-  echo "neither vi or emacs mode is set."
+  _log "neither vi or emacs mode is set."
 fi
 
 shopt -s cdspell
