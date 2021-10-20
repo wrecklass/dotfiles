@@ -161,10 +161,11 @@ unset UNAMECMD
 # }}}
 # {{{ Appended by other programs
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""
+export FZF_COMPLETION_OPTS='--height=60% --info=inline --border'
 
 GOC=$(command -v gocomplete)
 if [ -n "$GOC" ];then
   complete -C $GOC go
 fi
 # }}}
-# vim: set et sw=2 foldmethod=marker
+ #vim: set et sw=2 foldmethod=marker
