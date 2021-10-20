@@ -4,7 +4,7 @@ alias ff='_ff'
 alias ffd='_ffd'
 alias ffl='_ffl'
 alias ffn='_ffn'
-alias vif='_vif'
+alias vif='_vifzf'
 alias grepr="_grepr"
 alias greprl="_greprl"
 alias greplr="_greprl"
@@ -63,4 +63,8 @@ _ffn() {
 # shellcheck disable=SC2046
 _vif() {
   vi $(find . -name "$1")
+}
+
+_vifzf() {
+  vim $(fzf --height=75% --border --reverse)
 }
