@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #export POWERLINE_MODULES="venv,user,host,cwd,perms,jobs,newline,ssh,git,hg,exit,root"
-export POWERLINE_MODULES="venv,user,host,jobs,newline,ssh,git,root"
+export POWERLINE_MODULES="user,host,jobs,time,newline,venv,ssh,git,hg,exit,root"
+
+#export POWERLINE_MODULES="venv,user,host,ssh,newline,git,hg,jobs,load,time,newline,exit,root"
 
 export PLGO=$(command -v powerline-go)
 
 function _update_ps1() {
   green="\e[1;42m"
-  agreen="\e[32m"
-  dit="\e[0;40m"
   reverse="\e[40m"
   reset="\e[0m"
   bold="\e[1m"
@@ -17,7 +17,7 @@ function _update_ps1() {
   blue="\e[34m"
   magenta="\e[35m"
   PS1="\n${green}$(pwd | sed -e 's#/home/smartin#~#')${reset}"
-  PS1="${PS1}$("$PLGO" -numeric-exit-codes -venv-name-size-limit 8 -modules "$POWERLINE_MODULES" -shell "bash" -error $? -colorize-hostname )"
+  PS1="${PS1}$("$PLGO" -git-assume-unchanged-size 1024 -numeric-exit-codes -venv-name-size-limit 8 -modules "$POWERLINE_MODULES" -shell "bash" -error $? -colorize-hostname )"
   #PS1="$(oh-my-posh.exe --init --shell bash --config 'C:\Users\smartin\.oh-my-posh.omp.json')"
 }
 
