@@ -46,3 +46,6 @@
 [submodule "vim/pack/NLKNguyen/start/papercolor-theme"]
 	path = vim/pack/NLKNguyen/start/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme
+[submodule "vim/pack/tpope/start/vim-airline-themes"]
+	path = vim/pack/tpope/start/vim-airline-themes
+	url = git@github.com:vim-airline/vim-airline-themes

@@ -82,7 +82,7 @@ filetype on
 
 " Powerline Font
 let g:airline_powerline_fonts = 1
-let g:airline_theme='papercolor'
+let g:airline_theme='vim-airline-themes/papercolor'
 
 " ShellCheck:
 " let g:shellcheck_qf_open
@@ -316,7 +316,7 @@ map Y y$
 " Source vimrc without restarting vim
 " mnemonics Vimrc or Source
 map    <silent>  <leader>V    :source $MYVIMRC<CR>
-map    <silent>  <leader>S    :source $MYVIMRC<CR>
+map    <silent>  <leader><CR> :source $MYVIMRC<CR>
 
 " Easy vertical split
 nnoremap  <leader>v    :vs<CR>
