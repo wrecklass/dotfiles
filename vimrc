@@ -72,8 +72,8 @@ let g:netrw_browsex_viewer="open"
 
 filetype off
 filetype plugin indent on
-set rtp+=/usr/local/go/misc/vim
-set rtp+=/usr/local/opt/fzf
+" set rtp+=/usr/local/go/misc/vim
+" set rtp+=/home/smartin/src/gocode/bin/fzf
 " FZF is so confusing
 " set rtp+=~/.vim/pack/junegunn/start/fzf/autoload/fzf
 " source   ~/.vim/pack/junegunn/start/fzf/autoload/fzf/vim.vim
