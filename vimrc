@@ -82,7 +82,7 @@ filetype on
 
 " Powerline Font
 let g:airline_powerline_fonts = 1
-let g:airline_theme='vim-airline-themes/papercolor'
+let g:airline_theme='google_dark'
 
 " ShellCheck:
 " let g:shellcheck_qf_open
@@ -186,27 +186,28 @@ if has ("gui")
   set termguicolors
 endif
 
-" autocmd vimenter * ++nested colorscheme gruvbox
+autocmd vimenter * ++nested colorscheme gruvbox-material
+highlight Normal guibg=black
 
-try
-  let g:papercolor_theme_options = {
-  \   'theme': {
-  \     'default.dark': {
-  \       'override' : {
-  \         'color00'       : ['#080808', '232'],
-  \         'cursorline'    : ['#444444', '238'],
-  \         'linenumber_fg' : ['#767676', '243'],
-  \         'linenumber_bg' : ['#080808', '232'],
-  \         'folded_bg'     : ['#6c6c6c', '242'],
-  \         'folded_fg'     : ['#262626', '235'],
-  \       }
-  \     }
-  \   }
-  \ }
+" try
+"   let g:papercolor_theme_options = {
+"   \   'theme': {
+"   \     'default.dark': {
+"   \       'override' : {
+"   \         'color00'       : ['#080808', '232'],
+"   \         'cursorline'    : ['#444444', '238'],
+"   \         'linenumber_fg' : ['#767676', '243'],
+"   \         'linenumber_bg' : ['#080808', '232'],
+"   \         'folded_bg'     : ['#6c6c6c', '242'],
+"   \         'folded_fg'     : ['#262626', '235'],
+"   \       }
+"   \     }
+"   \   }
+"   \ }
 
-  colorscheme Papercolor
-catch
-endtry
+  " colorscheme Papercolor
+" catch
+" endtry
 
 " }}}
 " Section: Editing text and indent {{{

@@ -49,3 +49,6 @@
 [submodule "vim/pack/tpope/start/vim-airline-themes"]
 	path = vim/pack/tpope/start/vim-airline-themes
 	url = git@github.com:vim-airline/vim-airline-themes
+[submodule "vim/pack/sainnhe/start/gruvbox-material"]
+	path = vim/pack/sainnhe/start/gruvbox-material
+	url = git@github.com:sainnhe/gruvbox-material
