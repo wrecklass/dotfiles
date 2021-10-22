@@ -7,9 +7,6 @@
 [submodule "vim/pack/tpope/start/vim-airline"]
 	path = vim/pack/tpope/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-[submodule "vim/pack/tpope/start/vim-airline-themes"]
-	path = vim/pack/tpope/start/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
 [submodule "vim/pack/airblade/start/vim-gitgutter"]
 	path = vim/pack/airblade/start/vim-gitgutter
 	url = ssh://git@github.com/airblade/vim-gitgutter
