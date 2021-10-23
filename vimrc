@@ -143,6 +143,11 @@ nnoremap <C-k> <C-w>W
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
+nnoremap Y yg$
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
 " switch window and maximize
 " map <C-j> <C-W>j
 " map <C-k> <C-W>k
