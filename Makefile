@@ -4,7 +4,7 @@ PROJECT_NAME=dotfiles
 .DEFAULT_GOAL := help
 
 .PHONY := deploy
-deploy: dotfiles fishconf vimfiles vimdocs ## Install everything, use this one to do it all
+deploy: dotfiles fishconf vimfiles vimdocs nvim ## Install everything, use this one to do it all
 
 .PHONY := submodules
 submodules:          ## Pull in the git submodules
@@ -41,6 +41,11 @@ vimfiles: submodules ## Copy vim files to $HOME/vim
 .PHONY := vimdocs
 vimdocs:             ## Create the vim helptags
 	find "$(HOME)/.vim/" -type d -name doc -exec vim -u NONE -c "helptags {}" -c q \;
+
+.PHONY := nvim
+nvim:                ## Create PowerShell nvim init.vim
+	rm -rf /c/Users/smartin/AppData/Local/nvim
+	cp -r ./nvim /c/Users/smartin/AppData/Local/nvim/
 
 .PHONY := help
 help:                ## List targets (default)
