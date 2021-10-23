@@ -43,7 +43,7 @@ vimdocs:             ## Create the vim helptags
 	find "$(HOME)/.vim/" -type d -name doc -exec vim -u NONE -c "helptags {}" -c q \;
 
 .PHONY := nvim
-nvim:                ## Create PowerShell nvim init.vim
+nvim: nvim/init.vim                ## Create PowerShell nvim init.vim
 	rm -rf /c/Users/smartin/AppData/Local/nvim
 	cp -r ./nvim /c/Users/smartin/AppData/Local/nvim/
 
