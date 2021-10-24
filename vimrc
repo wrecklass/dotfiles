@@ -324,6 +324,10 @@ map Y y$
 map    <silent>  <leader>V    :source $MYVIMRC<CR>
 map    <silent>  <leader><CR> :source $MYVIMRC<CR>
 
+" Turn on spell checking for current file
+nnoremap         <leader>sp   :setlocal spell spelllang=en_us<CR>
+
+
 " Easy vertical split
 nnoremap  <leader>v    :vs<CR>
 
