@@ -4,7 +4,7 @@ PROJECT_NAME=dotfiles
 .DEFAULT_GOAL := help
 
 .PHONY := deploy
-deploy: dotfiles fishconf vimfiles vimdocs nvim ## Install everything, use this one to do it all
+deploy: dotfiles fishconf vimfiles vimdocs ## Install everything, use this one to do it all
 
 .PHONY := submodules
 submodules:          ## Pull in the git submodules
