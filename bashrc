@@ -108,8 +108,8 @@ done
 # {{{ DIRCOLORS
 # enable color support of ls and also add handy aliases
 if command -v dircolors > /dev/null 2>&1; then
-  if [ -r "${HOME}/dircolors" ];then
-    eval "$(dircolors -b "${HOME}/dircolors")"
+  if [ -r "${HOME}/.dircolors" ];then
+    eval "$(dircolors -b "${HOME}/.dircolors")"
   else
     eval "$(dircolors -b)"
   fi
