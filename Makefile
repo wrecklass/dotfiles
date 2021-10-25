@@ -33,7 +33,7 @@ vimfiles: vim ## Copy vim files to $HOME/.vim
 	rm -rf ~/.vim/
 	cp -r ./vim ~/.vim/
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	@echo "open ~/.vimrc and use :PluginInstall"
+	PATH="/sbin:/bin:/usr/local/bin:/usr/bin:/usr/lib/lapack:" vim -c "PlugInstall" -c qa \; </dev/zero
 
 .PHONY := vimdocs
 vimdocs:             ## Create the vim helptags
