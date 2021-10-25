@@ -131,7 +131,7 @@ nnoremap <leader>w    :w<CR>
 nnoremap <leader>q :wq<CR>
 nnoremap <leader>Q :q!<CR>
 
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })<CR>
+nnoremap <leader>px :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 
 nnoremap <leader>vwh :h <C-R>=expand("<cword>")<CR><CR>
@@ -162,6 +162,15 @@ nnoremap \o :setlocal paste!<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<+1<CR>gv=gv
+
+" vertical split
+nnoremap <leader>v  :vs<CR>
+" horizontal split
+nnoremap <leader>H  :sp<CR>
+
+" Turn on and off spell checking for current file
+nnoremap         <leader>sp   :setlocal spell spelllang=en_us<CR>
+nnoremap         <leader>ps   :setlocal nospell<CR>
 
 nnoremap <c-j>  <C-W>w
 nnoremap <c-k>  <C-W>W
