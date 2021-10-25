@@ -32,6 +32,7 @@ fishconf:            ## link fish to the $HOME/.config/ directory
 vimfiles: vim ## Copy vim files to $HOME/.vim
 	rm -rf ~/.vim/
 	cp -r ./vim ~/.vim/
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	@echo "open ~/.vimrc and use :PluginInstall"
 
 .PHONY := vimdocs
