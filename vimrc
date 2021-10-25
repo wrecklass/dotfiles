@@ -156,9 +156,32 @@ highlight Normal guibg=NONE
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
-let g:airline_theme='google_dark'
-" let g:airline_theme='base16_black_metal_dark_funeral'
+let g:airline_theme='luna'
 
+" let g:airline_theme='cool'
+" let g:airline_theme='luna'
+" let g:airline_theme='understated'
+" let g:airline_theme='ravenpower'
+" let g:airline_theme='murmur'
+" let g:airline_theme='base16_vim'
+" let g:airline_theme='base16_unikitty_dark'
+" let g:airline_theme='base16_tube'
+" let g:airline_theme='base16_synth_midnight_dark'
+" let g:airline_theme='base16_summerfruit_dark'
+" let g:airline_theme='base16_snazzy'
+" let g:airline_theme='base16_shell'
+" let g:airline_theme='base16_porple'
+" let g:airline_theme='base16_outrun_dark'
+" let g:airline_theme='base16_londontube'
+" let g:airline_theme='base16_irblack'
+" let g:airline_theme='base16_helios'
+" let g:airline_theme='base16_gruvbox_dark_soft'
+" let g:airline_theme='base16_gruvbox_dark_medium'
+" let g:airline_theme='base16_framer'
+" let g:airline_theme='base16_flat'
+" let g:airline_theme='base16_darktooth'
+" let g:airline_theme='base16_colors'
+" let g:airline_theme='base16_chalk'
 " color00 = Background
 try
   let g:PaperColor_Theme_Options = {
