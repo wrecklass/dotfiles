@@ -32,6 +32,7 @@ set nu
 set wrap
 set smartcase
 set ignorecase
+set noswapfile
 set nobackup
 set undodir=C:\Users\smartin\.vim\undodir
 set undofile
@@ -44,6 +45,10 @@ set signcolumn=yes
 set colorcolumn=80
 
 set pastetoggle=<F2>
+
+set t_Co=256
+set mousemodel=popup
+set mouse=a
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -106,13 +111,16 @@ Plug 'ap/vim-css-color'
 
 call plug#end()
 " }}}
-" {{{ Colorizing
+" {{{ GUI
 " Much better than the Bright lights of plain gruvbox...
 " colorscheme vimconflive-2021
 " colorscheme gruvbox
 colorscheme gruvbox-material
-highlight Normal guibg=none
+highlight Normal guibg=background
 
+if has ("gui")
+    set guifont=FiraCode\ NF:h12,Consolas
+endif
 let g:airline_powerline_fonts = 1
 let g:airline_theme='ayu_dark'
 " }}}
