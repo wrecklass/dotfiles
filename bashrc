@@ -1,5 +1,4 @@
 #!/bin/bash
-# ulimit -u 1024
 # {{{ Notes
 
 # The idea is to have a .bashrc file that can
@@ -13,6 +12,7 @@
 # shellcheck disable=SC1090
 # shellcheck disable=SC1091
 
+# ulimit -u 1024
 # Only source this once
 [[ -z "${BASH_RC}" ]] && BASH_RC="1" || return 0
 case $- in
@@ -33,6 +33,16 @@ _log() {
 _log ".bashrc"
 # }}}
 # {{{ shopts
+
+set -o vi
+
+if [[ -o emacs ]];then
+  _log "emacs mode"
+elif [[ -o vi ]]; then
+  _log "vi mode"
+else
+  _log "neither vi or emacs mode is set."
+fi
 
 shopt -s cdspell
 shopt -s dirspell
@@ -72,7 +82,7 @@ export LESS='FXR'
 UNAMECMD=$(command -v uname)
 : "${HOME=~}"
 : "${UNAME=$($UNAMECMD -s | tr '[:upper:]' '[:lower:]')}"
-# Change various versions of CYGWIN_NT-XX.X to just 'cygwin' 
+# Change various versions of CYGWIN_NT-XX.X to just 'cygwin'
 # To make sourcing our defaults environment easier.
 UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
@@ -87,7 +97,7 @@ for file in "${HOME}"/.shenv/*."${UNAME}" ; do
   fi
 
   _log "Sourcing ${file}"
- 
+
   if [[ -r "${file}" ]]; then
     source "${file}"
   else
@@ -98,8 +108,8 @@ done
 # {{{ DIRCOLORS
 # enable color support of ls and also add handy aliases
 if command -v dircolors > /dev/null 2>&1; then
-  if [ -r "${HOME}/dircolors" ];then
-    eval "$(dircolors -b "${HOME}/dircolors")" 
+  if [ -r "${HOME}/.dircolors" ];then
+    eval "$(dircolors -b "${HOME}/.dircolors")"
   else
     eval "$(dircolors -b)"
   fi
@@ -149,12 +159,13 @@ fi
 
 unset UNAMECMD
 # }}}
-
+# {{{ Appended by other programs
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""
+export FZF_COMPLETION_OPTS='--height=60% --info=inline --border'
 
 GOC=$(command -v gocomplete)
 if [ -n "$GOC" ];then
   complete -C $GOC go
 fi
-
-# vim: set et sw=2 foldmethod=marker
+# }}}
+ #vim: set et sw=2 foldmethod=marker
