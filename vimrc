@@ -58,6 +58,7 @@ set whichwrap+=<,>,h,l  " Move over EOL when moving cursor
 set complete-=i         " Searching includes can be slow
 set infercase
 
+set noswapfile
 set nobackup
 set undodir=C:\Users\smartin\.vim\undodir
 set undofile
@@ -105,7 +106,7 @@ set mouse=a
 if has ("gui")
     " set guifont=Consolas:h14
     " set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h13
-    set guifont=FiraCode NF:h12
+    set guifont=FiraCode\ NF:h12
 endif
 
 
@@ -152,7 +153,7 @@ call plug#end()
 " {{{ Color Scheme
 
 colorscheme gruvbox-material
-highlight Normal guibg=NONE
+highlight Normal guibg=background
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
@@ -324,8 +325,8 @@ map      -            :Explore<CR>
 cnoremap <C-a>        <Home>
 cnoremap <C-b>        <Left>
 cnoremap <C-f>        <Right>
-cnoremap <C-d>        <Delete>
-cnoremap <C-g>        <C-c>
+" cnoremap <C-d>        <Delete>
+" cnoremap <C-g>        <C-c>
 cmap w!! w !sudo tee % >/dev/null
 
 " avoid accidentally holding down shift while typing :w :q &c.
