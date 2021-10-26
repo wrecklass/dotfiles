@@ -145,6 +145,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'ap/vim-css-color'
 
+Plug 'mhinz/vim-rfc'
+
 " Ok, colorschemes:
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
