@@ -4,6 +4,10 @@ hosts:
     User: Kelly
     Hostname: tiggeroo
 
+  poof:
+    User: smartin
+    HostName: 192.168.1.41
+
   poodle:
     User: smartin
     HostName: 192.168.1.40
@@ -61,7 +65,7 @@ defaults:
     OnConnect:
       # Log internal information to a file
       - exec printf '{{.}}' | jq . >> ~/.ssh/last_connected_host.txt
-      
+
       # Write the host prototype to the terminal stderr
       - write New SSH connection to {{.Host.Prototype}}
 
