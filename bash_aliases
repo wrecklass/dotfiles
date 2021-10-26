@@ -215,7 +215,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 
 alias vi="\$EDITOR"
 alias vim="\$EDITOR"
-alias vimrc="vim ${HOME}vimrc"
+alias vimrc="vim ${HOME}/.vimrc"
 alias vib='$EDITOR ~/.bashrc'
 alias iv="\$EDITOR"
 
