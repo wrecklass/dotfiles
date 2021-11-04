@@ -1,8 +1,18 @@
 hosts:
 
+  netserver:
+    User: smartin
+    Hostname: 192.168.1.24
+    HostKeyAlgorithms: ssh-dss
+    KexAlgorithms: diffie-hellman-group1-sha1
+
   tiggeroo:
     User: Kelly
     Hostname: tiggeroo
+
+  poof:
+    User: smartin
+    HostName: 192.168.1.41
 
   poodle:
     User: smartin
@@ -25,6 +35,18 @@ hosts:
   dns:
     User: smartin
     Hostname: dns
+
+  ubu1:
+    User: smartin
+    Hostname: ubu1.kdyfish.org
+
+  ubu2:
+    User: smartin
+    Hostname: ubu2.kdyfish.org
+
+  ubu3:
+    User: smartin
+    Hostname: ubu3.kdyfish.org
 
   century:
     User: smartin
@@ -50,9 +72,10 @@ defaults:
   ConnectionTimeout: 15
   Port: 22
   User: smartin
+  StrictHostKeyChecking: no
   Hooks:
     BeforeConfigWrite:
-      - 'exec set -x ; cp {{.SSHConfigPath}} {{.SSHConfigPath}}.bak'
+      # - 'exec set -x ; cp {{.SSHConfigPath}} {{.SSHConfigPath}}.bak'
 
     AfterConfigWrite:
       - write  "{{.SSHConfigPath}} has been rewritten!"
@@ -60,8 +83,8 @@ defaults:
 
     OnConnect:
       # Log internal information to a file
-      - exec printf '{{.}}' | jq . >> ~/.ssh/last_connected_host.txt
-      
+      # - exec printf '{{.}}' | jq . >> ~/.ssh/last_connected_host.txt
+
       # Write the host prototype to the terminal stderr
       - write New SSH connection to {{.Host.Prototype}}
 
@@ -70,5 +93,4 @@ defaults:
       - "write SSH connection to {{.Host.HostName}} closed, {{.Stats.WrittenBytes}} bytes written in {{.Stats.ConnectionDuration}} ({{.Stats.AverageSpeed}}bps)"
       # - "notify SSH connection to {{.Host.HostName}} closed, {{.Stats.WrittenBytes}} bytes written in {{.Stats.ConnectionDuration}} ({{.Stats.AverageSpeed}}bps)"
 
-ASSHBinaryPath: ~/src/gocode/bin/assh
-
+  ASSHBinaryPath: /usr/local/bin/assh

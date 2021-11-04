@@ -6,17 +6,12 @@ PROJECT_NAME=dotfiles
 .PHONY := deploy
 deploy: dotfiles fishconf vimfiles vimdocs ## Install everything, use this one to do it all
 
-.PHONY := submodules
-submodules:          ## Pull in the git submodules
-	git submodule init ./vim/pack
-	git submodule update ./vim/pack
-
 # Ignore the dotfiles in dotfiles
 # Ignore Readme and Makefile
 # Fish and Vim is handled below
 .PHONY := dotfiles
 dotfiles:            ## Install (link) the dotfiles
-	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name ".[a-z]*" -not -name "README.md" -not -name "vim" -not -name "Makefile" -not -name "assh.yml" -not -name "fish"); do \
+	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name ".[a-z]*" -not -name "nvim" -not -name "README.md" -not -name "vim" -not -name "Makefile" -not -name "assh.yml" -not -name "fish"); do \
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
@@ -34,9 +29,11 @@ fishconf:            ## link fish to the $HOME/.config/ directory
 # Vim requires a regular directory tree, it doesn't seem to accept a file link
 # We kill it and recreate it each time, so everything has to be in the repo
 .PHONY := vimfiles
-vimfiles: submodules ## Copy vim files to $HOME/vim
+vimfiles: vim ## Copy vim files to $HOME/.vim
 	rm -rf ~/.vim/
 	cp -r ./vim ~/.vim/
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	PATH="/sbin:/bin:/usr/local/bin:/usr/bin:/usr/lib/lapack:" vim -c "PlugInstall" -c qa \; </dev/zero
 
 .PHONY := vimdocs
 vimdocs:             ## Create the vim helptags
