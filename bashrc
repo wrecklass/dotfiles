@@ -168,4 +168,4 @@ if [ -n "$GOC" ];then
   complete -C $GOC go
 fi
 # }}}
- #vim: set et sw=2 foldmethod=marker
+#vim: set et sw=2 foldmethod=marker

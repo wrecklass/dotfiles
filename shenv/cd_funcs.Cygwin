@@ -377,6 +377,18 @@ _mkcd() {
     cd_func "$*"
 }
 
+alias cdst="_cdst"
+
+_cdst() {
+  if [ -d "/d/apps/steam" ];then
+    if [ $# -gt 0 ]; then
+      cd_func "/d/apps/steam/${*}"
+    else
+      cd_func "/d/apps/steam/"
+    fi
+  fi
+}
+
 # function cd_func
 # This function defines a 'cd' replacement function capable of keeping,
 # displaying and accessing history of visited directories, up to 10 entries.
@@ -395,7 +407,7 @@ cd_func() {
 
     the_new_dir=$1
     [[ -z $1 ]] && the_new_dir=$HOME
-    
+
     if [[ ${the_new_dir:0:1} == '-' ]]; then
         #
         # When argument is '-N' Extract dir N from dirs
