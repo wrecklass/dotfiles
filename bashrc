@@ -73,7 +73,7 @@ export LSCOLORS='Gxfxcxdxdxegedabagacad'
 # export CDPATH=".:~:~/src"
 export ORIGPATH="${PATH}"
 export PATH
-export LESS='FXR'
+export LESS='FXRj5'
 [[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"
 
 # Make sure we only source this once
@@ -162,7 +162,7 @@ unset UNAMECMD
 # {{{ Appended by other programs
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""
 export FZF_COMPLETION_OPTS='--height=60% --info=inline --border'
-
+cd
 GOC=$(command -v gocomplete)
 if [ -n "$GOC" ];then
   complete -C $GOC go
