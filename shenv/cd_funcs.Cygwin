@@ -382,9 +382,9 @@ alias cdst="_cdst"
 _cdst() {
   if [ -d "/d/apps/steam" ];then
     if [ $# -gt 0 ]; then
-      cd_func "/d/apps/steam/${*}"
+      cd_func "/d/Apps/Steam/${*}"
     else
-      cd_func "/d/apps/steam/"
+      cd_func "/d/Apps/Steam/"
     fi
   fi
 }
