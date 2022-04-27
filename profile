@@ -58,3 +58,7 @@ if [ -n "${BASH_VERSION}" ]; then
 fi
 _log ".profile done"
 
+# Cargo env
+if [ -f . "$HOME/.cargo/env" ];then
+  source "$HOME/.cargo/env"
+fi

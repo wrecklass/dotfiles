@@ -118,6 +118,11 @@ else
   _log "No bash_completion script!"
 fi
 
+# Cargo env
+if [ -f . "$HOME/.cargo/env" ];then
+  source "$HOME/.cargo/env"
+fi
+
 # completion for hub command
 if [ -f "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion" ]; then
   source "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion"
