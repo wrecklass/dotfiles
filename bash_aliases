@@ -128,19 +128,20 @@ alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias j='jobs'
 
 # File lists 'ls'
-alias dot='ls -dAF ${colorflag} .*'
-alias dolt='ls -dlAF ${colorflag} .*'
-alias exl='exa --long'
-alias exs='exa --sort size'
+alias dot='ls -dAF ${colorflag} .[a-zA-Z]*'
+alias dolt='ls -dlAF ${colorflag} .[a-zA-Z]*'
+# alias exl='exa --long'
+# alias exs='exa --sort size'
 alias l.='ls -dAF ${colorflag} .*'
 alias ll.='ls -ldF ${colorflag} .*'
 alias l='ls -lF ${colorflag}'
 alias lesb='$(history -p !!) | less'
 alias ls='ls -F ${colorflag}'
+alias lsa='ls -AF ${colorflag}'
 alias lsp='\ls -F'
 alias la='ls -AF ${colorflag}'
 alias ll='ls -lF ${colorflag}'
-alias lla='ls -alF ${colorflag}'
+alias lla='ls -AlF ${colorflag}'
 alias lh='ls -lhF ${colorflag}'
 alias llh='ls -lhF ${colorflag}'
 alias lt='ls -lrtF ${colorflag}'
@@ -213,10 +214,11 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-alias vi="\$EDITOR"
-alias vim="\$EDITOR"
-alias vib='$EDITOR ~/.bashrc'
-alias iv="\$EDITOR"
+alias vi="$EDITOR"
+alias vim="$EDITOR"
+alias vimrc="vim ${HOME}/.vimrc"
+alias vib="$EDITOR ~/.bashrc"
+alias iv="$EDITOR"
 
 alias week='date +%V'
 alias wcl='wc -l'

@@ -8,9 +8,9 @@ function _err {
   if [ "$#" -ne 1 ];then
     printf "usage: $FUNCNAME N\n"
     printf "where N is an Integer\n"
-    return 22
+    return 2
   fi
-    
+
   grep " ${*}	" /usr/include/sys/errno.h 2> /dev/null
   if [ "${?}" != 0 ];then
     echo "Not found."
@@ -25,20 +25,20 @@ else
 fi
 # echo "SUDO $SUDO"
 _dush() {
-  $SUDO du -sk "$@" 2> /dev/null | sort -g | awk '{ 
+  $SUDO du -sk "$@" 2> /dev/null | sort -g | awk '{
 
-    numBytes = $1 * 1024; 
-    numUnits = split("B K M G T P", unit); 
-    num = numBytes; 
-    iUnit = 0; 
+    numBytes = $1 * 1024;
+    numUnits = split("B K M G T P", unit);
+    num = numBytes;
+    iUnit = 0;
 
-    while(num >= 1024 && iUnit + 1 < numUnits) { 
-      num = num / 1024; 
-      iUnit++; 
-    } 
+    while(num >= 1024 && iUnit + 1 < numUnits) {
+      num = num / 1024;
+      iUnit++;
+    }
 
     $1 = sprintf( ((num == 0) ? "%6d%s " : "%6.1f%s "), num, unit[iUnit + 1]);
-    print $0; 
+    print $0;
 
   }'
 }
@@ -173,7 +173,7 @@ if [[ -z "${YUM}" ]];then
 fi
 
 # Get colors in manual pages
-# _man is a keybinding function defined by man. 
+# _man is a keybinding function defined by man.
 # So we must use __man here.
 alias man="__man"
 __man() {

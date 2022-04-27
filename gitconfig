@@ -120,8 +120,6 @@
   # e = config --global -e
   edit = !/usr/bin/vim ~/.gitconfig
   e = !/usr/bin/vim ~/.gitconfig
-  # Saves Work in Progress. Leaves untracked alone.
-  wip = commit -am "WIP"
   # Just show the date in compressed format
   dt  = !date +"%Y%m%dT%H%M%S"
   # Longer format

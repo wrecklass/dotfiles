@@ -4,7 +4,7 @@ alias ff='_ff'
 alias ffd='_ffd'
 alias ffl='_ffl'
 alias ffn='_ffn'
-alias vif='_vif'
+alias vif='_vifzf'
 alias grepr="_grepr"
 alias greprl="_greprl"
 alias greplr="_greprl"
@@ -14,19 +14,19 @@ alias grepril="_grepril"
 alias greprli="_grepril"
 
 _grepr() {
-  grep --exclude-dir target --exclude-dir vendor --exclude-dir .git -r "$*" .
+  grep --exclude-dir vim --exclude-dir target --exclude-dir vendor --exclude-dir .git -r "$*" .
 }
 
 _greprl() {
-  grep --exclude-dir target --exclude-dir vendor --exclude-dir .git -rl "$*" .
+  grep --exclude-dir vim --exclude-dir target --exclude-dir vendor --exclude-dir .git -rl "$*" .
 }
 
 _grepri() {
-  grep --exclude-dir target --exclude-dir vendor --exclude-dir .git -ri "$*" .
+  grep --exclude-dir vim --exclude-dir target --exclude-dir vendor --exclude-dir .git -ri "$*" .
 }
 
 _grepril() {
-  grep --exclude-dir target --exclude-dir vendor --exclude-dir .git -ril "$*" .
+  grep --exclude-dir vim --exclude-dir target --exclude-dir vendor --exclude-dir .git -ril "$*" .
 }
 
 _ff() {
@@ -63,4 +63,8 @@ _ffn() {
 # shellcheck disable=SC2046
 _vif() {
   vi $(find . -name "$1")
+}
+
+_vifzf() {
+  vim $(fzf --height=75% --border --reverse)
 }
