@@ -11,12 +11,12 @@ deploy: dotfiles fishconf vimfiles vimdocs ## Install everything, use this one t
 # Fish and Vim is handled below
 .PHONY := dotfiles
 dotfiles:            ## Install (link) the dotfiles
-	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name ".[a-z]*" -not -name "nvim" -not -name "README.md" -not -name "vim" -not -name "Makefile" -not -name "assh.yml" -not -name "fish"); do \
+	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name "config.omp.json"-not -name ".[a-z]*" -not -name "nvim" -not -name "README.md" -not -name "vim" -not -name "Makefile" -not -name "assh.yml" -not -name "fish"); do \
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
-	# ln -sfn $$PWD/assh.yml ~/.ssh/
 	cp ./assh.yml ~/.ssh/
+	cp ./config.omp.json /c/Users/smartin/AppData/Local/oh-my-posh/
 
 
 # Fish goes to the .config dir
