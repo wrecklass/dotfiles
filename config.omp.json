@@ -7,7 +7,7 @@
         {
           "background": "p:yellow",
           "foreground": "p:black",
-          "leading_diamond": "\ue0b6",
+          "leading_diamond": "\u256d\u2500\ue0b6",
           "style": "diamond",
           "trailing_diamond": "\ue0b0",
           "type": "session"
@@ -79,6 +79,7 @@
       "type": "prompt"
     },
     {
+      "alignment": "right",
       "segments": [
         {
           "background": "transparent",
@@ -129,7 +130,32 @@
           "type": "time"
         }
       ],
-      "type": "rprompt"
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#21c7a8",
+          "style": "plain",
+          "template": "\u2570\u2500",
+          "type": "text"
+        },
+        {
+          "foreground": "#22da6e",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#ef5350{{ end }}"
+          ],
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "plain",
+          "template": "\ue285\ue285 ",
+          "type": "exit"
+        }
+      ],
+      "type": "prompt"
     }
   ],
   "console_title_template": "{{ .Shell }} in {{ .Folder }}",
