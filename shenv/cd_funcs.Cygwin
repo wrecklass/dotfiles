@@ -20,13 +20,12 @@ alias cdp="_cdp"
 alias cdr="_cdr"
 alias cdrep="_cdrep"
 alias cds="_cds"
-alias cdsc="_cdsc"
 alias cdsa="_cdsa"
 alias cdst="_cdst"
 alias cdu="_cdu"
 alias cdv="_cdv"
-alias cdw="_cdw"
-alias cdwi="_cdwi"
+# alias cdw="_cdw"
+# alias cdwi="_cdwi"
 alias cdx="_cdx"
 alias cdxp="_cdx"
 alias cdz="_cdz"
@@ -228,27 +227,13 @@ _cdrep() {
     fi
 }
 
-_cdsc() {
-  if [ -d "/d/Users/${USER}/Dropbox/Scripts" ];then
-    if [ $# -gt 0 ]; then
-      cd_func "/d/Users/${USER}/DropBox/Scripts/${*}"
-    else
-      cd_func "/d/Users/${USER}/DropBox/Scripts/"
-    fi
-  elif [ -d "$USERPROFILE/Dropbox/Scripts" ];then
-    if [ $# -gt 0 ]; then
-      cd_func "$USERPROFILE/DropBox/Scripts/${*}"
-    else
-      cd_func "$USERPROFILE/DropBox/Scripts/"
-    fi
-  fi
-}
-
 _cdark() {
   if [ -d "/e/Apps/SteamLibrary/steamapps/common/" ];then
     cd_func "/e/Apps/SteamLibrary/steamapps/common/"
   elif [ -d "/f/SteamLibrary/steamapps/common/" ];then
     cd_func "/f/SteamLibrary/steamapps/common/"
+  elif [ -d "/d/Apps/SteamLibrary/steamapps/common/" ];then
+    cd_func "/d/Apps/SteamLibrary/steamapps/common/"
   fi
 }
 
@@ -263,7 +248,13 @@ _cdsa() {
     if [ $# -gt 0 ]; then
       cd_func "/c/apps/steam/steamapps/${*}"
     else
-      cd_func "/dcapps/steam/steamapps/"
+      cd_func "/c/apps/steam/steamapps/"
+    fi
+  elif [ -d "/d/apps/steamlibrary/steamapps" ];then
+    if [ $# -gt 0 ]; then
+      cd_func "/d/apps/steamlibrary/steamapps/${*}"
+    else
+      cd_func "/d/apps/steamlibrary/steamapps/"
     fi
   fi
 }
@@ -310,59 +301,43 @@ _cdv() {
   fi
 }
 
-_cdw() {
-  if [ -d "/d/apps/World of Warcraft/" ];then
-    if [ $# -gt 0 ]; then
-        cd_func "/d/apps/World of Warcraft/${*}"
-    else
-        cd_func "/d/apps/World of Warcraft"
-    fi
-  elif [ -d "/c/apps/World of Warcraft/" ];then
-    if [ $# -gt 0 ]; then
-        cd_func "/c/apps/World of Warcraft/${*}"
-    else
-        cd_func "/c/apps/World of Warcraft"
-    fi
-  elif [ -d "/e/apps/World of Warcraft/" ];then
-    if [ $# -gt 0 ]; then
-        cd_func "/e/apps/World of Warcraft/${*}"
-    else
-        cd_func "/e/apps/World of Warcraft"
-    fi
-  fi
-}
-
-_cdwi() {
-  if [ -d "/d/apps/World of Warcraft/Interface" ];then
-    if [ $# -gt 0 ]; then
-        cd_func "/d/apps/World of Warcraft/Interface/${*}"
-    else
-        cd_func "/d/apps/World of Warcraft/Interface"
-    fi
-  elif [ -d "/c/apps/World of Warcraft/Interface" ];then
-    if [ $# -gt 0 ]; then
-        cd_func "/c/apps/World of Warcraft/Interface/${*}"
-    else
-        cd_func "/c/apps/World of Warcraft/Interface"
-    fi
-  fi
-}
-
-_cdx() {
-  if [ -d "/c/Apps/XPlane/X-Plane 11" ];then
-    if [ $# -gt 0 ]; then
-        cd_func "/c/Apps/XPlane/X-Plane 11/${*}"
-    else
-        cd_func "/c/Apps/XPlane/X-Plane 11"
-    fi
-  elif [ -d "/e/Apps/X-Plane 11" ];then
-    if [ $# -gt 0 ]; then
-        cd_func "/e/Apps/X-Plane 11/${*}"
-    else
-        cd_func "/e/Apps/X-Plane 11"
-    fi
-  fi
-}
+# _cdw() {
+#   if [ -d "/d/apps/World of Warcraft/" ];then
+#     if [ $# -gt 0 ]; then
+#         cd_func "/d/apps/World of Warcraft/${*}"
+#     else
+#         cd_func "/d/apps/World of Warcraft"
+#     fi
+#   elif [ -d "/c/apps/World of Warcraft/" ];then
+#     if [ $# -gt 0 ]; then
+#         cd_func "/c/apps/World of Warcraft/${*}"
+#     else
+#         cd_func "/c/apps/World of Warcraft"
+#     fi
+#   elif [ -d "/e/apps/World of Warcraft/" ];then
+#     if [ $# -gt 0 ]; then
+#         cd_func "/e/apps/World of Warcraft/${*}"
+#     else
+#         cd_func "/e/apps/World of Warcraft"
+#     fi
+#   fi
+# }
+#
+# _cdwi() {
+#   if [ -d "/d/apps/World of Warcraft/Interface" ];then
+#     if [ $# -gt 0 ]; then
+#         cd_func "/d/apps/World of Warcraft/Interface/${*}"
+#     else
+#         cd_func "/d/apps/World of Warcraft/Interface"
+#     fi
+#   elif [ -d "/c/apps/World of Warcraft/Interface" ];then
+#     if [ $# -gt 0 ]; then
+#         cd_func "/c/apps/World of Warcraft/Interface/${*}"
+#     else
+#         cd_func "/c/apps/World of Warcraft/Interface"
+#     fi
+#   fi
+# }
 
 _cdz() {
     if [ $# -gt 0 ]; then
@@ -385,6 +360,13 @@ _cdst() {
       cd_func "/d/Apps/Steam/${*}"
     else
       cd_func "/d/Apps/Steam/"
+    fi
+  fi
+  if [ -d "/d/apps/Steamlibrary" ];then
+    if [ $# -gt 0 ]; then
+      cd_func "/d/Apps/Steamlibrary/${*}"
+    else
+      cd_func "/d/Apps/Steamlibrary/"
     fi
   fi
 }
