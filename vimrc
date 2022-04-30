@@ -291,6 +291,7 @@ nnoremap <c-l>  <C-W>l
 " noremap <silent> <space> :call smooth_scroll#down(&scroll,20,1)<CR>
 noremap <silent> <c-b>   :call smooth_scroll#up(&scroll,20,1)<CR>
 noremap <silent> <c-f>   :call smooth_scroll#down(&scroll,20,1)<CR>
+" noremap <silent> <c-f>   20j
 noremap <silent> <c-u>   :call smooth_scroll#up(&scroll/2,20,1)<CR>
 noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
 " noremap <c-space> 8k

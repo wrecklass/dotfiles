@@ -1,5 +1,11 @@
 hosts:
 
+  netserver:
+    User: smartin
+    Hostname: 192.168.1.24
+    HostKeyAlgorithms: ssh-dss
+    KexAlgorithms: diffie-hellman-group1-sha1
+
   tiggeroo:
     User: Kelly
     Hostname: tiggeroo
@@ -66,9 +72,10 @@ defaults:
   ConnectionTimeout: 15
   Port: 22
   User: smartin
+  StrictHostKeyChecking: no
   Hooks:
     BeforeConfigWrite:
-      - 'exec set -x ; cp {{.SSHConfigPath}} {{.SSHConfigPath}}.bak'
+      # - 'exec set -x ; cp {{.SSHConfigPath}} {{.SSHConfigPath}}.bak'
 
     AfterConfigWrite:
       - write  "{{.SSHConfigPath}} has been rewritten!"

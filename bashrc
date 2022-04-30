@@ -73,7 +73,7 @@ export LSCOLORS='Gxfxcxdxdxegedabagacad'
 # export CDPATH=".:~:~/src"
 export ORIGPATH="${PATH}"
 export PATH
-export LESS='FXR'
+export LESS='FXRj5'
 [[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"
 
 # Make sure we only source this once
@@ -128,6 +128,11 @@ else
   _log "No bash_completion script!"
 fi
 
+# Cargo env
+if [ -f . "$HOME/.cargo/env" ];then
+  source "$HOME/.cargo/env"
+fi
+
 # completion for hub command
 if [ -f "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion" ]; then
   source "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion"
@@ -161,11 +166,12 @@ unset UNAMECMD
 # }}}
 # {{{ Appended by other programs
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""
-# export FZF_COMPLETION_OPTS='--height=60% --info=inline --border'
+export FZF_COMPLETION_OPTS='--height=60% --info=inline --border'
+# cd
 
 GOC=$(command -v gocomplete)
 if [ -n "$GOC" ];then
   complete -C $GOC go
 fi
 # }}}
- #vim: set et sw=2 foldmethod=marker
+#vim: set et sw=2 foldmethod=marker
