@@ -152,6 +152,7 @@ POSH=$(command -v oh-my-posh)
 if [ -n "$POSH" ];then
     [[ -r "$HOME/.posh_config" ]] && [[ -f "$HOME/.posh_config" ]] && source "$HOME/.posh_config"
 fi
+unset POSH
 
 # }}}
 # {{{ Functions
