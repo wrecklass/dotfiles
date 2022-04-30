@@ -25,6 +25,17 @@
           "type": "path"
         },
         {
+          "type": "os",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "p:blue",
+          "background": "p:black",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}}\uE0B1",
+          "properties": {
+            "macos": "mac"
+          }
+        },
+        {
           "background": "p:green",
           "background_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}p:yellow{{ end }}",
