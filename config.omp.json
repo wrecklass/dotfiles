@@ -13,6 +13,17 @@
           "type": "session"
         },
         {
+          "background": "#4E4E45",
+          "foreground": "p:yellow",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "macos": "mac"
+          },
+          "style": "powerline",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "type": "os"
+        },
+        {
           "background": "p:orange",
           "foreground": "p:white",
           "powerline_symbol": "\ue0b0",
@@ -23,17 +34,6 @@
           "style": "powerline",
           "template": " \uf74a {{ path .Path .Location }} ",
           "type": "path"
-        },
-        {
-          "type": "os",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b0",
-          "foreground": "p:blue",
-          "background": "p:black",
-          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}}\uE0B1",
-          "properties": {
-            "macos": "mac"
-          }
         },
         {
           "background": "p:green",
