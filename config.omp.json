@@ -61,7 +61,7 @@
           "type": "git"
         },
         {
-          "background": "p:yellow",
+          "background": "p:red",
           "foreground": "p:white",
           "powerline_symbol": "\ue0b0",
           "properties": {
