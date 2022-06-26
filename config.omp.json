@@ -112,6 +112,13 @@
           "type": "python"
         },
         {
+          "type": "rust",
+          "style": "plain",
+          "foreground": "#193549",
+          "background": "transparent",
+          "template": " \uE7A8 {{ .Full }} "
+        },
+        {
           "background": "transparent",
           "foreground": "p:white",
           "style": "plain",
