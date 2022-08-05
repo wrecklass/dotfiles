@@ -215,7 +215,8 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 alias vi="$EDITOR"
-alias vim="$EDITOR"
+# alias vim="$EDITOR"
+alias vim='if [ $# -eq 0 ];then "$EDITOR" ~/.vimrc; else "$EDITOR" "$@"; fi;'
 alias vimrc="vim ${HOME}/.vimrc"
 alias vib="$EDITOR ~/.bashrc"
 alias iv="$EDITOR"
