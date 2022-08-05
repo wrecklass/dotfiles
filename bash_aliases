@@ -200,8 +200,8 @@ alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 alias untar='tar xvf'
-alias tp='terraform plan -out ./flagship.plan'
-alias ta='terraform apply ./flagship.plan'
+# alias tp='terraform plan -out ./flagship.plan'
+# alias ta='terraform apply ./flagship.plan'
 # alias todo='~/bin/todo.sh'
 # alias t='~/bin/todo.sh'
 alias xtar="tar xvf"
@@ -214,7 +214,8 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-alias vi="$EDITOR"
+# alias vi="$EDITOR"
+alias vi='if [ $# -eq 0 ];then "$EDITOR" ~/.vimrc; else "$EDITOR" "$@"; fi;'
 # alias vim="$EDITOR"
 alias vim='if [ $# -eq 0 ];then "$EDITOR" ~/.vimrc; else "$EDITOR" "$@"; fi;'
 alias vimrc="vim ${HOME}/.vimrc"
