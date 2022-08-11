@@ -188,8 +188,6 @@ if [ -x "$HOME/bin/vim" ];then
 else
   alias sec='/usr/bin/vim $HOME/bin/.secret'
 fi
-alias sec2='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user'
-# alias sensu='ssh -i ~/.ssh/EngProdKey.pem -l ec2-user sensu'
 alias svi='sudo vim'
 alias via='vi ~/.ssh/assh.yml'
 alias sw='telnet  towel.blinkenlights.nl'
@@ -214,10 +212,8 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-# alias vi="$EDITOR"
-alias vi='if [ $# -eq 0 ];then "$EDITOR" ~/.vimrc; else "$EDITOR" "$@"; fi;'
-# alias vim="$EDITOR"
-alias vim='if [ $# -eq 0 ];then "$EDITOR" ~/.vimrc; else "$EDITOR" "$@"; fi;'
+alias vi="$EDITOR"
+alias vim="$EDITOR"
 alias vimrc="vim ${HOME}/.vimrc"
 alias vib="$EDITOR ~/.bashrc"
 alias iv="$EDITOR"
