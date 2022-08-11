@@ -14,9 +14,9 @@ if [[ ! -d "/tmp" ]]; then
 fi
 
 # start timer on command start
-PS0='$(C:/Users/smartin/AppData/Local/Programs/oh-my-posh/bin/oh-my-posh.exe get millis > "$TIMER_START")'
+PS0='$("C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe" get millis > "$TIMER_START")'
 # set secondary prompt
-PS2="$(C:/Users/smartin/AppData/Local/Programs/oh-my-posh/bin/oh-my-posh.exe print secondary --config="$POSH_THEME" --shell=bash)"
+PS2="$("C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe" print secondary --config="$POSH_THEME" --shell=bash)"
 
 function _omp_hook() {
     local ret=$?
@@ -24,17 +24,17 @@ function _omp_hook() {
     omp_stack_count=$((${#DIRSTACK[@]} - 1))
     omp_elapsed=-1
     if [[ -f "$TIMER_START" ]]; then
-        omp_now=$(C:/Users/smartin/AppData/Local/Programs/oh-my-posh/bin/oh-my-posh.exe get millis)
+        omp_now=$("C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe" get millis)
         omp_start_time=$(cat "$TIMER_START")
         omp_elapsed=$((omp_now-omp_start_time))
         rm -f "$TIMER_START"
     fi
-    PS1="$(C:/Users/smartin/AppData/Local/Programs/oh-my-posh/bin/oh-my-posh.exe print primary --config="$POSH_THEME" --shell=bash --error="$ret" --execution-time="$omp_elapsed" --stack-count="$omp_stack_count" | tr -d '\0')"
+    PS1="$("C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe" print primary --config="$POSH_THEME" --shell=bash --error="$ret" --execution-time="$omp_elapsed" --stack-count="$omp_stack_count" | tr -d '\0')"
 
     return $ret
 }
 
-if [ "$TERM" != "linux" ] && [ -x "$(command -v C:/Users/smartin/AppData/Local/Programs/oh-my-posh/bin/oh-my-posh.exe)" ] && ! [[ "$PROMPT_COMMAND" =~ "_omp_hook" ]]; then
+if [ "$TERM" != "linux" ] && [ -x "$(command -v oh-my-posh)" ] && ! [[ "$PROMPT_COMMAND" =~ "_omp_hook" ]]; then
     PROMPT_COMMAND="_omp_hook; $PROMPT_COMMAND"
 fi
 
