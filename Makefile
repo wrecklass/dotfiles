@@ -16,6 +16,7 @@ dotfiles:            ## Install (link) the dotfiles
 		ln -sfn $$file ~/.$$f; \
 	done
 	cp ./assh.yml ~/.ssh/
+	mkdir -p /c/Users/smartin/AppData/Local/oh-my-posh
 	cp ./config.omp.json /c/Users/smartin/AppData/Local/oh-my-posh/
 
 
