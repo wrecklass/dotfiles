@@ -5,23 +5,22 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "p:yellow",
-          "foreground": "p:black",
-          "leading_diamond": "\u256d\u2500\ue0b6",
-          "style": "diamond",
-          "trailing_diamond": "\ue0b0",
-          "type": "session"
-        },
-        {
-          "background": "#4E4E45",
+          "background": "#6E6E65",
           "foreground": "p:yellow",
-          "powerline_symbol": "\ue0b0",
           "properties": {
             "macos": "mac"
           },
-          "style": "powerline",
+          "leading_diamond": "\u256d\u2500\ue0b6",
+          "style": "diamond",
           "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
           "type": "os"
+        },
+        {
+          "background": "p:yellow",
+          "foreground": "p:black",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "type": "session"
         },
         {
           "background": "p:orange",
@@ -140,7 +139,7 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#21c7a8",
+          "foreground": "#616161",
           "style": "plain",
           "template": "\u2570\u2500",
           "type": "text"
