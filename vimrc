@@ -264,6 +264,9 @@ nnoremap <leader>s   :%s/
 " Toggle case sensitive search
 nnoremap <leader>i :setlocal ic!<CR> :setlocal ic?<CR>
 
+" Show list of buffers and then prompt for which to switch to
+nnoremap <F5> :buffers<CR>:buffer<Space>
+
 
 " ,m to erase all ^M in a Dos file. Remembers location
 noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
