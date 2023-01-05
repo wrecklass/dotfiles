@@ -198,8 +198,6 @@ alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 alias untar='tar xvf'
-# alias tp='terraform plan -out ./flagship.plan'
-# alias ta='terraform apply ./flagship.plan'
 # alias todo='~/bin/todo.sh'
 # alias t='~/bin/todo.sh'
 alias xtar="tar xvf"
