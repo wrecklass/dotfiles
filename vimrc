@@ -63,6 +63,9 @@ set nobackup
 set undodir=C:\Users\smartin\.vim\undodir
 set undofile
 
+" Don't default to Read Only in vimdiff
+set noro
+
 set termguicolors
 set showmode
 set completeopt=menuone,noinsert,noselect
