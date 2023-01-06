@@ -14,6 +14,8 @@
   filemode = false
   autocrlf = false
   editor = /usr/bin/vim
+[diff]
+  tool = vimdiff
 [push]
   default = simple
 [credential]
@@ -22,24 +24,17 @@
 [user]
   name = Stephen Martin
   email = smartin5590@gmail.com
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
-[mergetool "mvimdiff"]
-  cmd = mvim -c 'Gdiff' $MERGED
-  keepbackup = false
-  trustExitCode = true
 [merge]
   summary = true
   verbosity = 1
-  tool = mvimdiff
+  tool = vimdiff
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   required = true
   process = git-lfs filter-process
 [pull]
-	rebase = false
+  rebase = false
 # }}}
 # {{{ Aliases
 [alias]
@@ -75,7 +70,7 @@
   # Because it sux that it can't figure this out:
   logs = log
   # Inspect recent history
- 
+
   dl = !git ll -1
   dlc = diff --cached HEAD^
   # Find a file path in codebase:
@@ -89,7 +84,7 @@
 
   # Find commit by commit message/comment
   fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad %Creset%s%Cgreen [%cn] %Cred%d' --decorate --date=short --grep=\"$1\"; };f"
-  
+
   # Search for a file containing a string
   gr = grep -Ii
   gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; } ; f"

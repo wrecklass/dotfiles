@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author: Stephen Martin
 # {{{ Notes
 
 # The idea is to have a .bashrc file that can
