@@ -1,8 +1,8 @@
 #!/bin/bash
 # DO this only ONCE
 [[ -z "${OVER_RIDE}" ]] && OVER_RIDE="1" || return 0
-# export POSH_THEME="C:\Users\smartin\AppData\Local\oh-my-posh\7.64.2.omp.json"
-export POSH_THEME="C:\Users\smartin\AppData\Local\oh-my-posh\config.omp.json"
+# export POSH_THEME="C:\Users\smartin\AppData\Local\oh-my-posh\config.omp.json"
+export POSH_THEME="C:\cygwin64\home\smartin\.config.omp.json"
 export POWERLINE_COMMAND="oh-my-posh"
 export CONDA_PROMPT_MODIFIER=false
 

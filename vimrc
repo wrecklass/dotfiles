@@ -325,6 +325,7 @@ nnoremap <Leader>ww ofunction wait(ms: number): Promise<void> {<CR>return new Pr
 " Cause, of course
 inoremap <C-c> <esc>
 
+nmap     <leader>nt   <c-w>T
 nmap     <C-n>        :NERDTreeToggle<CR>
 nmap     <leader>n    :NERDTreeToggle<CR>
 map      \|           :NERDTreeFind<CR>

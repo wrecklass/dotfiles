@@ -20,7 +20,7 @@
           "style": "powerline",
           "background": "#588858",
           "foreground": "#f0f0f0",
-          "powerline_symbol": "\uE0B0"
+          "powerline_symbol": "\ue0b0"
         },
         {
           "background": "p:yellow",
