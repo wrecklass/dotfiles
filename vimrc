@@ -159,6 +159,7 @@ call plug#end()
 
 colorscheme gruvbox-material
 highlight Normal guibg=background
+hi QuickFixLine guibg=#65000B ctermbg=darkred
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
