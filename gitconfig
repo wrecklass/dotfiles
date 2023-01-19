@@ -122,6 +122,8 @@
   # seconds since epoch
   dts = !date +'%s'
 
+  pushall = !git remote | xargs -I X git push X --all
+
   # Note that this adds UNTRACKED files to the repository:
   cm = !git add -A && git commit -m
   ca = commit -am
