@@ -41,6 +41,7 @@
   # XXX TEMPLATE: XXX
   # changeme = "!f() { changemetoo }; f"
 
+  fmode = config --local core.filemode false
   aliases = config --get-regexp alias
 
   la = "!git config -l | grep alias "
