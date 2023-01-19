@@ -1,55 +1,38 @@
 #!/bin/bash
-# DO this only ONCE
-[[ -z "${OVER_RIDE}" ]] && OVER_RIDE="1" || return 0
-export POSH_THEMES_PATH="c:/program files (x86)/oh-my-posh/themes"
-# export POSH_THEME="$POSH_THEMES_PATH/night-owl.omp.json"
-export POSH_THEME="C:\cygwin64\home\smartin\.config.omp.json"
+export POSH_THEME=$'C:\\cygwin64\\home\\smartin\\.config.omp.json'
 export POWERLINE_COMMAND="oh-my-posh"
+export POSH_PID=$$
 export CONDA_PROMPT_MODIFIER=false
-
-TIMER_START="/tmp/${USER}.start.$$"
-
-# some environments don't have the filesystem we'd expect
-if [[ ! -d "/tmp" ]]; then
-  TIMER_START="${HOME}/.${USER}.start.$$"
-fi
+omp_start_time=""
 
 # start timer on command start
-PS0='$("C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe" get millis > "$TIMER_START")'
+PS0='${omp_start_time:0:$((omp_start_time="$(_omp_start_timer)",0))}'
 # set secondary prompt
-PS2="$("C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe" print secondary --config="$POSH_THEME" --shell=bash)"
+PS2="$($'C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe' print secondary --config="$POSH_THEME" --shell=bash --shell-version="$BASH_VERSION")"
+
+function _omp_start_timer() {
+    $'C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe' get millis
+}
+
+# template function for context loading
+function set_poshcontext() {
+    return
+}
 
 function _omp_hook() {
     local ret=$?
-
-    omp_stack_count=$((${#DIRSTACK[@]} - 1))
-    omp_elapsed=-1
-    if [[ -f "$TIMER_START" ]]; then
-        omp_now=$("C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe" get millis)
-        omp_start_time=$(cat "$TIMER_START")
+    local omp_stack_count=$((${#DIRSTACK[@]} - 1))
+    local omp_elapsed=-1
+    if [[ -n "$omp_start_time" ]]; then
+        local omp_now=$($'C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe' get millis --shell=bash)
         omp_elapsed=$((omp_now-omp_start_time))
-        rm -f "$TIMER_START"
+        omp_start_time=""
     fi
-    PS1="$("C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe" print primary --config="$POSH_THEME" --shell=bash --error="$ret" --execution-time="$omp_elapsed" --stack-count="$omp_stack_count" | tr -d '\0')"
-
+    set_poshcontext
+    PS1="$($'C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe' print primary --config="$POSH_THEME" --shell=bash --shell-version="$BASH_VERSION" --error="$ret" --execution-time="$omp_elapsed" --stack-count="$omp_stack_count" | tr -d '\0')"
     return $ret
 }
 
-if [ "$TERM" != "linux" ] && [ -x "$(command -v oh-my-posh)" ] && ! [[ "$PROMPT_COMMAND" =~ "_omp_hook" ]]; then
+if [ "$TERM" != "linux" ] && [ -x "$(command -v $'C:/Program Files (x86)/oh-my-posh/bin/oh-my-posh.exe')" ] && ! [[ "$PROMPT_COMMAND" =~ "_omp_hook" ]]; then
     PROMPT_COMMAND="_omp_hook; $PROMPT_COMMAND"
 fi
-
-function _omp_runonexit() {
-  [[ -f $TIMER_START ]] && rm -f "$TIMER_START"
-}
-
-trap _omp_runonexit EXIT
-
-function export_poshconfig() {
-    [ $# -eq 0 ] && { echo "Usage: $0 \"filename\""; return; }
-    format=$2
-    if [ -z "$format" ]; then
-      format="json"
-    fi
-    oh-my-posh.exe --config $POSH_THEME --print-config --config-format $format > $1
-}
