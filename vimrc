@@ -152,20 +152,20 @@ Plug 'mhinz/vim-rfc'
 
 " Ok, colorschemes:
 Plug 'gruvbox-community/gruvbox'
-Plug 'sainnhe/gruvbox-material'
+" Plug 'sainnhe/gruvbox-material'
 call plug#end()
 " }}}
 " {{{ Color Scheme
-
-colorscheme gruvbox-material
+let g:gruvbox_italic=1
+" colorscheme gruvbox-material
+colorscheme gruvbox
 highlight Normal guibg=background
 hi QuickFixLine guibg=#65000B ctermbg=darkred
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
-let g:airline_theme='luna'
 
-" let g:airline_theme='cool'
+let g:airline_theme='cool'
 " let g:airline_theme='luna'
 " let g:airline_theme='understated'
 " let g:airline_theme='ravenpower'
@@ -477,7 +477,7 @@ endfunction
 if has("autocmd")
 
     " filetype plugin indent on
-
+    " Move to the last position ('") when this file was opened
     autocmd BufReadPost *
             \  if line("'\"") > 0 && line("'\"") <= line("$") |
             \    exe "normal! g'\"" |
