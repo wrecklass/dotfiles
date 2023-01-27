@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Open current git repo in browser
+giturl() {
+    if command -v cygstart &> /dev/null; then
+        START=$(command -v cygstart)
+    elif command -v open &> /dev/null; then
+        START=$(command -v open)
+    fi
+    if [ -d ./.git ]; then
+        url="$(git r | grep origin | head -1 | awk '{print $2}' | sed -e 's/git@//')"
+        if [[ "$url" != *"https"* ]];then
+            # Convert "github.com:user/repo" to "https://github.com/user/repo"
+            url="https://$(echo $url | sed -e 's#:#/#')"
+        fi
+        ${START} "$url"
+    fi
+}
