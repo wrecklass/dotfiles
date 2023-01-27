@@ -165,11 +165,11 @@ hi QuickFixLine guibg=#65000B ctermbg=darkred
 " Airline Status Bar
 let g:airline_powerline_fonts=1
 
-let g:airline_theme='cool'
+" let g:airline_theme='cool'
 " let g:airline_theme='luna'
 " let g:airline_theme='understated'
 " let g:airline_theme='ravenpower'
-" let g:airline_theme='murmur'
+let g:airline_theme='murmur'
 " let g:airline_theme='base16_vim'
 " let g:airline_theme='base16_unikitty_dark'
 " let g:airline_theme='base16_tube'
