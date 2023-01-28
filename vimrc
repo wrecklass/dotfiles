@@ -311,14 +311,20 @@ nnoremap J mzJ`z
 
 " greatest remap ever
 xnoremap <leader>p "_dP
+nnoremap <leader>p "+
+
+" Paste in system clipboard with ^P
+inoremap <expr> <c-p> pumvisible() ? '<c-p>' : '<c-r>+'
 
 " next greatest remap ever
+" Yank to system clipboard
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
+nnoremap <leader>Y "+y$
+xnoremap <leader>y "+y
 " Copy everything to clipboard
-nnoremap <leader>Y gg"+yG
+" nnoremap <leader>Y gg"+yG
 
-nnoremap <leader>d "_d
 nnoremap <leader>d "_d
 
 nnoremap <Leader>ww ofunction wait(ms: number): Promise<void> {<CR>return new Promise(res => setTimeout(res, ms));<CR>}<esc>k=i{<CR>
