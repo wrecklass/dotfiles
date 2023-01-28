@@ -48,7 +48,6 @@ alias clar=clear
 alias cler=clear
 alias comcast='ftp upload.comcast.net'
 
-command -v colordiff &> /dev/null
 if command -v colordiff &> /dev/null; then
   alias diff='colordiff'
 fi
