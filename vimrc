@@ -2,6 +2,8 @@
 " Date: 10/25/21 01:44:17
 " {{{ Settings
 set wildmode=longest,list,full
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
 
 set wildmenu
 "Ignore files
@@ -120,6 +122,7 @@ endif
 " {{{ Plugins
 call plug#begin('~/.vim/plugged')
 
+Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
