@@ -21,9 +21,6 @@ if has('folding')
   set foldcolumn=1
 endif
 
-" We want dark anyway
-set background=dark
-
 " nvim is supposed to be nocompatible by default
 " set nocompatible
 set exrc
@@ -213,6 +210,8 @@ try
 catch
 endtry
 
+" We want dark anyway
+set background=dark
 " }}}
 " {{{ Mappings
 
@@ -340,7 +339,7 @@ nmap     <C-n>        :NERDTreeToggle<CR>
 nmap     <leader>n    :NERDTreeToggle<CR>
 map      \|           :NERDTreeFind<CR>
 
-map      -            :Explore<CR>
+" map      -            :Explore<CR>
 
 cnoremap <C-a>        <Home>
 cnoremap <C-b>        <Left>
