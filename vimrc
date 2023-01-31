@@ -6,6 +6,8 @@
 filetype off
 
 set wildmode=longest,list,full
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
 
 set wildmenu
 "Ignore files
@@ -22,9 +24,6 @@ if has('folding')
   set foldopen+=jump
   set foldcolumn=1
 endif
-
-" We want dark anyway
-set background=dark
 
 " nvim is supposed to be nocompatible by default
 set nocompatible
@@ -128,6 +127,7 @@ endif
 " {{{ Plugins
 call plug#begin('~/.vim/plugged')
 
+Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
@@ -218,6 +218,8 @@ try
 catch
 endtry
 
+" We want dark anyway
+set background=dark
 " }}}
 " {{{ Mappings
 
@@ -319,14 +321,20 @@ nnoremap J mzJ`z
 
 " greatest remap ever
 xnoremap <leader>p "_dP
+nnoremap <leader>p "+
+
+" Paste in system clipboard with ^P
+inoremap <expr> <c-p> pumvisible() ? '<c-p>' : '<c-r>+'
 
 " next greatest remap ever
+" Yank to system clipboard
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
+nnoremap <leader>Y "+y$
+xnoremap <leader>y "+y
 " Copy everything to clipboard
-nnoremap <leader>Y gg"+yG
+" nnoremap <leader>Y gg"+yG
 
-nnoremap <leader>d "_d
 nnoremap <leader>d "_d
 
 nnoremap <Leader>ww ofunction wait(ms: number): Promise<void> {<CR>return new Promise(res => setTimeout(res, ms));<CR>}<esc>k=i{<CR>
@@ -339,7 +347,7 @@ nmap     <C-n>        :NERDTreeToggle<CR>
 nmap     <leader>n    :NERDTreeToggle<CR>
 map      \|           :NERDTreeFind<CR>
 
-map      -            :Explore<CR>
+" map      -            :Explore<CR>
 
 cnoremap <C-a>        <Home>
 cnoremap <C-b>        <Left>
