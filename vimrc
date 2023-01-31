@@ -1,6 +1,10 @@
 " Author: Stephen Martin
 " Date: 10/25/21 01:44:17
 " {{{ Settings
+
+" Start this way, turn on once plugins are loaded
+filetype off
+
 set wildmode=longest,list,full
 
 set wildmenu
@@ -23,15 +27,21 @@ endif
 set background=dark
 
 " nvim is supposed to be nocompatible by default
-" set nocompatible
+set nocompatible
 set exrc
 set relativenumber
-set nu
+set number
 
+" Searching
 set hlsearch
 set smartcase
 set incsearch
 set ignorecase
+" Show matching parens
+set showmatch
+" use this number of 1/10ths of seconds to show match
+set matchtime=4
+
 
 " Keep from searching outside of current dir
 set path=.,,
@@ -45,13 +55,14 @@ set timeoutlen=1000
 set ttimeoutlen=100
 set updatetime=500
 
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set nosmartindent
 set wrap
 set textwidth=0
 
+set matchpairs+=<:>
 set cursorline
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l  " Move over EOL when moving cursor
@@ -71,11 +82,6 @@ set showmode
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes
 set colorcolumn=80
-
-" Show matching parens
-set showmatch
-" use this number of 1/10ths of seconds to show match
-set matchtime=4
 
 set pastetoggle=<F2>
 
@@ -100,6 +106,8 @@ set completefunc=syntaxcomplete#Complete
 " Having longer updatetime (default is 4000ms = 4 s) leads to
 " noticeable delays and poor user experience
 set updatetime=50
+
+set ttyfast
 
 " Don't use GVim...
 set t_Co=256
@@ -476,7 +484,7 @@ endfunction
 " {{{ Autocmd move to last position on openfile
 if has("autocmd")
 
-    " filetype plugin indent on
+    filetype plugin indent on
     " Move to the last position ('") when this file was opened
     autocmd BufReadPost *
             \  if line("'\"") > 0 && line("'\"") <= line("$") |
