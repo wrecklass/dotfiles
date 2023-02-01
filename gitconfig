@@ -149,7 +149,7 @@
   # Better for me I think:
   brm = "!f() { if [ ! -z \"$1\" ]; then git branch -d $1 ; else echo No branch named ; fi; }; f"
 
-  # Clean up and start some new work
+  # Clean up/delete current branch (e.g. dev), co master and start some new work. Follow with cob
   bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
   # Rename 'branch' to 'done-branch'
   done = "!f() { git branch | grep \"$1\" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
