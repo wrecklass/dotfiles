@@ -272,7 +272,7 @@ noremap <leader>h :set hlsearch!<CR>
 " Globally search and replace the <word> under the cursor
 nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
 
-"  ,s to start a substitution
+"  <Leader>s to start a substitution
 nnoremap <leader>s   :%s/
 
 " Toggle case sensitive search
@@ -308,7 +308,6 @@ nnoremap <c-l>  <C-W>l
 " noremap <silent> <space> :call smooth_scroll#down(&scroll,20,1)<CR>
 noremap <silent> <c-b>   :call smooth_scroll#up(&scroll,20,1)<CR>
 noremap <silent> <c-f>   :call smooth_scroll#down(&scroll,20,1)<CR>
-" noremap <silent> <c-f>   20j
 noremap <silent> <c-u>   :call smooth_scroll#up(&scroll/2,20,1)<CR>
 noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
 " noremap <c-space> 8k
