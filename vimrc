@@ -150,6 +150,8 @@ Plug 'ap/vim-css-color'
 
 Plug 'mhinz/vim-rfc'
 
+" Plug 'puremourning/vimspector'
+
 " Ok, colorschemes:
 Plug 'gruvbox-community/gruvbox'
 " Plug 'sainnhe/gruvbox-material'
