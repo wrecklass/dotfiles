@@ -1,6 +1,10 @@
 " Author: Stephen Martin
 " Date: 10/25/21 01:44:17
 " {{{ Settings
+
+" Start this way, turn on once plugins are loaded
+filetype off
+
 set wildmode=longest,list,full
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
@@ -22,15 +26,21 @@ if has('folding')
 endif
 
 " nvim is supposed to be nocompatible by default
-" set nocompatible
+set nocompatible
 set exrc
 set relativenumber
-set nu
+set number
 
+" Searching
 set hlsearch
 set smartcase
 set incsearch
 set ignorecase
+" Show matching parens
+set showmatch
+" use this number of 1/10ths of seconds to show match
+set matchtime=4
+
 
 " Keep from searching outside of current dir
 set path=.,,
@@ -44,13 +54,14 @@ set timeoutlen=1000
 set ttimeoutlen=100
 set updatetime=500
 
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set nosmartindent
 set wrap
 set textwidth=0
 
+set matchpairs+=<:>
 set cursorline
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l  " Move over EOL when moving cursor
@@ -59,7 +70,7 @@ set infercase
 
 set noswapfile
 set nobackup
-set undodir=C:\Users\smartin\.vim\undodir
+set undodir=/home/smartin/.vim/undodir
 set undofile
 
 " Don't default to Read Only in vimdiff
@@ -70,11 +81,6 @@ set showmode
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes
 set colorcolumn=80
-
-" Show matching parens
-set showmatch
-" use this number of 1/10ths of seconds to show match
-set matchtime=4
 
 set pastetoggle=<F2>
 
@@ -99,6 +105,8 @@ set completefunc=syntaxcomplete#Complete
 " Having longer updatetime (default is 4000ms = 4 s) leads to
 " noticeable delays and poor user experience
 set updatetime=50
+
+set ttyfast
 
 " Don't use GVim...
 set t_Co=256
@@ -167,14 +175,58 @@ hi QuickFixLine guibg=#65000B ctermbg=darkred
 " Airline Status Bar
 let g:airline_powerline_fonts=1
 
+" let g:airline_theme='ayu_dark'
 " let g:airline_theme='cool'
+" let g:airline_theme='dark'
+" let g:airline_theme='deus'
+" let g:airline_theme='google_dark'
 " let g:airline_theme='luna'
+" let g:airline_theme='molokai'
+" let g:airline_theme='monochrome'
+" let g:airline_theme='night_owl'
+" let g:airline_theme='papercolor'
+" let g:airline_theme='raven'
+" let g:airline_theme='term'
+" let g:airline_theme='selenized_bw'
+" let g:airline_theme='tomorrow'
 " let g:airline_theme='understated'
 " let g:airline_theme='ravenpower'
-let g:airline_theme='murmur'
+" let g:airline_theme='murmur'
+" let g:airline_theme='badwolf'
+" let g:airline_theme='base16'
+" let g:airline_theme='base16_ashes'
+" let g:airline_theme='base16_bright'
+" let g:airline_theme='base16_black_metal'
+" let g:airline_theme='base16_classic'
+" let g:airline_theme='base16_colors'
+" let g:airline_theme='base16_chalk'
+" let g:airline_theme='base16_classic_dark'
+" let g:airline_theme='base16_darktooth'
+" let g:airline_theme='base16_decaf'
+" let g:airline_theme='base16_default_dark'
+" let g:airline_theme='base16_eighties'
+" let g:airline_theme='base16_embers'
+" let g:airline_theme='base16_espresso'
+" let g:airline_theme='base16_flat'
+" let g:airline_theme='base16_framer'
+" let g:airline_theme='base16_gigavolt'
+" let g:airline_theme='base16_google'
+" let g:airline_theme='base16_grayscale'
+" let g:airline_theme='base16_gruvbox_dark_soft'
+" let g:airline_theme='base16_gruvbox_dark_medium'
+let g:airline_theme='base16_gruvbox_dark_hard'
+" let g:airline_theme='base16_helios'
+" let g:airline_theme='base16_materia'
+" let g:airline_theme='base16_material'
+" let g:airline_theme='base16_material_darker'
+" let g:airline_theme='base16_phd'
+" let g:airline_theme='base16_sandcastle'
+" let g:airline_theme='base16_snazzy'
+" let g:airline_theme='base16_tomorrow'
+" let g:airline_theme='base16_tube'
+" let g:airline_theme='base16color'
 " let g:airline_theme='base16_vim'
 " let g:airline_theme='base16_unikitty_dark'
-" let g:airline_theme='base16_tube'
 " let g:airline_theme='base16_synth_midnight_dark'
 " let g:airline_theme='base16_summerfruit_dark'
 " let g:airline_theme='base16_snazzy'
@@ -183,14 +235,6 @@ let g:airline_theme='murmur'
 " let g:airline_theme='base16_outrun_dark'
 " let g:airline_theme='base16_londontube'
 " let g:airline_theme='base16_irblack'
-" let g:airline_theme='base16_helios'
-" let g:airline_theme='base16_gruvbox_dark_soft'
-" let g:airline_theme='base16_gruvbox_dark_medium'
-" let g:airline_theme='base16_framer'
-" let g:airline_theme='base16_flat'
-" let g:airline_theme='base16_darktooth'
-" let g:airline_theme='base16_colors'
-" let g:airline_theme='base16_chalk'
 " color00 = Background
 try
   let g:PaperColor_Theme_Options = {
@@ -266,7 +310,7 @@ noremap <leader>h :set hlsearch!<CR>
 " Globally search and replace the <word> under the cursor
 nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
 
-"  ,s to start a substitution
+"  <Leader>s to start a substitution
 nnoremap <leader>s   :%s/
 
 " Toggle case sensitive search
@@ -302,7 +346,6 @@ nnoremap <c-l>  <C-W>l
 " noremap <silent> <space> :call smooth_scroll#down(&scroll,20,1)<CR>
 noremap <silent> <c-b>   :call smooth_scroll#up(&scroll,20,1)<CR>
 noremap <silent> <c-f>   :call smooth_scroll#down(&scroll,20,1)<CR>
-" noremap <silent> <c-f>   20j
 noremap <silent> <c-u>   :call smooth_scroll#up(&scroll/2,20,1)<CR>
 noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
 " noremap <c-space> 8k
@@ -486,7 +529,7 @@ endfunction
 " {{{ Autocmd move to last position on openfile
 if has("autocmd")
 
-    " filetype plugin indent on
+    filetype plugin indent on
     " Move to the last position ('") when this file was opened
     autocmd BufReadPost *
             \  if line("'\"") > 0 && line("'\"") <= line("$") |
