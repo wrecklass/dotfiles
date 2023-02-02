@@ -32,6 +32,7 @@ fishconf:            ## link fish to the $HOME/.config/ directory
 vimfiles: vim ## Copy vim files to $HOME/.vim
 	rm -rf ~/.vim/
 	cp -r ./vim ~/.vim/
+	mkdir -p ~/.vim/undodir
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	PATH="/sbin:/bin:/usr/local/bin:/usr/bin:/usr/lib/lapack:" vim -c "PlugInstall" -c qa \; </dev/zero
 
