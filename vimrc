@@ -356,6 +356,9 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 
+" Make b movement inclusive
+onoremap b vb
+
 " greatest remap ever
 xnoremap <leader>p "_dP
 nnoremap <leader>p "+
