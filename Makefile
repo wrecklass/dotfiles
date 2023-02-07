@@ -16,7 +16,7 @@ dotfiles:            ## Install (link) the dotfiles
 		ln -sfn $$file ~/.$$f; \
 	done
 	cp ./assh.yml ~/.ssh/
-	cp ./config.omp.json /c/cygwin64/home/smartin/.config.omp.json
+	cp ./config.omp.json $$HOME/.config.omp.json
 
 
 # Fish goes to the .config dir
