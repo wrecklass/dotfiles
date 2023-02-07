@@ -36,6 +36,8 @@ loggy ".bashrc"
 # }}}
 # {{{ shopts
 
+set -o vi
+
 if [[ -o emacs ]]; then
   loggy "emacs mode"
 elif [[ -o vi ]]; then
