@@ -180,7 +180,10 @@ fi
 unset UNAMECMD
 # }}}
 # {{{ Appended by other programs
-[[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""
+[[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash
+
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_DEFAULT_OPTS='-m'
 export FZF_COMPLETION_OPTS='--height=60% --info=inline --border'
 # cd
 
