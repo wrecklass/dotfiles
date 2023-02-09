@@ -29,7 +29,7 @@ fishconf:            ## link fish to the $HOME/.config/ directory
 # Vim requires a regular directory tree, it doesn't seem to accept a file link
 # We kill it and recreate it each time, so everything has to be in the repo
 .PHONY := vimfiles
-vimfiles: vim ## Copy vim files to $HOME/.vim
+vimfiles: vim ## Copy vim files to $HOME/.vim, Warning: $HOME/.vim is deleted first!
 	rm -rf ~/.vim/
 	cp -r ./vim ~/.vim/
 	mkdir -p ~/.vim/undodir
