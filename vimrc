@@ -6,8 +6,10 @@
 filetype off
 
 set wildmode=longest,list,full
-let g:ale_completion_enabled = 1
-set omnifunc=ale#completion#OmniFunc
+" let g:ale_completion_enabled = 1
+" set omnifunc=ale#completion#OmniFunc
+"
+let g:ft_man_open_mode='tab'
 
 set wildmenu
 "Ignore files
@@ -39,7 +41,7 @@ set ignorecase
 " Show matching parens
 set showmatch
 " use this number of 1/10ths of seconds to show match
-set matchtime=4
+set matchtime=5
 
 
 " Keep from searching outside of current dir
@@ -127,7 +129,7 @@ endif
 " {{{ Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
@@ -157,6 +159,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color'
 
 Plug 'mhinz/vim-rfc'
+
+" Plug 'puremourning/vimspector'
 
 " Ok, colorschemes:
 Plug 'gruvbox-community/gruvbox'
@@ -267,8 +271,8 @@ nnoremap <leader>V      :so $MYVIMRC<CR>
 nnoremap <leader><CR>   :so $MYVIMRC<CR>
 nnoremap <leader>w      :w<CR>
 
-" typing leader q will write file and quit
-nnoremap <leader>q          :wq<CR>
+" typing leader z will write file and quit, like ZZ
+nnoremap <leader>z          :wq<CR>
 " Or exit without saving changes
 nnoremap <leader>Q          :q!<CR>
 
@@ -290,9 +294,10 @@ nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
 
 " Easy vertical split
 nnoremap  <leader>v    :vs<CR>
-
-nnoremap  <leader>;    /xckla<CR>
 nnoremap  <leader>H    :sp<CR>
+
+" end highlighting by searching for garbage
+nnoremap  <leader>;    /xckla<CR>
 
 nnoremap <leader>j  :m+<CR>==
 nnoremap <leader>k  :m-2<CR>==
@@ -318,7 +323,7 @@ nnoremap <leader>i :setlocal ic!<CR> :setlocal ic?<CR>
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
 
-" ,m to erase all ^M in a Dos file. Remembers location
+" <leader>m to erase all ^M in a Dos file. Remembers location
 noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -331,6 +336,7 @@ autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 noremap <leader>pp :setlocal paste!<CR>
 nnoremap \o :setlocal paste!<CR>
 
+" Swap lines in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<+1<CR>gv=gv
 
@@ -354,6 +360,9 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 
+" Make b movement inclusive
+onoremap b vb
+
 " greatest remap ever
 xnoremap <leader>p "_dP
 nnoremap <leader>p "+
@@ -368,7 +377,8 @@ vnoremap <leader>y "+y
 nnoremap <leader>Y "+y$
 xnoremap <leader>y "+y
 " Copy everything to clipboard
-" nnoremap <leader>Y gg"+yG
+" nnoremap <c-y> mqgg"+yG'q
+nnoremap <c-y> <cmd>%y +<CR>
 
 nnoremap <leader>d "_d
 

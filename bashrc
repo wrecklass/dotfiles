@@ -25,25 +25,25 @@ esac
 # Set =1 for verbose output
 declare -x -i VERBOSE=0
 
-_log() {
+loggy() {
     if [ "$VERBOSE" -eq 1 ];then
       dt="$(date)"
       printf "%s-%s: %s\n" "${dt}" "BASHRC[$$]" "$*"
     fi
 }
 
-_log ".bashrc"
+loggy ".bashrc"
 # }}}
 # {{{ shopts
 
 set -o vi
 
-if [[ -o emacs ]];then
-  _log "emacs mode"
+if [[ -o emacs ]]; then
+  loggy "emacs mode"
 elif [[ -o vi ]]; then
-  _log "vi mode"
+  loggy "vi mode"
 else
-  _log "neither vi or emacs mode is set."
+  loggy "neither vi or emacs mode is set."
 fi
 
 shopt -s cdspell
@@ -63,17 +63,19 @@ shopt -s histappend
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
 # }}}
 # {{{ Export variables
 
-# History variables are in .functions/history
-
 # For grepping our IP addresses
 export IPV4_REGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
-export IPV6_REGX='(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'
 
 # Deprecated:
-export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+# export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+
+export IPV6_REGX='(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'
+
+# History variables are in .functions/history
 
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 # export CDPATH=".:~:~/src"
@@ -98,16 +100,16 @@ export UNAME
 for file in "${HOME}"/.shenv/*."${UNAME}" ; do
   FZF=$(command -v fzf)
   if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
-    _log "Not sourcing ${file}"
+    loggy "Not sourcing ${file}"
     continue
   fi
 
-  _log "Sourcing ${file}"
+  loggy "Sourcing ${file}"
 
   if [[ -r "${file}" ]]; then
     source "${file}"
   else
-    _log "No such file: ${file}"
+    loggy "No such file: ${file}"
   fi
 done
 # }}}
@@ -131,7 +133,7 @@ elif [ -r "/usr/local/etc/bash_completion" ];then
 elif [ -r "/etc/bash_completion" ];then
   source "/etc/bash_completion"
 else
-  _log "No bash_completion script!"
+  loggy "No bash_completion script!"
 fi
 
 # Cargo env
@@ -149,7 +151,7 @@ fi
 # Import all of the files we use
 # Note that bash_prompt is a case by case basis per OS
 for file in ~/.{bash_aliases,path,extra,exports,override}; do
-  _log ".bashrc file:${file}"
+  loggy ".bashrc file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
@@ -165,20 +167,23 @@ if [ -d "${HOME}/.functions/" ];then
     [ -r "${SCRIPT}" ] && source "${SCRIPT}"
   done
 else
-  _log "Missing ${HOME}/.functions directory"
-  _log "Make sure the directory hasn't been moved or changed."
+  loggy "Missing ${HOME}/.functions directory"
+  loggy "Make sure the directory hasn't been moved or changed."
 fi
 
 unset UNAMECMD
 # }}}
 # {{{ Appended by other programs
-[[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash || echo ""
+[[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash
+
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_DEFAULT_OPTS='-m'
 export FZF_COMPLETION_OPTS='--height=60% --info=inline --border'
 # cd
 
 GOC=$(command -v gocomplete)
-if [ -n "$GOC" ];then
-  complete -C $GOC go
+if [ -n "$GOC" ]; then
+  complete -C "$GOC" go
 fi
 # }}}
 #vim: set et sw=2 foldmethod=marker

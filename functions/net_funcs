@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
-GREP="$(command -v grep)"
+GREP="/bin/grep"
 alias grepip="_grepip"
 alias filegrepip="_filegrepip"
 alias ripip="_filegrepip"
