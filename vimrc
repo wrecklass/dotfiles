@@ -38,8 +38,10 @@ set hlsearch
 set smartcase
 set incsearch
 set ignorecase
+
 " Show matching parens
 set showmatch
+
 " use this number of 1/10ths of seconds to show match
 set matchtime=5
 
@@ -50,6 +52,7 @@ set path=.,,
 " No bells
 set novisualbell
 set noerrorbells
+
 set showcmd
 set t_vb=
 set timeoutlen=1000
@@ -64,14 +67,29 @@ set wrap
 set textwidth=0
 
 set matchpairs+=<:>
+
+" Highlight the cursor line on display
 set cursorline
+
+" Where the backspace key works
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l  " Move over EOL when moving cursor
-set complete-=i         " Searching includes can be slow
+
+" Move over EOL when moving cursor
+set whichwrap+=<,>,h,l
+
+" Searching includes can be slow, so we don't
+set complete-=i
+
+" Command line matching can infer case
 set infercase
 
+" Don't like leaving swapfiles around
 set noswapfile
+
+" No backup file created
 set nobackup
+
+" Where to store undo history
 set undodir=/home/smartin/.vim/undodir
 set undofile
 
@@ -89,17 +107,30 @@ set pastetoggle=<F2>
 " Give more space for displaying messages.
 set cmdheight=2
 set display=lastline
+
+" Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=8
 set sidescrolloff=5
 set lazyredraw
 
+"	Show the line and column number of the cursor position
 set ruler
+
+" Always show statusline
 set laststatus=2
+
+" Always show tabline
 set showtabline=2
 
+"	Round indent to multiple of 'shiftwidth'.  Applies to > and <
 set noshiftround
+
+" Insert tabs according to Shiftwidth
 set nosmarttab
+
+" Don't do it!
 set noautoindent
+
 " Autocomplete with ^X^O
 set omnifunc=syntaxcomplete#Complete
 set completefunc=syntaxcomplete#Complete
@@ -108,6 +139,7 @@ set completefunc=syntaxcomplete#Complete
 " noticeable delays and poor user experience
 set updatetime=50
 
+" Optimize for fast terminal connections
 set ttyfast
 
 " Don't use GVim...
