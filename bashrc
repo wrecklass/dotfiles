@@ -176,9 +176,11 @@ unset UNAMECMD
 # {{{ Appended by other programs
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash
 
-export FZF_DEFAULT_COMMAND='rg --files'
-export FZF_DEFAULT_OPTS='-m'
-export FZF_COMPLETION_OPTS='--height=60% --info=inline --border'
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m'
+fi
+export FZF_COMPLETION_OPTS='--height=70% --info=inline --border'
 # cd
 
 GOC=$(command -v gocomplete)
