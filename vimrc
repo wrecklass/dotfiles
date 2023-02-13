@@ -2,6 +2,10 @@
 " Date: 10/25/21 01:44:17
 " {{{ Settings
 
+" Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
+let $TERM="cygwin"
+" Because file permissions don't matter much to us:
+set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
 
