@@ -19,6 +19,8 @@ let g:ft_man_open_mode='tab'
 
 set wildmenu
 "Ignore files
+set wildignore+=*.o
+set wildignore+=*~
 set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=**/coverage/*
@@ -61,7 +63,7 @@ set noerrorbells
 set t_vb=
 
 set showcmd
-set timeoutlen=1000
+set timeoutlen=500
 set ttimeoutlen=100
 set updatetime=500
 
@@ -69,6 +71,9 @@ set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab
 set nosmartindent
+
+" Insert tabs according to Shiftwidth
+set nosmarttab
 
 " Wrap lines on screen, but see textwidth
 set wrap
@@ -99,9 +104,10 @@ set noswapfile
 
 " No backup file created
 set nobackup
+set nowb
 
 " Where to store undo history
-set undodir=/home/smartin/.vim/undodir
+set undodir=~/.vim/undodir
 set undofile
 
 " Don't default to Read Only in vimdiff
@@ -111,7 +117,9 @@ set termguicolors
 set showmode
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes
-set colorcolumn=80
+
+" No column ruler at 80 characters.
+set colorcolumn=
 
 set pastetoggle=<F2>
 
@@ -120,8 +128,12 @@ set cmdheight=2
 set display=lastline
 
 " Minimal number of screen lines to keep above and below the cursor.
-set scrolloff=8
+set scrolloff=5
+
+" Not really meaningful with 'set wrap'
 set sidescrolloff=5
+
+" DOn't redraw while executing macros for better performance
 set lazyredraw
 
 "	Show the line and column number of the cursor position
@@ -135,9 +147,6 @@ set showtabline=2
 
 "	Round indent to multiple of 'shiftwidth'.  Applies to > and <
 set noshiftround
-
-" Insert tabs according to Shiftwidth
-set nosmarttab
 
 " Don't do it!
 set noautoindent
@@ -164,6 +173,8 @@ if has ("gui")
     set guifont=FiraCode\ NF:h12
 endif
 
+" Prefer unix before dos and mac formats
+set fileformats=unix,dos,mac
 
 " Don't pass messages to |ins-completion-menu|.
 " set shortmess+=c
@@ -213,8 +224,13 @@ call plug#end()
 " }}}
 " {{{ Color Scheme
 let g:gruvbox_italic=1
+
+try
 " colorscheme gruvbox-material
-colorscheme gruvbox
+  colorscheme gruvbox
+catch
+endtry
+
 highlight Normal guibg=background
 hi QuickFixLine guibg=#65000B ctermbg=darkred
 
