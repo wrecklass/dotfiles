@@ -209,6 +209,9 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
+if [ -z "$EDITOR" ];then
+  export EDITOR="/bin/vim"
+fi
 alias vi="$EDITOR"
 alias vim="$EDITOR"
 alias vimrc="vim ${HOME}/.vimrc"
