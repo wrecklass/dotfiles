@@ -159,7 +159,7 @@
   # Change a file back to being managed by git:
   unassume = update-index --no-assume-unchanged
   # Show assumed files:
-  assumed = "!git ls-flies -v | grep "^h" | cut -c 3-"
+  assumed = "!git ls-files -v | grep "^h" | cut -c 3-"
   # Unassume all assumed files:
   unassumeall = "!git assumed | xargs git unassume"
   # And assume all, good for starting up in a repository managed by something
