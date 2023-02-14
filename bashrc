@@ -93,6 +93,7 @@ UNAMECMD=$(command -v uname)
 # Change various versions of CYGWIN_NT-XX.X to just 'cygwin'
 # To make sourcing our defaults environment easier.
 # UNAME="${UNAME/cygwin*/cygwin}"
+UNAME="${UNAME/*linux/linux}"
 export UNAME
 # }}}
 # {{{ shenv for different environments
