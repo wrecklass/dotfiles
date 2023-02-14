@@ -89,10 +89,10 @@ export LESS='FXRj5'
 
 UNAMECMD=$(command -v uname)
 : "${HOME=~}"
-: "${UNAME=$($UNAMECMD -s | tr '[:upper:]' '[:lower:]')}"
+: "${UNAME=$($UNAMECMD -o | tr '[:upper:]' '[:lower:]')}"
 # Change various versions of CYGWIN_NT-XX.X to just 'cygwin'
 # To make sourcing our defaults environment easier.
-UNAME="${UNAME/cygwin*/cygwin}"
+# UNAME="${UNAME/cygwin*/cygwin}"
 export UNAME
 # }}}
 # {{{ shenv for different environments
@@ -176,9 +176,11 @@ unset UNAMECMD
 # {{{ Appended by other programs
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash
 
-export FZF_DEFAULT_COMMAND='rg --files'
-export FZF_DEFAULT_OPTS='-m'
-export FZF_COMPLETION_OPTS='--height=60% --info=inline --border'
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m'
+fi
+export FZF_COMPLETION_OPTS='--height=70% --info=inline --border'
 # cd
 
 GOC=$(command -v gocomplete)

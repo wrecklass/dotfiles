@@ -5,6 +5,7 @@ alias ffd='_ffd'
 alias ffl='_ffl'
 alias ffn='_ffn'
 alias vif='_vifzf'
+alias vifind='_vifind'
 alias grepr="_grepr"
 alias greprl="_greprl"
 alias greplr="_greprl"
@@ -61,8 +62,10 @@ _ffn() {
 }
 
 # shellcheck disable=SC2046
-_vif() {
-  vi $(find . -name "$1")
+_vifind() {
+  if [[ -n "$1" ]];then
+    vi $(find . -name "$1")
+  fi
 }
 
 _vifzf() {

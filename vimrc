@@ -2,6 +2,12 @@
 " Date: 10/25/21 01:44:17
 " {{{ Settings
 
+" Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
+if $UNAME == "cygwin"
+  let $TERM="cygwin"
+endif
+" Because file permissions don't matter much to us:
+set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
 
@@ -35,8 +41,8 @@ set number
 
 " Searching
 set hlsearch
-set smartcase
 set incsearch
+set smartcase
 set ignorecase
 
 " Show matching parens
@@ -52,9 +58,9 @@ set path=.,,
 " No bells
 set novisualbell
 set noerrorbells
+set t_vb=
 
 set showcmd
-set t_vb=
 set timeoutlen=1000
 set ttimeoutlen=100
 set updatetime=500
@@ -63,13 +69,18 @@ set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab
 set nosmartindent
+
+" Wrap lines on screen, but see textwidth
 set wrap
+
+" Don't break long lines
 set textwidth=0
 
 set matchpairs+=<:>
 
-" Highlight the cursor line on display
+" Highlight the cursor line and column on display
 set cursorline
+set cursorcolumn
 
 " Where the backspace key works
 set backspace=eol,start,indent
@@ -191,6 +202,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color'
 
 Plug 'mhinz/vim-rfc'
+Plug 'frazrepo/vim-rainbow'
 
 " Plug 'puremourning/vimspector'
 
@@ -298,6 +310,8 @@ set background=dark
 let mapleader = " "
 let g:mapleader = " "
 
+nnoremap <leader><     :cprev<CR>
+nnoremap <leader>>     :cnext<CR>
 nnoremap <leader>S      :source $MYVIMRC<CR>
 nnoremap <leader>V      :so $MYVIMRC<CR>
 nnoremap <leader><CR>   :so $MYVIMRC<CR>
@@ -316,7 +330,7 @@ nnoremap <leader>+   :resize +5<CR>
 nnoremap <leader>=   :resize +5<CR>
 nnoremap <leader>-   :resize -5<CR>
 nnoremap <leader>rp  :resize 100<CR>
-nnoremap <leader>ee  oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
+" nnoremap <leader>ee  oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 nnoremap <leader>cpu a%" PRIu64 "<esc>
 nnoremap <leader>s   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <leader>gt  <Plug>PlenaryTestFile
@@ -410,11 +424,11 @@ nnoremap <leader>Y "+y$
 xnoremap <leader>y "+y
 " Copy everything to clipboard
 " nnoremap <c-y> mqgg"+yG'q
-nnoremap <c-y> <cmd>%y +<CR>
+" nnoremap <c-y> <cmd>%y +<CR>
 
 nnoremap <leader>d "_d
 
-nnoremap <Leader>ww ofunction wait(ms: number): Promise<void> {<CR>return new Promise(res => setTimeout(res, ms));<CR>}<esc>k=i{<CR>
+" nnoremap <Leader>ww ofunction wait(ms: number): Promise<void> {<CR>return new Promise(res => setTimeout(res, ms));<CR>}<esc>k=i{<CR>
 
 " Cause, of course
 inoremap <C-c> <esc>
@@ -424,7 +438,7 @@ nmap     <C-n>        :NERDTreeToggle<CR>
 nmap     <leader>n    :NERDTreeToggle<CR>
 map      \|           :NERDTreeFind<CR>
 
-" map      -            :Explore<CR>
+map      <leader>E    :Explore<CR>
 
 cnoremap <C-a>        <Home>
 cnoremap <C-b>        <Left>
@@ -580,8 +594,8 @@ if has("autocmd")
     set viminfo='20,\"100,:100,%,n~/.viminfo
     packadd! matchit
 
-    " ********* Don't like tw != 0 *********
-    " au FileType text set tw=78
+    " Colorful brackets/parens
+    let g:rainbow_active = 1
     autocmd FileType c,cpp             setlocal path+=/usr/include include&
     autocmd FileType sh,zsh,csh,tcsh   setlocal include=^\\s*\\%(\\.\\\|source\\)\\s
     autocmd FileType dosbatch          setlocal include=^call | let &l:sua = tr($PATHEXT, ';', ',')
