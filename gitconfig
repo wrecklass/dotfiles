@@ -172,7 +172,7 @@
   lt = describe --tags --abbrev=0
 
   # Show verbose output of tags and branches and remotes
-  tags = tag -l
+  tags = tag -n
   branches = branch -a
   b  = branch -v
   bs = branch -a
