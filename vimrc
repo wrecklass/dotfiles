@@ -3,7 +3,9 @@
 " {{{ Settings
 
 " Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
-let $TERM="cygwin"
+if $UNAME == "cygwin"
+  let $TERM="cygwin"
+endif
 " Because file permissions don't matter much to us:
 set autoread
 " Start this way, turn on once plugins are loaded
@@ -39,8 +41,8 @@ set number
 
 " Searching
 set hlsearch
-set smartcase
 set incsearch
+set smartcase
 set ignorecase
 
 " Show matching parens
@@ -56,9 +58,9 @@ set path=.,,
 " No bells
 set novisualbell
 set noerrorbells
+set t_vb=
 
 set showcmd
-set t_vb=
 set timeoutlen=1000
 set ttimeoutlen=100
 set updatetime=500
@@ -67,13 +69,18 @@ set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab
 set nosmartindent
+
+" Wrap lines on screen, but see textwidth
 set wrap
+
+" Don't break long lines
 set textwidth=0
 
 set matchpairs+=<:>
 
-" Highlight the cursor line on display
+" Highlight the cursor line and column on display
 set cursorline
+set cursorcolumn
 
 " Where the backspace key works
 set backspace=eol,start,indent
@@ -587,8 +594,6 @@ if has("autocmd")
     set viminfo='20,\"100,:100,%,n~/.viminfo
     packadd! matchit
 
-    " ********* Don't like tw != 0 *********
-    " au FileType text set tw=78
     " Colorful brackets/parens
     let g:rainbow_active = 1
     autocmd FileType c,cpp             setlocal path+=/usr/include include&
