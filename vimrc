@@ -1,7 +1,7 @@
 " Author: Stephen Martin
+" File: .vimrc
 " Date: 10/25/21 01:44:17
 " {{{ Settings
-
 " Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
 if $UNAME == "cygwin"
   let $TERM="cygwin"
@@ -41,6 +41,9 @@ set exrc
 set relativenumber
 set number
 
+" Share system clipboard
+set clipboard=unnamed
+
 " Searching
 set hlsearch
 set incsearch
@@ -53,7 +56,6 @@ set showmatch
 " use this number of 1/10ths of seconds to show match
 set matchtime=5
 
-
 " Keep from searching outside of current dir
 set path=.,,
 
@@ -65,7 +67,10 @@ set t_vb=
 set showcmd
 set timeoutlen=500
 set ttimeoutlen=100
-set updatetime=500
+
+" Having longer updatetime (default is 4000ms = 4 s) leads to
+" noticeable delays and poor user experience
+set updatetime=50
 
 set tabstop=2 softtabstop=2
 set shiftwidth=2
@@ -155,10 +160,6 @@ set noautoindent
 set omnifunc=syntaxcomplete#Complete
 set completefunc=syntaxcomplete#Complete
 
-" Having longer updatetime (default is 4000ms = 4 s) leads to
-" noticeable delays and poor user experience
-set updatetime=50
-
 " Optimize for fast terminal connections
 set ttyfast
 
@@ -191,6 +192,7 @@ Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
+Plug 'junegunn/vim-peekaboo'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'vuciv/vim-bujo'
 Plug 'tpope/vim-dispatch'
@@ -383,7 +385,6 @@ nnoremap <leader>i :setlocal ic!<CR> :setlocal ic?<CR>
 
 " Show list of buffers and then prompt for which to switch to
 nnoremap <F5> :buffers<CR>:buffer<Space>
-
 
 " <leader>m to erase all ^M in a Dos file. Remembers location
 noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
