@@ -342,14 +342,14 @@ nnoremap <leader>Q          :q!<CR>
 
 nnoremap <leader>vh  :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>bs  /<C-R>=escape(expand("<cword>"), "/")<CR><CR>
-nnoremap <leader>u   :UndotreeShow<CR>
+nnoremap <leader>u   :UndotreeToggle<CR>
 nnoremap <leader>pv  :Ex<CR>
 nnoremap <leader>+   :resize +5<CR>
 nnoremap <leader>=   :resize +5<CR>
 nnoremap <leader>-   :resize -5<CR>
 nnoremap <leader>rp  :resize 100<CR>
 " nnoremap <leader>ee  oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
-nnoremap <leader>cpu a%" PRIu64 "<esc>
+" nnoremap <leader>cpu a%" PRIu64 "<esc>
 nnoremap <leader>s   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <leader>gt  <Plug>PlenaryTestFile
 nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
