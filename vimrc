@@ -72,10 +72,13 @@ set ttimeoutlen=100
 " noticeable delays and poor user experience
 set updatetime=50
 
-set tabstop=2 softtabstop=2
+" Ok, leave it alone, because we don't give a shit. Tabs are the devil.
+" set tabstop=8
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 set nosmartindent
+set formatoptions+=l
 
 " Insert tabs according to Shiftwidth
 set nosmarttab
@@ -141,7 +144,7 @@ set sidescrolloff=5
 " DOn't redraw while executing macros for better performance
 set lazyredraw
 
-"	Show the line and column number of the cursor position
+" Show the line and column number of the cursor position
 set ruler
 
 " Always show statusline
@@ -150,7 +153,7 @@ set laststatus=2
 " Always show tabline
 set showtabline=2
 
-"	Round indent to multiple of 'shiftwidth'.  Applies to > and <
+" Round indent to multiple of 'shiftwidth'.  Applies to > and <
 set noshiftround
 
 " Don't do it!
@@ -393,7 +396,9 @@ noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>e :e! $MYVIMRC<cr>
-autocmd! BufWritePost $MYVIMRC source $MYVIMRC
+augroup SourceMyVimRc
+  autocmd! BufWritePost $MYVIMRC source $MYVIMRC
+augroup END
 
 " Use ,pp to toggle Paste mode
 noremap <leader>pp :setlocal paste!<CR>
@@ -512,7 +517,10 @@ endif
 set titlestring=%{v:progname}\ %{tolower(empty(v:servername)?'':'--servername\ '.v:servername.'\ ')}%{fnamemodify(getcwd(),':~')}%{exists('$SSH_TTY')?'\ <'.hostname().'>':''}
 set iconstring=%{tolower(empty(v:servername)?v:progname\ :\ v:servername)}%{exists('$SSH_TTY')?'@'.hostname():''}lightlight
 
-autocmd SourcePre */macros/less.vim set laststatus=0 showtabline=0
+augroup SPRE
+  autocmd!
+  autocmd SourcePre */macros/less.vim set laststatus=0 showtabline=0
+augroup END
 
 function! HasPaste()
   if &paste
@@ -600,6 +608,10 @@ endfunction
 " {{{ Autocmd move to last position on openfile
 if has("autocmd")
 
+  augroup FileTypes
+   " Remove on reload
+    autocmd!
+
     filetype plugin indent on
     " Move to the last position ('") when this file was opened
     autocmd BufReadPost *
@@ -612,11 +624,13 @@ if has("autocmd")
     packadd! matchit
 
     " Colorful brackets/parens
+    " must be done AFTER plugin loads
     let g:rainbow_active = 1
+
     autocmd FileType c,cpp             setlocal path+=/usr/include include&
     autocmd FileType sh,zsh,csh,tcsh   setlocal include=^\\s*\\%(\\.\\\|source\\)\\s
     autocmd FileType dosbatch          setlocal include=^call | let &l:sua = tr($PATHEXT, ';', ',')
-    autocmd FileType json set sw=2 et
+    autocmd FileType json set shiftwidth=2 expandtab
 
     autocmd FileType sh,zsh,csh,tcsh,dosbatch let &l:path =
           \ tr($PATH, has('win32') ? ';' : ':', ',') . ',.'
@@ -627,19 +641,7 @@ if has("autocmd")
           \ endif
 
     autocmd FileType ruby setlocal tags=./tags;
-
-    " Set some sensible defaults for editing C-files
-    " augroup cprog
-    " Remove all cprog autocommands
-    " au!
-
-    " When starting to edit a file:
-    "   For *.c and *.h files set formatting of comments and set C-indenting on.
-    "   For other files switch it off.
-    "   Don't change the order, it's important that the line with * comes first.
-    " autocmd BufRead *       set formatoptions=tcql nocindent comments&
-    " autocmd BufRead *.c,*.h set formatoptions=croql nocindent comments=sr:/*,mb:*,el:*/,://
-    " augroup END
+  augroup END
 
 else
   set autoindent
