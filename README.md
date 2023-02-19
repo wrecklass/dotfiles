@@ -1,4 +1,5 @@
-# dotfiles
+dotfiles
+========
 
 ## My current dotfiles
 
