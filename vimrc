@@ -196,6 +196,7 @@ Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'vuciv/vim-bujo'
 Plug 'tpope/vim-dispatch'
@@ -641,6 +642,8 @@ if has("autocmd")
           \ endif
 
     autocmd FileType ruby setlocal tags=./tags;
+
+    autocmd BufWritePost *.rb silent !ctags -R .
   augroup END
 
 else
