@@ -42,7 +42,7 @@ set relativenumber
 set number
 
 " Share system clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " Searching
 set hlsearch
