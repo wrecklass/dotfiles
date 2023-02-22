@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # If we've already read these, don't do it again
-[[ -z "${BASH_ALIASES}" ]] && BASH_ALIASES="1" || return 0
- _log ".bash_aliases"
+[[ -z "${BASH_ALIASES}" ]] && readonly SET_ALIASES="1" || return 0
+_log ".bash_aliases"
 
 hub_path=$(command -v hub)
 if [ -n "${hub_path}" ];then
@@ -230,3 +230,4 @@ alias xit='exit'
 # alias xh='xhost +'
 alias x='chmod +x '
 
+export SET_ALIASES

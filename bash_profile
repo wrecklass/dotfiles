@@ -28,7 +28,7 @@
 # export LANG=$(locale -uU)
 
 # Set this and only source file once
-[[ -z "${BASH_PROFILE}" ]] && BASH_PROFILE="1" || return 0
+[[ -z "${BASH_PROFILE}" ]] && readonly BASH_PROFILE=true || return 0
 # {{{ Logging
 declare -x -i VERBOSE=0
 
@@ -41,11 +41,11 @@ _log() {
 
 _log "bash_profile"
 # }}}
+# {{{ Includes
 
 # shellcheck source=/dev/null
 
 [[ "$-" == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
-unset file
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
@@ -58,6 +58,9 @@ done
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 
+export BASH_PROFILE
+
+# Handled Elsewhere:
 # Set PATH so it includes user's private bin if it exists
 # if [ -d "${HOME}/bin" ] ; then
  # PATH="${HOME}/bin:${PATH}"
@@ -72,19 +75,20 @@ done
 # if [ -d "${HOME}/info" ]; then
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
-
+# }}}
+# {{{ External Additions
 
 if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]];then
   source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "${HOME}/src/google-cloud-sdk/path.bash.inc" ]; then source "${HOME}/src/google-cloud-sdk/path.bash.inc"; fi
+if [ -f "${HOME}/src/google-cloud-sdk/path.bash.inc" ]; then
+  source "${HOME}/src/google-cloud-sdk/path.bash.inc"
+fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f "${HOME}/src/google-cloud-sdk/completion.bash.inc" ]; then source "${HOME}/src/google-cloud-sdk/completion.bash.inc"; fi
-
-# Cargo env
-if [ -f "$HOME/.cargo/env" ];then
-  source "$HOME/.cargo/env"
+if [ -f "${HOME}/src/google-cloud-sdk/completion.bash.inc" ]; then
+  source "${HOME}/src/google-cloud-sdk/completion.bash.inc"
 fi
+# }}}

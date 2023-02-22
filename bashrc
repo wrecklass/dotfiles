@@ -15,7 +15,8 @@
 
 # ulimit -u 1024
 # Only source this once
-[[ -z "${BASH_RC}" ]] && BASH_RC="1" || return 0
+[[ -z "${BASH_RC}" ]] && readonly BASH_RC=true || return 0
+
 case $- in
   *i*) ;;
   *) return;;
@@ -25,25 +26,25 @@ esac
 # Set =1 for verbose output
 declare -x -i VERBOSE=0
 
-loggy() {
+_log() {
     if [ "$VERBOSE" -eq 1 ];then
       dt="$(date)"
       printf "%s-%s: %s\n" "${dt}" "BASHRC[$$]" "$*"
     fi
 }
 
-loggy ".bashrc"
+_log ".bashrc"
 # }}}
 # {{{ shopts
 
 set -o vi
 
 if [[ -o emacs ]]; then
-  loggy "emacs mode"
+  _log "emacs mode"
 elif [[ -o vi ]]; then
-  loggy "vi mode"
+  _log "vi mode"
 else
-  loggy "neither vi or emacs mode is set."
+  _log "neither vi or emacs mode is set."
 fi
 
 shopt -s cdspell
@@ -101,16 +102,16 @@ export UNAME
 for file in "${HOME}"/.shenv/*."${UNAME}" ; do
   FZF=$(command -v fzf)
   if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
-    loggy "Not sourcing ${file}"
+    _log "Not sourcing ${file}"
     continue
   fi
 
-  loggy "Sourcing ${file}"
+  _log "Sourcing ${file}"
 
   if [[ -r "${file}" ]]; then
     source "${file}"
   else
-    loggy "No such file: ${file}"
+    _log "No such file: ${file}"
   fi
 done
 # }}}
@@ -134,7 +135,7 @@ elif [ -r "/usr/local/etc/bash_completion" ];then
 elif [ -r "/etc/bash_completion" ];then
   source "/etc/bash_completion"
 else
-  loggy "No bash_completion script!"
+  _log "No bash_completion script!"
 fi
 
 # Cargo env
@@ -152,7 +153,7 @@ fi
 # Import all of the files we use
 # Note that bash_prompt is a case by case basis per OS
 for file in ~/.{bash_aliases,path,extra,exports,override}; do
-  loggy ".bashrc file:${file}"
+  _log ".bashrc file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file
@@ -168,8 +169,8 @@ if [ -d "${HOME}/.functions/" ];then
     [ -r "${SCRIPT}" ] && source "${SCRIPT}"
   done
 else
-  loggy "Missing ${HOME}/.functions directory"
-  loggy "Make sure the directory hasn't been moved or changed."
+  _log "Missing ${HOME}/.functions directory"
+  _log "Make sure the directory hasn't been moved or changed."
 fi
 
 unset UNAMECMD
@@ -188,5 +189,7 @@ GOC=$(command -v gocomplete)
 if [ -n "$GOC" ]; then
   complete -C "$GOC" go
 fi
+
+export BASH_RC
 # }}}
 #vim: set et sw=2 foldmethod=marker
