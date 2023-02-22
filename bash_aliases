@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # If we've already read these, don't do it again
-[[ -z "${BASH_ALIASES}" ]] && readonly SET_ALIASES="1" || return 0
+[[ -z "${BASH_ALIASES}" ]] && readonly SET_ALIASES=true || return 0
 _log ".bash_aliases"
 
 hub_path=$(command -v hub)
