@@ -337,12 +337,13 @@ set background=dark
 let mapleader = " "
 let g:mapleader = " "
 
-nnoremap <leader><     :cprev<CR>
-nnoremap <leader>>     :cnext<CR>
+nnoremap <leader><      :cprev<CR>
+nnoremap <leader>>      :cnext<CR>
 nnoremap <leader>S      :source $MYVIMRC<CR>
-nnoremap <leader>V      :so $MYVIMRC<CR>
-nnoremap <leader><CR>   :so $MYVIMRC<CR>
+nnoremap <leader>V      :source $MYVIMRC<CR>
+nnoremap <leader><CR>   :source $MYVIMRC<CR>
 nnoremap <leader>w      :w<CR>
+nnoremap <c-s>          :w<CR>
 
 " typing leader z will write file and quit, like ZZ
 nnoremap <leader>z          :wq<CR>
@@ -420,13 +421,13 @@ nnoremap <c-h>  <C-W>h
 nnoremap <c-l>  <C-W>l
 
 "noremap <space> 8j
+" noremap <c-space> 8k
 " Smooth movements
 " noremap <silent> <space> :call smooth_scroll#down(&scroll,20,1)<CR>
 noremap <silent> <c-b>   :call smooth_scroll#up(&scroll,20,1)<CR>
 noremap <silent> <c-f>   :call smooth_scroll#down(&scroll,20,1)<CR>
 noremap <silent> <c-u>   :call smooth_scroll#up(&scroll/2,20,1)<CR>
 noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
-" noremap <c-space> 8k
 
 " Remap Y to be consistent with C and D
 nnoremap Y yg$
