@@ -17,6 +17,9 @@ set wildmode=longest,list,full
 "
 let g:ft_man_open_mode='tab'
 
+" Bookmarks for Startify:
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'} ]
+
 set wildmenu
 "Ignore files
 set wildignore+=*.o
@@ -220,6 +223,8 @@ Plug 'ap/vim-css-color'
 
 Plug 'mhinz/vim-rfc'
 Plug 'frazrepo/vim-rainbow'
+
+Plug 'mhinz/vim-startify'
 
 " Plug 'puremourning/vimspector'
 
