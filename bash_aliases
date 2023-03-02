@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # If we've already read these, don't do it again
-[[ -z "${BASH_ALIASES}" ]] && readonly SET_ALIASES=true || return 0
+[[ -z "${SET_ALIASES}" ]] && readonly SET_ALIASES=true || return 0
 _log ".bash_aliases"
 
 hub_path=$(command -v hub)
@@ -232,4 +232,5 @@ alias xit='exit'
 # alias xh='xhost +'
 alias x='chmod +x '
 
-export SET_ALIASES
+# EditPadPro
+alias edit='cygstart "/c/users/smartin/appdata/local/just great software/editpad pro 8/editpadpro8.exe"'
