@@ -1,16 +1,24 @@
 #!/bin/bash
-WICH=""
-if [[ -x /usr/bin/which && "cygwin" != "$UNAME" ]];then
+export WICH=""
+if [[ -x /bin/which ]];then
+  WICH='/bin/which'
+elif [[ -x /usr/bin/which ]];then
   WICH='/usr/bin/which'
 fi
 
 _which() {
   TR=''
+  All=''
+  if [[ "$1" = "-a" ]];then
+    All='-a'
+    shift
+  fi
   if [ "$#" -eq 1 ]; then
     if [[ -n "$WICH" ]];then
-      TR=$(${WICH} "$1" 2>/dev/null)
-    else
-      TR=$(type -P "$1") 
+      TR=$(${WICH} "$All" "$1" 2>/dev/null)
+    fi
+    if [[ -z "$TR" ]]; then
+      TR=$(type -P "$1")
       if [ -z "$TR" ];then
         TR=$(type "$1")
       fi
