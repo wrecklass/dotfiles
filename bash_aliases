@@ -20,7 +20,7 @@ fi
 #alias kctx='kubectx'
 
 # Allow aliases to be sudoed
-alias sudo='sudo '
+# alias sudo='sudo '
 
 # Detect which `ls` flavor is in use
 export colorflag="-G"

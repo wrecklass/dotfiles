@@ -17,15 +17,15 @@ function _err {
   fi
 }
 
-SUDO=""
-if command -v sudo &> /dev/null ; then
-  SUDO=$(command -v sudo)
-else
-  SUDO=""
-fi
+# SUDO=""
+# if command -v sudo &> /dev/null ; then
+#   SUDO=$(command -v sudo)
+# else
+#   SUDO=""
+# fi
 # echo "SUDO $SUDO"
 _dush() {
-  $SUDO du -sk "$@" 2> /dev/null | sort -g | awk '{
+  du -sk "$@" 2> /dev/null | sort -g | awk '{
 
     numBytes = $1 * 1024;
     numUnits = split("B K M G T P", unit);
