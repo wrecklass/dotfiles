@@ -113,7 +113,6 @@ alias egrep='egrep --color=auto'
 alias hosts='sudo vim /etc/hosts'
 
 alias hp='hashapass.sh'
-# alias h="history"
 
 alias irb='irb --readline -r irb/completion'
 
