@@ -11,7 +11,8 @@ function _err {
     return 2
   fi
 
-  grep " ${*} " /usr/include/sys/errno.h 2> /dev/null
+  # The numeric error codes are 'SpaceNUMTab'
+  grep -P " ${*}\t" /usr/include/sys/errno.h 2> /dev/null
   if [ "${?}" != 0 ];then
     echo "Not found."
   fi
