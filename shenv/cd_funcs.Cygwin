@@ -20,6 +20,7 @@ alias cdp="_cdp"
 alias cdr="_cdr"
 alias cdrep="_cdrep"
 alias cds="_cds"
+alias cdt="_cdt"
 alias cdsa="_cdsa"
 alias cdst="_cdst"
 alias cdu="_cdu"
@@ -84,6 +85,19 @@ _cds() {
     else
         cd_func "/home/${USER}/src"
     fi
+}
+
+_cdt() {
+  if [[ -n "$ChocolateyToolsLocation" ]] && [[ -d  "$ChocolateyToolsLocation" ]];then
+    if [ $# -gt 0 ]; then
+      cd_func "$ChocolateyToolsLocation/${*}"
+    else
+      cd_func "$ChocolateyToolsLocation"
+    fi
+  else
+    echo "Chocolatey does not appear to be installed."
+    exit 1
+  fi
 }
 
 _cdd() {
