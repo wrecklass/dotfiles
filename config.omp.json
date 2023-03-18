@@ -393,7 +393,7 @@
             "always_enabled": true
           },
           "style": "plain",
-          "template": "\ue285\ue285 ",
+          "template": "{{ if gt .Code 0 }}\ue285\ue285 {{ .Meaning }}{{ else }}\ue285\ue285{{ end }}",
           "type": "exit"
         }
       ],
