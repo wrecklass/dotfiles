@@ -191,6 +191,7 @@ set fileformats=unix,dos,mac
 call plug#begin('~/.vim/plugged')
 
 " Plug 'dense-analysis/ale'
+
 Plug 'mattn/emmet-vim'
 Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
@@ -225,6 +226,7 @@ Plug 'mhinz/vim-rfc'
 Plug 'frazrepo/vim-rainbow'
 
 Plug 'mhinz/vim-startify'
+Plug 'ervandew/supertab'
 
 " Plug 'puremourning/vimspector'
 
