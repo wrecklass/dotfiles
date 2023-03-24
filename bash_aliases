@@ -233,5 +233,9 @@ alias x='chmod +x '
 
 # EditPadPro
 alias edit='cygstart "/c/users/smartin/appdata/local/just great software/editpad pro 8/editpadpro8.exe"'
+
 alias muffins='cygstart '\''https://www.amazon.com/dp/B007YPOBLI?psc=1&ref=ppx_yo2ov_dt_b_product_details'\'''
 alias orders='cygstart "https://www.amazon.com/gp/css/order-history"'
+
+# Duck Duck Go Search
+alias ddgr='ddgr --url-handler "c:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"'
