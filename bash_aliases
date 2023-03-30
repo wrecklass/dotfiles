@@ -84,18 +84,20 @@ alias gcam='git commit -a -m'
 alias gcf='git config --list'
 
 alias gd='git diff'
-alias giff='git diff'
 alias gdw='git diff --word-diff'
-
-alias gsu='git submodule update'
+alias giff='git diff'
 
 alias gf='git fetch'
 alias gfa='git fetch --all --prune'
 alias gfo='git fetch origin'
 
+alias gp='git push'
+alias gpa='git pushall'
 alias grv='git remote -v'
 alias gss='git status -s'
 alias gs='git status'
+
+alias gsu='git submodule update'
 
 # So these two aliases do bash_completion from git
 complete -o default -o nospace -F _git g
