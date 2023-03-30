@@ -2,7 +2,7 @@
 " File: .vimrc
 " Date: 10/25/21 01:44:17
 " {{{ Settings
-" Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
+" Force fzf.vim to work on Cygwin.
 if $UNAME == "cygwin"
   let $TERM="cygwin"
 endif
@@ -12,9 +12,7 @@ set autoread
 filetype off
 
 set wildmode=longest,list,full
-" let g:ale_completion_enabled = 1
-" set omnifunc=ale#completion#OmniFunc
-"
+
 let g:ft_man_open_mode='tab'
 
 " Bookmarks for Startify:
@@ -190,28 +188,22 @@ set fileformats=unix,dos,mac
 " {{{ Plugins
 call plug#begin('~/.vim/plugged')
 
-" Plug 'dense-analysis/ale'
-
-Plug 'mattn/emmet-vim'
 Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/gv.vim'
+Plug 'BurntSushi/ripgrep'
 Plug 'junegunn/vim-peekaboo'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'vuciv/vim-bujo'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-projectionist'
 Plug 'scrooloose/nerdtree'
-Plug 'BurntSushi/ripgrep'
-Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
 Plug 'fisadev/vim-sane-gocomplete'
 
@@ -222,17 +214,25 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'ap/vim-css-color'
 
-Plug 'mhinz/vim-rfc'
 Plug 'frazrepo/vim-rainbow'
 
 Plug 'mhinz/vim-startify'
 Plug 'ervandew/supertab'
 
-" Plug 'puremourning/vimspector'
-
 " Ok, colorschemes:
 Plug 'gruvbox-community/gruvbox'
 " Plug 'sainnhe/gruvbox-material'
+
+" ***** Only if we need em: *****
+" LOOKUP RFCs:
+" Plug 'mhinz/vim-rfc'
+
+" SNIPPETS FOR HTML/CSS:
+" Plug 'mattn/emmet-vim'
+
+" MAKE/COMPILER DISPATCHER:
+" Plug 'tpope/vim-dispatch'
+
 call plug#end()
 " }}}
 " {{{ Color Scheme
