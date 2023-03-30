@@ -218,7 +218,7 @@ if [ -z "$EDITOR" ];then
 fi
 alias vi="$EDITOR"
 alias vim="$EDITOR"
-alias vimrc="vim ${HOME}/.vimrc"
+alias vimrc="$EDITOR ${HOME}/.vimrc"
 alias vib="$EDITOR ~/.bashrc"
 alias iv="$EDITOR"
 
