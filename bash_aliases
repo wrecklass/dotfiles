@@ -84,6 +84,7 @@ alias gcam='git commit -a -m'
 alias gcf='git config --list'
 
 alias gd='git diff'
+alias giff='git diff'
 alias gdw='git diff --word-diff'
 
 alias gsu='git submodule update'
