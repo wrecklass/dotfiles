@@ -209,9 +209,6 @@ Plug 'fisadev/vim-sane-gocomplete'
 
 Plug 'terryma/vim-smooth-scroll'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 Plug 'ap/vim-css-color'
 
 Plug 'frazrepo/vim-rainbow'
@@ -222,6 +219,8 @@ Plug 'ervandew/supertab'
 " Ok, colorschemes:
 Plug 'gruvbox-community/gruvbox'
 " Plug 'sainnhe/gruvbox-material'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " ***** Only if we need em: *****
 " LOOKUP RFCs:
