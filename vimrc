@@ -17,6 +17,22 @@ let g:ft_man_open_mode='tab'
 
 " Bookmarks for Startify:
 let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'} ]
+let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
+let g:startify_lists = [
+          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
+          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
+          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
+          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
+          \ ]
+
+hi StartifyBracket ctermfg=240
+hi StartifyFile    ctermfg=147
+hi StartifyFooter  ctermfg=240
+hi StartifyHeader  ctermfg=114
+hi StartifyNumber  ctermfg=215
+hi StartifyPath    ctermfg=245
+hi StartifySlash   ctermfg=240
+hi StartifySpecial ctermfg=240
 
 set wildmenu
 "Ignore files
@@ -118,11 +134,13 @@ set nowb
 " Where to store undo history
 set undodir=~/.vim/undodir
 set undofile
+set undolevels=5000
 
 " Don't default to Read Only in vimdiff
 set noro
 
 set termguicolors
+
 set showmode
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes
@@ -222,6 +240,14 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'terroo/vim-simple-emoji'
+Plug 'junegunn/goyo.vim'
+Plug 'rhysd/clever-f.vim'
+Plug 'voldikss/vim-floaterm'
+Plug 'markonm/traces.vim'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'vim-scripts/loremipsum'
+
 " ***** Only if we need em: *****
 " LOOKUP RFCs:
 " Plug 'mhinz/vim-rfc'
@@ -233,13 +259,20 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'tpope/vim-dispatch'
 
 call plug#end()
+
+let g:floaterm_autohide = 0
+let g:floaterm_autoclose = 2
+let g:floaterm_height = 34
+let g:floaterm_width = 120
+
 " }}}
 " {{{ Color Scheme
+
 let g:gruvbox_italic=1
 
 try
 " colorscheme gruvbox-material
-  colorscheme gruvbox
+colorscheme gruvbox
 catch
 endtry
 
@@ -337,13 +370,22 @@ set background=dark
 
 let mapleader = " "
 let g:mapleader = " "
+" Terminal: "
+" let g:terminal_height = -10
+" set termwinsize=18x200
+" nnoremap <leader>` :botright terminal<CR>
+" tnoremap <c-j> <c-\><c-n><c-w>j
+" tnoremap <c-k> <c-\><c-n><c-w>k
+" set shell=/bin/bash
+
+
 
 nnoremap <leader><      :cprev<CR>
 nnoremap <leader>>      :cnext<CR>
-nnoremap <leader>S      :source $MYVIMRC<CR>
-nnoremap <leader>V      :source $MYVIMRC<CR>
+nnoremap <leader>op     :source $MYVIMRC<CR>
+nnoremap <leader>so     :source $MYVIMRC<CR>
 nnoremap <leader><CR>   :source $MYVIMRC<CR>
-nnoremap <leader>w      :w<CR>
+nnoremap <leader>w      :w!<CR>
 nnoremap <c-s>          :w<CR>
 
 " typing leader z will write file and quit, like ZZ
@@ -361,7 +403,11 @@ nnoremap <leader>-   :resize -5<CR>
 nnoremap <leader>rp  :resize 100<CR>
 " nnoremap <leader>ee  oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 " nnoremap <leader>cpu a%" PRIu64 "<esc>
-nnoremap <leader>s   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+"  <Leader>s to start a substitution
+nnoremap <leader>s   :%s/
+nnoremap <leader>S   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
 nnoremap <leader>gt  <Plug>PlenaryTestFile
 nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
 nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
@@ -382,14 +428,12 @@ nnoremap \l :setlocal number!<CR>
 noremap <leader>l :setlocal relativenumber!<CR>
 
 " Turn off hlsearch temporarily
-nnoremap \q :set hlsearch!<CR>
-noremap <leader>h :set hlsearch!<CR>
+nnoremap \q :set hlsearch!<CR> :setlocal hlsearch?<CR>
+noremap <leader>h :setlocal hlsearch!<CR> :setlocal hlsearch?<CR>
 
 " Globally search and replace the <word> under the cursor
 nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
 
-"  <Leader>s to start a substitution
-nnoremap <leader>s   :%s/
 
 " Toggle case sensitive search
 nnoremap <leader>i :setlocal ic!<CR> :setlocal ic?<CR>
@@ -491,6 +535,17 @@ noremap  q   <Nop>
 " => General abbreviations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab ddate <c-r>=strftime("%m/%d/%y %H:%M:%S")<cr>
+ab tea ☕
+ab ptr ▶
+ab cbe ▄
+ab cbe2 ■
+ab okk ✓
+ab str ★
+
+nnoremap bs i#!/bin/bash<ESC>0
+nnoremap be i#!/usr/bin/env bash<ESC>0
+nnoremap bp i#!/usr/bin/env python<ESC>0
+nnoremap br i#!/usr/bin/env ruby<ESC>0
 
 " Map jj to Escape easily
 " Really helpful when in insert mode and start typing j to navigate
@@ -513,6 +568,23 @@ noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 
 " Vimgreps in the current file
 noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
+
+map <nowait><leader>c :Colors<CR>
+nnoremap <leader>I    :Startify<CR>
+map <leader>b :Buffers<CR>
+map <leader>f :Files<CR>
+map <leader>W :Windows<CR>
+map <leader>H :History<CR>
+map <leader>M :Maps<CR>
+map <leader>t :FloatermToggle<CR>
+
+" Easy bracket pairing
+inoremap<nowait>" ""<left>
+inoremap<nowait>' ''<left>
+inoremap<nowait>( ()<left>
+inoremap<nowait>[ []<left>
+inoremap<nowait>{ {}<left>
+
 " }}}
 " {{{ Status line
 
