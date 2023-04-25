@@ -232,7 +232,7 @@ alias httpd.rb='ruby -run -e httpd . -p 8000'
 alias xit='exit'
 
 # alias xh='xhost +'
-alias x='chmod +x '
+alias x='chmod ug+x '
 
 # EditPadPro
 alias edit='cygstart "/c/users/smartin/appdata/local/just great software/editpad pro 8/editpadpro8.exe"'
