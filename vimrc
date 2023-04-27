@@ -11,8 +11,6 @@ set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
 
-set wildmode=longest,list,full
-
 let g:ft_man_open_mode='tab'
 
 " Bookmarks for Startify:
@@ -34,10 +32,13 @@ hi StartifyPath    ctermfg=245
 hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
 
+" set wildmode=longest,list,full
+set wildoptions=pum
 set wildmenu
 "Ignore files
 set wildignore+=*.o
 set wildignore+=*~
+
 set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=**/coverage/*
