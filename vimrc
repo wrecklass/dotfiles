@@ -261,6 +261,7 @@ Plug 'vim-scripts/loremipsum'
 
 call plug#end()
 
+let g:fzf_preview_window = ['hidden,right,33%', 'ctrl-/']
 let g:floaterm_autohide = 0
 let g:floaterm_autoclose = 2
 let g:floaterm_height = 34
