@@ -727,6 +727,23 @@ if has("autocmd")
     autocmd BufWritePost *.rb silent !ctags -R .
   augroup END
 
+  augroup CursorSettings
+    autocmd!
+    " Alternative codes:
+    "  1 -> blinking block
+    "  2 -> solid block
+    "  3 -> blinking underscore
+    "  4 -> solid underscore
+    "  5 -> blinking vertical bar
+    "  6 -> solid vertical bar
+
+    autocmd VimEnter * let &t_SI.="\e[5 q" "SI = INSERT mode
+    autocmd VimEnter * let &t_SR.="\e[3 q" "SR = REPLACE mode
+    autocmd VimEnter * let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+
+    autocmd VimLeave * let &t_EI.="\e[1 q" | normal i
+  augroup END
+
 else
   set autoindent
 endif " has ("autocmd")
