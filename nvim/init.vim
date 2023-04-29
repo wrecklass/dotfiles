@@ -34,7 +34,7 @@ set smartcase
 set ignorecase
 set noswapfile
 set nobackup
-set undodir=C:\Users\smartin\.vim\undodir
+set undodir=C:/Users/smartin/.vim/undodir
 set undofile
 set incsearch
 set termguicolors

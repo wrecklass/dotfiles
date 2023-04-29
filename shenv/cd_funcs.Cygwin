@@ -42,11 +42,6 @@ export PROGDIR_X86
 # ctrl-w shows the menu
 # bind -x "\"\C-w\":cd_func -- ;"
 
-# settitle()
-# {
-#   echo -ne "\e]2;$@\a\e]1;$@\a";
-# }
-
 _cd2() {
     if [ $# -gt 0 ]; then
         cd_func "$(cygpath --sysdir)/${*}"
