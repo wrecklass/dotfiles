@@ -440,6 +440,13 @@ nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
 " Toggle case sensitive search
 nnoremap <leader>i :setlocal ic!<CR> :setlocal ic?<CR>
 
+" F2 = pastetoggle
+" Repeat last search, because reasons
+nnoremap <F3> n
+
+" Do a word count of the buffer
+nnoremap <F4> :w !wc -w<CR>
+
 " Show list of buffers and then prompt for which to switch to
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
@@ -454,9 +461,10 @@ augroup SourceMyVimRc
   autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
-" Use ,pp to toggle Paste mode
-noremap <leader>pp :setlocal paste!<CR>
-nnoremap \o :setlocal paste!<CR>
+" Use <space>pp to toggle Paste mode
+""""""""""Use F2 Instead""""""""""
+" noremap <leader>pp :setlocal paste!<CR>
+" nnoremap \o :setlocal paste!<CR>
 
 " Swap lines in visual mode
 vnoremap J :m '>+1<CR>gv=gv
@@ -513,6 +521,9 @@ nmap     <leader>nt   <c-w>T
 nmap     <C-n>        :NERDTreeToggle<CR>
 nmap     <leader>n    :NERDTreeToggle<CR>
 map      \|           :NERDTreeFind<CR>
+
+noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+imap <silent> <Home> <C-O><Home>
 
 map      <leader>E    :Explore<CR>
 
