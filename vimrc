@@ -248,6 +248,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'markonm/traces.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-scripts/loremipsum'
+Plug 'vim-scripts/wc.vim--jcline'
 
 " ***** Only if we need em: *****
 " LOOKUP RFCs:
@@ -445,7 +446,7 @@ nnoremap <leader>i :setlocal ic!<CR> :setlocal ic?<CR>
 nnoremap <F3> n
 
 " Do a word count of the buffer
-nnoremap <F4> :w !wc -w<CR>
+nnoremap <F4> :WC<CR>
 
 " Show list of buffers and then prompt for which to switch to
 nnoremap <F5> :buffers<CR>:buffer<Space>
