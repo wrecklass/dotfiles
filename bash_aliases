@@ -43,10 +43,14 @@ alias sal='source ~/.bash_aliases'
 # Because I'm occasionally dislexic:
 alias cate='cat'
 
+alias clr=clear
 alias cls=clear
 alias clar=clear
+alias claer=clear
 alias cler=clear
-alias comcast='ftp upload.comcast.net'
+alias ''=clear
+
+# alias comcast='ftp upload.comcast.net'
 
 if command -v colordiff &> /dev/null; then
   alias diff='colordiff'
