@@ -94,6 +94,19 @@
           "type": "shell"
         },
         {
+          "type": "ipify",
+          "style": "diamond",
+          "foreground": "#ffffff",
+          "background": "#c386f1",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "<transparent,#c386f1>\ue0b2</>",
+          "template": "{{ .IP }}",
+          "properties": {
+            "cache_timeout": 5,
+            "http_timeout": 1000
+          }
+        },
+        {
           "background": "#8f43f3",
           "foreground": "#ffffff",
           "leading_diamond": "\ue0b2",
