@@ -306,15 +306,6 @@
           "template": "\ufd31 {{.Context}} :: {{if .Namespace}}{{.Namespace}}{{else}}default{{end}} "
         },
         {
-          "type": "lua",
-          "style": "diamond",
-          "foreground": "#000081",
-          "background": "#ffffff",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "<transparent,#ffffff>\ue0b2</>",
-          "template": "\ue620 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
-        },
-        {
           "type": "node",
           "style": "diamond",
           "foreground": "#3C873A",
