@@ -53,9 +53,9 @@
           "background": "p:orange",
           "properties": {
             "folder_seperator_icon": "/",
-            "home_icon": "\ueb06",
+            "home_icon": "\uf46d",
             "mapped_locations": {
-              "C:\\Users\\smartin": "\ue617"
+              "C:\\Users\\smartin": "\uf4e2"
             },
             "max_width": 24,
             "style": "powerlevel"
