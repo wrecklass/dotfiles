@@ -180,15 +180,6 @@
           "template": "\uf104<#f5bf45>\uf0e7</>\uf105 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         },
         {
-          "type": "cds",
-          "style": "diamond",
-          "foreground": "#100e23",
-          "background": "#5a7a94",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "<transparent,#5a7a94>\ue0b2</>",
-          "template": "\ue311  cds {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
-        },
-        {
           "type": "crystal",
           "style": "diamond",
           "foreground": "#000000",
