@@ -168,7 +168,7 @@
           "background": "#ffffff",
           "leading_diamond": "\ue0b2",
           "trailing_diamond": "<transparent,#ffffff>\ue0b2</>",
-          "template": "\ufd03 {{ .EnvironmentName }} "
+          "template": "\udb82\udc05 {{ .EnvironmentName }} "
         },
         {
           "type": "azfunc",
@@ -294,7 +294,7 @@
           "background": "#316ce4",
           "leading_diamond": "\ue0b2",
           "trailing_diamond": "<transparent,#316ce4>\ue0b2</>",
-          "template": "\ufd31 {{.Context}} :: {{if .Namespace}}{{.Namespace}}{{else}}default{{end}} "
+          "template": "\udb84\udcfe {{.Context}} :: {{if .Namespace}}{{.Namespace}}{{else}}default{{end}} "
         },
         {
           "type": "node",
@@ -449,7 +449,7 @@
       "background": "p:blue",
       "leading_diamond": "\ue0b6",
       "trailing_diamond": "\ue0b4",
-      "template": " \ufd03 {{ .Name }} "
+      "template": " \udb82\udc05 {{ .Name }} "
     }
   ],
   "transient_prompt": {
