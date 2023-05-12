@@ -1,22 +1,36 @@
-#!/bin/bash
 # Simple calculator
+#
+alias centigradetofahrenheit='c2f'
+alias fahrenheittocentigrade='f2c'
+
+alias centtofahr='c2f'
+alias fahrtocent='f2c'
+
 calc() {
   local result=""
-  #result="$(printf "scale=4;%s\n" "$*" | bc --mathlib | tr -d '\\\n')"
-  result="$(printf "scale=10;%s\n" "$*" | bc --mathlib )"
-  #                       └─ default (when `--mathlib` is used) is 20
+  result="$(printf "scale=10;$*\n" | bc --mathlib | tr -d '\\\n')"
+  #                        └─ default (when `--mathlib` is used) is 20
+
 
   if [[ "$result" == *.* ]]; then
     # improve the output for decimal numbers
-    printf "_%s" "$result" |
-    sed -e 's/^\./0./' \
-      -e 's/^-\./-0./' \
-      -e 's/0*$//;s/\.$//' \
-      -e 's/_//g';
+    printf "_$result" |
+    sed -e 's/^\./0./'    `  # add "0" for cases like ".5"` \
+      -e 's/^-\./-0./'    `  # add "0" for cases like "-.5"`\
+      -e 's/0*$//;s/\.$//'`  # remove trailing zeros ` \
+      -e 's/_//g';       `  # remove our space `
   else
-    printf "%s\n" "$result"
+    printf "$result"
   fi
   printf "\n"
 }
 
+c2f() {
+  [[ -z $1 ]] && return
+  calc "32+($1*9/5)"
+}
 
+f2c() {
+  [[ -z $1 ]] && return
+  calc "($1-32)*5/9"
+}
