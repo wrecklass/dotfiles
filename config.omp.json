@@ -32,7 +32,18 @@
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
           "foreground": "p:black",
-          "background": "p:green"
+          "background": "p:green",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .HostName }}",
+          "max_width": 130
+        },
+        {
+          "type": "session",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "p:black",
+          "background": "p:green",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }}",
+          "min_width": 131
         },
         {
           "type": "path",
@@ -104,6 +115,20 @@
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "<transparent,#d6deeb>\ue0b2</>",
           "template": "\uf489  {{ .Name }} "
+        },
+        {
+          "type": "ipify",
+          "style": "diamond",
+          "foreground": "#ffffff",
+          "background": "#c386f1",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "<transparent,#c386f1>\ue0b2</>",
+          "template": "{{ .IP }}",
+          "properties": {
+            "cache_timeout": 5,
+            "http_timeout": 1000
+          },
+          "min_width": 145
         },
         {
           "type": "sysinfo",
