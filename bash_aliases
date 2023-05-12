@@ -78,7 +78,7 @@ alias gapa='git add --patch'
 alias gau='git add --update'
 
 alias gcm='git checkout master'
-alias gcd='git checkout develop'
+alias gcd='git checkout dev'
 alias gco='git checkout'
 alias gcb='git checkout -b'
 
@@ -106,8 +106,6 @@ alias gsu='git submodule update'
 # So these two aliases do bash_completion from git
 complete -o default -o nospace -F _git g
 complete -o default -o nospace -F _git get
-
-alias gc="eval \$(\$HOME/bin/gitdate0 && git commit -v "
 
 alias grep='grep -a --color=always'
 alias gpre='grep -a --color=always'
