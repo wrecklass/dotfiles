@@ -53,8 +53,12 @@
           "background": "p:orange",
           "properties": {
             "folder_seperator_icon": "/",
-            "home_icon": " \ueb06 ",
-            "style": "letter"
+            "home_icon": "\ueb06",
+            "mapped_locations": {
+              "C:\\Users\\smartin": "\ue617"
+            },
+            "max_width": 24,
+            "style": "powerlevel"
           }
         },
         {
