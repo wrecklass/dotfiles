@@ -1,11 +1,11 @@
 #!/usr/local/bin/zsh
 ################################# START MY DATA ##############################
 # My personal vars
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+# export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 export FZF_BASE='/usr/local/opt/fzf'
 
-export GOROOT='/usr/lib/go'
-export GOPATH="$HOME/src/gocode"
+export GOROOT="C:/Program Files/Go"
+export GOPATH="C:/Users/smartin/go"
 export HISTCONTROL='erasedups:ignoreboth'
 export HISTIGNORE="x:h:history:ls:ps:ll:exit"
 export HISTSIZE=7000
