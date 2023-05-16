@@ -194,7 +194,8 @@ set mouse=a
 if has ("gui")
     " set guifont=Consolas:h14
     " set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h13
-    set guifont=FiraCode\ NF:h12
+    set guifont=FiraCode\ Nerd\ Font\ Mono:h12
+    set lines=50 columns=120
 endif
 
 " Prefer unix before dos and mac formats
