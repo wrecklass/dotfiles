@@ -2,7 +2,7 @@
 " File: .vimrc
 " Date: 10/25/21 01:44:17
 " {{{ Settings
-" Force fzf.vim to work on Cygwin.
+" Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
 if $UNAME == "cygwin"
   let $TERM="cygwin"
 endif
@@ -11,6 +11,9 @@ set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
 
+" let g:ale_completion_enabled = 1
+" set omnifunc=ale#completion#OmniFunc
+"
 let g:ft_man_open_mode='tab'
 
 " Bookmarks for Startify:
@@ -38,7 +41,6 @@ set wildmenu
 "Ignore files
 set wildignore+=*.o
 set wildignore+=*~
-
 set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=**/coverage/*
@@ -141,7 +143,6 @@ set undolevels=5000
 set noro
 
 set termguicolors
-
 set showmode
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes
@@ -206,6 +207,7 @@ set fileformats=unix,dos,mac
 "
 " }}}
 " {{{ Plugins
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-utils/vim-man'
@@ -224,6 +226,7 @@ Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
+Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
 Plug 'fisadev/vim-sane-gocomplete'
 
@@ -276,7 +279,7 @@ let g:gruvbox_italic=1
 
 try
 " colorscheme gruvbox-material
-colorscheme gruvbox
+  colorscheme gruvbox
 catch
 endtry
 
