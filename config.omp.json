@@ -408,6 +408,15 @@
           "template": "\u2570\u2500"
         },
         {
+          "type": "upgrade",
+          "style": "plain",
+          "foreground": "#111111",
+          "background": "#ffd664",
+          "properties": {
+            "cache_timeout": "60"
+          }
+        },
+        {
           "type": "exit",
           "style": "plain",
           "foreground": "#22da6e",

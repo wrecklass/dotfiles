@@ -311,6 +311,12 @@ blocks:
         style: plain
         foreground: '#616161'
         template: ╰─
+      - type: upgrade
+        style: plain
+        foreground: '#111111'
+        background: '#ffd664'
+        properties:
+          cache_timeout: "60"
       - type: exit
         style: plain
         foreground: '#22da6e'
