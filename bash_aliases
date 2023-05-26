@@ -246,3 +246,5 @@ alias orders='cygstart "https://www.amazon.com/gp/css/order-history"'
 
 # Duck Duck Go Search, 8 per screen
 alias ddgr='ddgr -n 8 --url-handler "c:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"'
+alias winip='ipconfig /all | grep "Wi-Fi 3" -A 18'
+alias mywinip='ipconfig /all|  grep IPv4 | /bin/grep -Eo "$NETREGX"'
