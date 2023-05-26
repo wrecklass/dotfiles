@@ -66,6 +66,8 @@ alias duh='du -sh'
 alias dus='du -sh . | sort -h'
 alias dust='du -sh * | sort -h'
 
+alias d='dirs -v'
+
 alias fild='file'
 alias fiel='file'
 
