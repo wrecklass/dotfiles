@@ -17,7 +17,7 @@ filetype off
 let g:ft_man_open_mode='tab'
 
 " Bookmarks for Startify:
-let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'}, {'c': '/c/tools/bcurran3/choco-output.log'} ]
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'}, {'c': '/c/tools/bcurran3/choco-output.txt'} ]
 let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
 let g:startify_lists = [
           \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
