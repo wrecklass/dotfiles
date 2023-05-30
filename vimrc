@@ -210,25 +210,25 @@ set fileformats=unix,dos,mac
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-utils/vim-man'
+" Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'BurntSushi/ripgrep'
 Plug 'junegunn/vim-peekaboo'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'stsewd/fzf-checkout.vim'
-Plug 'vuciv/vim-bujo'
+" Plug 'vuciv/vim-bujo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
+" Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
-Plug 'fisadev/vim-sane-gocomplete'
+" Plug 'fisadev/vim-sane-gocomplete'
 
 Plug 'terryma/vim-smooth-scroll'
 
@@ -245,11 +245,11 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'terroo/vim-simple-emoji'
+" Plug 'terroo/vim-simple-emoji'
 Plug 'junegunn/goyo.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'voldikss/vim-floaterm'
-Plug 'markonm/traces.vim'
+" Plug 'markonm/traces.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-scripts/loremipsum'
 Plug 'vim-scripts/wc.vim--jcline'
