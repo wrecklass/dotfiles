@@ -36,7 +36,7 @@ hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
 
 " set wildmode=longest,list,full
-set wildoptions=pum
+" set wildoptions=pum
 set wildmenu
 "Ignore files
 set wildignore+=*.o
@@ -221,18 +221,16 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'stsewd/fzf-checkout.vim'
 " Plug 'vuciv/vim-bujo'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-" Plug 'scrooloose/nerdtree'
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'scrooloose/nerdtree'
+" Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
 " Plug 'fisadev/vim-sane-gocomplete'
 
 Plug 'terryma/vim-smooth-scroll'
-
-Plug 'ap/vim-css-color'
 
 Plug 'frazrepo/vim-rainbow'
 
@@ -246,9 +244,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Plug 'terroo/vim-simple-emoji'
-Plug 'junegunn/goyo.vim'
-Plug 'rhysd/clever-f.vim'
-Plug 'voldikss/vim-floaterm'
+" Plug 'junegunn/goyo.vim'
+" Plug 'rhysd/clever-f.vim'
+" Plug 'voldikss/vim-floaterm'
 " Plug 'markonm/traces.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-scripts/loremipsum'
@@ -263,6 +261,9 @@ Plug 'vim-scripts/wc.vim--jcline'
 
 " MAKE/COMPILER DISPATCHER:
 " Plug 'tpope/vim-dispatch'
+
+" SLOW SLOW SLOW:
+" Plug 'ap/vim-css-color'
 
 call plug#end()
 

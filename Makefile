@@ -4,7 +4,7 @@ PROJECT_NAME=dotfiles
 .DEFAULT_GOAL := help
 
 .PHONY := deploy
-deploy: dotfiles fishconf vimfiles vimdocs ## Install everything, use this one to do it all
+deploy: dotfiles vimfiles vimdocs ## Install everything, use this one to do it all
 
 # Ignore the dotfiles in dotfiles
 # Ignore Readme and Makefile
@@ -17,7 +17,7 @@ dotfiles:            ## Install (link) the dotfiles
 	done
 	cp ./assh.yml ~/.ssh/
 	cp ./config.omp.json ~/.config.omp.json
-	cp ./vimrc.users /c/Users/smartin/.vimrc
+	# cp ./vimrc.users /c/Users/smartin/.vimrc
 
 # Fish goes to the .config dir
 .PHONY := fishconf
@@ -35,6 +35,7 @@ vimfiles: vim ## Copy vim files to $HOME/.vim, Warning: $HOME/.vim is deleted fi
 	mkdir -p ~/.vim/undodir
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	PATH="/sbin:/bin:/usr/local/bin:/usr/bin:/usr/lib/lapack:" vim -c "PlugInstall" -c qa \; </dev/zero
+	dos2unix $(HOME)/.vim/plugged/wc.vim--jcline/plugin/wc.vim
 
 .PHONY := vimdocs
 vimdocs:             ## Create the vim helptags
