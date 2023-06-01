@@ -45,8 +45,6 @@ _log "bash_profile"
 
 # shellcheck source=/dev/null
 
-[[ "$-" == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
-
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
@@ -57,6 +55,9 @@ done
 [ -f /etc/profile ] && source /etc/profile
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
+
+# Override /etc/profile
+[[ "$-" == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 
 export BASH_PROFILE
 
