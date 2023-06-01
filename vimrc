@@ -26,14 +26,14 @@ let g:startify_lists = [
           \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
           \ ]
 
-hi StartifyBracket ctermfg=240
-hi StartifyFile    ctermfg=147
-hi StartifyFooter  ctermfg=240
-hi StartifyHeader  ctermfg=114
-hi StartifyNumber  ctermfg=215
-hi StartifyPath    ctermfg=245
-hi StartifySlash   ctermfg=240
-hi StartifySpecial ctermfg=240
+highlight StartifyBracket ctermfg=240
+highlight StartifyFile    ctermfg=147
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
 
 " set wildmode=longest,list,full
 set wildoptions=pum
@@ -241,7 +241,8 @@ Plug 'ervandew/supertab'
 
 " Ok, colorschemes:
 Plug 'gruvbox-community/gruvbox'
-" Plug 'sainnhe/gruvbox-material'
+Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
+Plug 'sainnhe/gruvbox-material'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -278,13 +279,17 @@ let g:floaterm_width = 120
 let g:gruvbox_italic=1
 
 try
-" colorscheme gruvbox-material
-  colorscheme gruvbox
+  syntax enable
+  syntax on
+  " colorscheme gruvbox-material
+  " colorscheme gruvbox
+  let g:hardhacker_darker = 1
+  colorscheme hardhacker
 catch
 endtry
 
 highlight Normal guibg=background
-hi QuickFixLine guibg=#65000B ctermbg=darkred
+highlight QuickFixLine guibg=#65000B ctermbg=darkred
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
