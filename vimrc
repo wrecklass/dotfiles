@@ -394,7 +394,7 @@ let g:mapleader = " "
 
 nnoremap <leader><      :cprev<CR>
 nnoremap <leader>>      :cnext<CR>
-nnoremap <leader>op     :source $MYVIMRC<CR>
+nnoremap <leader>sv     :source $MYVIMRC<CR>
 nnoremap <leader>so     :source $MYVIMRC<CR>
 nnoremap <leader><CR>   :source $MYVIMRC<CR>
 nnoremap <leader>w      :w!<CR>
@@ -486,6 +486,7 @@ noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>e :e! $MYVIMRC<cr>
+map <leader>ev :vsplit $MYVIMRC<cr>
 augroup SourceMyVimRc
   autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
