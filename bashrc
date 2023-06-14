@@ -153,7 +153,7 @@ fi
 # Import all of the files we use
 # Note that bash_prompt is a case by case basis per OS
 for file in ~/.{bash_aliases,path,extra,exports,override}; do
-  _log ".bashrc file:${file}"
+  [[ -f "$file" ]] && _log ".bashrc file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
 unset file

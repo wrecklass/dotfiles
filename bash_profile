@@ -43,7 +43,6 @@ _log "bash_profile"
 # }}}
 # {{{ Includes
 
-
 # shellcheck source=/dev/null
 
 # Enable some Bash 4 features when possible:
@@ -57,7 +56,7 @@ done
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 
-export PATH
+# Override /etc/profile
 [[ "$-" == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 
 export BASH_PROFILE
