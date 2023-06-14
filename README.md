@@ -6,6 +6,9 @@ dotfiles
 The `Makefile` takes care of installing everything to the correct place with the proper file names.
 Perform a `make help` or simple `make` alone to see what specific job targets are.
 
+Most of the dotfiles are installed as links back to this directory so that modifying/editting either
+the link or the files here will be made ready to commit in git.
+
 Because `vim` doesn't seem to like a soft-link on `~/.vim/`, I copy the entire directory instead.
 Plugins and docs will be updated with the *vimfiles* and *vimdocs* `make` targets.
 

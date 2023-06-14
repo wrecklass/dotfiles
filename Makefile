@@ -11,13 +11,15 @@ deploy: dotfiles fishconf vimfiles vimdocs ## Install everything, use this one t
 # Fish and Vim is handled below
 .PHONY := dotfiles
 dotfiles:            ## Install (link) the dotfiles
-	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name tags -not -name vimrc.users -not -name "config.omp.*" -not -name "oh-my-posh.lua" -not -name ".[a-z]*" -not -name "nvim" -not -name "README.md" -not -name "vim" -not -name "Makefile" -not -name "assh.yml" -not -name "fish"); do \
+	for file in $(shell find $(CURDIR) -maxdepth 1 ! -name tags ! -name dotfiles ! -name vimrc.users ! -name "config.omp.*" ! -name "oh-my-posh.lua" ! -name ".[a-z]*" ! -name "nvim" ! -name "README.md" ! -name "vim" ! -name "Makefile" ! -name "assh.yml" ! -name "fish"); do \
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
 	cp ./assh.yml ~/.ssh/
-	cp ./config.omp.json ~/.config.omp.json
 	cp ./vimrc.users /c/Users/smartin/.vimrc
+
+	# Not used now:
+	# cp ./config.omp.json ~/.config.omp.json
 
 # Fish goes to the .config dir
 .PHONY := fishconf
@@ -34,7 +36,7 @@ vimfiles: vim ## Copy vim files to $HOME/.vim, Warning: $HOME/.vim is deleted fi
 	cp -r ./vim ~/.vim/
 	mkdir -p ~/.vim/undodir
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	PATH="/sbin:/bin:/usr/local/bin:/usr/bin:/usr/lib/lapack:" vim -c "PlugInstall" -c qa \; </dev/zero
+	PATH="/usr/local/bin:/sbin:/bin:/usr/bin:/usr/lib/lapack:" vim -c "PlugInstall" -c qa \; </dev/zero
 
 .PHONY := vimdocs
 vimdocs:             ## Create the vim helptags
