@@ -11,13 +11,15 @@ deploy: dotfiles vimfiles vimdocs ## Install everything, use this one to do it a
 # Fish and Vim is handled below
 .PHONY := dotfiles
 dotfiles:            ## Install (link) the dotfiles
-	for file in $(shell find $(CURDIR) -maxdepth 1 -not -name vimrc.users -not -name "config.omp.*" -not -name "oh-my-posh.lua" -not -name ".[a-z]*" -not -name "nvim" -not -name "README.md" -not -name "vim" -not -name "Makefile" -not -name "assh.yml" -not -name "fish"); do \
+	for file in $(shell find $(CURDIR) -maxdepth 1 ! -name dotfiles ! -name vimrc.users ! -name "config.omp.*" ! -name "oh-my-posh.lua" ! -name ".[a-z]*" ! -name "nvim" ! -name "README.md" ! -name "vim" ! -name "Makefile" ! -name "assh.yml" ! -name "fish"); do \
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
 	cp ./assh.yml ~/.ssh/
 	cp ./config.omp.json ~/.config.omp.json
-	# cp ./vimrc.users /c/Users/smartin/.vimrc
+	if [ -d /c/Users/smartin ]; then\
+	  cp ./vimrc.users /c/Users/smartin/.vimrc;\
+	fi
 
 # Fish goes to the .config dir
 .PHONY := fishconf
@@ -42,9 +44,11 @@ vimdocs:             ## Create the vim helptags
 	find "$(HOME)/.vim/" -type d -name doc -exec vim -u NONE -c "helptags {}" -c q \;
 
 .PHONY := nvim
-nvim: nvim/init.vim                ## Create PowerShell nvim init.vim
-	rm -rf /c/Users/smartin/AppData/Local/nvim
-	cp -r ./nvim /c/Users/smartin/AppData/Local/nvim/
+nvim:                ## Create PowerShell nvim init.vim
+	if [ -d /c/Users/smartin ]; then \
+	  rm -rf /c/Users/smartin/AppData/Local/nvim ; \
+	  cp -r ./nvim /c/Users/smartin/AppData/Local/nvim/ ; \
+	fi
 
 .PHONY := help
 help:                ## List targets (default)
