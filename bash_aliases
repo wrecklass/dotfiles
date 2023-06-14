@@ -54,10 +54,14 @@ alias ''=clear
 
 if command -v colordiff &> /dev/null; then
   alias diff='colordiff'
+  alias dif='colordiff'
+else
+  alias dif='diff'
 fi
 
 if [ "$UNAME" == "cygwin" ];then
   alias diff="diff --color"
+  alias dif="diff --color"
 fi
 
 # alias dl="cd ~/Downloads"
