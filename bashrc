@@ -78,7 +78,7 @@ export IPV6_REGX='(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){
 
 # History variables are in .functions/history
 
-export LSCOLORS='Gxfxcxdxdxegedabagacad'
+# export LSCOLORS='Gxfxcxdxdxegedabagacad'
 # export CDPATH=".:~:~/src"
 export ORIGPATH="${PATH}"
 export PATH
