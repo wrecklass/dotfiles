@@ -16,7 +16,9 @@ dotfiles:            ## Install (link) the dotfiles
 		ln -sfn $$file ~/.$$f; \
 	done
 	cp ./assh.yml ~/.ssh/
-	cp ./vimrc.users /c/Users/smartin/.vimrc
+	if [ -d /c/Users/smartin ]; then\
+	  cp ./vimrc.users /c/Users/smartin/.vimrc;\
+	fi
 
 	# Not used now:
 	# cp ./config.omp.json ~/.config.omp.json
@@ -37,6 +39,7 @@ vimfiles: vim ## Copy vim files to $HOME/.vim, Warning: $HOME/.vim is deleted fi
 	mkdir -p ~/.vim/undodir
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	PATH="/usr/local/bin:/sbin:/bin:/usr/bin:/usr/lib/lapack:" vim -c "PlugInstall" -c qa \; </dev/zero
+	dos2unix $(HOME)/.vim/plugged/wc.vim--jcline/plugin/wc.vim
 
 .PHONY := vimdocs
 vimdocs:             ## Create the vim helptags
@@ -44,8 +47,10 @@ vimdocs:             ## Create the vim helptags
 
 .PHONY := nvim
 nvim: nvim/init.vim                ## Create PowerShell nvim init.vim
-	rm -rf /c/Users/smartin/AppData/Local/nvim
-	cp -r ./nvim /c/Users/smartin/AppData/Local/nvim/
+	if [ -d /c/Users/smartin ]; then \
+	  rm -rf /c/Users/smartin/AppData/Local/nvim ; \
+	  cp -r ./nvim /c/Users/smartin/AppData/Local/nvim/ ; \
+	fi
 
 .PHONY := help
 help:                ## List targets (default)
