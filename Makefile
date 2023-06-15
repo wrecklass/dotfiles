@@ -36,10 +36,10 @@ fishconf:            ## link fish to the $HOME/.config/ directory
 vimfiles: vim ## Copy vim files to $HOME/.vim, Warning: $HOME/.vim is deleted first!
 	rm -rf ~/.vim/
 	cp -r ./vim ~/.vim/
-	mkdir -p ~/.vim/undodir
+	mkdir -p ~/.cache/undodir
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	PATH="/usr/local/bin:/sbin:/bin:/usr/bin:/usr/lib/lapack:" vim -c "PlugInstall" -c qa \; </dev/zero
-	dos2unix $(HOME)/.vim/plugged/wc.vim--jcline/plugin/wc.vim
+	dos2unix $(HOME)/.vim/plugged/wc.vim/plugin/wc.vim
 
 .PHONY := vimdocs
 vimdocs:             ## Create the vim helptags
@@ -47,9 +47,10 @@ vimdocs:             ## Create the vim helptags
 
 .PHONY := nvim
 nvim: nvim/init.vim                ## Create PowerShell nvim init.vim
-	if [ -d /c/Users/smartin ]; then \
-	  rm -rf /c/Users/smartin/AppData/Local/nvim ; \
-	  cp -r ./nvim /c/Users/smartin/AppData/Local/nvim/ ; \
+	if [ -d /c/Users/smartin/AppData/Local ]; then \
+	  mkdir -p /c/Users/smartin/AppData/Local/nvim ; \
+	  rm -f /c/Users/smartin/AppData/Local/nvim/init.vim ; \
+	  cp ./nvim/init.vim /c/Users/smartin/AppData/Local/nvim/ ; \
 	fi
 
 .PHONY := help
