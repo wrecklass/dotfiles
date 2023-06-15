@@ -135,7 +135,7 @@ set nobackup
 set nowb
 
 " Where to store undo history
-set undodir=~/.vim/undodir
+set undodir=~/.cache/undodir
 set undofile
 set undolevels=5000
 
@@ -240,9 +240,14 @@ Plug 'mhinz/vim-startify'
 Plug 'ervandew/supertab'
 
 " Ok, colorschemes:
+Plug 'haystackandroid/carbonized'
+Plug 'haystackandroid/vimspectr'
 Plug 'gruvbox-community/gruvbox'
+" Plug 'sainnhe/gruvbox-material'
 Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
-Plug 'sainnhe/gruvbox-material'
+Plug 'haystackandroid/snow'
+
+" Powerline Status Line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -253,7 +258,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'markonm/traces.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-scripts/loremipsum'
-Plug 'vim-scripts/wc.vim--jcline'
+Plug 'vim-scripts/wc.vim--jcline', {'as' : 'wc.vim'}
 
 " ***** Only if we need em: *****
 " LOOKUP RFCs:
@@ -276,15 +281,27 @@ let g:floaterm_width = 120
 " }}}
 " {{{ Color Scheme
 
-let g:gruvbox_italic=1
+" let g:gruvbox_italic=1
 
 try
   syntax enable
   syntax on
+  " We want dark anyway
+  set background=dark
+
   " colorscheme gruvbox-material
   " colorscheme gruvbox
-  let g:hardhacker_darker = 1
-  colorscheme hardhacker
+
+  " let g:hardhacker_darker = 1
+
+  " colorscheme hardhacker
+  " colorscheme carbonized-dark
+
+  let g:vimspectrLineNr = 'on'
+  let g:vimspectrItalicComment = 'on'
+  " colorscheme vimspectrgrey-dark
+
+  colorscheme snow
 catch
 endtry
 
@@ -293,6 +310,8 @@ highlight QuickFixLine guibg=#65000B ctermbg=darkred
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
+
+let g:airline_theme='snow_dark'
 
 " let g:airline_theme='ayu_dark'
 " let g:airline_theme='cool'
@@ -333,7 +352,8 @@ let g:airline_powerline_fonts=1
 " let g:airline_theme='base16_grayscale'
 " let g:airline_theme='base16_gruvbox_dark_soft'
 " let g:airline_theme='base16_gruvbox_dark_medium'
-let g:airline_theme='base16_gruvbox_dark_hard'
+" let g:airline_theme='base16_gruvbox_dark_hard'
+" let g:airline_theme='jet'
 " let g:airline_theme='base16_helios'
 " let g:airline_theme='base16_materia'
 " let g:airline_theme='base16_material'
@@ -371,12 +391,9 @@ try
   \   }
   \ }
 
-  " colorscheme PaperColor
 catch
 endtry
 
-" We want dark anyway
-set background=dark
 " }}}
 " {{{ Mappings
 
@@ -389,8 +406,6 @@ let g:mapleader = " "
 " tnoremap <c-j> <c-\><c-n><c-w>j
 " tnoremap <c-k> <c-\><c-n><c-w>k
 " set shell=/bin/bash
-
-
 
 nnoremap <leader><      :cprev<CR>
 nnoremap <leader>>      :cnext<CR>
@@ -614,12 +629,20 @@ noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><rig
 
 map <nowait><leader>c :Colors<CR>
 nnoremap <leader>I    :Startify<CR>
-map <leader>b :Buffers<CR>
-map <leader>f :Files<CR>
-map <leader>W :Windows<CR>
-map <leader>H :History<CR>
-map <leader>M :Maps<CR>
-map <leader>t :FloatermToggle<CR>
+
+" FZF Search
+nnoremap <silent> <leader>b :Buffers<CR>
+" nnoremap <silent> <leader>i :Files<CR>
+nnoremap <silent> <leader>f :Rg<CR>
+" nnoremap <silent> <leader>/ :BLines<CR>
+nnoremap <silent> <leader>' :Marks<CR>
+nnoremap <silent> <leader>g :Commits<CR>
+nnoremap <silent> <leader>H :Helptags<CR>
+nnoremap <silent> <leader>hh :History<CR>
+nnoremap <silent> <leader>h: :History:<CR>
+nnoremap <silent> <leader>W :Windows<CR>
+nnoremap <silent> <leader>M :Maps<CR>
+nnoremap <silent> <leader>t :FloatermToggle<CR>
 
 " Easy bracket pairing
 inoremap<nowait>" ""<left>
