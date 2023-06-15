@@ -281,13 +281,13 @@ let g:floaterm_width = 120
 " }}}
 " {{{ Color Scheme
 
-" let g:gruvbox_italic=1
-
 try
   syntax enable
   syntax on
   " We want dark anyway
   set background=dark
+
+  " let g:gruvbox_italic=1
 
   " colorscheme gruvbox-material
   " colorscheme gruvbox
@@ -297,8 +297,8 @@ try
   " colorscheme hardhacker
   " colorscheme carbonized-dark
 
-  let g:vimspectrLineNr = 'on'
-  let g:vimspectrItalicComment = 'on'
+  " let g:vimspectrLineNr = 'on'
+  " let g:vimspectrItalicComment = 'on'
   " colorscheme vimspectrgrey-dark
 
   colorscheme snow
