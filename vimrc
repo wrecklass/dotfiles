@@ -246,6 +246,7 @@ Plug 'gruvbox-community/gruvbox'
 " Plug 'sainnhe/gruvbox-material'
 Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
 Plug 'haystackandroid/snow'
+Plug 'tomasiser/vim-code-dark'
 
 " Powerline Status Line
 Plug 'vim-airline/vim-airline'
@@ -301,7 +302,12 @@ try
   " let g:vimspectrItalicComment = 'on'
   " colorscheme vimspectrgrey-dark
 
-  colorscheme snow
+  " colorscheme snow
+  let g:codedark_conservative=1
+  let g:codedark_modern=0
+  let g:codedark_italics=1
+  let g:codedark_transparent=0
+  colorscheme codedark
 catch
 endtry
 
@@ -311,7 +317,8 @@ highlight QuickFixLine guibg=#65000B ctermbg=darkred
 " Airline Status Bar
 let g:airline_powerline_fonts=1
 
-let g:airline_theme='snow_dark'
+" let g:airline_theme='snow_dark'
+let g:airline_theme='codedark'
 
 " let g:airline_theme='ayu_dark'
 " let g:airline_theme='cool'
