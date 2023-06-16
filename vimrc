@@ -304,11 +304,14 @@ try
   " colorscheme vimspectrgrey-dark
 
   " colorscheme snow
+
   let g:codedark_conservative=1
   let g:codedark_modern=0
   let g:codedark_italics=1
   let g:codedark_transparent=0
   colorscheme codedark
+  highlight Folded guibg=#223e55 guifg=#8f8f8f gui=italic ctermfg=238 ctermbg=235 cterm=italic
+  let g:airline_theme='codedark'
 catch
 endtry
 
@@ -319,7 +322,6 @@ highlight QuickFixLine guibg=#65000B ctermbg=darkred
 let g:airline_powerline_fonts=1
 
 " let g:airline_theme='snow_dark'
-let g:airline_theme='codedark'
 
 " let g:airline_theme='ayu_dark'
 " let g:airline_theme='cool'
