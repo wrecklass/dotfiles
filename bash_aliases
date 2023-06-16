@@ -122,7 +122,6 @@ alias gsu='git submodule update'
  __git_complete gco git_checkout
  __git_complete gp git_push
  __git_complete gpa git_push
- __git_complete gs git_source
  __git_complete gl git_log
  __git_complete gd git_diff
  __git_complete gf git_fetch
