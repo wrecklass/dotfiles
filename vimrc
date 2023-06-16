@@ -259,7 +259,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'markonm/traces.vim'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-scripts/loremipsum'
-Plug 'vim-scripts/wc.vim--jcline', {'as' : 'wc.vim'}
+Plug 'wrecklass/wc.vim'
 
 " ***** Only if we need em: *****
 " LOOKUP RFCs:
