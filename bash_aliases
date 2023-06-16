@@ -96,7 +96,7 @@ alias gcf='git config --list'
 alias gd='git diff'
 alias gdw='git diff --word-diff'
 alias giff='git diff'
-
+alias gl='git log'
 alias gf='git fetch'
 alias gfa='git fetch --all --prune'
 alias gfo='git fetch origin'
@@ -110,8 +110,22 @@ alias gs='git status'
 alias gsu='git submodule update'
 
 # So these two aliases do bash_completion from git
-complete -o default -o nospace -F _git g
-complete -o default -o nospace -F _git get
+ # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
+ # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main gl
+ # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main gd
+ # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main get
+ __git_complete g git
+ __git_complete get git
+ __git_complete gut git
+ __git_complete ga git_add
+ __git_complete gaa git_add
+ __git_complete gco git_checkout
+ __git_complete gp git_push
+ __git_complete gpa git_push
+ __git_complete gs git_source
+ __git_complete gl git_log
+ __git_complete gd git_diff
+ __git_complete gf git_fetch
 
 alias grep='grep -a --color=always'
 alias gpre='grep -a --color=always'
