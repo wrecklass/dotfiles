@@ -289,10 +289,28 @@ try
   " We want dark anyway
   set background=dark
 
-  " let g:gruvbox_italic=1
+  let g:gruvbox_italic=1
 
   " colorscheme gruvbox-material
-  " colorscheme gruvbox
+  colorscheme gruvbox
+
+  highlight Statement guifg=#569CD6
+  highlight Function guifg=#4EB9C0
+  highlight Conditional guifg=LightGreen
+  highlight Keyword     guifg=#569CD6
+  highlight Statement guifg=#569cd6
+  highlight Conditional guifg=#569cd6
+  highlight Repeat guifg=#569cd6
+  highlight Label guifg=#569cd6
+  highlight Operator guifg=#569cd6
+  highlight Exception guifg=#569cd6
+  highlight PreProc guifg=#569cd6
+  highlight Include guifg=#569cd6
+  highlight Define guifg=#569cd6
+  highlight Macro guifg=#569cd6
+  highlight PreCondit guifg=#569cd6
+  highlight String guifg=#6A9955 ctermfg=17
+  highlight Comment guifg=#4E7D39 ctermfg=17
 
   " let g:hardhacker_darker = 1
 
@@ -305,16 +323,16 @@ try
 
   " colorscheme snow
 
-  let g:codedark_conservative=1
-  let g:codedark_modern=0
-  let g:codedark_italics=1
-  let g:codedark_transparent=0
-  colorscheme codedark
-  highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
-  highlight String guifg=#87E7FE ctermfg=17
-  highlight Identifier guifg=LightGreen
-  highlight Function guifg=#4EB9C0
-  let g:airline_theme='codedark'
+  " let g:codedark_conservative=1
+  " let g:codedark_modern=0
+  " let g:codedark_italics=1
+  " let g:codedark_transparent=0
+  " colorscheme codedark
+  " highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
+  " highlight String guifg=#87E7FE ctermfg=17
+  " highlight Identifier guifg=LightGreen
+  " highlight Function guifg=#4EB9C0
+  " let g:airline_theme='codedark'
 catch
 endtry
 
