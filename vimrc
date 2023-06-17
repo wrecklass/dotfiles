@@ -311,6 +311,9 @@ try
   let g:codedark_transparent=0
   colorscheme codedark
   highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
+  highlight String guifg=#87E7FE ctermfg=17
+  highlight Identifier guifg=LightGreen
+  highlight Function guifg=#4EB9C0
   let g:airline_theme='codedark'
 catch
 endtry
@@ -786,7 +789,7 @@ if has("autocmd")
     autocmd FileType c,cpp             setlocal path+=/usr/include include&
     autocmd FileType sh,zsh,csh,tcsh   setlocal include=^\\s*\\%(\\.\\\|source\\)\\s
     autocmd FileType dosbatch          setlocal include=^call | let &l:sua = tr($PATHEXT, ';', ',')
-    autocmd FileType json set shiftwidth=2 expandtab
+    autocmd FileType json              setlocal shiftwidth=2 expandtab
 
     autocmd FileType sh,zsh,csh,tcsh,dosbatch let &l:path =
           \ tr($PATH, has('win32') ? ';' : ':', ',') . ',.'
