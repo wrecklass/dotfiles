@@ -7,6 +7,9 @@
 # Only source this file one time
 [[ -z "${BASH_PROMPT}" ]] && readonly BASH_PROMPT=true || return 0
 
+[[ -f "$HOME/.functions/git-prompt" ]] && source "$HOME/.functions/git-prompt"
+[[ -f "$HOME/.functions/git-prompt.off" ]] && source "$HOME/.functions/git-prompt.off"
+
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
   export TERM='gnome-256color'
 elif infocmp xterm-256color >/dev/null 2>&1; then

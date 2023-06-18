@@ -77,10 +77,3 @@ export BASH_PROFILE
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
 # }}}
-# {{{ External Additions
-
-if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]];then
-  source "${HOME}/.iterm2_shell_integration.bash"
-fi
-
-# }}}
