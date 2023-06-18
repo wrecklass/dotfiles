@@ -57,7 +57,7 @@ endif
 
 " nvim is supposed to be nocompatible by default
 set nocompatible
-set exrc
+set noexrc
 set relativenumber
 set number
 
