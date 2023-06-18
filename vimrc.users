@@ -17,7 +17,7 @@ filetype off
 let g:ft_man_open_mode='tab'
 
 " Bookmarks for Startify:
-let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'c': '/c/tools/bcurran3/choco-output.txt'} ]
+let g:startify_bookmarks = [ {'v': '~/.vimrc'} ]
 let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
 let g:startify_lists = [
           \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
@@ -218,7 +218,7 @@ Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'BurntSushi/ripgrep'
 Plug 'junegunn/vim-peekaboo'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'vuciv/vim-bujo'
 Plug 'tpope/vim-commentary'
@@ -243,6 +243,8 @@ Plug 'ervandew/supertab'
 " Ok, colorschemes:
 Plug 'gruvbox-community/gruvbox'
 " Plug 'sainnhe/gruvbox-material'
+Plug 'tomasiser/vim-code-dark'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -279,10 +281,11 @@ let g:floaterm_width = 120
 let g:gruvbox_italic=1
 
 try
-  syntax enable
-  syntax on
 " colorscheme gruvbox-material
-  colorscheme gruvbox
+  " colorscheme gruvbox
+  let g:codedark_conservative=1
+  let g:codedark_italics=1
+  colorscheme codedark
 catch
 endtry
 
@@ -395,6 +398,7 @@ nnoremap <leader>>      :cnext<CR>
 nnoremap <leader>sv     :source $MYVIMRC<CR>
 nnoremap <leader>so     :source $MYVIMRC<CR>
 nnoremap <leader><CR>   :source $MYVIMRC<CR>
+nnoremap <leader>ev     :vsplit $MYVIMRC<CR>
 nnoremap <leader>w      :w!<CR>
 nnoremap <c-s>          :w<CR>
 
@@ -484,7 +488,6 @@ noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>e :e! $MYVIMRC<cr>
-map <leader>ev :vsplit $MYVIMRC<cr>
 augroup SourceMyVimRc
   autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
