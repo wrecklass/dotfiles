@@ -682,6 +682,8 @@ inoremap<nowait>( ()<left>
 inoremap<nowait>[ []<left>
 inoremap<nowait>{ {}<left>
 
+command! BufOnly silent! execute "%bd|e#"
+
 " }}}
 " {{{ Status line
 
