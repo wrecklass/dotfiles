@@ -1,3 +1,5 @@
+# Author Stephen Martin
+# Global Git configuration
 # {{{ Global Configuration
 [color]
   ui= true

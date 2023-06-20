@@ -209,6 +209,13 @@ set fileformats=unix,dos,mac
 
 call plug#begin('~/.vim/plugged')
 
+
+" Plug 'terroo/vim-simple-emoji'
+" Plug 'junegunn/goyo.vim'
+Plug 'rhysd/clever-f.vim'
+Plug 'voldikss/vim-floaterm'
+Plug 'markonm/traces.vim'
+
 Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
@@ -218,14 +225,13 @@ Plug 'BurntSushi/ripgrep'
 Plug 'junegunn/vim-peekaboo'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'stsewd/fzf-checkout.vim'
-Plug 'vuciv/vim-bujo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim'       " :GV to browse git history
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
-Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
 Plug 'fisadev/vim-sane-gocomplete'
 
@@ -238,28 +244,23 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'ervandew/supertab'
 
+" Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'vim-scripts/loremipsum'
+" Plug 'wrecklass/wc.vim'
+Plug 'kkew3/wc.vim'
+
 " Ok, colorschemes:
-Plug 'haystackandroid/carbonized'
-Plug 'haystackandroid/vimspectr'
+" Plug 'haystackandroid/carbonized'
+" Plug 'haystackandroid/vimspectr'
 Plug 'gruvbox-community/gruvbox'
 " Plug 'sainnhe/gruvbox-material'
-Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
-Plug 'haystackandroid/snow'
+" Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
+" Plug 'haystackandroid/snow'
 Plug 'tomasiser/vim-code-dark'
 
 " Powerline Status Line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-Plug 'terroo/vim-simple-emoji'
-Plug 'junegunn/goyo.vim'
-Plug 'rhysd/clever-f.vim'
-Plug 'voldikss/vim-floaterm'
-Plug 'markonm/traces.vim'
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plug 'vim-scripts/loremipsum'
-" Plug 'wrecklass/wc.vim'
-Plug 'kkew3/wc.vim'
 
 " ***** Only if we need em: *****
 " LOOKUP RFCs:
@@ -310,6 +311,11 @@ try
   highlight PreCondit guifg=#569cd6
   highlight String guifg=#6A9955 ctermfg=17
   highlight Comment guifg=#4E7D39 ctermfg=17
+  highlight pyConditional guifg=#569cd6
+  highlight pythonConditional guifg=#569cd6
+  highlight pythonException guifg=#569cd6
+  highlight pythonRepeat guifg=#569cd6
+  highlight pythonOperator guifg=#569cd6
 
   " let g:hardhacker_darker = 1
 
