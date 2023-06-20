@@ -13,7 +13,7 @@ filetype off
 
 " let g:ale_completion_enabled = 1
 " set omnifunc=ale#completion#OmniFunc
-"
+
 let g:ft_man_open_mode='tab'
 
 " Bookmarks for Startify:
@@ -204,7 +204,6 @@ set fileformats=unix,dos,mac
 
 " Don't pass messages to |ins-completion-menu|.
 " set shortmess+=c
-"
 " }}}
 " {{{ Plugins
 
@@ -430,7 +429,7 @@ endtry
 
 let mapleader = " "
 let g:mapleader = " "
-" Terminal: "
+" Terminal:
 " let g:terminal_height = -10
 " set termwinsize=18x200
 " nnoremap <leader>` :botright terminal<CR>
@@ -593,10 +592,10 @@ nnoremap <leader>d "_d
 " Cause, of course
 inoremap <C-c> <esc>
 
-nmap     <leader>nt   <c-w>T
-nmap     <C-n>        :NERDTreeToggle<CR>
-nmap     <leader>n    :NERDTreeToggle<CR>
-map      \|           :NERDTreeFind<CR>
+nmap     <leader>nt             <c-w>T
+nmap     <silent>  <C-n>        :NERDTreeToggle<CR>
+nmap     <leader>n              :NERDTreeToggle<CR>
+map      \|                     :NERDTreeFind<CR>
 
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-O><Home>
@@ -653,7 +652,7 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
 " Open vimgrep and put the cursor in the right position
-noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
+" noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 
 " Vimgreps in the current file
 noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
