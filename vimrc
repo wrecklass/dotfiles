@@ -16,25 +16,6 @@ filetype off
 
 let g:ft_man_open_mode='tab'
 
-" Bookmarks for Startify:
-let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'}, {'c': '/c/tools/bcurran3/choco-output.txt'} ]
-let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
-let g:startify_lists = [
-          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
-          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
-          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
-          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
-          \ ]
-
-highlight StartifyBracket ctermfg=240
-highlight StartifyFile    ctermfg=147
-highlight StartifyFooter  ctermfg=240
-highlight StartifyHeader  ctermfg=114
-highlight StartifyNumber  ctermfg=215
-highlight StartifyPath    ctermfg=245
-highlight StartifySlash   ctermfg=240
-highlight StartifySpecial ctermfg=240
-
 " set wildmode=longest,list,full
 set wildoptions=pum
 set wildmenu
@@ -205,6 +186,27 @@ set fileformats=unix,dos,mac
 " Don't pass messages to |ins-completion-menu|.
 " set shortmess+=c
 " }}}
+" {{{ Startify
+" Bookmarks for Startify:
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'}, {'c': '/c/tools/bcurran3/choco-output.txt'} ]
+let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
+let g:startify_lists = [
+          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
+          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
+          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
+          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
+          \ ]
+
+" Highlights
+highlight StartifyBracket ctermfg=240
+highlight StartifyFile    ctermfg=147
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
+" }}}
 " {{{ Plugins
 
 call plug#begin('~/.vim/plugged')
@@ -281,7 +283,7 @@ let g:floaterm_height = 34
 let g:floaterm_width = 120
 
 " }}}
-" {{{ Color Scheme
+" {{{ ColorScheme
 
 try
   syntax enable
@@ -292,30 +294,30 @@ try
   let g:gruvbox_italic=1
 
   " colorscheme gruvbox-material
-  colorscheme gruvbox
+  " colorscheme gruvbox
 
-  highlight Statement guifg=#569CD6
-  highlight Function guifg=#4EB9C0
-  highlight Conditional guifg=LightGreen
-  highlight Keyword     guifg=#569CD6
-  highlight Statement guifg=#569cd6
-  highlight Conditional guifg=#569cd6
-  highlight Repeat guifg=#569cd6
-  highlight Label guifg=#569cd6
-  highlight Operator guifg=#569cd6
-  highlight Exception guifg=#569cd6
-  highlight PreProc guifg=#569cd6
-  highlight Include guifg=#569cd6
-  highlight Define guifg=#569cd6
-  highlight Macro guifg=#569cd6
-  highlight PreCondit guifg=#569cd6
-  highlight String guifg=#6A9955 ctermfg=17
-  highlight Comment guifg=#4E7D39 ctermfg=17
-  highlight pyConditional guifg=#569cd6
-  highlight pythonConditional guifg=#569cd6
-  highlight pythonException guifg=#569cd6
-  highlight pythonRepeat guifg=#569cd6
-  highlight pythonOperator guifg=#569cd6
+  " highlight Statement guifg=#569CD6
+  " highlight Function guifg=#4EB9C0
+  " highlight Conditional guifg=LightGreen
+  " highlight Keyword     guifg=#569CD6
+  " highlight Statement guifg=#569cd6
+  " highlight Conditional guifg=#569cd6
+  " highlight Repeat guifg=#569cd6
+  " highlight Label guifg=#569cd6
+  " highlight Operator guifg=#569cd6
+  " highlight Exception guifg=#569cd6
+  " highlight PreProc guifg=#569cd6
+  " highlight Include guifg=#569cd6
+  " highlight Define guifg=#569cd6
+  " highlight Macro guifg=#569cd6
+  " highlight PreCondit guifg=#569cd6
+  " highlight String guifg=#6A9955 ctermfg=17
+  " highlight Comment guifg=#4E7D39 ctermfg=17
+  " highlight pyConditional guifg=#569cd6
+  " highlight pythonConditional guifg=#569cd6
+  " highlight pythonException guifg=#569cd6
+  " highlight pythonRepeat guifg=#569cd6
+  " highlight pythonOperator guifg=#569cd6
 
   " let g:hardhacker_darker = 1
 
@@ -328,16 +330,16 @@ try
 
   " colorscheme snow
 
-  " let g:codedark_conservative=1
-  " let g:codedark_modern=0
-  " let g:codedark_italics=1
-  " let g:codedark_transparent=0
-  " colorscheme codedark
-  " highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
-  " highlight String guifg=#87E7FE ctermfg=17
-  " highlight Identifier guifg=LightGreen
-  " highlight Function guifg=#4EB9C0
-  " let g:airline_theme='codedark'
+  let g:codedark_conservative=1
+  let g:codedark_modern=0
+  let g:codedark_italics=1
+  let g:codedark_transparent=0
+  colorscheme codedark
+  highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
+  highlight String guifg=#87E7FE ctermfg=17
+  highlight Identifier guifg=LightGreen
+  highlight Function guifg=#4EB9C0
+  let g:airline_theme='codedark'
 catch
 endtry
 
