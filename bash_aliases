@@ -105,7 +105,7 @@ alias gfa='git fetch --all --prune'
 alias gfo='git fetch origin'
 
 alias gp='git push'
-alias gpa='git pushall'
+alias gpa='git remote | xargs -I X git push X --all'
 alias grv='git remote -v'
 alias gss='git status -s'
 alias gs='git status'
