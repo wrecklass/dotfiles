@@ -39,6 +39,8 @@ endif
 
 " nvim is supposed to be nocompatible by default
 set nocompatible
+" set hidden
+set encoding=utf-8
 set noexrc
 set relativenumber
 set number
@@ -282,7 +284,6 @@ let g:floaterm_autohide = 0
 let g:floaterm_autoclose = 2
 let g:floaterm_height = 34
 let g:floaterm_width = 120
-
 " }}}
 " {{{ ColorScheme
 
