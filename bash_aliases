@@ -78,16 +78,19 @@ alias fiel='file'
 alias bit="git"
 alias g="git"
 alias get='git'
+alias gut='git'
 alias ga='git add'
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gau='git add --update'
 
-alias gcm='git checkout master'
-alias gcd='git checkout dev'
+alias gcom='git switch master'
+alias gcod='git switch dev'
 alias gco='git checkout'
-alias gcb='git checkout -b'
+alias gcob='git checkout -b'
 
+alias gc='git commit'
+alias gcm='git commit'
 alias gcmsg='git commit -m'
 alias gcam='git commit -a -m'
 
@@ -119,6 +122,8 @@ alias gsu='git submodule update'
  __git_complete gut git
  __git_complete ga git_add
  __git_complete gaa git_add
+ __git_complete gc  git_commit
+ __git_complete gcm git_commit
  __git_complete gco git_checkout
  __git_complete gp git_push
  __git_complete gpa git_push
