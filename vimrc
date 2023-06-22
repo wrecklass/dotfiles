@@ -10,6 +10,7 @@ endif
 set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
+source $VIMRUNTIME/defaults.vim
 
 " let g:ale_completion_enabled = 1
 " set omnifunc=ale#completion#OmniFunc
