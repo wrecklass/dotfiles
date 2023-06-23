@@ -54,10 +54,14 @@ alias ''=clear
 
 if command -v colordiff &> /dev/null; then
   alias diff='colordiff'
+  alias dif='colordiff'
+else
+  alias dif='diff'
 fi
 
 if [ "$UNAME" == "cygwin" ];then
   alias diff="diff --color"
+  alias dif="diff --color"
 fi
 
 # alias dl="cd ~/Downloads"
@@ -74,16 +78,19 @@ alias fiel='file'
 alias bit="git"
 alias g="git"
 alias get='git'
+alias gut='git'
 alias ga='git add'
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gau='git add --update'
 
-alias gcm='git checkout master'
-alias gcd='git checkout dev'
+alias gcom='git switch master'
+alias gcod='git switch dev'
 alias gco='git checkout'
-alias gcb='git checkout -b'
+alias gcob='git checkout -b'
 
+alias gc='git commit'
+alias gcm='git commit'
 alias gcmsg='git commit -m'
 alias gcam='git commit -a -m'
 
@@ -92,13 +99,13 @@ alias gcf='git config --list'
 alias gd='git diff'
 alias gdw='git diff --word-diff'
 alias giff='git diff'
-
+alias gl='git log'
 alias gf='git fetch'
 alias gfa='git fetch --all --prune'
 alias gfo='git fetch origin'
 
 alias gp='git push'
-alias gpa='git pushall'
+alias gpa='git remote | xargs -I X git push X --all'
 alias grv='git remote -v'
 alias gss='git status -s'
 alias gs='git status'
@@ -106,8 +113,23 @@ alias gs='git status'
 alias gsu='git submodule update'
 
 # So these two aliases do bash_completion from git
-complete -o default -o nospace -F _git g
-complete -o default -o nospace -F _git get
+ # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
+ # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main gl
+ # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main gd
+ # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main get
+ __git_complete g git
+ __git_complete get git
+ __git_complete gut git
+ __git_complete ga git_add
+ __git_complete gaa git_add
+ __git_complete gc  git_commit
+ __git_complete gcm git_commit
+ __git_complete gco git_checkout
+ __git_complete gp git_push
+ __git_complete gpa git_push
+ __git_complete gl git_log
+ __git_complete gd git_diff
+ __git_complete gf git_fetch
 
 alias grep='grep -a --color=always'
 alias gpre='grep -a --color=always'
@@ -125,6 +147,9 @@ alias irb='irb --readline -r irb/completion'
 
 alias ppath='echo -e ${PATH//:/\\n}'
 
+# Use fzf with a preview window
+alias pf='fzf --preview="bat -f {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 
@@ -133,8 +158,8 @@ alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias j='jobs'
 
 # File lists 'ls'
-alias dot='ls -dAF ${colorflag} .[a-zA-Z]*'
-alias dolt='ls -dlAF ${colorflag} .[a-zA-Z]*'
+alias dot='ls -dAF ${colorflag} .[a-zA-Z0-9]*'
+alias dolt='ls -dlAF ${colorflag} .[a-zA-Z0-9]*'
 # alias exl='exa --long'
 # alias exs='exa --sort size'
 alias l.='ls -dAF ${colorflag} .*'
@@ -248,3 +273,4 @@ alias orders='cygstart "https://www.amazon.com/gp/css/order-history"'
 alias ddgr='ddgr -n 8 --url-handler "c:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"'
 alias winip='ipconfig /all | grep "Wi-Fi 3" -A 18'
 alias mywinip='ipconfig /all|  grep IPv4 | /bin/grep -Eo "$NETREGX"'
+alias mkvim='./configure --enable-luainterp=dynamic --enable-perlinterp=yes -enable-pythoninterp=dynamic --enable-python3interp=dynamic --enable-rubyinterp=yes --with-python-command=python2.7 --with-python3-command=python3 && make && sleep 1 && ./src/vim'

@@ -3,37 +3,22 @@
 " Date: 10/25/21 01:44:17
 " {{{ Settings
 " Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
-if $UNAME == "cygwin"
-  let $TERM="cygwin"
-endif
+" if $UNAME == "cygwin"
+  " let $TERM="cygwin"
+" endif
 " Because file permissions don't matter much to us:
 set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
+source $VIMRUNTIME/defaults.vim
 
 " let g:ale_completion_enabled = 1
 " set omnifunc=ale#completion#OmniFunc
 "
+" Allows us to disable ctags generation
+let g:gutentags_define_advanced_commands=1
+
 let g:ft_man_open_mode='tab'
-
-" Bookmarks for Startify:
-let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'}, {'c': '/c/tools/bcurran3/choco-output.txt'} ]
-let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
-let g:startify_lists = [
-          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
-          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
-          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
-          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
-          \ ]
-
-highlight StartifyBracket ctermfg=240
-highlight StartifyFile    ctermfg=147
-highlight StartifyFooter  ctermfg=240
-highlight StartifyHeader  ctermfg=114
-highlight StartifyNumber  ctermfg=215
-highlight StartifyPath    ctermfg=245
-highlight StartifySlash   ctermfg=240
-highlight StartifySpecial ctermfg=240
 
 " set wildmode=longest,list,full
 " set wildoptions=pum
@@ -57,7 +42,9 @@ endif
 
 " nvim is supposed to be nocompatible by default
 set nocompatible
-set exrc
+" set hidden
+set encoding=utf-8
+set noexrc
 set relativenumber
 set number
 
@@ -135,7 +122,7 @@ set nobackup
 set nowb
 
 " Where to store undo history
-set undodir=~/.vim/undodir
+set undodir=~/.cache/undodir
 set undofile
 set undolevels=5000
 
@@ -204,13 +191,33 @@ set fileformats=unix,dos,mac
 
 " Don't pass messages to |ins-completion-menu|.
 " set shortmess+=c
-"
+" }}}
+" {{{ Startify
+" Bookmarks for Startify:
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'}, {'c': '/c/tools/bcurran3/choco-output.txt'} ]
+let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
+let g:startify_lists = [
+          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
+          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
+          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
+          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
+          \ ]
+
+" Highlights
+highlight StartifyBracket ctermfg=240
+highlight StartifyFile    ctermfg=147
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
 " }}}
 " {{{ Plugins
 
 call plug#begin('~/.vim/plugged')
 
-" Plug 'vim-utils/vim-man'
+Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
@@ -219,7 +226,6 @@ Plug 'BurntSushi/ripgrep'
 Plug 'junegunn/vim-peekaboo'
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'stsewd/fzf-checkout.vim'
-" Plug 'vuciv/vim-bujo'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/gv.vim'
@@ -239,21 +245,17 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'ervandew/supertab'
 
+Plug 'vim-scripts/loremipsum'
+" Plug 'wrecklass/wc.vim'
+Plug 'kkew3/wc.vim'
+
 " Ok, colorschemes:
 Plug 'gruvbox-community/gruvbox'
-Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
 " Plug 'sainnhe/gruvbox-material'
+" Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
+Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Plug 'terroo/vim-simple-emoji'
-" Plug 'junegunn/goyo.vim'
-" Plug 'rhysd/clever-f.vim'
-" Plug 'voldikss/vim-floaterm'
-" Plug 'markonm/traces.vim'
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plug 'vim-scripts/loremipsum'
-Plug 'vim-scripts/wc.vim--jcline'
 
 " ***** Only if we need em: *****
 " LOOKUP RFCs:
@@ -265,9 +267,6 @@ Plug 'vim-scripts/wc.vim--jcline'
 " MAKE/COMPILER DISPATCHER:
 " Plug 'tpope/vim-dispatch'
 
-" SLOW SLOW SLOW:
-" Plug 'ap/vim-css-color'
-
 call plug#end()
 
 let g:fzf_preview_window = ['hidden,right,33%', 'ctrl-/']
@@ -277,17 +276,63 @@ let g:floaterm_height = 34
 let g:floaterm_width = 120
 
 " }}}
-" {{{ Color Scheme
-
-let g:gruvbox_italic=1
+" {{{ ColorScheme
 
 try
   syntax enable
   syntax on
+  " We want dark anyway
+  set background=dark
+
+  let g:gruvbox_italic=1
+
   " colorscheme gruvbox-material
   " colorscheme gruvbox
-  let g:hardhacker_darker = 1
-  colorscheme hardhacker
+
+  " highlight Statement guifg=#569CD6
+  " highlight Function guifg=#4EB9C0
+  " highlight Conditional guifg=LightGreen
+  " highlight Keyword     guifg=#569CD6
+  " highlight Statement guifg=#569cd6
+  " highlight Conditional guifg=#569cd6
+  " highlight Repeat guifg=#569cd6
+  " highlight Label guifg=#569cd6
+  " highlight Operator guifg=#569cd6
+  " highlight Exception guifg=#569cd6
+  " highlight PreProc guifg=#569cd6
+  " highlight Include guifg=#569cd6
+  " highlight Define guifg=#569cd6
+  " highlight Macro guifg=#569cd6
+  " highlight PreCondit guifg=#569cd6
+  " highlight String guifg=#6A9955 ctermfg=17
+  " highlight Comment guifg=#4E7D39 ctermfg=17
+  " highlight pyConditional guifg=#569cd6
+  " highlight pythonConditional guifg=#569cd6
+  " highlight pythonException guifg=#569cd6
+  " highlight pythonRepeat guifg=#569cd6
+  " highlight pythonOperator guifg=#569cd6
+
+  " let g:hardhacker_darker = 1
+
+  " colorscheme hardhacker
+  " colorscheme carbonized-dark
+
+  " let g:vimspectrLineNr = 'on'
+  " let g:vimspectrItalicComment = 'on'
+  " colorscheme vimspectrgrey-dark
+
+  " colorscheme snow
+
+  let g:codedark_conservative=1
+  let g:codedark_modern=0
+  let g:codedark_italics=1
+  let g:codedark_transparent=0
+  colorscheme codedark
+  highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
+  highlight String guifg=#87E7FE ctermfg=17
+  highlight Identifier guifg=LightGreen
+  highlight Function guifg=#4EB9C0
+  let g:airline_theme='codedark'
 catch
 endtry
 
@@ -296,6 +341,8 @@ highlight QuickFixLine guibg=#65000B ctermbg=darkred
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
+
+" let g:airline_theme='snow_dark'
 
 " let g:airline_theme='ayu_dark'
 " let g:airline_theme='cool'
@@ -336,7 +383,8 @@ let g:airline_powerline_fonts=1
 " let g:airline_theme='base16_grayscale'
 " let g:airline_theme='base16_gruvbox_dark_soft'
 " let g:airline_theme='base16_gruvbox_dark_medium'
-let g:airline_theme='base16_gruvbox_dark_hard'
+" let g:airline_theme='base16_gruvbox_dark_hard'
+" let g:airline_theme='jet'
 " let g:airline_theme='base16_helios'
 " let g:airline_theme='base16_materia'
 " let g:airline_theme='base16_material'
@@ -374,18 +422,15 @@ try
   \   }
   \ }
 
-  " colorscheme PaperColor
 catch
 endtry
 
-" We want dark anyway
-set background=dark
 " }}}
 " {{{ Mappings
 
 let mapleader = " "
 let g:mapleader = " "
-" Terminal: "
+" Terminal:
 " let g:terminal_height = -10
 " set termwinsize=18x200
 " nnoremap <leader>` :botright terminal<CR>
@@ -397,7 +442,7 @@ let g:mapleader = " "
 
 nnoremap <leader><      :cprev<CR>
 nnoremap <leader>>      :cnext<CR>
-nnoremap <leader>op     :source $MYVIMRC<CR>
+nnoremap <leader>sv     :source $MYVIMRC<CR>
 nnoremap <leader>so     :source $MYVIMRC<CR>
 nnoremap <leader><CR>   :source $MYVIMRC<CR>
 nnoremap <leader>w      :w!<CR>
@@ -489,6 +534,7 @@ noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>e :e! $MYVIMRC<cr>
+map <leader>ev :vsplit $MYVIMRC<cr>
 augroup SourceMyVimRc
   autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
@@ -523,7 +569,7 @@ nnoremap N Nzzzv
 nnoremap J mzJ`z
 
 " Make b movement inclusive
-onoremap b vb
+" onoremap b vb
 
 " greatest remap ever
 xnoremap <leader>p "_dP
@@ -549,10 +595,10 @@ nnoremap <leader>d "_d
 " Cause, of course
 inoremap <C-c> <esc>
 
-nmap     <leader>nt   <c-w>T
-nmap     <C-n>        :NERDTreeToggle<CR>
-nmap     <leader>n    :NERDTreeToggle<CR>
-map      \|           :NERDTreeFind<CR>
+nmap     <leader>nt             <c-w>T
+nmap     <silent>  <C-n>        :NERDTreeToggle<CR>
+nmap     <leader>n              :NERDTreeToggle<CR>
+map      \|                     :NERDTreeFind<CR>
 
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 imap <silent> <Home> <C-O><Home>
@@ -609,26 +655,35 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
 " Open vimgrep and put the cursor in the right position
-noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
+" noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 
 " Vimgreps in the current file
 noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
 
 map <nowait><leader>c :Colors<CR>
 nnoremap <leader>I    :Startify<CR>
-map <leader>b :Buffers<CR>
-map <leader>f :Files<CR>
-map <leader>W :Windows<CR>
-map <leader>H :History<CR>
-map <leader>M :Maps<CR>
-map <leader>t :FloatermToggle<CR>
 
+" FZF Search
+nnoremap <silent> <leader>b :Buffers<CR>
+" nnoremap <silent> <leader>i :Files<CR>
+nnoremap <silent> <leader>f :Rg<CR>
+" nnoremap <silent> <leader>/ :BLines<CR>
+nnoremap <silent> <leader>' :Marks<CR>
+nnoremap <silent> <leader>g :Commits<CR>
+nnoremap <silent> <leader>H :Helptags<CR>
+nnoremap <silent> <leader>hh :History<CR>
+nnoremap <silent> <leader>h: :History:<CR>
+nnoremap <silent> <leader>W :Windows<CR>
+nnoremap <silent> <leader>M :Maps<CR>
+nnoremap <silent> <leader>t :FloatermToggle<CR>
 " Easy bracket pairing
 inoremap<nowait>" ""<left>
 inoremap<nowait>' ''<left>
 inoremap<nowait>( ()<left>
 inoremap<nowait>[ []<left>
 inoremap<nowait>{ {}<left>
+
+command! BufOnly silent! execute "%bd|e#"
 
 " }}}
 " {{{ Status line
@@ -755,7 +810,7 @@ if has("autocmd")
     autocmd FileType c,cpp             setlocal path+=/usr/include include&
     autocmd FileType sh,zsh,csh,tcsh   setlocal include=^\\s*\\%(\\.\\\|source\\)\\s
     autocmd FileType dosbatch          setlocal include=^call | let &l:sua = tr($PATHEXT, ';', ',')
-    autocmd FileType json set shiftwidth=2 expandtab
+    autocmd FileType json              setlocal shiftwidth=2 expandtab
 
     autocmd FileType sh,zsh,csh,tcsh,dosbatch let &l:path =
           \ tr($PATH, has('win32') ? ';' : ':', ',') . ',.'

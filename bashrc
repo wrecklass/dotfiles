@@ -78,7 +78,7 @@ export IPV6_REGX='(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){
 
 # History variables are in .functions/history
 
-export LSCOLORS='Gxfxcxdxdxegedabagacad'
+# export LSCOLORS='Gxfxcxdxdxegedabagacad'
 # export CDPATH=".:~:~/src"
 export ORIGPATH="${PATH}"
 export PATH
@@ -115,17 +115,6 @@ for file in "${HOME}"/.shenv/*."${UNAME}" ; do
   fi
 done
 # }}}
-# {{{ DIRCOLORS
-# enable color support of ls and also add handy aliases
-if command -v dircolors > /dev/null 2>&1; then
-  if [ -r "${HOME}/.dircolors" ];then
-    eval "$(dircolors -b "${HOME}/.dircolors")"
-  else
-    eval "$(dircolors -b)"
-  fi
-  alias vdir='vdir --color=auto'
-fi
-# }}}
 # {{{ bash_completion
 
 if [ -r "/usr/share/bash-completion/bash_completion" ];then
@@ -138,6 +127,18 @@ else
   _log "No bash_completion script!"
 fi
 
+# This completion is not sourced until git<TAB> is used from the command
+# line. So we need to do it up front for our aliases
+if [ -r "/usr/share/bash-completion/completions/git" ];then
+  source "/usr/share/bash-completion/completions/git"
+elif [ -r "/usr/local/etc/completions/git" ];then
+  source "/usr/local/etc/completions/git"
+elif [ -r "/etc/bash_completion.d/git" ];then
+  source "/etc/bash_completion.d/git"
+else
+  _log "No git completion script!"
+fi
+
 # Cargo env
 if [ -f "$HOME/.cargo/env" ];then
   source "$HOME/.cargo/env"
@@ -148,6 +149,17 @@ if [ -f "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion" ]; then
   source "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion"
 fi
 
+# }}}
+# {{{ DIRCOLORS
+# enable color support of ls and also add handy aliases
+if command -v dircolors > /dev/null 2>&1; then
+  if [ -r "${HOME}/.dircolors" ];then
+    eval "$(dircolors -b "${HOME}/.dircolors")"
+  else
+    eval "$(dircolors -b)"
+  fi
+  alias vdir='vdir --color=auto'
+fi
 # }}}
 # {{{ Import our standard files and some specials
 # Import all of the files we use
