@@ -14,6 +14,9 @@ source $VIMRUNTIME/defaults.vim
 
 " let g:ale_completion_enabled = 1
 " set omnifunc=ale#completion#OmniFunc
+"
+" Allows us to disable ctags generation
+let g:gutentags_define_advanced_commands=1
 
 let g:ft_man_open_mode='tab'
 
@@ -284,6 +287,7 @@ let g:floaterm_autohide = 0
 let g:floaterm_autoclose = 2
 let g:floaterm_height = 34
 let g:floaterm_width = 120
+
 " }}}
 " {{{ ColorScheme
 

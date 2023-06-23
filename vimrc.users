@@ -3,13 +3,14 @@
 " Date: 10/25/21 01:44:17
 " {{{ Settings
 " Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
-if $UNAME == "cygwin"
-  let $TERM="cygwin"
-endif
+" if $UNAME == "cygwin"
+"   let $TERM="cygwin"
+" endif
 " Because file permissions don't matter much to us:
 set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
+source $VIMRUNTIME/defaults.vim
 
 " let g:ale_completion_enabled = 1
 " set omnifunc=ale#completion#OmniFunc
