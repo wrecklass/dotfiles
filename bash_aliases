@@ -147,6 +147,9 @@ alias irb='irb --readline -r irb/completion'
 
 alias ppath='echo -e ${PATH//:/\\n}'
 
+# Use fzf with a preview window
+alias pf='fzf --preview="bat -f {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 
@@ -155,8 +158,8 @@ alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias j='jobs'
 
 # File lists 'ls'
-alias dot='ls -dAF ${colorflag} .[a-zA-Z]*'
-alias dolt='ls -dlAF ${colorflag} .[a-zA-Z]*'
+alias dot='ls -dAF ${colorflag} .[a-zA-Z0-9]*'
+alias dolt='ls -dlAF ${colorflag} .[a-zA-Z0-9]*'
 # alias exl='exa --long'
 # alias exs='exa --sort size'
 alias l.='ls -dAF ${colorflag} .*'
