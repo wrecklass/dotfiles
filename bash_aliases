@@ -148,7 +148,11 @@ alias irb='irb --readline -r irb/completion'
 alias ppath='echo -e ${PATH//:/\\n}'
 
 # Use fzf with a preview window
-alias pf='fzf --preview="bat --color always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+if command -v bat > /dev/null 2>&1 ; then
+  alias pf='fzf --preview="bat --color always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+else
+  alias pf='fzf --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+fi
 
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
