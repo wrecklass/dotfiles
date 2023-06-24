@@ -39,7 +39,6 @@ vimfiles: vim ## Copy vim files to $HOME/.vim, Warning: $HOME/.vim is deleted fi
 	mkdir -p ~/.cache/undodir
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	PATH="/usr/local/bin:/sbin:/bin:/usr/bin:/usr/lib/lapack:" vim -c "PlugInstall" -c qa \; </dev/zero
-	dos2unix $(HOME)/.vim/plugged/wc.vim/plugin/wc.vim
 
 .PHONY := vimdocs
 vimdocs:             ## Create the vim helptags
