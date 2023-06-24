@@ -21,7 +21,9 @@ let g:gutentags_define_advanced_commands=1
 let g:ft_man_open_mode='tab'
 
 " set wildmode=longest,list,full
-set wildoptions=pum
+if v:version >= 900
+  set wildoptions=pum
+endif
 set wildmenu
 "Ignore files
 set wildignore+=*.o
