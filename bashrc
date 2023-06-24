@@ -164,7 +164,7 @@ fi
 # {{{ Import our standard files and some specials
 # Import all of the files we use
 # Note that bash_prompt is a case by case basis per OS
-for file in ~/.{bash_aliases,path,extra,exports,override}; do
+for file in ~/.{path,extra,exports,override}; do
   [[ -f "$file" ]] && _log ".bashrc file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
 done
