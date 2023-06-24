@@ -10,9 +10,9 @@
 [[ -f "$HOME/.functions/git-prompt" ]] && source "$HOME/.functions/git-prompt"
 [[ -f "$HOME/.functions/git-prompt.off" ]] && source "$HOME/.functions/git-prompt.off"
 
-if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color &>/dev/null ; then
   export TERM='gnome-256color'
-elif infocmp xterm-256color >/dev/null 2>&1; then
+elif infocmp xterm-256color &>/dev/null ; then
   export TERM='xterm-256color'
 fi
 declare -i r

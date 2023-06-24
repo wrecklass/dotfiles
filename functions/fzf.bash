@@ -141,7 +141,7 @@ _fzf_handle_dynamic_completion() {
   orig_var="_fzf_orig_completion_$cmd"
   orig="${!orig_var-}"
   orig="${orig##*#}"
-  if [[ -n "$orig" ]] && type "$orig" > /dev/null 2>&1; then
+  if [[ -n "$orig" ]] && type "$orig" &> /dev/null ; then
     $orig "$@"
   elif [[ -n "${_fzf_completion_loader-}" ]]; then
     orig_complete=$(complete -p "$orig_cmd" 2> /dev/null)
@@ -230,7 +230,7 @@ _fzf_complete() {
 
   local cur selected trigger cmd post
   post="$(caller 0 | awk '{print $2}')_post"
-  type -t "$post" > /dev/null 2>&1 || post=cat
+  type -t "$post" &> /dev/null || post=cat
 
   cmd="${COMP_WORDS[0]//[^A-Za-z0-9_=]/_}"
   trigger=${FZF_COMPLETION_TRIGGER-'**'}
@@ -322,7 +322,7 @@ a_cmds="
 # Preserve existing completion
 __fzf_orig_completion < <(complete -p $d_cmds $a_cmds 2> /dev/null)
 
-if type _completion_loader > /dev/null 2>&1; then
+if type _completion_loader &> /dev/null ; then
   _fzf_completion_loader=1
 fi
 
