@@ -21,7 +21,9 @@ let g:gutentags_define_advanced_commands=1
 let g:ft_man_open_mode='tab'
 
 " set wildmode=longest,list,full
-" set wildoptions=pum
+if v:version >= 900
+  set wildoptions=pum
+endif
 set wildmenu
 "Ignore files
 set wildignore+=*.o
@@ -217,6 +219,13 @@ highlight StartifySpecial ctermfg=240
 
 call plug#begin('~/.vim/plugged')
 
+
+" Plug 'terroo/vim-simple-emoji'
+" Plug 'junegunn/goyo.vim'
+Plug 'rhysd/clever-f.vim'
+Plug 'voldikss/vim-floaterm'
+Plug 'markonm/traces.vim'
+
 Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
@@ -245,15 +254,22 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'ervandew/supertab'
 
+" Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-scripts/loremipsum'
 " Plug 'wrecklass/wc.vim'
 Plug 'kkew3/wc.vim'
 
 " Ok, colorschemes:
+" Plug 'haystackandroid/carbonized'
+" Plug 'haystackandroid/vimspectr'
 Plug 'gruvbox-community/gruvbox'
+Plug 'nlknguyen/papercolor-theme'
 " Plug 'sainnhe/gruvbox-material'
 " Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
+" Plug 'haystackandroid/snow'
 Plug 'tomasiser/vim-code-dark'
+
+" Powerline Status Line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -332,7 +348,25 @@ try
   highlight String guifg=#87E7FE ctermfg=17
   highlight Identifier guifg=LightGreen
   highlight Function guifg=#4EB9C0
+  highlight CursorLine guibg=#41403f
   let g:airline_theme='codedark'
+
+  " let g:PaperColor_Theme_Options = {
+  " \   'theme': {
+  " \     'default.dark': {
+  " \       'override' : {
+  " \         'color00'       : ['#080808', '232'],
+  " \         'cursorline'    : ['#082838', '238'],
+  " \         'linenumber_fg' : ['#767676', '243'],
+  " \         'linenumber_bg' : ['#082838', '232'],
+  " \         'folded_bg'     : ['#223e55', '242'],
+  " \         'folded_fg'     : ['#afafaf', '235'],
+  " \       }
+  " \     }
+  " \   }
+  " \ }
+
+  " colorscheme PaperColor
 catch
 endtry
 
@@ -406,25 +440,6 @@ let g:airline_powerline_fonts=1
 " let g:airline_theme='base16_londontube'
 " let g:airline_theme='base16_irblack'
 " color00 = Background
-try
-  let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.dark': {
-  \       'override' : {
-  \         'color00'       : ['#080808', '232'],
-  \         'cursorline'    : ['#444444', '238'],
-  \         'linenumber_fg' : ['#767676', '243'],
-  \         'linenumber_bg' : ['#080808', '232'],
-  \         'folded_bg'     : ['#6c6c6c', '242'],
-  \         'folded_fg'     : ['#262626', '235'],
-  \       }
-  \     }
-  \   }
-  \ }
-
-catch
-endtry
-
 " }}}
 " {{{ Mappings
 
@@ -437,8 +452,6 @@ let g:mapleader = " "
 " tnoremap <c-j> <c-\><c-n><c-w>j
 " tnoremap <c-k> <c-\><c-n><c-w>k
 " set shell=/bin/bash
-
-
 
 nnoremap <leader><      :cprev<CR>
 nnoremap <leader>>      :cnext<CR>

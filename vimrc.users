@@ -3,13 +3,14 @@
 " Date: 10/25/21 01:44:17
 " {{{ Settings
 " Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
-if $UNAME == "cygwin"
-  let $TERM="cygwin"
-endif
+" if $UNAME == "cygwin"
+"   let $TERM="cygwin"
+" endif
 " Because file permissions don't matter much to us:
 set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
+source $VIMRUNTIME/defaults.vim
 
 " let g:ale_completion_enabled = 1
 " set omnifunc=ale#completion#OmniFunc
@@ -17,7 +18,7 @@ filetype off
 let g:ft_man_open_mode='tab'
 
 " Bookmarks for Startify:
-let g:startify_bookmarks = [ {'v': '~/.vimrc'} ]
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'c': 'c:/tools/bcurran3/choco-output.txt'} ]
 let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
 let g:startify_lists = [
           \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
@@ -26,14 +27,14 @@ let g:startify_lists = [
           \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
           \ ]
 
-hi StartifyBracket ctermfg=240
-hi StartifyFile    ctermfg=147
-hi StartifyFooter  ctermfg=240
-hi StartifyHeader  ctermfg=114
-hi StartifyNumber  ctermfg=215
-hi StartifyPath    ctermfg=245
-hi StartifySlash   ctermfg=240
-hi StartifySpecial ctermfg=240
+highlight StartifyBracket ctermfg=240
+highlight StartifyFile    ctermfg=147
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
 
 " set wildmode=longest,list,full
 set wildoptions=pum
@@ -57,7 +58,7 @@ endif
 
 " nvim is supposed to be nocompatible by default
 set nocompatible
-set exrc
+set noexrc
 set relativenumber
 set number
 
@@ -209,7 +210,7 @@ set fileformats=unix,dos,mac
 " {{{ Plugins
 so C:/Users/smartin/.vim/autoload/plug.vim
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('c:/Users/smartin/.vim/plugged')
 
 Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
@@ -218,16 +219,14 @@ Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'BurntSushi/ripgrep'
 Plug 'junegunn/vim-peekaboo'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'stsewd/fzf-checkout.vim'
-Plug 'vuciv/vim-bujo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
-Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
 Plug 'fisadev/vim-sane-gocomplete'
 
@@ -242,18 +241,19 @@ Plug 'ervandew/supertab'
 
 " Ok, colorschemes:
 Plug 'gruvbox-community/gruvbox'
+Plug 'tomasiser/vim-code-dark'
 " Plug 'sainnhe/gruvbox-material'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'terroo/vim-simple-emoji'
-Plug 'junegunn/goyo.vim'
+" Plug 'terroo/vim-simple-emoji'
+" Plug 'junegunn/goyo.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'markonm/traces.vim'
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-scripts/loremipsum'
-Plug 'vim-scripts/wc.vim--jcline'
+Plug 'vim-scripts/wc.vim--jcline', {'as' : 'wc.vim'}
 
 " ***** Only if we need em: *****
 " LOOKUP RFCs:
@@ -279,13 +279,44 @@ let g:floaterm_width = 120
 let g:gruvbox_italic=1
 
 try
-" colorscheme gruvbox-material
-  colorscheme gruvbox
+  syntax enable
+  syntax on
+  " colorscheme gruvbox-material
+  " colorscheme gruvbox
+
+  " highlight Statement guifg=#569CD6
+  " highlight Function guifg=#4EB9C0
+  " highlight Conditional guifg=LightGreen
+  " highlight Keyword     guifg=#569CD6
+  " highlight Statement guifg=#569cd6
+  " highlight Conditional guifg=#569cd6
+  " highlight Repeat guifg=#569cd6
+  " highlight Label guifg=#569cd6
+  " highlight Operator guifg=#569cd6
+  " highlight Exception guifg=#569cd6
+  " highlight PreProc guifg=#569cd6
+  " highlight Include guifg=#569cd6
+  " highlight Define guifg=#569cd6
+  " highlight Macro guifg=#569cd6
+  " highlight PreCondit guifg=#569cd6
+  " highlight String guifg=#6A9955 ctermfg=17
+  " highlight Comment guifg=#4E7D39 ctermfg=17
+
+  let g:codedark_conservative=1
+  let g:codedark_modern=0
+  let g:codedark_italics=1
+  let g:codedark_transparent=0
+  colorscheme codedark
+  highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
+  highlight String guifg=#87E7FE ctermfg=17
+  highlight Identifier guifg=LightGreen
+  highlight Function guifg=#4EB9C0
+  let g:airline_theme='codedark'
 catch
 endtry
 
 highlight Normal guibg=background
-hi QuickFixLine guibg=#65000B ctermbg=darkred
+highlight QuickFixLine guibg=#95000B guifg=#CFCFCF ctermbg=darkred
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
@@ -353,21 +384,21 @@ let g:airline_theme='base16_gruvbox_dark_hard'
 " color00 = Background
 try
   let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.dark': {
-  \       'override' : {
-  \         'color00'       : ['#080808', '232'],
-  \         'cursorline'    : ['#444444', '238'],
-  \         'linenumber_fg' : ['#767676', '243'],
-  \         'linenumber_bg' : ['#080808', '232'],
-  \         'folded_bg'     : ['#6c6c6c', '242'],
-  \         'folded_fg'     : ['#262626', '235'],
-  \       }
-  \     }
-  \   }
-  \ }
+        \   'theme': {
+        \     'default.dark': {
+        \       'override' : {
+        \         'color00'       : ['#080808', '232'],
+        \         'cursorline'    : ['#444444', '238'],
+        \         'linenumber_fg' : ['#767676', '243'],
+        \         'linenumber_bg' : ['#080808', '232'],
+        \         'folded_bg'     : ['#6c6c6c', '242'],
+        \         'folded_fg'     : ['#262626', '235'],
+        \       }
+        \     }
+        \   }
+        \ }
 
-  " colorscheme PaperColor
+" colorscheme PaperColor
 catch
 endtry
 
@@ -390,7 +421,7 @@ let g:mapleader = " "
 
 nnoremap <leader><      :cprev<CR>
 nnoremap <leader>>      :cnext<CR>
-nnoremap <leader>op     :source $MYVIMRC<CR>
+nnoremap <leader>sv     :source $MYVIMRC<CR>
 nnoremap <leader>so     :source $MYVIMRC<CR>
 nnoremap <leader><CR>   :source $MYVIMRC<CR>
 nnoremap <leader>w      :w!<CR>
@@ -416,7 +447,6 @@ nnoremap <leader>rp  :resize 100<CR>
 nnoremap <leader>s   :%s/
 nnoremap <leader>S   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
-nnoremap <leader>gt  <Plug>PlenaryTestFile
 nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
 nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
 nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
@@ -482,6 +512,7 @@ noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>e :e! $MYVIMRC<cr>
+map <leader>ev :vsplit $MYVIMRC<cr>
 augroup SourceMyVimRc
   autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
@@ -518,11 +549,15 @@ nnoremap J mzJ`z
 " Make b movement inclusive
 onoremap b vb
 
-" greatest remap ever
+" greatest remap ever, in Visual only delete current
+" selection and then paste current registry
 xnoremap <leader>p "_dP
-nnoremap <leader>p "+
+" Paste system clipboard to buffer
+nnoremap <leader>p "+p
+" Copy N lines to system clipboard
+nnoremap <leader>c "+yy
 
-" Paste in system clipboard with ^P
+" Paste in system clipboard with ^P -- Insert mode
 inoremap <expr> <c-p> pumvisible() ? '<c-p>' : '<c-r>+'
 
 " next greatest remap ever
@@ -607,7 +642,7 @@ noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 " Vimgreps in the current file
 noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
 
-map <nowait><leader>c :Colors<CR>
+" map <nowait><leader>c :Colors<CR>
 nnoremap <leader>I    :Startify<CR>
 map <leader>b :Buffers<CR>
 map <leader>f :Files<CR>
@@ -650,22 +685,22 @@ endfunction
 " }}}
 " {{{ Empty Registers (Marks)
 fun! EmptyRegisters()
-    let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890/-"', '\zs')
-    for r in regs
-        call setreg(r,[])
-    endfor
+  let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890/-"', '\zs')
+  for r in regs
+    call setreg(r,[])
+  endfor
 endfun
 " }}}
 " {{{ Trim all trailing whitespaces on save
 fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
 endfun
 
 augroup TWS
-    autocmd!
-    autocmd BufWritePre * :call TrimWhitespace()
+  autocmd!
+  autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 " }}}
 " {{{ visualselection
@@ -699,7 +734,17 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 " }}}
-" {{{ Bclose function
+" {{{ Functions
+
+" For some reason highlight commands don't work with the Windows EXE vim
+function! <SID>HighLightsCD()
+  highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
+  highlight String guifg=#87E7FE ctermfg=17
+  highlight Identifier guifg=LightGreen
+  highlight Function guifg=#4EB9C0
+endfunction
+call <SID>HighLightsCD()
+command! Codelights call <SID>HighLightsCD()
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
@@ -727,15 +772,15 @@ endfunction
 if has("autocmd")
 
   augroup FileTypes
-   " Remove on reload
+    " Remove on reload
     autocmd!
 
     filetype plugin indent on
     " Move to the last position ('") when this file was opened
     autocmd BufReadPost *
-            \  if line("'\"") > 0 && line("'\"") <= line("$") |
-            \    exe "normal! g'\"" |
-            \  endif
+          \  if line("'\"") > 0 && line("'\"") <= line("$") |
+          \    exe "normal! g'\"" |
+          \  endif
 
     " set viminfo^=%
     set viminfo='20,\"100,:100,%,n~/.viminfo

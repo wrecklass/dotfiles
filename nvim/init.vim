@@ -18,6 +18,15 @@ set wildignore+=**/.git/*
 
 set foldmethod=marker
 
+" Bookmarks for Startify:
+let g:startify_bookmarks = [ {'v': '~/AppData/Local/nvim/init.vim'} ]
+let g:startify_lists = [
+          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
+          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
+          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
+          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
+          \ ]
+
 " nvim is supposed to be nocompatible by default
 " set nocompatible
 set exrc
@@ -34,8 +43,9 @@ set smartcase
 set ignorecase
 set noswapfile
 set nobackup
-set undodir=C:/Users/smartin/.vim/undodir
+set undodir=C:\Users\smartin\AppData\Local\nvim\undodir
 set undofile
+set undolevels=5000
 set incsearch
 set termguicolors
 set scrolloff=8
@@ -61,7 +71,7 @@ set updatetime=50
 " set shortmess+=c
 " }}}
 " {{{ Plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('C:\Users\smartin\AppData\Local\nvim\plugged\')
 
 " Plebvim lsp Plugins
 " Plug 'neovim/nvim-lspconfig'
@@ -97,6 +107,8 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-projectionist'
 
+Plug 'terryma/vim-smooth-scroll'
+
 " Telescope requirements:
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -105,6 +117,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'mhinz/vim-startify'
 Plug 'sainnhe/gruvbox-material'
 Plug 'vim-conf-live/vimconflive2021-colorscheme'
 Plug 'ap/vim-css-color'
@@ -113,9 +126,9 @@ call plug#end()
 " }}}
 " {{{ GUI
 " Much better than the Bright lights of plain gruvbox...
-" colorscheme vimconflive-2021
+colorscheme vimconflive-2021
 " colorscheme gruvbox
-colorscheme gruvbox-material
+" colorscheme gruvbox-material
 highlight Normal guibg=background
 
 if has ("gui")
@@ -128,6 +141,19 @@ let g:airline_theme='ayu_dark'
 " mode lhs rhs
 let   mapleader = " "
 " let g:mapleader = " "
+
+" FZF Search
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>i :Files<CR>
+nnoremap <silent> <leader>f :Rg<CR>
+nnoremap <silent> <leader>/ :BLines<CR>
+nnoremap <silent> <leader>' :Marks<CR>
+nnoremap <silent> <leader>g :Commits<CR>
+nnoremap <silent> <leader>H :Helptags<CR>
+nnoremap <silent> <leader>hh :History<CR>
+nnoremap <silent> <leader>h: :History:<CR>
+
+
 
 nnoremap <silent> Q <nop>
 
@@ -157,6 +183,13 @@ nnoremap <leader>gt  <Plug>PlenaryTestFile
 nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
 nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
 nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
+
+" Smooth movements
+" noremap <silent> <space> :call smooth_scroll#down(&scroll,20,1)<CR>
+noremap <silent> <c-b>   :call smooth_scroll#up(&scroll,20,1)<CR>
+noremap <silent> <c-f>   :call smooth_scroll#down(&scroll,20,1)<CR>
+noremap <silent> <c-u>   :call smooth_scroll#up(&scroll/2,20,1)<CR>
+noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs

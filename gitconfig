@@ -1,3 +1,5 @@
+# Author Stephen Martin
+# Global Git configuration
 # {{{ Global Configuration
 [color]
   ui= true
@@ -108,8 +110,6 @@
 
   # Start new work
   up = !git pull --rebase --prune $@ && git submodule update --init --recursive
-  # Prepare to work on a new branch:
-  cob = checkout -b
   # Go to a branch, creating if necessary:
   go ="!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
   # Because I forget that git isn't SVN
@@ -176,6 +176,7 @@
   # Show verbose output of tags and branches and remotes
   tags = tag -n
   branches = branch -a
+  br = branch
   b  = branch -v
   bs = branch -a
   remotes = remote -v
@@ -197,7 +198,8 @@
   commit = ci
   # Saves some typing like the old 'svn co'
   co = checkout
-  br = branch
+  # Prepare to work on a new branch:
+  cob = checkout -b
   diff = diff --word-diff
   dc = diff --cached
 

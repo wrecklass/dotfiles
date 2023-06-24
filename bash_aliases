@@ -24,7 +24,7 @@ fi
 
 # Detect which `ls` flavor is in use
 export colorflag="-G"
-if ls --color > /dev/null 2>&1; then # GNU `ls`
+if ls --color &> /dev/null ; then # GNU `ls`
   colorflag="--color"
 fi # OS X `ls`
 
@@ -148,8 +148,8 @@ alias irb='irb --readline -r irb/completion'
 alias ppath='echo -e ${PATH//:/\\n}'
 
 # Use fzf with a preview window
-if command -v bat > /dev/null 2>&1 ; then
-  alias pf='fzf --preview="bat --color always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+if command -v bat &> /dev/null ; then
+  alias pf='fzf --preview="bat -f {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
 else
   alias pf='fzf --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
 fi
@@ -227,7 +227,7 @@ fi
 alias svi='sudo vim'
 alias via='vi ~/.ssh/assh.yml'
 alias sw='telnet  towel.blinkenlights.nl'
-# alias sx='startxwin.sh > .xwin_errors 2>&1'
+# alias sx='startxwin.sh &> .xwin_errors'
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
