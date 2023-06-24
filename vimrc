@@ -346,6 +346,7 @@ try
   highlight String guifg=#87E7FE ctermfg=17
   highlight Identifier guifg=LightGreen
   highlight Function guifg=#4EB9C0
+  highlight CursorLine guibg=#41403f
   let g:airline_theme='codedark'
 
   " let g:PaperColor_Theme_Options = {
