@@ -70,7 +70,7 @@ _vifind() {
 
 _vifzf() {
   if command -v bat &> /dev/null;then
-    vim $(fzf --preview="bat -f {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)
+    vim $(fzf --preview="bat --color=always --decorations=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)
   else
     vim $(fzf --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)
   fi

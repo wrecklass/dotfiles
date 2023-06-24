@@ -149,7 +149,7 @@ alias ppath='echo -e ${PATH//:/\\n}'
 
 # Use fzf with a preview window
 if command -v bat &> /dev/null ; then
-  alias pf='fzf --preview="bat -f {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+  alias pf='fzf --preview="bat --color=always --decorations=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
 else
   alias pf='fzf --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
 fi
