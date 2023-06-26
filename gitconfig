@@ -128,6 +128,7 @@
   dts = !date +'%s'
 
   pushall = !git remote | xargs -I X git push X --all
+  pushtags = !git remote | xargs -I X git push X --tags
 
   # Note that this adds UNTRACKED files to the repository:
   cm = !git add -A && git commit -m
