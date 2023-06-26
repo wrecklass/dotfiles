@@ -18,11 +18,12 @@
   editor = /usr/bin/vim
 [diff]
   tool = vimdiff
+[difftool]
+  prompt = false
 [push]
   default = simple
 [credential]
   helper = store
-# This is Git's per-user configuration file.
 [user]
   name = Stephen Martin
   email = smartin5590@gmail.com
@@ -30,6 +31,7 @@
   summary = true
   verbosity = 1
   tool = vimdiff
+  conflictstyle = diff3
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -219,5 +221,4 @@
   sa = stash apply
   ss = stash save
 # }}}
-
 #vim: set et sw=2 foldmethod=marker
