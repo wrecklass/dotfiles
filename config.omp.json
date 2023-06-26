@@ -34,7 +34,7 @@
           "foreground": "p:black",
           "background": "p:green",
           "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .HostName }}",
-          "max_width": 130
+          "max_width": 120
         },
         {
           "type": "session",
@@ -43,7 +43,7 @@
           "foreground": "p:black",
           "background": "p:green",
           "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }}",
-          "min_width": 131
+          "min_width": 121
         },
         {
           "type": "path",
