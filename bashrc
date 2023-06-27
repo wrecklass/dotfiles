@@ -99,8 +99,8 @@ export UNAME
 # }}}
 # {{{ shenv for different environments
 # Variables specific to the OS environment
+FZF=$(command -v fzf)
 for file in "${HOME}"/.shenv/*."${UNAME}" ; do
-  FZF=$(command -v fzf)
   if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
     _log "Not sourcing ${file}"
     continue
@@ -175,6 +175,10 @@ unset file
 # Get our functions
 if [ -d "${HOME}/.functions/" ];then
   for SCRIPT in "${HOME}"/.functions/*; do
+    if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
+      _log "Not sourcing ${file}"
+      continue
+    fi
     if [[ "${SCRIPT}" =~ "off" ]];then
       continue
     fi
