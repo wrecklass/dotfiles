@@ -53,7 +53,7 @@
           "background": "p:orange",
           "properties": {
             "folder_seperator_icon": "/",
-            "home_icon": "\uf46d",
+            "home_icon": "\uf46d ",
             "mapped_locations": {
               "C:/Users/smartin": "\uf4e2"
             },

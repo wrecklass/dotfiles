@@ -46,6 +46,10 @@ _log() {
 _log ".profile"
 # }}}
 # {{{ Includes
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+
 if [ -n "${BASH_VERSION}" ]; then
   if [ -f "${HOME}/.bash_profile" ]; then
     # This will source .bashrc for us.
