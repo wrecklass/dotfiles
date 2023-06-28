@@ -34,7 +34,7 @@
 
 # if running bash
 # {{{ Logging
-declare -x -i VERBOSE=0
+export VERBOSE=0
 
 _log() {
     if [ "$VERBOSE" -eq 1 ];then
