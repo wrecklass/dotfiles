@@ -196,7 +196,8 @@ set fileformats=unix,dos,mac
 " }}}
 " {{{ Startify
 " Bookmarks for Startify:
-let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'}, {'c': '/c/tools/bcurran3/choco-output.txt'} ]
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'} ]
+let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'} ]
 let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
 let g:startify_lists = [
           \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
@@ -219,7 +220,6 @@ highlight StartifySpecial ctermfg=240
 
 call plug#begin('~/.vim/plugged')
 
-
 " Plug 'terroo/vim-simple-emoji'
 " Plug 'junegunn/goyo.vim'
 Plug 'rhysd/clever-f.vim'
@@ -234,7 +234,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'BurntSushi/ripgrep'
 Plug 'junegunn/vim-peekaboo'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'stsewd/fzf-checkout.vim'
+" Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'       " :GV to browse git history
@@ -243,21 +243,22 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 " Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
-Plug 'fisadev/vim-sane-gocomplete'
+" Plug 'fisadev/vim-sane-gocomplete'
 
 Plug 'terryma/vim-smooth-scroll'
 
-Plug 'ap/vim-css-color'
+" Plug 'ap/vim-css-color'
 
-Plug 'frazrepo/vim-rainbow'
+" Just really really slow:
+" Plug 'frazrepo/vim-rainbow'
 
 Plug 'mhinz/vim-startify'
 Plug 'ervandew/supertab'
 
 " Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-scripts/loremipsum'
-" Plug 'wrecklass/wc.vim'
-Plug 'kkew3/wc.vim'
+Plug 'wrecklass/wc.vim'
+" Plug 'kkew3/wc.vim'
 
 " Ok, colorschemes:
 " Plug 'haystackandroid/carbonized'
