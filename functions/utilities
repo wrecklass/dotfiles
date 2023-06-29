@@ -65,7 +65,7 @@ path() {
 
   local tmp="${1%/}"
   if [[ -n "${tmp}" ]] && [[ -d "${tmp}" ]];then
-    if ! grep -q "${tmp}" <<<${PATH} ; then
+    if ! /bin/grep -q "${tmp}" <<<${PATH} ; then
       PATH="${tmp}:$PATH"
     fi
   fi
