@@ -26,14 +26,14 @@ blocks:
         foreground: p:black
         background: p:green
         template: '{{ if .SSHSession }} {{ end }}{{ .HostName }}'
-        max_width: 130
+        max_width: 120
       - type: session
         style: powerline
         powerline_symbol: 
         foreground: p:black
         background: p:green
         template: '{{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }}'
-        min_width: 131
+        min_width: 121
       - type: path
         style: powerline
         powerline_symbol: 
@@ -41,7 +41,7 @@ blocks:
         background: p:orange
         properties:
           folder_seperator_icon: /
-          home_icon: 
+          home_icon: ' '
           mapped_locations:
             C:/Users/smartin: 
           max_width: 24
