@@ -22,7 +22,7 @@ let g:ft_man_open_mode='tab'
 
 " set wildmode=longest,list,full
 if v:version >= 900
-  set wildoptions=pum
+  set wildoptions+=pum
 endif
 set wildmenu
 "Ignore files
@@ -35,6 +35,7 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
+set wildignore+=**/.hg/*
 
 if has('folding')
   set foldmethod=marker
