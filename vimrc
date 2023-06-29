@@ -502,15 +502,15 @@ nnoremap \l :setlocal number!<CR>
 noremap <leader>l :setlocal relativenumber!<CR>
 
 " Turn off hlsearch temporarily
-nnoremap \q :set hlsearch!<CR> :setlocal hlsearch?<CR>
-noremap <leader>h :setlocal hlsearch!<CR> :setlocal hlsearch?<CR>
+nnoremap \q :set hlsearch!<CR>:setlocal hlsearch?<CR>
+noremap <leader>h :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
 
 " Globally search and replace the <word> under the cursor
 nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
 
 
 " Toggle case sensitive search
-nnoremap <leader>i :setlocal ic!<CR> :setlocal ic?<CR>
+nnoremap <leader>i :setlocal ic!<CR>:setlocal ic?<CR>
 
 " F2 = pastetoggle
 " Repeat last search, because reasons
@@ -647,7 +647,7 @@ ab cbe2 ■
 ab okk ✓
 ab str ★
 
-nnoremap bs i#!/bin/bash<ESC>0
+" nnoremap bs i#!/bin/bash<ESC>0
 nnoremap be i#!/usr/bin/env bash<ESC>0
 nnoremap bp i#!/usr/bin/env python<ESC>0
 nnoremap br i#!/usr/bin/env ruby<ESC>0
