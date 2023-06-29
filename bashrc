@@ -24,6 +24,14 @@ esac
 # }}}
 # {{{ Logging
 # Set =1 for verbose output
+# UNAMECMD=$(command -v uname)
+UNAMECMD="/usr/bin/uname"
+: "${HOME=~}"
+: "${UNAME=$($UNAMECMD -o | /usr/bin/tr '[:upper:]' '[:lower:]')}"
+echo $UNAME
+if [ ${UNAME} = "cygwin" ]; then
+  PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
+fi
 declare -x -i VERBOSE=0
 
 _log() {
@@ -34,6 +42,7 @@ _log() {
 }
 
 _log ".bashrc"
+# _log "PATH: $PATH"
 # }}}
 # {{{ shopts
 
@@ -88,9 +97,6 @@ export LESS='FXRj5'
 # Make sure we only source this once
 # [[ -z "${CYG_HOME_BASHRC}" ]] && CYG_HOME_BASHRC="1" || return 0
 
-UNAMECMD=$(command -v uname)
-: "${HOME=~}"
-: "${UNAME=$($UNAMECMD -o | tr '[:upper:]' '[:lower:]')}"
 # Change various versions of CYGWIN_NT-XX.X to just 'cygwin'
 # To make sourcing our defaults environment easier.
 # UNAME="${UNAME/cygwin*/cygwin}"
@@ -101,11 +107,6 @@ export UNAME
 # Variables specific to the OS environment
 FZF=$(command -v fzf)
 for file in "${HOME}"/.shenv/*."${UNAME}" ; do
-  if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
-    _log "Not sourcing ${file}"
-    continue
-  fi
-
   _log "Sourcing ${file}"
 
   if [[ -r "${file}" ]]; then

@@ -3,11 +3,11 @@
 # If we've already read these, don't do it again
 [[ -z "${SET_ALIASES}" ]] && readonly SET_ALIASES=true || return 0
 _log ".bash_aliases"
-
+_log "SHELL: $SHELL"
 hub_path=$(command -v hub)
 if [ -n "${hub_path}" ];then
   # alias git="${hub_path}"
-  eval "$(hub alias -s)"
+  eval "$(hub alias -s "$SHELL")"
 fi
 
 
