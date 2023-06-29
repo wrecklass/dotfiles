@@ -23,15 +23,15 @@ case $- in
 esac
 # }}}
 # {{{ Logging
-# Set =1 for verbose output
 # UNAMECMD=$(command -v uname)
 UNAMECMD="/usr/bin/uname"
 : "${HOME=~}"
 : "${UNAME=$($UNAMECMD -o | /usr/bin/tr '[:upper:]' '[:lower:]')}"
-echo $UNAME
 if [ ${UNAME} = "cygwin" ]; then
   PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
 fi
+
+# Set =1 for verbose output
 declare -x -i VERBOSE=0
 
 _log() {
