@@ -242,6 +242,7 @@ Plug 'junegunn/gv.vim'       " :GV to browse git history
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
 " Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
 " Plug 'fisadev/vim-sane-gocomplete'
