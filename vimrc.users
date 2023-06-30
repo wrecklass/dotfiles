@@ -10,6 +10,7 @@ endif
 set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
+source $VIMRUNTIME/defaults.vim
 
 " let g:ale_completion_enabled = 1
 " set omnifunc=ale#completion#OmniFunc
@@ -312,6 +313,7 @@ try
   highlight String guifg=#87E7FE ctermfg=17
   highlight Identifier guifg=LightGreen
   highlight Function guifg=#4EB9C0
+  highlight CursorLine guibg=#41403f
   let g:airline_theme='codedark'
 catch
 endtry
@@ -743,6 +745,10 @@ function! <SID>HighLightsCD()
   highlight String guifg=#87E7FE ctermfg=17
   highlight Identifier guifg=LightGreen
   highlight Function guifg=#4EB9C0
+  highlight QuickFixLine guibg=#95000B guifg=#CFCFCF ctermbg=darkred
+  highlight Normal guibg=background
+  highlight CursorLine guibg=#41403f
+  redraw
 endfunction
 call <SID>HighLightsCD()
 command! Codelights call <SID>HighLightsCD()
