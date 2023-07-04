@@ -30,7 +30,15 @@ declare -x -l UNAME
 : "${UNAME=$($UNAMECMD -o)}"
 export UNAME
 if [ "${UNAME}" = "cygwin" ]; then
-  PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
+  PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/lib/lapack:$PATH"
+fi
+
+if [[ -z "$USER" ]]; then
+  USER="$(/usr/bin/id -un)"
+fi
+
+if [[ -z "$HOSTNAME" ]]; then
+  HOSTNAME="$(/usr/bin/hostname)"
 fi
 
 # Set =1 for verbose output
@@ -44,6 +52,7 @@ _log() {
 }
 
 _log ".bashrc"
+_log "USER: $USER"
 # _log "PATH: $PATH"
 # }}}
 # {{{ shopts
