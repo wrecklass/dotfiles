@@ -29,7 +29,7 @@ declare -x -l UNAME
 : "${HOME=~}"
 : "${UNAME=$($UNAMECMD -o)}"
 export UNAME
-if [ ${UNAME} = "cygwin" ]; then
+if [ "${UNAME}" = "cygwin" ]; then
   PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
 fi
 

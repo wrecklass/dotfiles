@@ -249,11 +249,11 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 if [ -z "$EDITOR" ];then
   export EDITOR="/bin/vim"
 fi
-alias vi="$EDITOR"
-alias vim="$EDITOR"
-alias vimrc="$EDITOR ${HOME}/.vimrc"
-alias vib="$EDITOR ~/.bashrc"
-alias iv="$EDITOR"
+alias vi="\$EDITOR"
+alias vim="\$EDITOR"
+alias vimrc="\$EDITOR \${HOME}/.vimrc"
+alias vib="\$EDITOR ~/.bashrc"
+alias iv="\$EDITOR"
 
 alias week='date +%V'
 alias wcl='wc -l'

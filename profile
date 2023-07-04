@@ -53,11 +53,11 @@ export LANGUAGE="en_US.UTF-8"
 if [ -n "${BASH_VERSION}" ]; then
   if [ -f "${HOME}/.bash_profile" ]; then
     # This will source .bashrc for us.
-    # shellcheck source=./bash_profile
+    # shellcheck source=/dev/null
     source "${HOME}/.bash_profile"
   elif [ -f "${HOME}/.bashrc" ]; then
     # Ok, so we do it ourselves
-    # shellcheck source=./bashrc
+    # shellcheck source=/dev/null
     source "${HOME}/.bashrc"
   fi
 fi
@@ -65,6 +65,7 @@ _log ".profile done"
 
 # Cargo env
 if [ -f "$HOME/.cargo/env" ];then
+  # shellcheck source=/dev/null
   source "$HOME/.cargo/env"
 fi
 # }}}

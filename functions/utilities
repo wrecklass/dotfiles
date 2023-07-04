@@ -6,14 +6,13 @@ alias dush='_dush'
 
 function _err {
   if [ "$#" -ne 1 ];then
-    printf "usage: $FUNCNAME N\n"
+    printf "usage: %s\n" "${FUNCNAME[@]}"
     printf "where N is an Integer\n"
     return 2
   fi
 
   # The numeric error codes are 'SpaceNUMTab'
-  grep -P " ${*}\t" /usr/include/sys/errno.h 2> /dev/null
-  if [ "${?}" != 0 ];then
+  if ! grep -P " ${*}\t" /usr/include/sys/errno.h 2> /dev/null ; then
     echo "Not found."
   fi
 }
@@ -63,9 +62,10 @@ _dush() {
 
 path() {
 
-  local tmp="${1%/}"
+  local tmp
+  tmp="${1%/}"
   if [[ -n "${tmp}" ]] && [[ -d "${tmp}" ]];then
-    if ! /bin/grep -q "${tmp}" <<<${PATH} ; then
+    if ! /bin/grep -q "${tmp}" <<<"${PATH}" ; then
       PATH="${tmp}:$PATH"
     fi
   fi
@@ -75,21 +75,23 @@ path() {
 
 # Determine size of a file or total size of a directory
 fs() {
+  local arg
   if du -b /dev/null &> /dev/null ; then
-    local arg="-sbh"
+    arg="-sbh"
   else
-    local arg="-sh"
+    arg="-sh"
   fi
-  if [[ -n "$@" ]]; then
+  if [[ -n "$*" ]]; then
     du $arg -- "$@"
   else
-    du $arg .[^.]* *
+    du $arg -- .[^.]* *
   fi
 }
 
 # Create a data URL from a file
 dataurl() {
-  local mimeType=$(file -b --mime-type "$1")
+  local mimeType
+  mimeType=$(file -b --mime-type "$1")
   if [[ $mimeType == text/* ]]; then
     mimeType="${mimeType};charset=utf-8"
   fi
@@ -107,9 +109,12 @@ server() {
 
 # Compare original and gzipped file size
 gz() {
-  local origsize=$(wc -c < "$1")
-  local gzipsize=$(gzip -c "$1" | wc -c)
-  local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l)
+  local origsize
+  local gzipsize
+  local ratio
+  origsize=$(wc -c < "$1")
+  gzipsize=$(gzip -c "$1" | wc -c)
+  ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l)
   printf "orig: %d bytes\n" "$origsize"
   printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio"
 }
@@ -126,7 +131,7 @@ mwiki() {
 
 # UTF-8-encode a string of Unicode symbols
 escape() {
-  printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
+  printf "\\\x%s" "$(printf "%s" "$@" | xxd -p -c1 -u)"
   # print a newline unless we’re piping the output to another program
   if [ -t 1 ]; then
     echo ""; # newline
@@ -135,7 +140,7 @@ escape() {
 
 # Decode \x{ABCD}-style Unicode escape sequences
 unidecode() {
-  perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
+  perl -e "binmode(STDOUT, ':utf8'); print \"$*\""
   # print a newline unless we’re piping the output to another program
   if [ -t 1 ]; then
     echo ""; # newline
@@ -144,7 +149,7 @@ unidecode() {
 
 # Get a character’s Unicode code point
 codepoint() {
-  perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))"
+  perl -e "use utf8; print sprintf('U+%04X', ord(\"$*\"))"
   # print a newline unless we’re piping the output to another program
   if [ -t 1 ]; then
     echo ""; # newline
@@ -163,12 +168,17 @@ v() {
 
 # Call from a local repo to open the repository on github/bitbucket in browser
 repo() {
-  local giturl=$(git config --get remote.origin.url | sed 's/git@/\/\//g' | sed 's/.git$//' | sed 's/https://g' | sed 's/:/\//g')
+  local giturl
+
+  giturl=$(git config --get remote.origin.url | sed 's/git@/\/\//g' | sed 's/.git$//' | sed 's/https://g' | sed 's/:/\//g')
+
   if [[ $giturl == "" ]]; then
     echo "Not a git repository or no remote.origin.url is set."
   else
-    local gitbranch=$(git rev-parse --abbrev-ref HEAD)
-    local giturl="http:${giturl}"
+    local gitbranch
+    local giturl
+    gitbranch=$(git rev-parse --abbrev-ref HEAD)
+    giturl="http:${giturl}"
 
     if [[ $gitbranch != "master" ]]; then
       if echo "${giturl}" | grep -i "bitbucket" > /dev/null ; then
@@ -178,8 +188,8 @@ repo() {
       fi
     fi
 
-    echo $giturl
-    open $giturl
+    echo "$giturl"
+    open "$giturl"
   fi
 }
 
@@ -196,13 +206,13 @@ fi
 alias man="__man"
 __man() {
   env \
-    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-    LESS_TERMCAP_md=$(printf "\e[1;31m") \
-    LESS_TERMCAP_me=$(printf "\e[0m") \
-    LESS_TERMCAP_se=$(printf "\e[0m") \
-    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-    LESS_TERMCAP_ue=$(printf "\e[0m") \
-    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    LESS_TERMCAP_mb="$(printf "\e[1;31m")" \
+    LESS_TERMCAP_md="$(printf "\e[1;31m")" \
+    LESS_TERMCAP_me="$(printf "\e[0m")" \
+    LESS_TERMCAP_se="$(printf "\e[0m")" \
+    LESS_TERMCAP_so="$(printf "\e[1;44;33m")" \
+    LESS_TERMCAP_ue="$(printf "\e[0m")" \
+    LESS_TERMCAP_us="$(printf "\e[1;32m")" \
     man "$@"
 }
 

@@ -453,7 +453,7 @@ __git_ps1 ()
           git describe --contains --all HEAD ;;
         (describe)
           git describe HEAD ;;
-        (* | default)
+        (*)
           git describe --tags --exact-match HEAD ;;
         esac 2>/dev/null)" ||
 
