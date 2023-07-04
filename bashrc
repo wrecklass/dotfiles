@@ -25,8 +25,10 @@ esac
 # {{{ Logging
 # UNAMECMD=$(command -v uname)
 UNAMECMD="/usr/bin/uname"
+declare -x -l UNAME
 : "${HOME=~}"
-: "${UNAME=$($UNAMECMD -o | /usr/bin/tr '[:upper:]' '[:lower:]')}"
+: "${UNAME=$($UNAMECMD -o)}"
+export UNAME
 if [ ${UNAME} = "cygwin" ]; then
   PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
 fi
@@ -100,8 +102,7 @@ export LESS='FXRj5'
 # Change various versions of CYGWIN_NT-XX.X to just 'cygwin'
 # To make sourcing our defaults environment easier.
 # UNAME="${UNAME/cygwin*/cygwin}"
-UNAME="${UNAME/*linux/Linux}"
-export UNAME
+# UNAME="${UNAME/*linux/Linux}"
 # }}}
 # {{{ shenv for different environments
 # Variables specific to the OS environment
