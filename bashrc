@@ -41,6 +41,12 @@ if [[ -z "$HOSTNAME" ]]; then
   HOSTNAME="$(/usr/bin/hostname)"
 fi
 
+# Change various versions of CYGWIN_NT-XX.X to just 'cygwin'
+# To make sourcing our defaults environment easier.
+# UNAME="${UNAME/cygwin*/cygwin}"
+# change "gnu/linux" to just "linux"
+UNAME="${UNAME/*linux/linux}"
+
 # Set =1 for verbose output
 declare -x -i VERBOSE=0
 
@@ -53,6 +59,7 @@ _log() {
 
 _log ".bashrc"
 _log "USER: $USER"
+_log "UNAME: $UNAME"
 # _log "PATH: $PATH"
 # }}}
 # {{{ shopts
@@ -107,11 +114,6 @@ export LESS='FXRj5'
 
 # Make sure we only source this once
 # [[ -z "${CYG_HOME_BASHRC}" ]] && CYG_HOME_BASHRC="1" || return 0
-
-# Change various versions of CYGWIN_NT-XX.X to just 'cygwin'
-# To make sourcing our defaults environment easier.
-# UNAME="${UNAME/cygwin*/cygwin}"
-# UNAME="${UNAME/*linux/Linux}"
 # }}}
 # {{{ shenv for different environments
 # Variables specific to the OS environment
