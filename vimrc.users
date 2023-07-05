@@ -816,10 +816,6 @@ function! <SID>BufcloseCloseIt()
   endif
 endfunction
 
-
-" Vim with all enhancements
-source $VIMRUNTIME/vimrc_example.vim
-
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.
 if &diffopt !~# 'internal'
