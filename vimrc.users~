@@ -125,7 +125,7 @@ set nobackup
 set nowb
 
 " Where to store undo history
-set undodir=~/.cache/undodir
+set undodir=~/.vim/undodir
 set undofile
 set undolevels=5000
 
@@ -197,7 +197,7 @@ set fileformats=unix,dos,mac
 " }}}
 " {{{ Startify
 " Bookmarks for Startify:
-let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'} ]
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'c': 'c:/tools/bcurran3/choco-output.txt'} ]
 let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'} ]
 let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
 let g:startify_lists = [
@@ -218,9 +218,9 @@ highlight StartifySlash   ctermfg=240
 highlight StartifySpecial ctermfg=240
 " }}}
 " {{{ Plugins
-"
+so C:/Users/smartin/.vim/autoload/plug.vim
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('c:/Users/smartin/.vim/plugged')
 
 " Plug 'terroo/vim-simple-emoji'
 " Plug 'junegunn/goyo.vim'
@@ -235,7 +235,7 @@ Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'BurntSushi/ripgrep'
 Plug 'junegunn/vim-peekaboo'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 " Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
