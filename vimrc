@@ -342,17 +342,17 @@ try
   " colorscheme vimspectrgrey-dark
 
 
-  let g:codedark_conservative=1
-  let g:codedark_modern=0
-  let g:codedark_italics=1
-  let g:codedark_transparent=0
-  colorscheme codedark
-  highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
-  highlight String guifg=#87E7FE ctermfg=17
-  highlight Identifier guifg=LightGreen
-  highlight Function guifg=#4EB9C0
-  highlight CursorLine guibg=#41403f
-  let g:airline_theme='codedark'
+  " let g:codedark_conservative=1
+  " let g:codedark_modern=0
+  " let g:codedark_italics=1
+  " let g:codedark_transparent=0
+  " colorscheme codedark
+  " highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
+  " highlight String guifg=#87E7FE ctermfg=17
+  " highlight Identifier guifg=LightGreen
+  " highlight Function guifg=#4EB9C0
+  " highlight CursorLine guibg=#41403f
+  " let g:airline_theme='codedark'
 
   " let g:PaperColor_Theme_Options = {
   " \   'theme': {
@@ -369,7 +369,8 @@ try
   " \   }
   " \ }
 
-  " colorscheme PaperColor
+  colorscheme PaperColor
+  let g:airline_theme='papercolor'
 catch
 endtry
 
