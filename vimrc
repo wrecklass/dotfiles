@@ -104,6 +104,9 @@ set matchpairs+=<:>
 " Highlight the cursor line and column on display
 set cursorline
 set cursorcolumn
+" No column ruler at 80 characters.
+set colorcolumn=
+
 
 " Where the backspace key works
 set backspace=eol,start,indent
@@ -136,9 +139,6 @@ set termguicolors
 set showmode
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes
-
-" No column ruler at 80 characters.
-set colorcolumn=
 
 set pastetoggle=<F2>
 
@@ -354,20 +354,25 @@ try
   " highlight CursorLine guibg=#41403f
   " let g:airline_theme='codedark'
 
-  " let g:PaperColor_Theme_Options = {
-  " \   'theme': {
-  " \     'default.dark': {
-  " \       'override' : {
+  let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.dark': {
+  \       'allow_italic'  : 1,
+  \       'override' : {
+  \         'color10'       : ['#0087af', '31'],
+  \         'color05'       : ['#008700', '28'],
+  \         'cursorline'    : ['#002f57', '24'],
+  \         'cursorcolumn'  : ['#002f57', '24'],
+  \         'folded_bg'     : ['#223e55', '242'],
+  \         'folded_fg'     : ['#afafaf', '146'],
+  \       }
+  \     }
+  \   }
+  \ }
+
   " \         'color00'       : ['#080808', '232'],
-  " \         'cursorline'    : ['#082838', '238'],
-  " \         'linenumber_fg' : ['#767676', '243'],
   " \         'linenumber_bg' : ['#082838', '232'],
-  " \         'folded_bg'     : ['#223e55', '242'],
-  " \         'folded_fg'     : ['#afafaf', '235'],
-  " \       }
-  " \     }
-  " \   }
-  " \ }
+  " \         'linenumber_fg' : ['#767676', '243'],
 
   colorscheme PaperColor
   let g:airline_theme='papercolor'
@@ -793,7 +798,7 @@ function! <SID>HighLightsCD()
   highlight CursorLine guibg=#41403f
   redraw
 endfunction
-call <SID>HighLightsCD()
+" call <SID>HighLightsCD()
 command! Codelights call <SID>HighLightsCD()
 
 " Don't close window, when deleting a buffer
