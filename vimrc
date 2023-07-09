@@ -229,7 +229,8 @@ Plug 'voldikss/vim-floaterm'
 Plug 'markonm/traces.vim'
 
 Plug 'vim-utils/vim-man'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
