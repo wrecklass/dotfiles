@@ -43,8 +43,6 @@ _log "bash_profile"
 # }}}
 # {{{ Includes
 
-# shellcheck source=/dev/null
-
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
@@ -52,11 +50,14 @@ for option in autocd globstar; do
   shopt -s "$option" 2> /dev/null
 done
 
+# shellcheck source=/dev/null
 [ -f /etc/profile ] && source /etc/profile
 
+# shellcheck source=/dev/null
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 
 # Override /etc/profile
+# shellcheck source=/dev/null
 [[ "$-" == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 
 export BASH_PROFILE

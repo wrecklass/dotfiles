@@ -22,7 +22,7 @@ let g:ft_man_open_mode='tab'
 
 " set wildmode=longest,list,full
 if v:version >= 900
-  set wildoptions=pum
+  set wildoptions+=pum
 endif
 set wildmenu
 "Ignore files
@@ -35,6 +35,7 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
+set wildignore+=**/.hg/*
 
 if has('folding')
   set foldmethod=marker
@@ -79,7 +80,7 @@ set ttimeoutlen=100
 
 " Having longer updatetime (default is 4000ms = 4 s) leads to
 " noticeable delays and poor user experience
-set updatetime=50
+set updatetime=100
 
 " Ok, leave it alone, because we don't give a shit. Tabs are the devil.
 " set tabstop=8
@@ -103,6 +104,9 @@ set matchpairs+=<:>
 " Highlight the cursor line and column on display
 set cursorline
 set cursorcolumn
+" No column ruler at 80 characters.
+set colorcolumn=
+
 
 " Where the backspace key works
 set backspace=eol,start,indent
@@ -129,15 +133,12 @@ set undofile
 set undolevels=5000
 
 " Don't default to Read Only in vimdiff
-set noro
+set noreadonly
 
 set termguicolors
 set showmode
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes
-
-" No column ruler at 80 characters.
-set colorcolumn=
 
 set pastetoggle=<F2>
 
@@ -196,7 +197,8 @@ set fileformats=unix,dos,mac
 " }}}
 " {{{ Startify
 " Bookmarks for Startify:
-let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'}, {'c': '/c/tools/bcurran3/choco-output.txt'} ]
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'} ]
+let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'} ]
 let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
 let g:startify_lists = [
           \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
@@ -216,9 +218,9 @@ highlight StartifySlash   ctermfg=240
 highlight StartifySpecial ctermfg=240
 " }}}
 " {{{ Plugins
+"
 
 call plug#begin('~/.vim/plugged')
-
 
 " Plug 'terroo/vim-simple-emoji'
 " Plug 'junegunn/goyo.vim'
@@ -228,6 +230,7 @@ Plug 'markonm/traces.vim'
 
 Plug 'vim-utils/vim-man'
 Plug 'airblade/vim-gitgutter'
+" Plug 'mhinz/vim-signify'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -237,10 +240,11 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-fugitive'
-" Plug 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim'       " :GV to browse git history
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
 " Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
 " Plug 'fisadev/vim-sane-gocomplete'
@@ -249,15 +253,16 @@ Plug 'terryma/vim-smooth-scroll'
 
 " Plug 'ap/vim-css-color'
 
-Plug 'frazrepo/vim-rainbow'
+" Just really really slow:
+" Plug 'frazrepo/vim-rainbow'
 
 Plug 'mhinz/vim-startify'
 Plug 'ervandew/supertab'
 
 " Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-scripts/loremipsum'
-" Plug 'wrecklass/wc.vim'
-Plug 'kkew3/wc.vim'
+Plug 'wrecklass/wc.vim'
+" Plug 'kkew3/wc.vim'
 
 " Ok, colorschemes:
 " Plug 'haystackandroid/carbonized'
@@ -337,7 +342,6 @@ try
   " let g:vimspectrItalicComment = 'on'
   " colorscheme vimspectrgrey-dark
 
-  " colorscheme snow
 
   let g:codedark_conservative=1
   let g:codedark_modern=0
@@ -354,29 +358,33 @@ try
   " let g:PaperColor_Theme_Options = {
   " \   'theme': {
   " \     'default.dark': {
+  " \       'allow_italic'  : 1,
   " \       'override' : {
-  " \         'color00'       : ['#080808', '232'],
-  " \         'cursorline'    : ['#082838', '238'],
-  " \         'linenumber_fg' : ['#767676', '243'],
-  " \         'linenumber_bg' : ['#082838', '232'],
+  " \         'color10'       : ['#0087af', '31'],
+  " \         'color05'       : ['#008700', '28'],
+  " \         'cursorline'    : ['#002f57', '24'],
+  " \         'cursorcolumn'  : ['#002f57', '24'],
   " \         'folded_bg'     : ['#223e55', '242'],
-  " \         'folded_fg'     : ['#afafaf', '235'],
+  " \         'folded_fg'     : ['#afafaf', '146'],
   " \       }
   " \     }
   " \   }
   " \ }
 
+  " \         'color00'       : ['#080808', '232'],
+  " \         'linenumber_bg' : ['#082838', '232'],
+  " \         'linenumber_fg' : ['#767676', '243'],
+
   " colorscheme PaperColor
+  " let g:airline_theme='papercolor'
 catch
 endtry
 
 highlight Normal guibg=background
-highlight QuickFixLine guibg=#65000B ctermbg=darkred
+highlight QuickFixLine guibg=#65000B guifg=#CFCFCF ctermbg=darkred
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
-
-" let g:airline_theme='snow_dark'
 
 " let g:airline_theme='ayu_dark'
 " let g:airline_theme='cool'
@@ -481,7 +489,6 @@ nnoremap <leader>rp  :resize 100<CR>
 nnoremap <leader>s   :%s/
 nnoremap <leader>S   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
-nnoremap <leader>gt  <Plug>PlenaryTestFile
 nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
 nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
 nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
@@ -501,15 +508,15 @@ nnoremap \l :setlocal number!<CR>
 noremap <leader>l :setlocal relativenumber!<CR>
 
 " Turn off hlsearch temporarily
-nnoremap \q :set hlsearch!<CR> :setlocal hlsearch?<CR>
-noremap <leader>h :setlocal hlsearch!<CR> :setlocal hlsearch?<CR>
+nnoremap \q :set hlsearch!<CR>:setlocal hlsearch?<CR>
+noremap <leader>h :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
 
 " Globally search and replace the <word> under the cursor
 nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
 
 
 " Toggle case sensitive search
-nnoremap <leader>i :setlocal ic!<CR> :setlocal ic?<CR>
+nnoremap <leader>i :setlocal ic!<CR>:setlocal ic?<CR>
 
 " F2 = pastetoggle
 " Repeat last search, because reasons
@@ -584,11 +591,15 @@ nnoremap J mzJ`z
 " Make b movement inclusive
 " onoremap b vb
 
-" greatest remap ever
+" greatest remap ever, in Visual only delete current
+" selection and then paste current registry
 xnoremap <leader>p "_dP
-nnoremap <leader>p "+
+" Paste system clipboard to buffer
+nnoremap <leader>p "+p
+" Copy N lines to system clipboard
+nnoremap <leader>c "+yy
 
-" Paste in system clipboard with ^P
+" Paste in system clipboard with ^P -- Insert mode
 inoremap <expr> <c-p> pumvisible() ? '<c-p>' : '<c-r>+'
 
 " next greatest remap ever
@@ -646,7 +657,7 @@ ab cbe2 ■
 ab okk ✓
 ab str ★
 
-nnoremap bs i#!/bin/bash<ESC>0
+nnoremap bs i#!/usr/bin/env bash<ESC>0
 nnoremap be i#!/usr/bin/env bash<ESC>0
 nnoremap bp i#!/usr/bin/env python<ESC>0
 nnoremap br i#!/usr/bin/env ruby<ESC>0
@@ -673,7 +684,7 @@ vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 " Vimgreps in the current file
 noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
 
-map <nowait><leader>c :Colors<CR>
+" map <nowait><leader>c :Colors<CR>
 nnoremap <leader>I    :Startify<CR>
 
 " FZF Search
@@ -689,6 +700,7 @@ nnoremap <silent> <leader>h: :History:<CR>
 nnoremap <silent> <leader>W :Windows<CR>
 nnoremap <silent> <leader>M :Maps<CR>
 nnoremap <silent> <leader>t :FloatermToggle<CR>
+
 " Easy bracket pairing
 inoremap<nowait>" ""<left>
 inoremap<nowait>' ''<left>
@@ -725,22 +737,22 @@ endfunction
 " }}}
 " {{{ Empty Registers (Marks)
 fun! EmptyRegisters()
-    let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890/-"', '\zs')
-    for r in regs
-        call setreg(r,[])
-    endfor
+  let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890/-"', '\zs')
+  for r in regs
+    call setreg(r,[])
+  endfor
 endfun
 " }}}
 " {{{ Trim all trailing whitespaces on save
 fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
 endfun
 
 augroup TWS
-    autocmd!
-    autocmd BufWritePre * :call TrimWhitespace()
+  autocmd!
+  autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 " }}}
 " {{{ visualselection
@@ -774,7 +786,21 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 " }}}
-" {{{ Bclose function
+" {{{ Functions
+
+" For some reason highlight commands don't work with the Windows EXE vim
+function! <SID>HighLightsCD()
+  highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
+  highlight String guifg=#87E7FE ctermfg=17
+  highlight Identifier guifg=LightGreen
+  highlight Function guifg=#4EB9C0
+  highlight QuickFixLine guibg=#95000B guifg=#CFCFCF ctermbg=darkred
+  highlight Normal guibg=background
+  highlight CursorLine guibg=#41403f
+  redraw
+endfunction
+" call <SID>HighLightsCD()
+command! Codelights call <SID>HighLightsCD()
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
@@ -797,6 +823,44 @@ function! <SID>BufcloseCloseIt()
   endif
 endfunction
 
+" Use the internal diff if available.
+" Otherwise use the special 'diffexpr' for Windows.
+if &diffopt !~# 'internal'
+  set diffexpr=MyDiff()
+endif
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg1 = substitute(arg1, '!', '\!', 'g')
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg2 = substitute(arg2, '!', '\!', 'g')
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let arg3 = substitute(arg3, '!', '\!', 'g')
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      if empty(&shellxquote)
+        let l:shxq_sav = ''
+        set shellxquote&
+      endif
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  let cmd = substitute(cmd, '!', '\!', 'g')
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  if exists('l:shxq_sav')
+    let &shellxquote=l:shxq_sav
+  endif
+endfunction
+
 " }}}
 " {{{ Autocmd move to last position on openfile
 if has("autocmd")
@@ -808,9 +872,9 @@ if has("autocmd")
     filetype plugin indent on
     " Move to the last position ('") when this file was opened
     autocmd BufReadPost *
-            \  if line("'\"") > 0 && line("'\"") <= line("$") |
-            \    exe "normal! g'\"" |
-            \  endif
+          \  if line("'\"") > 0 && line("'\"") <= line("$") |
+          \    exe "normal! g'\"" |
+          \  endif
 
     " set viminfo^=%
     set viminfo='20,\"100,:100,%,n~/.viminfo

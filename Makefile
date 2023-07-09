@@ -31,12 +31,13 @@ fishconf:            ## link fish to the $HOME/.config/ directory
 	ln -sfn $$PWD/fish $$HOME/.config/
 
 # Vim requires a regular directory tree, it doesn't seem to accept a file link
-# We kill it and recreate it each time, so everything has to be in the repo
 .PHONY := vimfiles
-vimfiles: vim ## Copy vim files to $HOME/.vim, Warning: $HOME/.vim is deleted first!
-	rm -rf ~/.vim/
-	cp -r ./vim ~/.vim/
+vimfiles: ## Copy vim files to $HOME/.vim, Warning: $HOME/.vim is deleted first!
+	if [ -d ~/.vim ] ;then \
+	  rm -rf ~/.vim/ ; \
+	fi
 	mkdir -p ~/.cache/undodir
+	curl -fLo ~/.vim/docs/learnvim.txt --create-dirs https://raw.githubusercontent.com/dahu/LearnVim/master/doc/learnvim.txt
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	PATH="/usr/local/bin:/sbin:/bin:/usr/bin:/usr/lib/lapack:" vim -c "PlugInstall" -c qa \; </dev/zero
 

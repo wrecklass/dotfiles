@@ -3,11 +3,11 @@
 # If we've already read these, don't do it again
 [[ -z "${SET_ALIASES}" ]] && readonly SET_ALIASES=true || return 0
 _log ".bash_aliases"
-
+_log "SHELL: $SHELL"
 hub_path=$(command -v hub)
 if [ -n "${hub_path}" ];then
   # alias git="${hub_path}"
-  eval "$(hub alias -s)"
+  eval "$(hub alias -s "$SHELL")"
 fi
 
 
@@ -100,6 +100,7 @@ alias gd='git diff'
 alias gdw='git diff --word-diff'
 alias giff='git diff'
 alias gl='git log'
+alias glp='git log -p'
 alias gf='git fetch'
 alias gfa='git fetch --all --prune'
 alias gfo='git fetch origin'
@@ -234,11 +235,10 @@ alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 alias untar='tar xvf'
-# alias todo='~/bin/todo.sh'
-# alias t='~/bin/todo.sh'
 alias xtar="tar xvf"
 alias ctar="tar cvf"
 alias ttar="tar tvf"
+alias ttc='tty-clock -scxBC 6'
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
@@ -249,11 +249,11 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 if [ -z "$EDITOR" ];then
   export EDITOR="/bin/vim"
 fi
-alias vi="$EDITOR"
-alias vim="$EDITOR"
-alias vimrc="$EDITOR ${HOME}/.vimrc"
-alias vib="$EDITOR ~/.bashrc"
-alias iv="$EDITOR"
+alias vi="\$EDITOR"
+alias vim="\$EDITOR"
+alias vimrc="\$EDITOR \${HOME}/.vimrc"
+alias vib="\$EDITOR ~/.bashrc"
+alias iv="\$EDITOR"
 
 alias week='date +%V'
 alias wcl='wc -l'
@@ -265,7 +265,7 @@ alias httpd.rb='ruby -run -e httpd . -p 8000'
 alias xit='exit'
 
 # alias xh='xhost +'
-alias x='chmod ug+x '
+alias x='chmod a+rx'
 
 # EditPadPro
 alias edit='cygstart "/c/users/smartin/appdata/local/just great software/editpad pro 8/editpadpro8.exe"'
