@@ -20,6 +20,8 @@
   tool = vimdiff
 [difftool]
   prompt = false
+[init]
+  defaultBranch = master
 [push]
   default = simple
 [credential]
@@ -27,6 +29,8 @@
 [user]
   name = Stephen Martin
   email = smartin5590@gmail.com
+[mergetool]
+  keepBackup = false
 [merge]
   summary = true
   verbosity = 1
