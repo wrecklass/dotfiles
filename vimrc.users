@@ -748,7 +748,7 @@ augroup TWS
   autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 " }}}
-" {{{ visualselection
+" {{{ Visualselection
 function! CmdLine(str)
   call feedkeys(":" . a:str)
   " Old way
