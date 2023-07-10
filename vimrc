@@ -305,7 +305,7 @@ try
   " We want dark anyway
   set background=dark
 
-  let g:gruvbox_italic=1
+  " let g:gruvbox_italic=1
 
   " colorscheme gruvbox-material
   " colorscheme gruvbox
@@ -332,15 +332,17 @@ try
   " highlight pythonException guifg=#569cd6
   " highlight pythonRepeat guifg=#569cd6
   " highlight pythonOperator guifg=#569cd6
+  " END GRUVBOX
 
   " let g:hardhacker_darker = 1
 
   " colorscheme hardhacker
-  " colorscheme carbonized-dark
+  " END HARDHACKER
 
   " let g:vimspectrLineNr = 'on'
   " let g:vimspectrItalicComment = 'on'
   " colorscheme vimspectrgrey-dark
+  " END VIMSPECTRGREY
 
 
   " let g:codedark_conservative=1
@@ -354,6 +356,7 @@ try
   " highlight Function guifg=#4EB9C0
   " highlight CursorLine guibg=#41403f
   " let g:airline_theme='codedark'
+  " END CODEDARK
 
   let g:PaperColor_Theme_Options = {
   \   'theme': {
@@ -361,7 +364,7 @@ try
   \       'allow_italic'  : 1,
   \       'override' : {
   \         'color10'       : ['#0087af', '31'],
-  \         'color05'       : ['#008700', '28'],
+  \         'color05'       : ['#00572f', '28'],
   \         'cursorline'    : ['#002f57', '24'],
   \         'cursorcolumn'  : ['#002f57', '24'],
   \         'folded_bg'     : ['#223e55', '242'],
@@ -377,6 +380,8 @@ try
 
   colorscheme PaperColor
   let g:airline_theme='papercolor'
+  " END PAPERCOLOR
+
 catch
 endtry
 
