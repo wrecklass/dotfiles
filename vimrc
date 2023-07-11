@@ -363,12 +363,12 @@ try
   \     'default.dark': {
   \       'allow_italic'  : 1,
   \       'override' : {
-  \         'color10'       : ['#0087af', '31'],
-  \         'color05'       : ['#00572f', '28'],
-  \         'cursorline'    : ['#002f57', '24'],
-  \         'cursorcolumn'  : ['#002f57', '24'],
-  \         'folded_bg'     : ['#223e55', '242'],
-  \         'folded_fg'     : ['#afafaf', '146'],
+  \         'color10'       : ['#0087AF', '31'],
+  \         'color05'       : ['#00875F', '28'],
+  \         'cursorline'    : ['#002F57', '24'],
+  \         'cursorcolumn'  : ['#002F57', '24'],
+  \         'folded_bg'     : ['#223E55', '242'],
+  \         'folded_fg'     : ['#AFAFAF', '146'],
   \       }
   \     }
   \   }
@@ -379,6 +379,8 @@ try
   " \         'linenumber_fg' : ['#767676', '243'],
 
   colorscheme PaperColor
+  " I like italics
+  highlight Folded gui=italic cterm=italic
   let g:airline_theme='papercolor'
   " END PAPERCOLOR
 
@@ -794,7 +796,7 @@ endfunction
 " {{{ Functions
 
 " For some reason highlight commands don't work with the Windows EXE vim
-function! <SID>HighLightsCD()
+function! s:HighLightsCD()
   highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
   highlight String guifg=#87E7FE ctermfg=17
   highlight Identifier guifg=LightGreen
@@ -804,12 +806,12 @@ function! <SID>HighLightsCD()
   highlight CursorLine guibg=#41403f
   redraw
 endfunction
-" call <SID>HighLightsCD()
+" call HighLightsCD()
 command! Codelights call <SID>HighLightsCD()
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
+function! s:BufcloseCloseIt()
   let l:currentBufNum = bufnr("%")
   let l:alternateBufNum = bufnr("#")
 
