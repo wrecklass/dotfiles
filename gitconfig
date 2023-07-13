@@ -43,6 +43,12 @@
   process = git-lfs filter-process
 [pull]
   rebase = false
+[credential "https://github.com"]
+  helper =
+  helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
+[credential "https://gist.github.com"]
+  helper =
+  helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
 # }}}
 # {{{ Aliases
 [alias]
