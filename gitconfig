@@ -70,6 +70,7 @@
   # some log aliases
   history = log
   h = !git log | cat
+  hh = !git log | bat
   last = log -1 HEAD
   l = log --pretty=oneline -n 24 --graph --abbrev-commit
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
@@ -185,6 +186,7 @@
   # Show the last tag created:
   lasttag = describe --tags --abbrev=0
   lt = describe --tags --abbrev=0
+  ltn = "!git tag -n --sort=v:refname | tail -1"
 
   # Show verbose output of tags and branches and remotes
   tags = tag -n --sort=v:refname
