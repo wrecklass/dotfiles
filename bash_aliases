@@ -1,56 +1,16 @@
 #!/usr/bin/env bash
-
+# {{{ Logging
 # If we've already read these, don't do it again
 [[ -z "${SET_ALIASES}" ]] && readonly SET_ALIASES=true || return 0
 _log ".bash_aliases"
 _log "SHELL: $SHELL"
-hub_path=$(command -v hub)
-if [ -n "${hub_path}" ];then
-  # alias git="${hub_path}"
-  eval "$(hub alias -s "$SHELL")"
-fi
-
-
-# Kubectl/kubernetes/k8s aliases
-# alias kc='kubectl'
-# complete -o default -o nospace -F __start_kubectl kc
-#alias nodes='kubectl get nodes'
-#alias pods='kubectl get pods'
-#alias kns='kubens'
-#alias kctx='kubectx'
-
-# Allow aliases to be sudoed
-# alias sudo='sudo '
-
+# }}}
+# {{{ Colorflags
 # Detect which `ls` flavor is in use
 export colorflag="-G"
 if ls --color &> /dev/null ; then # GNU `ls`
   colorflag="--color"
 fi # OS X `ls`
-
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="cd -"
-alias -- --="cd --"
-
-alias sal='source ~/.bash_aliases'
-#alias b64="build64"
-
-# common typos
-# Because I'm occasionally dislexic:
-alias cate='cat'
-
-alias clr=clear
-alias cls=clear
-alias clar=clear
-alias claer=clear
-alias cler=clear
-alias ''=clear
-
-# alias comcast='ftp upload.comcast.net'
 
 if command -v colordiff &> /dev/null; then
   alias diff='colordiff'
@@ -63,8 +23,33 @@ if [ "$UNAME" == "cygwin" ];then
   alias diff="diff --color"
   alias dif="diff --color"
 fi
+alias grep='grep -a --color=always'
+alias gpre='grep -a --color=always'
+alias grpe='grep -a --color=always'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+# }}}
+# {{{ cd aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+alias -- --="cd --"
+# }}}
+# {{{ common typos
+# Because I'm occasionally dislexic:
+alias cate='cat'
+alias clr=clear
+alias cls=clear
+alias clar=clear
+alias claer=clear
+alias cler=clear
+alias ''=clear
+# }}}
+# {{{ Aliases
 
-# alias dl="cd ~/Downloads"
 alias dfh='df -h '
 alias duh='du -sh'
 alias dus='du -sh . | sort -h'
@@ -113,60 +98,23 @@ alias gs='git status'
 
 alias gsu='git submodule update'
 
-# So these two aliases do bash_completion from git
- # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
- # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main gl
- # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main gd
- # complete -o bashdefault -o default -o nospace -F __git_wrap__git_main get
- __git_complete g git
- __git_complete get git
- __git_complete gut git
- __git_complete ga git_add
- __git_complete gaa git_add
- __git_complete gc  git_commit
- __git_complete gcm git_commit
- __git_complete gco git_checkout
- __git_complete gp git_push
- __git_complete gpa git_push
- __git_complete gl git_log
- __git_complete gd git_diff
- __git_complete gf git_fetch
-
-alias grep='grep -a --color=always'
-alias gpre='grep -a --color=always'
-alias grpe='grep -a --color=always'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-# alias gvim='/c/WINDOWS/gvim.bat'
-
-# vhosts
-alias hosts='sudo vim /etc/hosts'
-
 alias hp='hashapass.sh'
 
 alias irb='irb --readline -r irb/completion'
 
 alias ppath='echo -e ${PATH//:/\\n}'
 
-# Use fzf with a preview window
-if command -v bat &> /dev/null ; then
-  alias pf='fzf --preview="bat --color=always --decorations=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
-else
-  alias pf='fzf --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
-fi
-
-# IP addresses
+# {{{ IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
-
-# alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias winip='ipconfig /all | grep "Wi-Fi 3" -A 18'
+alias mywinip='ipconfig /all|  grep IPv4 | /bin/grep -Eo "$NETREGX"'
+# }}}
 
 alias j='jobs'
 
-# File lists 'ls'
+# {{{ File lists 'ls'
 alias dot='ls -dAF ${colorflag} .[a-zA-Z0-9]*'
 alias dolt='ls -dlAF ${colorflag} .[a-zA-Z0-9]*'
-# alias exl='exa --long'
-# alias exs='exa --sort size'
 alias l.='ls -dAF ${colorflag} .*'
 alias ll.='ls -ldF ${colorflag} .*'
 alias l='ls -lF ${colorflag}'
@@ -185,12 +133,9 @@ alias lltg='ls -lGrtF ${colorflag}'
 alias llgt='ls -lGrtF ${colorflag}'
 alias lg='ls -lGF ${colorflag}'
 alias llg='ls -lGF ${colorflag}'
-
+# }}}
 alias md='mkdir'
 alias mdp='mkdir -p'
-# alias mypid='kindlepid.py B001BFB781653202'
-# alias mplayer='mplayer'
-# alias mysql='start mysql'
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
@@ -217,16 +162,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias vm='mv -i'
 
-# alias s7='secure7'
-# alias sb='cd /usr/local/streambaby ; ./streambaby_high &> ~/.log/streambaby.log &'
-alias scc='less $HOME/bin/screencheat'
-if [ -x "$HOME/bin/vim" ];then
-  alias sec='$HOME/bin/vim $HOME/bin/.secret'
-else
-  alias sec='/usr/bin/vim $HOME/bin/.secret'
-fi
-alias svi='sudo vim'
-alias via='vi ~/.ssh/assh.yml'
 alias sw='telnet  towel.blinkenlights.nl'
 # alias sx='startxwin.sh &> .xwin_errors'
 
@@ -244,16 +179,7 @@ alias ttc='tty-clock -scxBC 6'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
-if [ -z "$EDITOR" ];then
-  export EDITOR="/bin/vim"
-fi
-alias vi="\$EDITOR"
-alias vim="\$EDITOR"
-alias vimrc="\$EDITOR \${HOME}/.vimrc"
-alias vib="\$EDITOR ~/.bashrc"
-alias iv="\$EDITOR"
+alias urlencode='python -c "import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1]));"'
 
 alias week='date +%V'
 alias wcl='wc -l'
@@ -272,9 +198,56 @@ alias edit='cygstart "/c/users/smartin/appdata/local/just great software/editpad
 
 alias muffins='cygstart '\''https://www.amazon.com/dp/B007YPOBLI?psc=1&ref=ppx_yo2ov_dt_b_product_details'\'''
 alias orders='cygstart "https://www.amazon.com/gp/css/order-history"'
+# }}}
+# {{{ Completions
+# So these two aliases do bash_completion from git
+ __git_complete g git
+ __git_complete get git
+ __git_complete gut git
+ __git_complete ga git_add
+ __git_complete gaa git_add
+ __git_complete gc  git_commit
+ __git_complete gcm git_commit
+ __git_complete gco git_checkout
+ __git_complete gp git_push
+ __git_complete gpa git_push
+ __git_complete gl git_log
+ __git_complete gd git_diff
+ __git_complete gf git_fetch
+# }}}
+# {{{ fzf and bat aliases
+# Use fzf with a preview window
+if command -v bat &> /dev/null ; then
+  alias pf='fzf --preview="bat --color=always --decorations=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+else
+  alias pf='fzf --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+fi
+# }}}
+# {{{ Vim config
+if [ -x "$HOME/bin/vim" ];then
+  alias sec='$HOME/bin/vim $HOME/bin/.secret'
+else
+  alias sec='/usr/bin/vim $HOME/bin/.secret'
+fi
+alias svi='sudo vim'
+alias via='vi ~/.ssh/assh.yml'
 
-# Duck Duck Go Search, 8 per screen
+if [ -z "$EDITOR" ];then
+  export EDITOR="/bin/vim"
+fi
+alias vi="\$EDITOR"
+alias vim="\$EDITOR"
+alias vimrc="\$EDITOR \${HOME}/.vimrc"
+alias vib="\$EDITOR ~/.bashrc"
+alias iv="\$EDITOR"
+# }}}
+# {{{ Hub tool
+hub_path=$(command -v hub)
+if [ -n "${hub_path}" ];then
+  # alias git="${hub_path}"
+  eval "$(hub alias -s "$SHELL")"
+fi
+# }}}
+# {{{ Duck Duck Go Search
 alias ddgr='ddgr -n 8 --url-handler "c:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"'
-alias winip='ipconfig /all | grep "Wi-Fi 3" -A 18'
-alias mywinip='ipconfig /all|  grep IPv4 | /bin/grep -Eo "$NETREGX"'
-alias mkvim='./configure --enable-luainterp=dynamic --enable-perlinterp=yes -enable-pythoninterp=dynamic --enable-python3interp=dynamic --enable-rubyinterp=yes --with-python-command=python2.7 --with-python3-command=python3 && make && sleep 1 && ./src/vim'
+# }}}
