@@ -22,6 +22,7 @@ alias cdrep="_cdrep"
 alias cds="_cds"
 alias cdt="_cdt"
 alias cdsa="_cdsa"
+alias cdsm="_cdsm"
 alias cdst="_cdst"
 alias cdu="_cdu"
 alias cdv="_cdv"
@@ -81,6 +82,15 @@ _cds() {
         cd_func "/home/${USER}/src"
     fi
 }
+
+_cdsm() {
+    if [ $# -gt 0 ]; then
+        cd_func "$USERPROFILE/AppData/Roaming/microsoft/windows/start menu/${*}"
+    else
+        cd_func "$USERPROFILE/AppData/Roaming/microsoft/windows/start menu"
+    fi
+}
+
 
 _cdt() {
   if [[ -n "$ChocolateyToolsLocation" ]] && [[ -d  "$ChocolateyToolsLocation" ]];then
