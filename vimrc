@@ -730,10 +730,6 @@ nnoremap <silent> <leader>t :FloatermToggle<CR>
 " inoremap<nowait>( ()<left>
 " inoremap<nowait>[ []<left>
 " inoremap<nowait>{ {}<left>
-inoremap """ "<ESC>A"<ESC>
-inoremap ((( (<ESC>A)<ESC>
-inoremap [[[ [<ESC>A]<ESC>
-inoremap {{{ {<ESC>A}<ESC>
 
 command! BufOnly silent! execute "%bd|e#"
 
