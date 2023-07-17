@@ -107,7 +107,6 @@ set cursorcolumn
 " No column ruler at 80 characters.
 set colorcolumn=
 
-
 " Where the backspace key works
 set backspace=eol,start,indent
 
@@ -344,7 +343,6 @@ try
   " colorscheme vimspectrgrey-dark
   " END VIMSPECTRGREY
 
-
   " let g:codedark_conservative=1
   " let g:codedark_modern=0
   " let g:codedark_italics=1
@@ -468,8 +466,10 @@ let g:mapleader = " "
 " tnoremap <c-k> <c-\><c-n><c-w>k
 " set shell=/bin/bash
 
-nnoremap <leader><      :cprev<CR>
-nnoremap <leader>>      :cnext<CR>
+" map for cprev and cnext, also opne folds at location
+nnoremap <leader><      :cprev<CR>zv
+nnoremap <leader>>      :cnext<CR>zv
+
 nnoremap <leader>sv     :source $MYVIMRC<CR>
 nnoremap <leader>so     :source $MYVIMRC<CR>
 nnoremap <leader><CR>   :source $MYVIMRC<CR>
@@ -521,7 +521,6 @@ noremap <leader>h :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
 " Globally search and replace the <word> under the cursor
 nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
 
-
 " Toggle case sensitive search
 nnoremap <leader>i :setlocal ic!<CR>:setlocal ic?<CR>
 
@@ -552,7 +551,6 @@ function! ToggleSlash(independent) range
 endfunction
 command! -bang -range ToggleSlash <line1>,<line2>call ToggleSlash(<bang>1)
 noremap <silent> <F8> :ToggleSlash<CR>
-
 
 " <leader>m to erase all ^M in a Dos file. Remembers location
 noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
@@ -588,6 +586,11 @@ noremap <silent> <c-b>   :call smooth_scroll#up(&scroll,20,1)<CR>
 noremap <silent> <c-f>   :call smooth_scroll#down(&scroll,20,1)<CR>
 noremap <silent> <c-u>   :call smooth_scroll#up(&scroll/2,20,1)<CR>
 noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
+
+" grep word under cursor and place in quickfix list
+command! -nargs=+ GG silent execute "Ggrep! -niI --exclude-standard --untracked ".string(<q-args>)
+nnoremap <silent> <Leader>gg :GG <C-r><C-w><CR>
+vnoremap <silent> <Leader>gg y:GG <C-r>"<CR>
 
 " Remap Y to be consistent with C and D
 nnoremap Y yg$
@@ -633,7 +636,6 @@ nnoremap <leader>d "_d
 
 " Cause, of course
 inoremap <C-c> <esc>
-
 
 nmap     <leader>nt             <c-w>T
 nmap     <silent>  <C-n>        :NERDTreeToggle<CR>
