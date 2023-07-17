@@ -470,6 +470,9 @@ let g:mapleader = " "
 nnoremap <leader><      :cprev<CR>zv
 nnoremap <leader>>      :cnext<CR>zv
 
+nnoremap <Tab>          gt
+nnoremap <S-Tab>        gT
+
 nnoremap <leader>sv     :source $MYVIMRC<CR>
 nnoremap <leader>so     :source $MYVIMRC<CR>
 nnoremap <leader><CR>   :source $MYVIMRC<CR>
