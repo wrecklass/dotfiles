@@ -591,9 +591,17 @@ noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
 
 " Remap Y to be consistent with C and D
 nnoremap Y yg$
+
+" Repeat search center and reveal in fold
 nnoremap n nzzzv
 nnoremap N Nzzzv
+
+" After Joining line, move back to original location
 nnoremap J mzJ`z
+
+" Move paragraph and center
+nnoremap {   {zz
+nnoremap }   }zz
 
 " Make b movement inclusive
 " onoremap b vb
@@ -625,6 +633,7 @@ nnoremap <leader>d "_d
 
 " Cause, of course
 inoremap <C-c> <esc>
+
 
 nmap     <leader>nt             <c-w>T
 nmap     <silent>  <C-n>        :NERDTreeToggle<CR>
@@ -714,6 +723,10 @@ inoremap<nowait>' ''<left>
 inoremap<nowait>( ()<left>
 inoremap<nowait>[ []<left>
 inoremap<nowait>{ {}<left>
+inoremap """ "<ESC>A"<ESC>
+inoremap ((( (<ESC>A)<ESC>
+inoremap [[[ [<ESC>A]<ESC>
+inoremap {{{ {<ESC>A}<ESC>
 
 command! BufOnly silent! execute "%bd|e#"
 
