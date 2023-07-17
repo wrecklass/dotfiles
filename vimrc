@@ -250,6 +250,8 @@ Plug 'tpope/vim-vinegar'
 
 Plug 'terryma/vim-smooth-scroll'
 
+Plug 'raimondi/delimitmate'
+
 " Plug 'ap/vim-css-color'
 
 " Just really really slow:
@@ -723,11 +725,11 @@ nnoremap <silent> <leader>M :Maps<CR>
 nnoremap <silent> <leader>t :FloatermToggle<CR>
 
 " Easy bracket pairing
-inoremap<nowait>" ""<left>
-inoremap<nowait>' ''<left>
-inoremap<nowait>( ()<left>
-inoremap<nowait>[ []<left>
-inoremap<nowait>{ {}<left>
+" inoremap<nowait>" ""<left>
+" inoremap<nowait>' ''<left>
+" inoremap<nowait>( ()<left>
+" inoremap<nowait>[ []<left>
+" inoremap<nowait>{ {}<left>
 inoremap """ "<ESC>A"<ESC>
 inoremap ((( (<ESC>A)<ESC>
 inoremap [[[ [<ESC>A]<ESC>
