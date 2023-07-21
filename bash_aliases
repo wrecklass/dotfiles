@@ -196,6 +196,10 @@ alias xit='exit'
 # alias xh='xhost +'
 alias x='chmod a+rx'
 
+# Weather Underground
+alias wuf='start https://www.wunderground.com/forecast/us/co/aurora/KCOAUROR322'
+alias wu='start https://www.wunderground.com/weather/us/co/aurora/KCOAUROR322'
+
 # EditPadPro
 alias edit='cygstart "/c/users/smartin/appdata/local/just great software/editpad pro 8/editpadpro8.exe"'
 
