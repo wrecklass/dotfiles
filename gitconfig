@@ -72,7 +72,8 @@
   h = !git log | cat
   hh = !git log | bat
   last = log -1 HEAD
-  l = log --pretty=oneline -n 24 --graph --abbrev-commit
+  l = log --pretty=oneline --graph --all --abbrev-commit
+  lcm = log --pretty=oneline --graph --all
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   lshort = log --pretty=format:\"%h %cr %C(yellow)%cn %Cgreen%s%Creset\"
@@ -233,5 +234,6 @@
   sl = stash list
   sa = stash apply
   ss = stash save
+  t = !tig
 # }}}
 #vim: set et sw=2 foldmethod=marker
