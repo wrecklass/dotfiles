@@ -252,7 +252,7 @@ Plug 'terryma/vim-smooth-scroll'
 
 Plug 'raimondi/delimitmate'
 
-" Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 
 " Just really really slow:
 " Plug 'frazrepo/vim-rainbow'
