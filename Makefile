@@ -59,6 +59,12 @@ nvim: nvim/init.vim                ## Create PowerShell nvim init.vim
 	  cp ./nvim/init.vim /c/Users/smartin/AppData/Local/nvim/ ; \
 	fi
 
+.PHONY := fzf
+fzf:                ## Install fzf completions to the proper location
+	if [ ! -r /usr/share/bash-completion/completions/fzf ];then \
+	  cp functions/fzf.off /usr/share/bash-completion/completions/fzf ; \
+	fi
+
 .PHONY := help
 help:                ## List targets (default)
 	@echo 'Management commands for ${PROJECT_NAME}:'
