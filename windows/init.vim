@@ -1,12 +1,11 @@
 " VIMRC for NVIM
-" {{{ Sets
+" {{{ Settings
 " Do we want these?
 " set guicursor=
 " set path+=**
 
 set wildmode=longest,list,full
 set wildmenu
-
 "Ignore files
 set wildignore+=*.pyc
 set wildignore+=*_build/*
@@ -20,12 +19,8 @@ set foldmethod=marker
 
 " Bookmarks for Startify:
 let g:startify_bookmarks = [ {'v': '~/AppData/Local/nvim/init.vim'} ]
-let g:startify_lists = [
-          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
-          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
-          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
-          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
-          \ ]
+
+let g:python3_host_prog = "C:/Python311/python.exe"
 
 " nvim is supposed to be nocompatible by default
 " set nocompatible
@@ -33,8 +28,9 @@ set exrc
 set relativenumber
 set hlsearch
 set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+" set tabstop=8
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 set nu
@@ -118,6 +114,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mhinz/vim-startify'
+
+Plug 'tomasiser/vim-code-dark'
 Plug 'sainnhe/gruvbox-material'
 Plug 'vim-conf-live/vimconflive2021-colorscheme'
 Plug 'ap/vim-css-color'
@@ -126,13 +124,23 @@ call plug#end()
 " }}}
 " {{{ GUI
 " Much better than the Bright lights of plain gruvbox...
-colorscheme vimconflive-2021
+" colorscheme vimconflive-2021
 " colorscheme gruvbox
 " colorscheme gruvbox-material
-highlight Normal guibg=background
+  let g:codedark_conservative=1
+  let g:codedark_modern=0
+  let g:codedark_italics=1
+  let g:codedark_transparent=0
+  colorscheme codedark
+  highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
+  highlight String guifg=#87E7FE ctermfg=17
+  highlight Identifier guifg=LightGreen
+  highlight Function guifg=#4EB9C0
+  highlight CursorLine guibg=#41403f
+    highlight Normal guibg=background
 
 if has ("gui")
-    set guifont=FiraCode\ NF:h12,Consolas
+    set guifont=FiraCode\ Nerd Font:h12,Consolas
 endif
 let g:airline_powerline_fonts = 1
 let g:airline_theme='ayu_dark'

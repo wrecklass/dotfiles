@@ -4,24 +4,30 @@ PROJECT_NAME=dotfiles
 .DEFAULT_GOAL := help
 
 .PHONY := deploy
-deploy: dotfiles fishconf vimfiles vimdocs ## Install everything, use this one to do it all
+deploy: dotfiles fishconf windot vimfiles vimdocs ## Install everything, use this one to do it all
 
 # Ignore the dotfiles in dotfiles
 # Ignore Readme and Makefile
 # Fish and Vim is handled below
 .PHONY := dotfiles
 dotfiles:            ## Install (link) the dotfiles
-	for file in $(shell find $(CURDIR) -maxdepth 1 ! -name tags ! -name dotfiles ! -name vimrc.users ! -name "config.omp.*" ! -name "oh-my-posh.lua" ! -name ".[a-z]*" ! -name "nvim" ! -name "README.md" ! -name "vim" ! -name "Makefile" ! -name "assh.yml" ! -name "fish"); do \
+	for file in $(shell find $(CURDIR) -maxdepth 1 ! -name windows ! -name tags ! -name dotfiles ! -name "config.omp.*" ! -name ".[a-zA-Z]*" ! -name "README.md" ! -name "vim" ! -name "Makefile" ! -name "assh.yml" ! -name "fish"); do \
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
 	cp ./assh.yml ~/.ssh/
-	if [ -d /c/Users/smartin ]; then\
-	  cp ./vimrc.users /c/Users/smartin/.vimrc;\
-	fi
 
-	# Not used now:
-	# cp ./config.omp.json ~/.config.omp.json
+.PHONY := windot
+windot:              ## Install windows versions of files if on Windows
+	if [ -d /c/Users/smartin ]; then\
+	  cp ./windows/vimrc /c/Users/smartin/.vimrc;\
+	fi
+	if [ -d /c/Users/smartin/AppData/Local/clink ]; then\
+	  cp windows/oh-my-posh.lua /c/Users/smartin/AppData/Local/clink;\
+	fi
+	if [ -d /c/Users/smartin/AppData/Local/nvim ]; then\
+	  cp windows/init.vim /c/Users/smartin/AppData/Local/nvim;\
+	fi
 
 # Fish goes to the .config dir
 .PHONY := fishconf
@@ -34,7 +40,7 @@ fishconf:            ## link fish to the $HOME/.config/ directory
 .PHONY := vimfiles
 vimfiles: ## Copy vim files to $HOME/.vim, Warning: $HOME/.vim is deleted first!
 	if [ -d ~/.vim ] ;then \
-	  rm -rf ~/.vim/ ; \
+		rm -rf ~/.vim/ ; \
 	fi
 	mkdir -p ~/.cache/undodir
 	curl -fLo ~/.vim/docs/learnvim.txt --create-dirs https://raw.githubusercontent.com/dahu/LearnVim/master/doc/learnvim.txt
