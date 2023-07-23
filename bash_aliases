@@ -179,7 +179,7 @@ alias ttc='tty-clock -scxBC 6'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1]));"'
+# alias urlencode='python -c "import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1]));"'
 
 alias vs='vim -S $HOME/.config/vim/Session.vim'
 alias vis='vim -S $HOME/.config/vim/Session.vim'
