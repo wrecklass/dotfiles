@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-function blink() {
-  printf "\e[?12h"
-}

@@ -2,7 +2,7 @@
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 targz() {
   local tmpFile="${*%/}.tar"
-  tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1
+  tar -cvf "${tmpFile}" --exclude-vcs --exclude-vcs-ignores --exclude=".DS_Store" "${@}" || return 1
 
   size=$(
   stat -f"%z" "${tmpFile}" 2> /dev/null; # OS X `stat`
@@ -23,7 +23,7 @@ targz() {
 
   echo "Compressing .tar using \`${cmd}\`…"
   "${cmd}" -v "${tmpFile}" || return 1
-  [ -f "${tmpFile}" ] && rm "${tmpFile}"
+  [ -f "${tmpFile}" ] && rm -f "${tmpFile}"
   echo "${tmpFile}.gz created successfully."
 }
 
