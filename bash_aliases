@@ -41,12 +41,14 @@ alias -- --="cd --"
 # {{{ common typos
 # Because I'm occasionally dislexic:
 alias cate='cat'
-alias clr=clear
-alias cls=clear
-alias clar=clear
-alias claer=clear
-alias cler=clear
-alias ''=clear
+# Don't clear scrollback
+alias clear='clear -x'
+alias clr='clear -x'
+alias cls='clear -x'
+alias clar='clear -x'
+alias claer='clear -x'
+alias cler='clear -x'
+alias ''='clear -x'
 # }}}
 # {{{ Aliases
 
