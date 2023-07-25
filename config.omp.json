@@ -417,14 +417,15 @@
           }
         },
         {
-          "type": "exit",
+          "type": "status",
           "style": "plain",
           "foreground": "#22da6e",
           "foreground_templates": [
             "{{ if gt .Code 0 }}#ef5350{{ end }}"
           ],
-          "template": "{{ if gt .Code 0 }}\ue285\ue285 {{ .Meaning }}{{ else }}\ue285\ue285{{ end }}",
+          "template": "{{ if gt .Code 0 }}\ue285\ue285 {{ .Meaning  }} ({{ .Code }}){{ else }}\ue285\ue285{{ end }}",
           "properties": {
+            "status_separator": " ",
             "always_enabled": true
           }
         }

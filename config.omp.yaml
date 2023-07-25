@@ -317,13 +317,14 @@ blocks:
         background: '#ffd664'
         properties:
           cache_timeout: "60"
-      - type: exit
+      - type: status
         style: plain
         foreground: '#22da6e'
         foreground_templates:
           - '{{ if gt .Code 0 }}#ef5350{{ end }}'
-        template: '{{ if gt .Code 0 }} {{ .Meaning }}{{ else }}{{ end }}'
+        template: '{{ if gt .Code 0 }} {{ .Meaning  }} ({{ .Code }}){{ else }}{{ end }}'
         properties:
+          status_separator: ' '
           always_enabled: true
     newline: true
 tooltips:
