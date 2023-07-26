@@ -10,19 +10,26 @@
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
-  old = strike red
-  new = ul green
+  # old = strike red
+  # new = ul green
 [core]
   filemode = false
   autocrlf = false
   editor = /usr/bin/vim
+  pager = delta
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  light = false    # set to true if you're terminal w/a light background color
 [diff]
   tool = vimdiff
-  wordRegex = .
+  # wordRegex = .
+  colorMoved = default
 [difftool]
   prompt = false
 [init]
   defaultBranch = master
+[interactive]
+  diffFilter = delta --color-only
 [push]
   default = simple
 [credential]
