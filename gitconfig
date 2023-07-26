@@ -10,14 +10,15 @@
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
-  old = red
-  new = green
+  old = strike red
+  new = ul green
 [core]
   filemode = false
   autocrlf = false
   editor = /usr/bin/vim
 [diff]
   tool = vimdiff
+  wordRegex = .
 [difftool]
   prompt = false
 [init]
@@ -109,7 +110,7 @@
   gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; } ; f"
   # Show the diff between the latest commit and the current state
   d = !"git diff-index --quiet HEAD -- || clear -x ; git --no-pager diff --patch-with-stat"
-  dif = diff
+  dif = diff --color-words
   # Show the diff between the "number" of revisions ago and current state
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear -x; d"
   # Diff to a specific commit passed as parameter
