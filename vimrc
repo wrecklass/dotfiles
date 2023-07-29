@@ -486,7 +486,10 @@ nnoremap <leader>z          :wq<CR>
 " Or exit without saving changes
 nnoremap <leader>Q          :q!<CR>
 
-nnoremap <leader>vh  :h <C-R>=expand("<cword>")<CR><CR>
+" Hilariously this turns out to be mapped to K already.
+" Except K also opens man pages for some non-vim words
+" nnoremap <leader>vv  :h <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>vh  K
 nnoremap <leader>bs  /<C-R>=escape(expand("<cword>"), "/")<CR><CR>
 nnoremap <leader>u   :UndotreeToggle<CR>
 nnoremap <leader>pv  :Ex<CR>
@@ -717,7 +720,7 @@ nnoremap <silent> <leader>f :Rg<CR>
 " nnoremap <silent> <leader>/ :BLines<CR>
 nnoremap <silent> <leader>' :Marks<CR>
 nnoremap <silent> <leader>g :Commits<CR>
-nnoremap <silent> <leader>H :Helptags<CR>
+nnoremap <silent> <leader>T :Helptags<CR>
 nnoremap <silent> <leader>hh :History<CR>
 nnoremap <silent> <leader>h: :History:<CR>
 nnoremap <silent> <leader>W :Windows<CR>
