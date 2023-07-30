@@ -16,7 +16,7 @@ source $VIMRUNTIME/defaults.vim
 " set omnifunc=ale#completion#OmniFunc
 "
 " Allows us to disable ctags generation
-let g:gutentags_define_advanced_commands=1
+" let g:gutentags_define_advanced_commands=1
 
 let g:ft_man_open_mode='tab'
 
@@ -235,7 +235,7 @@ Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'BurntSushi/ripgrep'
 Plug 'junegunn/vim-peekaboo'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 " Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
