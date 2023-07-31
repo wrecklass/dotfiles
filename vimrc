@@ -925,7 +925,7 @@ if has("autocmd")
 
     autocmd FileType ruby setlocal tags=./tags;
 
-    autocmd BufWritePost *.rb silent !ctags -R .
+    " autocmd BufWritePost *.rb silent !ctags -R .
   augroup END
 
   augroup CursorSettings
