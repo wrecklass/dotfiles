@@ -54,21 +54,21 @@ vimdocs:             ## Create the vim helptags
 .PHONY := nvim
 nvim: nvim/init.vim                ## Create PowerShell nvim init.vim
 	if [ -d /c/Users/smartin/AppData/Local ]; then \
-	  mkdir -p /c/Users/smartin/AppData/Local/nvim ; \
-	  rm -f /c/Users/smartin/AppData/Local/nvim/init.vim ; \
-	  cp ./nvim/init.vim /c/Users/smartin/AppData/Local/nvim/ ; \
+		mkdir -p /c/Users/smartin/AppData/Local/nvim ; \
+		rm -f /c/Users/smartin/AppData/Local/nvim/init.vim ; \
+		cp ./nvim/init.vim /c/Users/smartin/AppData/Local/nvim/ ; \
 	fi
 
 .PHONY := fzf
 fzf:                ## Install fzf completions to the proper location
 	if [ ! -r /usr/share/bash-completion/completions/fzf ];then \
-	  cp functions/fzf.off /usr/share/bash-completion/completions/fzf ; \
+		cp functions/fzf.off /usr/share/bash-completion/completions/fzf ; \
 	fi
 
 .PHONY := help
 help:                ## List targets (default)
 	@echo 'Management commands for ${PROJECT_NAME}:'
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | \
-	 awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-30s\033[0m %s\n", $$1, $$2}'
+		awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-30s\033[0m %s\n", $$1, $$2}'
 	@echo
 # vim: ts=4 sw=2
