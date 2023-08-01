@@ -11,22 +11,23 @@ deploy: dotfiles fishconf windot vimfiles vimdocs ## Install everything, use thi
 # Fish and Vim is handled below
 .PHONY := dotfiles
 dotfiles:            ## Install (link) the dotfiles
-	for file in $(shell find $(CURDIR) -maxdepth 1 ! -name windows ! -name tags ! -name dotfiles ! -name "config.omp.*" ! -name ".[a-zA-Z]*" ! -name "README.md" ! -name "vim" ! -name "Makefile" ! -name "assh.yml" ! -name "fish"); do \
+	for file in $(shell find $(CURDIR) -maxdepth 1 ! -name dotfiles.code-workspace ! -name gitconfig ! -name windows ! -name tags ! -name dotfiles ! -name "config.omp.*" ! -name ".[a-zA-Z]*" ! -name "README.md" ! -name "vim" ! -name "Makefile" ! -name "assh.yml" ! -name "fish"); do \
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
-	cp ./assh.yml ~/.ssh/
+	ln -f gitconfig ~/.gitconfig
+	ln -f ./assh.yml ~/.ssh/
 
 .PHONY := windot
 windot:              ## Install windows versions of files if on Windows
 	if [ -d /c/Users/smartin ]; then\
-	  cp ./windows/vimrc /c/Users/smartin/.vimrc;\
+		cp ./windows/vimrc /c/Users/smartin/.vimrc;\
 	fi
 	if [ -d /c/Users/smartin/AppData/Local/clink ]; then\
-	  cp windows/oh-my-posh.lua /c/Users/smartin/AppData/Local/clink;\
+		cp windows/oh-my-posh.lua /c/Users/smartin/AppData/Local/clink;\
 	fi
 	if [ -d /c/Users/smartin/AppData/Local/nvim ]; then\
-	  cp windows/init.vim /c/Users/smartin/AppData/Local/nvim;\
+		cp windows/init.vim /c/Users/smartin/AppData/Local/nvim;\
 	fi
 
 # Fish goes to the .config dir
