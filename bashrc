@@ -154,11 +154,6 @@ else
   _log "No git completion script!"
 fi
 
-# Cargo env
-if [ -f "$HOME/.cargo/env" ];then
-  source "$HOME/.cargo/env"
-fi
-
 # completion for hub command
 if [ -f "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion" ]; then
   source "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion"
@@ -220,6 +215,14 @@ GOC=$(command -v gocomplete)
 if [ -n "$GOC" ]; then
   complete -C "$GOC" go
 fi
+
+# Cargo env
+echo "You better"
+if [ -f "$HOME/.cargo/env" ];then
+  echo "You bet"
+  source "$HOME/.cargo/env"
+fi
+type rustc
 
 export BASH_RC
 # }}}
