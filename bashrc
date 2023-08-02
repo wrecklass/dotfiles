@@ -217,12 +217,9 @@ if [ -n "$GOC" ]; then
 fi
 
 # Cargo env
-echo "You better"
 if [ -f "$HOME/.cargo/env" ];then
-  echo "You bet"
   source "$HOME/.cargo/env"
 fi
-type rustc
 
 export BASH_RC
 # }}}

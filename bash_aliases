@@ -228,6 +228,8 @@ alias orders='cygstart "https://www.amazon.com/gp/css/order-history"'
 # Use fzf with a preview window
 if command -v bat &> /dev/null ; then
   alias pf='fzf --preview="bat --color=always --decorations=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
+elif command -v batcat &> /dev/null; then
+  alias pf='fzf --preview="batcat --color=always --decorations=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
 else
   alias pf='fzf --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
 fi
