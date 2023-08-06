@@ -23,8 +23,8 @@ case $- in
 esac
 # }}}
 # {{{ Logging
-# UNAMECMD=$(command -v uname)
-UNAMECMD="/usr/bin/uname"
+UNAMECMD=$(command -v uname)
+# UNAMECMD="/usr/bin/uname"
 declare -x -l UNAME
 : "${HOME=~}"
 : "${UNAME=$($UNAMECMD -o)}"
@@ -154,11 +154,6 @@ else
   _log "No git completion script!"
 fi
 
-# Cargo env
-if [ -f "$HOME/.cargo/env" ];then
-  source "$HOME/.cargo/env"
-fi
-
 # completion for hub command
 if [ -f "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion" ]; then
   source "$GOPATH/src/github.com/github/hub/etc/hub.bash_completion"
@@ -219,6 +214,11 @@ export FZF_COMPLETION_OPTS='--height=70% --info=inline --border'
 GOC=$(command -v gocomplete)
 if [ -n "$GOC" ]; then
   complete -C "$GOC" go
+fi
+
+# Cargo env
+if [ -f "$HOME/.cargo/env" ];then
+  source "$HOME/.cargo/env"
 fi
 
 export BASH_RC

@@ -217,7 +217,6 @@ highlight StartifySlash   ctermfg=240
 highlight StartifySpecial ctermfg=240
 " }}}
 " {{{ Plugins
-"
 
 call plug#begin('~/.vim/plugged')
 

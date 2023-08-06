@@ -220,12 +220,16 @@ __man() {
 # location
 function o() {
   if [ $# -eq 0 ]; then
-    open .;
+    open .
   else
-    open "$@";
-  fi;
+    open "$@"
+  fi
 }
 
 function mhz() {
   awk '/MHz/{ temp+=$4; n++} END {printf("%6.1f\n", temp/n) }' /proc/cpuinfo
+}
+
+function ver() {
+  [[ -n "$1" ]] && "$1" --version
 }
