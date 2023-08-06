@@ -23,8 +23,8 @@ case $- in
 esac
 # }}}
 # {{{ Logging
-# UNAMECMD=$(command -v uname)
-UNAMECMD="/usr/bin/uname"
+UNAMECMD=$(command -v uname)
+# UNAMECMD="/usr/bin/uname"
 declare -x -l UNAME
 : "${HOME=~}"
 : "${UNAME=$($UNAMECMD -o)}"
