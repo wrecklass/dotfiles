@@ -17,6 +17,12 @@ function _err {
   fi
 }
 
+if command -v batcat &> /dev/null ;then
+  function bat() {
+    batcat "$@"
+  }
+fi
+
 # Open that works on either cygwin or linux
 function open() {
   if command -v cygstart; then
