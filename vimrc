@@ -909,7 +909,8 @@ if has("autocmd")
     " must be done AFTER plugin loads
     let g:rainbow_active = 1
 
-    autocmd FileType c,cpp             setlocal path+=/usr/include include&
+    autocmd FileType c,h,cpp           setlocal path+=/usr/include include&
+    autocmd FileType c,h,cpp           setlocal foldmethod=syntax
     autocmd FileType sh,zsh,csh,tcsh   setlocal include=^\\s*\\%(\\.\\\|source\\)\\s
     autocmd FileType dosbatch          setlocal include=^call | let &l:sua = tr($PATHEXT, ';', ',')
     autocmd FileType json              setlocal shiftwidth=2 expandtab
