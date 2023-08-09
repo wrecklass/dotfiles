@@ -34,7 +34,7 @@
     "copyFormatting": "none",
     "centerOnLaunch": false,
     "copyOnSelect": false,
-    "defaultProfile": "{a1000233-4df8-4b48-8a7f-5cada6faf3bf}",
+    "defaultProfile": "{add2db30-803b-4b6a-a2cc-ca8c901b55af}",
     "focusFollowMouse": false,
     "initialCols": 125,
     "initialPosition": "1282,1",
@@ -70,7 +70,7 @@
         [
             {
                 "commandline": "C:\\cygwin64\\bin\\bash.exe -i",
-                "guid": "{a1000233-4df8-4b48-8a7f-5cada6faf3bf}",
+                "guid": "{add2db30-803b-4b6a-a2cc-ca8c901b55af}",
                 "hidden": false,
                 "icon": "C:\\cygwin64\\Cygwin.ico",
                 "name": "CygwinBash",
@@ -83,38 +83,27 @@
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
             },
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": true,
+                "hidden": false,
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl"
             },
             {
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "guid": "{6886d592-dfd2-5d93-9432-0549cf5af9fa}",
                 "hidden": false,
-                "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
-            },
-            {
-                "guid": "{d7b20cea-47a9-518c-95a4-c8bd91e2e1c6}",
-                "hidden": false,
-                "name": "Ubuntu 22.04.2 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
-            },
-            {
-                "guid": "{24677bce-871d-5708-bd54-b6269ccad188}",
-                "hidden": true,
-                "name": "Developer PowerShell for VS 2022",
+                "name": "Developer PowerShell for VS 2019",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{abc3e8d0-fdb0-5eee-8eb9-bf2a9605e85c}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2022",
+                "guid": "{e394738b-0e82-5c2f-bd85-b38419f7acd9}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2019",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
@@ -124,6 +113,7 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": true,
                 "name": "Windows PowerShell"
