@@ -63,7 +63,7 @@
             },
             "intenseTextStyle": "all",
             "opacity": 100,
-            "useAcrylic": false
+            "useAcrylic": false,
             "scrollbarState": "always"
         },
         "list":
