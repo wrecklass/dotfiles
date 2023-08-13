@@ -242,6 +242,8 @@ else
 fi
 alias svi='sudo vim'
 alias via='vi ~/.ssh/assh.yml'
+# More typo fixing
+alias ssu='ssh'
 
 if [ -z "$EDITOR" ];then
   export EDITOR="/bin/vim"
