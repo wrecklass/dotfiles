@@ -243,6 +243,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 " Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
 " Plug 'fisadev/vim-sane-gocomplete'
@@ -909,7 +910,8 @@ if has("autocmd")
     " must be done AFTER plugin loads
     let g:rainbow_active = 1
 
-    autocmd FileType c,cpp             setlocal path+=/usr/include include&
+    autocmd FileType c,cpp,h           setlocal path+=/usr/include include&
+    autocmd FileType c,cpp,h           setlocal foldmethod=syntax
     autocmd FileType sh,zsh,csh,tcsh   setlocal include=^\\s*\\%(\\.\\\|source\\)\\s
     autocmd FileType dosbatch          setlocal include=^call | let &l:sua = tr($PATHEXT, ';', ',')
     autocmd FileType json              setlocal shiftwidth=2 expandtab
