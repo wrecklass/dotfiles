@@ -3,6 +3,10 @@
 alias help="_help"
 
 function _help() {
-  builtin help "$1" 2> /dev/null || "$1" --help | less
+  builtin help "$1" 2> /dev/null || "$1" --help 2> /dev/null | less
   return 0
+}
+
+function ver() {
+  [[ -n $1 ]] && "$1" --version
 }

@@ -1,0 +1,837 @@
+Version: 18.2.5
+
+Shell: bash (5.1.4(1)-release)
+
+Segments:
+
+ConsoleTitle(true)  -   2 ms - bash in dotfiles
+os(true)            -   5 ms - ╭─ 
+connection(false)   -   0 ms -
+session(false)      -   4 ms -
+session(true)       -   1 ms -  smartin@ras42
+path(true)          -   2 ms -   /src/dotfiles
+git(true)           -  20 ms -  artin/dotfiles
+root(false)         -   0 ms -
+executiontime(true) -   1 ms -  󰔟0ms⠀
+shell(true)         -   1 ms - 󱆃 bash
+ipify(false)        -   0 ms -
+sysinfo(true)       -   5 ms - 󰍛 7.25%
+angular(false)      -   0 ms -
+aws(false)          -   0 ms -
+az(false)           -   0 ms -
+azfunc(false)       -   0 ms -
+crystal(false)      -   0 ms -
+cf(false)           -   0 ms -
+cftarget(false)     -   0 ms -
+cmake(false)        -   0 ms -
+dart(false)         -   0 ms -
+dotnet(false)       -   2 ms -
+flutter(false)      -   0 ms -
+go(false)           -   0 ms -
+haskell(false)      -   1 ms -
+java(false)         -   2 ms -
+julia(false)        -   0 ms -
+kotlin(false)       -   0 ms -
+kubectl(false)      -   0 ms -
+node(false)         -   1 ms -
+nx(false)           -   0 ms -
+perl(false)         -   0 ms -
+php(false)          -   0 ms -
+python(false)       -   0 ms -
+r(false)            -   1 ms -
+ruby(false)         -   0 ms -
+rust(false)         -   0 ms -
+swift(false)        -   0 ms -
+time(true)          -   0 ms -  󰥔 04:50:33
+text(true)          -   0 ms - ╰─
+upgrade(false)      -   0 ms -
+exit(true)          -   3 ms - 
+
+Run duration: 83.72361ms
+
+Cache path: /home/smartin/.cache/oh-my-posh
+
+Config path: /home/smartin/src/dotfiles/config.omp.json
+
+Logs:
+
+[DEBUG] 04:50:33.274 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.275 shell.go:Getenv(TERM_PROGRAM) - 84.979µs
+[DEBUG] 04:50:33.275 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.275 shell.go:Getenv(XDG_CACHE_HOME) - 16.907µs
+[TRACE] 04:50:33.275 shell_unix.go:CachePath() - 92.832µs
+[DEBUG] 04:50:33.276 shell.go:Getenv:388 → /home/smartin/src/dotfiles/config.omp.json
+[TRACE] 04:50:33.276 shell.go:Getenv(POSH_THEME) - 30.444µs
+[DEBUG] 04:50:33.276 shell_unix.go:Platform:77 → raspbian
+[TRACE] 04:50:33.276 shell.go:resolveConfigPath() - 90.368µs
+[TRACE] 04:50:33.276 shell.go:Init() - 1.416895ms
+[TRACE] 04:50:33.276 shell.go:Flags() - 445ns
+[TRACE] 04:50:33.286 config.go:loadConfig() - 10.528272ms
+[TRACE] 04:50:33.286 shell.go:Flags() - 444ns
+[DEBUG] 04:50:33.287 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.287 shell.go:Getenv(OMP_CACHE_DISABLED) - 24.111µs
+[DEBUG] 04:50:33.287 shell.go:Shell:628 → no shell name provided in flags, trying to detect it
+[DEBUG] 04:50:33.288 shell.go:Shell:636 → process name: bash
+[TRACE] 04:50:33.289 shell.go:Shell() - 1.964975ms
+[DEBUG] 04:50:33.289 shell.go:Getenv:388 → 5.1.4(1)-release
+[TRACE] 04:50:33.289 shell.go:Getenv(POSH_SHELL_VERSION) - 21.018µs
+[DEBUG] 04:50:33.289 debug.go:PrintDebug:23 → Segment: Title
+[TRACE] 04:50:33.290 shell_unix.go:Root() - 6.814µs
+[TRACE] 04:50:33.290 shell.go:Shell() - 574ns
+[TRACE] 04:50:33.290 shell.go:StatusCodes() - 686ns
+[DEBUG] 04:50:33.290 shell_unix.go:IsWsl:35 → false
+[TRACE] 04:50:33.290 shell_unix.go:IsWsl() - 44.277µs
+[DEBUG] 04:50:33.290 shell.go:TemplateCache:806 → environment: [SHELL=/bin/bash GOEXPERIMENT= LESS=FXRj5 HISTCONTROL=erasedups:ignoreboth POSH_PID=84456 GOFLAGS= GOVERSION=go1.20.6 HISTSIZE=5000 LANGUAGE=en_US.UTF-8 IPV6_REGX=(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])) CGO_LDFLAGS=-O2 -g JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 GOPRIVATE= ANT_HOME=/Users/smartin/bin/apache-ant-1.9.4 GOGCCFLAGS=-fPIC -pthread -Wl,--no-gc-sections -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build3961966866=/tmp/go-build -gno-record-gcc-switches NO_AT_BRIDGE=1 EDITOR=/usr/bin/vim POWERLINE_MODULES=user,host,ssh,cwd,perms,jobs,newline,git,hg,exit,root GOBIN= GOHOSTOS=linux PWD=/home/smartin/src/dotfiles LOGNAME=smartin XDG_SESSION_TYPE=tty GOARCH=arm64 FZF_COMPLETION_OPTS=--height=70% --info=inline --border CXX=g++ GCCGO=gccgo FZF_DEFAULT_COMMAND=rg --files MOTD_SHOWN=pam IPV4_REGX=[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3} HOME=/home/smartin LANG=en_US.UTF-8 UNAME=linux LS_COLORS=rs=0:di=01;36:ln=target:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=00;33:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36: POSH_SHELL_VERSION=5.1.4(1)-release GOSUMDB=sum.golang.org CONDA_PROMPT_MODIFIER=false GOTMPDIR= CGO_CFLAGS=-O2 -g SSH_CONNECTION=192.168.1.48 1476 192.168.1.19 22 GROOVY_HOME=/usr/share/groovy GOROOT=/usr/local/go-linux-arm64-bootstrap GOMODCACHE=/home/smartin/src/gocode/pkg/mod CGO_CXXFLAGS=-O2 -g GOMOD=/dev/null ORIGPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games LESSCLOSE=/usr/bin/lesspipe %s %s XDG_SESSION_CLASS=user TERM=xterm-256color LESSOPEN=| /usr/bin/lesspipe %s GOTOOLDIR=/usr/local/go-linux-arm64-bootstrap/pkg/tool/linux_arm64 USER=smartin GOENV=/home/smartin/.config/go/env AR=ar MANPAGER=less -X TEMP=/tmp GOPROXY=https://proxy.golang.org,direct SHLVL=1 GOVCS= GOEXE= GOINSECURE= colorflag=--color CGO_CPPFLAGS= BASH_RC=true XDG_SESSION_ID=1410 MYSQL_HOME=/usr/local/mysql GOCACHE=/home/smartin/.cache/go-build POSH_THEME=/home/smartin/src/dotfiles/config.omp.json LD_LIBRARY_PATH=/usr/lib/vlc XDG_RUNTIME_DIR=/run/user/1000 GO111MODULE= SSH_CLIENT=192.168.1.48 1476 22 BASH_PROFILE=true CGO_FFLAGS=-O2 -g GOWORK= LC_ALL=en_US.UTF-8 VLC_PLUGIN_PATH=/usr/lib/vlc/plugins GONOSUMDB= TMP=/tmp PATH=/usr/local/go-linux-arm64-bootstrap/bin:/home/smartin/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games NETREGX=[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3} GONOPROXY= HISTIGNORE=x:fg:h:history:ls:ps:ll:exit CC=gcc HISTFILESIZE=5000 CGO_ENABLED=1 FZF_DEFAULT_OPTS=-m SSH_TTY=/dev/pts/0 POWERLINE_COMMAND=oh-my-posh WICH=/bin/which GOOS=linux OLDPWD=/usr/local/bin GOPATH=/home/smartin/src/gocode VERBOSE=0 GOHOSTARCH=arm64 PKG_CONFIG=pkg-config TEXTDOMAIN=Linux-PAM _=/usr/local/bin/oh-my-posh]
+[TRACE] 04:50:33.291 shell.go:GOOS() - 519ns
+[DEBUG] 04:50:33.291 shell.go:Pwd:418 → /home/smartin/src/dotfiles
+[TRACE] 04:50:33.291 shell.go:Pwd() - 76.462µs
+[TRACE] 04:50:33.291 shell.go:GOOS() - 241ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 222ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 296ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 222ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 222ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 222ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 241ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 259ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 222ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 277ns
+[DEBUG] 04:50:33.291 shell.go:User:539 → smartin
+[TRACE] 04:50:33.291 shell.go:User() - 19.573µs
+[DEBUG] 04:50:33.291 shell.go:Host:551 → ras42
+[TRACE] 04:50:33.291 shell.go:Host() - 28.5µs
+[TRACE] 04:50:33.291 shell.go:GOOS() - 260ns
+[DEBUG] 04:50:33.291 shell_unix.go:Platform:77 → raspbian
+[DEBUG] 04:50:33.291 shell.go:Getenv:388 → 1
+[TRACE] 04:50:33.291 shell.go:Getenv(SHLVL) - 16.296µs
+[TRACE] 04:50:33.291 shell.go:TemplateCache() - 1.010107ms
+[TRACE] 04:50:33.291 shell.go:Flags() - 463ns
+[DEBUG] 04:50:33.291 block.go:Debug:280 → Segment: os
+[TRACE] 04:50:33.291 shell.go:Pwd() - 667ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 222ns
+[TRACE] 04:50:33.291 shell.go:GOOS() - 241ns
+[DEBUG] 04:50:33.291 shell_unix.go:Platform:77 → raspbian
+[DEBUG] 04:50:33.291 properties.go:GetBool:22 → display_distro_name: false
+[DEBUG] 04:50:33.291 properties.go:GetString:28 → 
+[TRACE] 04:50:33.291 shell.go:TemplateCache() - 1.019µs
+[TRACE] 04:50:33.296 shell.go:TemplateCache() - 3.277µs
+[TRACE] 04:50:33.296 shell.go:Shell() - 833ns
+[DEBUG] 04:50:33.296 block.go:Debug:280 → Segment: connection
+[TRACE] 04:50:33.297 shell.go:Pwd() - 1.444µs
+[TRACE] 04:50:33.297 shell.go:GOOS() - 334ns
+[DEBUG] 04:50:33.297 properties.go:GetString:28 → wifi|ethernet
+[DEBUG] 04:50:33.297 block.go:Debug:280 → Segment: session
+[TRACE] 04:50:33.297 shell.go:Pwd() - 463ns
+[TRACE] 04:50:33.297 shell.go:GOOS() - 222ns
+[DEBUG] 04:50:33.301 shell_unix.go:TerminalWidth:69 → terminal width: 124
+[TRACE] 04:50:33.301 shell_unix.go:TerminalWidth() - 3.980877ms
+[DEBUG] 04:50:33.301 block.go:Debug:280 → Segment: session
+[TRACE] 04:50:33.301 shell.go:Pwd() - 963ns
+[TRACE] 04:50:33.301 shell.go:GOOS() - 352ns
+[DEBUG] 04:50:33.301 shell_unix.go:TerminalWidth:60 → terminal width: 124
+[TRACE] 04:50:33.301 shell_unix.go:TerminalWidth() - 17.907µs
+[DEBUG] 04:50:33.301 shell.go:Getenv:388 → 192.168.1.48 1476 192.168.1.19 22
+[TRACE] 04:50:33.301 shell.go:Getenv(SSH_CONNECTION) - 17.018µs
+[TRACE] 04:50:33.301 shell.go:TemplateCache() - 1.352µs
+[TRACE] 04:50:33.302 shell.go:TemplateCache() - 889ns
+[TRACE] 04:50:33.302 shell.go:Shell() - 889ns
+[DEBUG] 04:50:33.302 block.go:Debug:280 → Segment: path
+[TRACE] 04:50:33.302 shell.go:Pwd() - 500ns
+[TRACE] 04:50:33.302 shell.go:GOOS() - 370ns
+[TRACE] 04:50:33.302 shell.go:Pwd() - 426ns
+[TRACE] 04:50:33.302 shell.go:Shell() - 314ns
+[TRACE] 04:50:33.302 shell.go:Shell() - 222ns
+[DEBUG] 04:50:33.302 properties.go:GetBool:22 → mapped_locations_enabled: true
+[DEBUG] 04:50:33.302 properties.go:GetString:28 → 
+[DEBUG] 04:50:33.302 properties.go:GetString:28 → 
+[TRACE] 04:50:33.303 shell.go:GOOS() - 278ns
+[DEBUG] 04:50:33.303 properties.go:GetString:28 → 
+[DEBUG] 04:50:33.303 properties.go:GetKeyValueMap:46 → mapped_locations: map[C:/Users/smartin:]
+[TRACE] 04:50:33.303 shell.go:GOOS() - 315ns
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 703ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 241ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 222ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 315ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 203ns
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 222ns
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 260ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 204ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 204ns
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 204ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 186ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 204ns
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 185ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 185ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 204ns
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 259ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 222ns
+[TRACE] 04:50:33.303 shell.go:GOOS() - 241ns
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 278ns
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 204ns
+[DEBUG] 04:50:33.303 properties.go:GetString:28 → powerlevel
+[DEBUG] 04:50:33.303 properties.go:GetFloat64:34 → max_width: 24.000000
+[DEBUG] 04:50:33.303 properties.go:GetString:28 → NO DATA
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 259ns
+[DEBUG] 04:50:33.303 properties.go:GetString:28 → /
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 203ns
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 297ns
+[DEBUG] 04:50:33.303 properties.go:GetStringArray:52 → cycle: []
+[DEBUG] 04:50:33.303 properties.go:GetString:28 → NO DATA
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 204ns
+[DEBUG] 04:50:33.303 properties.go:GetString:28 → /
+[DEBUG] 04:50:33.303 properties.go:GetBool:22 → cycle_folder_separator: false
+[DEBUG] 04:50:33.303 properties.go:GetString:28 → %s
+[DEBUG] 04:50:33.303 properties.go:GetString:28 → %s
+[TRACE] 04:50:33.303 shell.go:PathSeparator() - 222ns
+[TRACE] 04:50:33.303 shell.go:Pwd() - 407ns
+[DEBUG] 04:50:33.303 shell_unix.go:IsWsl:35 → false
+[TRACE] 04:50:33.303 shell_unix.go:IsWsl() - 18.889µs
+[TRACE] 04:50:33.303 shell.go:StackCount() - 574ns
+[TRACE] 04:50:33.303 shell_unix.go:DirIsWritable(/home/smartin/src/dotfiles) - 38.222µs
+[TRACE] 04:50:33.303 shell.go:TemplateCache() - 982ns
+[TRACE] 04:50:33.305 shell.go:TemplateCache() - 759ns
+[TRACE] 04:50:33.305 shell.go:Shell() - 629ns
+[DEBUG] 04:50:33.305 block.go:Debug:280 → Segment: git
+[TRACE] 04:50:33.305 shell.go:Pwd() - 463ns
+[TRACE] 04:50:33.305 shell.go:GOOS() - 222ns
+[DEBUG] 04:50:33.305 shell_unix.go:IsWsl:35 → false
+[TRACE] 04:50:33.305 shell_unix.go:IsWsl() - 30.073µs
+[TRACE] 04:50:33.305 shell_unix.go:IsWsl2() - 74.517µs
+[TRACE] 04:50:33.305 shell.go:GOOS() - 203ns
+[DEBUG] 04:50:33.305 shell.go:CommandPath:590 → /usr/bin/git
+[TRACE] 04:50:33.305 shell.go:CommandPath(git) - 192.237µs
+[TRACE] 04:50:33.305 shell.go:HasCommand(git) - 212.847µs
+[TRACE] 04:50:33.305 shell.go:Pwd() - 426ns
+[TRACE] 04:50:33.305 shell.go:HasParentFilePath(.git) - 57.74µs
+[DEBUG] 04:50:33.305 properties.go:GetStringArray:52 → exclude_folders: []
+[TRACE] 04:50:33.305 shell.go:GOOS() - 260ns
+[TRACE] 04:50:33.305 shell.go:GOOS() - 222ns
+[DEBUG] 04:50:33.305 properties.go:GetBool:22 → fetch_user: false
+[TRACE] 04:50:33.305 shell.go:GOOS() - 259ns
+[TRACE] 04:50:33.305 shell.go:GOOS() - 259ns
+[TRACE] 04:50:33.305 shell.go:GOOS() - 186ns
+[TRACE] 04:50:33.305 shell.go:GOOS() - 185ns
+[TRACE] 04:50:33.305 shell.go:GOOS() - 240ns
+[TRACE] 04:50:33.305 shell.go:GOOS() - 204ns
+[TRACE] 04:50:33.305 shell.go:GOOS() - 204ns
+[TRACE] 04:50:33.305 shell.go:GOOS() - 203ns
+[TRACE] 04:50:33.305 shell.go:GOOS() - 204ns
+[DEBUG] 04:50:33.305 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.305 shell.go:Getenv(POSH_GIT_STATUS) - 15.537µs
+[DEBUG] 04:50:33.305 properties.go:GetBool:22 → fetch_status: true
+[DEBUG] 04:50:33.306 properties.go:GetStringArray:52 → ignore_status: []
+[TRACE] 04:50:33.306 shell.go:GOOS() - 296ns
+[DEBUG] 04:50:33.306 properties.go:GetKeyValueMap:46 → status_formats: map[]
+[DEBUG] 04:50:33.306 properties.go:GetKeyValueMap:46 → untracked_modes: map[]
+[DEBUG] 04:50:33.306 properties.go:GetKeyValueMap:46 → ignore_submodules: map[]
+[DEBUG] 04:50:33.321 shell.go:RunCommand:569 ↓
+    # branch.oid f00c8ff4c5e2199e2f5de4b7aca645a544bdcbd0
+    # branch.head raspberry
+    # branch.upstream origin/raspberry
+    # branch.ab +0 -0
+    ? debug.out
+[TRACE] 04:50:33.321 shell.go:RunCommand(git -C /home/smartin/src/dotfiles --no-optional-locks -c core.quotepath=false -c color.status=false status -unormal --branch --porcelain=2) - 15.46172ms
+[DEBUG] 04:50:33.321 properties.go:GetString:28 → 
+[DEBUG] 04:50:33.321 properties.go:GetInt:40 → branch_max_length: 0
+[DEBUG] 04:50:33.321 shell.go:HasFolder:483 → false
+[TRACE] 04:50:33.321 shell.go:HasFolder(/home/smartin/src/dotfiles/.git/rebase-merge) - 42.574µs
+[DEBUG] 04:50:33.321 shell.go:HasFolder:483 → false
+[TRACE] 04:50:33.321 shell.go:HasFolder(/home/smartin/src/dotfiles/.git/rebase-apply) - 28.148µs
+[DEBUG] 04:50:33.321 properties.go:GetString:28 → 
+[DEBUG] 04:50:33.321 shell.go:HasFilesInDir:454 → false
+[TRACE] 04:50:33.321 shell.go:HasFilesInDir(MERGE_MSG) - 69.406µs
+[DEBUG] 04:50:33.321 shell.go:HasFilesInDir:454 → false
+[TRACE] 04:50:33.321 shell.go:HasFilesInDir(CHERRY_PICK_HEAD) - 33.147µs
+[DEBUG] 04:50:33.321 shell.go:HasFilesInDir:454 → false
+[TRACE] 04:50:33.322 shell.go:HasFilesInDir(REVERT_HEAD) - 30.758µs
+[DEBUG] 04:50:33.322 shell.go:HasFilesInDir:454 → false
+[TRACE] 04:50:33.322 shell.go:HasFilesInDir(sequencer/todo) - 42.11µs
+[DEBUG] 04:50:33.322 properties.go:GetString:28 → ≡
+[DEBUG] 04:50:33.322 properties.go:GetBool:22 → fetch_upstream_icon: true
+[DEBUG] 04:50:33.322 properties.go:GetKeyValueMap:46 → upstream_icons: map[]
+[DEBUG] 04:50:33.322 properties.go:GetString:28 → 
+[TRACE] 04:50:33.322 shell.go:TemplateCache() - 1.611µs
+[TRACE] 04:50:33.324 shell.go:TemplateCache() - 889ns
+[ERROR] 04:50:33.324 shell.go:FileContent:509 → open /home/smartin/src/dotfiles/.git/logs/refs/stash: no such file or directory
+[TRACE] 04:50:33.324 shell.go:FileContent(/home/smartin/src/dotfiles/.git/logs/refs/stash) - 78.091µs
+[TRACE] 04:50:33.324 shell.go:Shell() - 1.037µs
+[TRACE] 04:50:33.325 shell.go:TemplateCache() - 1.111µs
+[DEBUG] 04:50:33.326 block.go:Debug:280 → Segment: root
+[TRACE] 04:50:33.326 shell.go:Pwd() - 1.037µs
+[TRACE] 04:50:33.326 shell.go:GOOS() - 482ns
+[TRACE] 04:50:33.326 shell_unix.go:Root() - 6.704µs
+[DEBUG] 04:50:33.326 block.go:Debug:280 → Segment: executiontime
+[TRACE] 04:50:33.326 shell.go:Pwd() - 426ns
+[TRACE] 04:50:33.326 shell.go:GOOS() - 223ns
+[DEBUG] 04:50:33.326 properties.go:GetBool:22 → always_enabled: false
+[TRACE] 04:50:33.326 shell.go:ExecutionTime() - 815ns
+[DEBUG] 04:50:33.326 properties.go:GetFloat64:34 → threshold: 0.000000
+[DEBUG] 04:50:33.326 properties.go:GetString:28 → roundrock
+[TRACE] 04:50:33.326 shell.go:TemplateCache() - 740ns
+[TRACE] 04:50:33.327 shell.go:TemplateCache() - 945ns
+[TRACE] 04:50:33.327 shell.go:Shell() - 1.037µs
+[TRACE] 04:50:33.327 shell.go:Flags() - 815ns
+[DEBUG] 04:50:33.327 block.go:Debug:280 → Segment: shell
+[TRACE] 04:50:33.327 shell.go:Pwd() - 648ns
+[TRACE] 04:50:33.327 shell.go:GOOS() - 463ns
+[DEBUG] 04:50:33.327 properties.go:GetKeyValueMap:46 → mapped_shell_names: map[]
+[TRACE] 04:50:33.327 shell.go:Shell() - 352ns
+[TRACE] 04:50:33.327 shell.go:Flags() - 222ns
+[TRACE] 04:50:33.327 shell.go:TemplateCache() - 574ns
+[TRACE] 04:50:33.328 shell.go:TemplateCache() - 778ns
+[TRACE] 04:50:33.328 shell.go:Shell() - 370ns
+[DEBUG] 04:50:33.328 block.go:Debug:280 → Segment: ipify
+[TRACE] 04:50:33.328 shell.go:Pwd() - 482ns
+[TRACE] 04:50:33.328 shell.go:GOOS() - 370ns
+[DEBUG] 04:50:33.328 shell_unix.go:TerminalWidth:60 → terminal width: 124
+[TRACE] 04:50:33.328 shell_unix.go:TerminalWidth() - 18.777µs
+[DEBUG] 04:50:33.328 block.go:Debug:280 → Segment: sysinfo
+[DEBUG] 04:50:33.328 properties.go:GetInt:40 → precision: 2
+[TRACE] 04:50:33.330 shell.go:Pwd() - 593ns
+[TRACE] 04:50:33.330 shell.go:GOOS() - 296ns
+[TRACE] 04:50:33.330 shell.go:TemplateCache() - 908ns
+[TRACE] 04:50:33.333 shell.go:TemplateCache() - 2.797µs
+[TRACE] 04:50:33.333 shell.go:Shell() - 982ns
+[DEBUG] 04:50:33.333 block.go:Debug:280 → Segment: angular
+[TRACE] 04:50:33.333 shell.go:Pwd() - 1.186µs
+[TRACE] 04:50:33.333 shell.go:GOOS() - 593ns
+[DEBUG] 04:50:33.333 properties.go:GetStringArray:52 → extensions: [angular.json]
+[DEBUG] 04:50:33.333 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.333 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.333 shell.go:Pwd() - 481ns
+[DEBUG] 04:50:33.333 properties.go:GetString:28 → files
+[TRACE] 04:50:33.334 shell.go:Pwd() - 371ns
+[DEBUG] 04:50:33.334 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.334 shell.go:HasFiles(angular.json) - 82.035µs
+[DEBUG] 04:50:33.334 block.go:Debug:280 → Segment: aws
+[TRACE] 04:50:33.334 shell.go:Pwd() - 370ns
+[TRACE] 04:50:33.334 shell.go:GOOS() - 241ns
+[DEBUG] 04:50:33.334 properties.go:GetBool:22 → display_default: true
+[DEBUG] 04:50:33.334 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.334 shell.go:Getenv(AWS_VAULT) - 14.685µs
+[DEBUG] 04:50:33.334 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.334 shell.go:Getenv(AWS_DEFAULT_PROFILE) - 13.889µs
+[DEBUG] 04:50:33.334 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.334 shell.go:Getenv(AWS_PROFILE) - 13.037µs
+[DEBUG] 04:50:33.334 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.334 shell.go:Getenv(AWS_REGION) - 12.685µs
+[DEBUG] 04:50:33.334 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.334 shell.go:Getenv(AWS_DEFAULT_REGION) - 13.074µs
+[DEBUG] 04:50:33.334 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.334 shell.go:Getenv(AWS_CONFIG_FILE) - 12.852µs
+[ERROR] 04:50:33.334 shell.go:FileContent:509 → open /home/smartin/.aws/config: no such file or directory
+[TRACE] 04:50:33.334 shell.go:FileContent(/home/smartin/.aws/config) - 62.962µs
+[DEBUG] 04:50:33.334 block.go:Debug:280 → Segment: az
+[TRACE] 04:50:33.334 shell.go:Pwd() - 389ns
+[TRACE] 04:50:33.334 shell.go:GOOS() - 222ns
+[DEBUG] 04:50:33.334 properties.go:GetString:28 → first_match
+[DEBUG] 04:50:33.334 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.334 shell.go:Getenv(AZURE_CONFIG_DIR) - 13.889µs
+[DEBUG] 04:50:33.334 shell.go:HasFilesInDir:454 → false
+[TRACE] 04:50:33.334 shell.go:HasFilesInDir(azureProfile.json) - 36.703µs
+[DEBUG] 04:50:33.334 shell.go:HasFilesInDir:454 → false
+[TRACE] 04:50:33.334 shell.go:HasFilesInDir(azureProfile.json) - 31.833µs
+[DEBUG] 04:50:33.334 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.334 shell.go:Getenv(POSH_AZURE_SUBSCRIPTION) - 131.145µs
+[DEBUG] 04:50:33.334 block.go:Debug:280 → Segment: azfunc
+[TRACE] 04:50:33.334 shell.go:Pwd() - 481ns
+[TRACE] 04:50:33.334 shell.go:GOOS() - 241ns
+[DEBUG] 04:50:33.334 properties.go:GetStringArray:52 → extensions: [host.json local.settings.json function.json]
+[DEBUG] 04:50:33.334 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.334 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.334 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.334 properties.go:GetString:28 → files
+[TRACE] 04:50:33.334 shell.go:Pwd() - 314ns
+[DEBUG] 04:50:33.335 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.335 shell.go:HasFiles(host.json) - 50.888µs
+[TRACE] 04:50:33.335 shell.go:Pwd() - 351ns
+[DEBUG] 04:50:33.335 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.335 shell.go:HasFiles(local.settings.json) - 61.369µs
+[TRACE] 04:50:33.335 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.335 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.335 shell.go:HasFiles(function.json) - 65.795µs
+[DEBUG] 04:50:33.335 block.go:Debug:280 → Segment: crystal
+[TRACE] 04:50:33.335 shell.go:Pwd() - 407ns
+[TRACE] 04:50:33.335 shell.go:GOOS() - 222ns
+[DEBUG] 04:50:33.335 properties.go:GetStringArray:52 → extensions: [*.cr shard.yml]
+[DEBUG] 04:50:33.335 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.335 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.335 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.335 properties.go:GetString:28 → files
+[TRACE] 04:50:33.335 shell.go:Pwd() - 333ns
+[DEBUG] 04:50:33.335 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.335 shell.go:HasFiles(*.cr) - 356.789µs
+[TRACE] 04:50:33.335 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.335 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.335 shell.go:HasFiles(shard.yml) - 67.351µs
+[DEBUG] 04:50:33.335 block.go:Debug:280 → Segment: cf
+[DEBUG] 04:50:33.335 properties.go:GetString:28 → files
+[TRACE] 04:50:33.336 shell.go:Pwd() - 463ns
+[TRACE] 04:50:33.336 shell.go:GOOS() - 223ns
+[DEBUG] 04:50:33.336 properties.go:GetStringArray:52 → extensions: [manifest.yml mta.yaml]
+[DEBUG] 04:50:33.336 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.336 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.336 shell.go:Pwd() - 462ns
+[TRACE] 04:50:33.336 shell.go:Pwd() - 334ns
+[DEBUG] 04:50:33.336 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.336 shell.go:HasFiles(manifest.yml) - 48.388µs
+[TRACE] 04:50:33.336 shell.go:Pwd() - 370ns
+[DEBUG] 04:50:33.336 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.336 shell.go:HasFiles(mta.yaml) - 45.888µs
+[DEBUG] 04:50:33.336 block.go:Debug:280 → Segment: cftarget
+[TRACE] 04:50:33.336 shell.go:Pwd() - 389ns
+[TRACE] 04:50:33.336 shell.go:GOOS() - 222ns
+[ERROR] 04:50:33.336 shell.go:CommandPath:593 → exec: "cf": executable file not found in $PATH
+[TRACE] 04:50:33.336 shell.go:CommandPath(cf) - 128.386µs
+[TRACE] 04:50:33.336 shell.go:HasCommand(cf) - 143.219µs
+[DEBUG] 04:50:33.336 block.go:Debug:280 → Segment: cmake
+[TRACE] 04:50:33.336 shell.go:Pwd() - 426ns
+[TRACE] 04:50:33.336 shell.go:GOOS() - 223ns
+[DEBUG] 04:50:33.336 properties.go:GetStringArray:52 → extensions: [*.cmake CMakeLists.txt]
+[DEBUG] 04:50:33.336 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.336 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.336 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.336 properties.go:GetString:28 → files
+[TRACE] 04:50:33.336 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.336 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.336 shell.go:HasFiles(*.cmake) - 243.328µs
+[TRACE] 04:50:33.336 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.336 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.336 shell.go:HasFiles(CMakeLists.txt) - 48.813µs
+[DEBUG] 04:50:33.336 block.go:Debug:280 → Segment: dart
+[TRACE] 04:50:33.336 shell.go:Pwd() - 426ns
+[TRACE] 04:50:33.337 shell.go:GOOS() - 222ns
+[DEBUG] 04:50:33.337 properties.go:GetStringArray:52 → extensions: [*.dart pubspec.yaml pubspec.yml pubspec.lock]
+[DEBUG] 04:50:33.337 properties.go:GetStringArray:52 → folders: [.dart_tool]
+[DEBUG] 04:50:33.337 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.337 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.337 properties.go:GetString:28 → files
+[TRACE] 04:50:33.337 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.337 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.337 shell.go:HasFiles(*.dart) - 270.79µs
+[TRACE] 04:50:33.337 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.337 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.337 shell.go:HasFiles(pubspec.yaml) - 49.388µs
+[TRACE] 04:50:33.337 shell.go:Pwd() - 389ns
+[DEBUG] 04:50:33.337 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.337 shell.go:HasFiles(pubspec.yml) - 45.61µs
+[TRACE] 04:50:33.337 shell.go:Pwd() - 334ns
+[DEBUG] 04:50:33.337 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.337 shell.go:HasFiles(pubspec.lock) - 57.147µs
+[DEBUG] 04:50:33.337 shell.go:HasFolder:483 → false
+[TRACE] 04:50:33.337 shell.go:HasFolder(.dart_tool) - 26.555µs
+[DEBUG] 04:50:33.337 block.go:Debug:280 → Segment: dotnet
+[TRACE] 04:50:33.337 shell.go:Pwd() - 445ns
+[TRACE] 04:50:33.337 shell.go:GOOS() - 222ns
+[DEBUG] 04:50:33.337 properties.go:GetStringArray:52 → extensions: [*.cs *.csx *.vb *.sln *.slnf *.csproj *.vbproj *.fs *.fsx *.fsproj global.json]
+[DEBUG] 04:50:33.337 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.337 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.337 shell.go:Pwd() - 463ns
+[DEBUG] 04:50:33.337 properties.go:GetString:28 → files
+[TRACE] 04:50:33.337 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.338 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.338 shell.go:HasFiles(*.cs) - 230.828µs
+[TRACE] 04:50:33.338 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.338 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.338 shell.go:HasFiles(*.csx) - 228.273µs
+[TRACE] 04:50:33.338 shell.go:Pwd() - 407ns
+[DEBUG] 04:50:33.338 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.338 shell.go:HasFiles(*.vb) - 221.717µs
+[TRACE] 04:50:33.338 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.338 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.338 shell.go:HasFiles(*.sln) - 239.106µs
+[TRACE] 04:50:33.338 shell.go:Pwd() - 463ns
+[DEBUG] 04:50:33.339 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.339 shell.go:HasFiles(*.slnf) - 221.384µs
+[TRACE] 04:50:33.339 shell.go:Pwd() - 407ns
+[DEBUG] 04:50:33.339 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.339 shell.go:HasFiles(*.csproj) - 263.92µs
+[TRACE] 04:50:33.339 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.339 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.339 shell.go:HasFiles(*.vbproj) - 289.476µs
+[TRACE] 04:50:33.339 shell.go:Pwd() - 408ns
+[DEBUG] 04:50:33.339 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.339 shell.go:HasFiles(*.fs) - 205.014µs
+[TRACE] 04:50:33.339 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.340 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.340 shell.go:HasFiles(*.fsx) - 227.94µs
+[TRACE] 04:50:33.340 shell.go:Pwd() - 408ns
+[DEBUG] 04:50:33.340 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.340 shell.go:HasFiles(*.fsproj) - 216.717µs
+[TRACE] 04:50:33.340 shell.go:Pwd() - 408ns
+[DEBUG] 04:50:33.340 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.340 shell.go:HasFiles(global.json) - 49.535µs
+[DEBUG] 04:50:33.340 block.go:Debug:280 → Segment: flutter
+[TRACE] 04:50:33.340 shell.go:Pwd() - 463ns
+[TRACE] 04:50:33.340 shell.go:GOOS() - 297ns
+[DEBUG] 04:50:33.340 properties.go:GetStringArray:52 → extensions: [*.dart pubspec.yaml pubspec.yml pubspec.lock]
+[DEBUG] 04:50:33.340 properties.go:GetStringArray:52 → folders: [.dart_tool]
+[DEBUG] 04:50:33.340 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.340 shell.go:Pwd() - 463ns
+[DEBUG] 04:50:33.340 properties.go:GetString:28 → files
+[TRACE] 04:50:33.340 shell.go:Pwd() - 334ns
+[DEBUG] 04:50:33.340 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.340 shell.go:HasFiles(*.dart) - 242.347µs
+[TRACE] 04:50:33.340 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.340 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.341 shell.go:HasFiles(pubspec.yaml) - 67.239µs
+[TRACE] 04:50:33.341 shell.go:Pwd() - 389ns
+[DEBUG] 04:50:33.341 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.341 shell.go:HasFiles(pubspec.yml) - 46.981µs
+[TRACE] 04:50:33.341 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.341 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.341 shell.go:HasFiles(pubspec.lock) - 45.592µs
+[DEBUG] 04:50:33.341 shell.go:HasFolder:483 → false
+[TRACE] 04:50:33.341 shell.go:HasFolder(.dart_tool) - 24.444µs
+[DEBUG] 04:50:33.341 block.go:Debug:280 → Segment: go
+[TRACE] 04:50:33.341 shell.go:Pwd() - 370ns
+[TRACE] 04:50:33.341 shell.go:GOOS() - 222ns
+[DEBUG] 04:50:33.341 properties.go:GetStringArray:52 → extensions: [*.go go.mod]
+[DEBUG] 04:50:33.341 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.341 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.341 shell.go:Pwd() - 648ns
+[DEBUG] 04:50:33.341 properties.go:GetString:28 → files
+[TRACE] 04:50:33.341 shell.go:Pwd() - 351ns
+[DEBUG] 04:50:33.341 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.341 shell.go:HasFiles(*.go) - 210.106µs
+[TRACE] 04:50:33.341 shell.go:Pwd() - 445ns
+[DEBUG] 04:50:33.341 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.341 shell.go:HasFiles(go.mod) - 49.796µs
+[DEBUG] 04:50:33.341 block.go:Debug:280 → Segment: haskell
+[DEBUG] 04:50:33.341 properties.go:GetString:28 → never
+[TRACE] 04:50:33.341 shell.go:Pwd() - 389ns
+[TRACE] 04:50:33.341 shell.go:GOOS() - 222ns
+[DEBUG] 04:50:33.341 properties.go:GetStringArray:52 → extensions: [*.hs *.lhs stack.yaml package.yaml *.cabal cabal.project]
+[DEBUG] 04:50:33.341 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.341 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.341 shell.go:Pwd() - 463ns
+[DEBUG] 04:50:33.341 properties.go:GetString:28 → files
+[TRACE] 04:50:33.342 shell.go:Pwd() - 351ns
+[DEBUG] 04:50:33.342 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.342 shell.go:HasFiles(*.hs) - 229.087µs
+[TRACE] 04:50:33.342 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.342 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.342 shell.go:HasFiles(*.lhs) - 219.995µs
+[TRACE] 04:50:33.342 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.342 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.342 shell.go:HasFiles(stack.yaml) - 53.536µs
+[TRACE] 04:50:33.342 shell.go:Pwd() - 334ns
+[DEBUG] 04:50:33.342 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.342 shell.go:HasFiles(package.yaml) - 63.202µs
+[TRACE] 04:50:33.342 shell.go:Pwd() - 333ns
+[DEBUG] 04:50:33.342 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.343 shell.go:HasFiles(*.cabal) - 371.307µs
+[TRACE] 04:50:33.343 shell.go:Pwd() - 500ns
+[DEBUG] 04:50:33.343 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.343 shell.go:HasFiles(cabal.project) - 48.462µs
+[DEBUG] 04:50:33.343 block.go:Debug:280 → Segment: java
+[DEBUG] 04:50:33.343 shell.go:Getenv:388 → /usr/lib/jvm/java-11-openjdk-amd64
+[TRACE] 04:50:33.343 shell.go:Getenv(JAVA_HOME) - 18.259µs
+[TRACE] 04:50:33.343 shell.go:Pwd() - 407ns
+[TRACE] 04:50:33.343 shell.go:GOOS() - 240ns
+[DEBUG] 04:50:33.343 properties.go:GetStringArray:52 → extensions: [pom.xml build.gradle.kts build.sbt .java-version .deps.edn project.clj build.boot *.java *.class *.gradle *.jar *.clj *.cljc]
+[DEBUG] 04:50:33.343 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.343 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.343 shell.go:Pwd() - 445ns
+[DEBUG] 04:50:33.343 properties.go:GetString:28 → files
+[TRACE] 04:50:33.343 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.343 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.343 shell.go:HasFiles(pom.xml) - 49.259µs
+[TRACE] 04:50:33.343 shell.go:Pwd() - 371ns
+[DEBUG] 04:50:33.343 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.343 shell.go:HasFiles(build.gradle.kts) - 46.406µs
+[TRACE] 04:50:33.343 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.343 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.343 shell.go:HasFiles(build.sbt) - 44.87µs
+[TRACE] 04:50:33.343 shell.go:Pwd() - 408ns
+[DEBUG] 04:50:33.343 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.343 shell.go:HasFiles(.java-version) - 46.647µs
+[TRACE] 04:50:33.343 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.343 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.343 shell.go:HasFiles(.deps.edn) - 45.203µs
+[TRACE] 04:50:33.343 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.343 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.343 shell.go:HasFiles(project.clj) - 91.702µs
+[TRACE] 04:50:33.343 shell.go:Pwd() - 389ns
+[DEBUG] 04:50:33.343 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.343 shell.go:HasFiles(build.boot) - 45.999µs
+[TRACE] 04:50:33.343 shell.go:Pwd() - 333ns
+[DEBUG] 04:50:33.344 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.344 shell.go:HasFiles(*.java) - 213.662µs
+[TRACE] 04:50:33.344 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.344 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.344 shell.go:HasFiles(*.class) - 215.051µs
+[TRACE] 04:50:33.344 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.344 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.344 shell.go:HasFiles(*.gradle) - 230.976µs
+[TRACE] 04:50:33.344 shell.go:Pwd() - 408ns
+[DEBUG] 04:50:33.344 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.344 shell.go:HasFiles(*.jar) - 207.57µs
+[TRACE] 04:50:33.344 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.344 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.345 shell.go:HasFiles(*.clj) - 221.421µs
+[TRACE] 04:50:33.345 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.345 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.345 shell.go:HasFiles(*.cljc) - 220.07µs
+[DEBUG] 04:50:33.345 block.go:Debug:280 → Segment: julia
+[TRACE] 04:50:33.345 shell.go:Pwd() - 445ns
+[TRACE] 04:50:33.345 shell.go:GOOS() - 426ns
+[DEBUG] 04:50:33.345 properties.go:GetStringArray:52 → extensions: [*.jl]
+[DEBUG] 04:50:33.345 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.345 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.345 shell.go:Pwd() - 463ns
+[DEBUG] 04:50:33.345 properties.go:GetString:28 → files
+[TRACE] 04:50:33.345 shell.go:Pwd() - 351ns
+[DEBUG] 04:50:33.345 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.345 shell.go:HasFiles(*.jl) - 233.68µs
+[DEBUG] 04:50:33.345 block.go:Debug:280 → Segment: kotlin
+[TRACE] 04:50:33.345 shell.go:Pwd() - 426ns
+[TRACE] 04:50:33.345 shell.go:GOOS() - 222ns
+[DEBUG] 04:50:33.345 properties.go:GetStringArray:52 → extensions: [*.kt *.kts *.ktm]
+[DEBUG] 04:50:33.345 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.345 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.345 shell.go:Pwd() - 463ns
+[DEBUG] 04:50:33.345 properties.go:GetString:28 → files
+[TRACE] 04:50:33.345 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.346 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.346 shell.go:HasFiles(*.kt) - 201.515µs
+[TRACE] 04:50:33.346 shell.go:Pwd() - 408ns
+[DEBUG] 04:50:33.346 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.346 shell.go:HasFiles(*.kts) - 235.865µs
+[TRACE] 04:50:33.346 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.346 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.346 shell.go:HasFiles(*.ktm) - 201.959µs
+[DEBUG] 04:50:33.346 block.go:Debug:280 → Segment: kubectl
+[TRACE] 04:50:33.346 shell.go:Pwd() - 462ns
+[TRACE] 04:50:33.346 shell.go:GOOS() - 223ns
+[DEBUG] 04:50:33.346 properties.go:GetBool:22 → parse_kubeconfig: false
+[ERROR] 04:50:33.346 shell.go:CommandPath:593 → exec: "kubectl": executable file not found in $PATH
+[TRACE] 04:50:33.346 shell.go:CommandPath(kubectl) - 174.274µs
+[TRACE] 04:50:33.346 shell.go:HasCommand(kubectl) - 189.607µs
+[DEBUG] 04:50:33.346 block.go:Debug:280 → Segment: node
+[TRACE] 04:50:33.346 shell.go:Pwd() - 574ns
+[TRACE] 04:50:33.346 shell.go:GOOS() - 241ns
+[DEBUG] 04:50:33.346 properties.go:GetStringArray:52 → extensions: [*.js *.ts package.json .nvmrc pnpm-workspace.yaml .pnpmfile.cjs .npmrc .vue]
+[DEBUG] 04:50:33.346 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.347 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.347 shell.go:Pwd() - 482ns
+[DEBUG] 04:50:33.347 properties.go:GetString:28 → files
+[DEBUG] 04:50:33.347 properties.go:GetBool:22 → fetch_package_manager: true
+[TRACE] 04:50:33.347 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.347 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.347 shell.go:HasFiles(yarn.lock) - 64.739µs
+[TRACE] 04:50:33.347 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.347 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.347 shell.go:HasFiles(package-lock.json) - 125.831µs
+[TRACE] 04:50:33.347 shell.go:Pwd() - 333ns
+[DEBUG] 04:50:33.347 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.347 shell.go:HasFiles(package.json) - 48.184µs
+[TRACE] 04:50:33.347 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.347 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.347 shell.go:HasFiles(*.js) - 245.532µs
+[TRACE] 04:50:33.347 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.347 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.347 shell.go:HasFiles(*.ts) - 212.218µs
+[TRACE] 04:50:33.347 shell.go:Pwd() - 407ns
+[DEBUG] 04:50:33.347 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.347 shell.go:HasFiles(package.json) - 59.61µs
+[TRACE] 04:50:33.348 shell.go:Pwd() - 370ns
+[DEBUG] 04:50:33.348 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.348 shell.go:HasFiles(.nvmrc) - 45.555µs
+[TRACE] 04:50:33.348 shell.go:Pwd() - 333ns
+[DEBUG] 04:50:33.348 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.348 shell.go:HasFiles(pnpm-workspace.yaml) - 44.869µs
+[TRACE] 04:50:33.348 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.348 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.348 shell.go:HasFiles(.pnpmfile.cjs) - 46.277µs
+[TRACE] 04:50:33.348 shell.go:Pwd() - 351ns
+[DEBUG] 04:50:33.348 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.348 shell.go:HasFiles(.npmrc) - 45.721µs
+[TRACE] 04:50:33.348 shell.go:Pwd() - 334ns
+[DEBUG] 04:50:33.348 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.348 shell.go:HasFiles(.vue) - 44.685µs
+[DEBUG] 04:50:33.348 block.go:Debug:280 → Segment: nx
+[TRACE] 04:50:33.348 shell.go:Pwd() - 444ns
+[TRACE] 04:50:33.348 shell.go:GOOS() - 333ns
+[DEBUG] 04:50:33.348 properties.go:GetStringArray:52 → extensions: [workspace.json nx.json]
+[DEBUG] 04:50:33.348 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.348 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.348 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.348 properties.go:GetString:28 → files
+[TRACE] 04:50:33.348 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.348 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.348 shell.go:HasFiles(workspace.json) - 59.184µs
+[TRACE] 04:50:33.348 shell.go:Pwd() - 371ns
+[DEBUG] 04:50:33.348 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.348 shell.go:HasFiles(nx.json) - 44.888µs
+[DEBUG] 04:50:33.348 block.go:Debug:280 → Segment: perl
+[TRACE] 04:50:33.348 shell.go:Pwd() - 371ns
+[TRACE] 04:50:33.348 shell.go:GOOS() - 223ns
+[DEBUG] 04:50:33.348 properties.go:GetStringArray:52 → extensions: [.perl-version *.pl *.pm *.t]
+[DEBUG] 04:50:33.348 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.348 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.348 shell.go:Pwd() - 445ns
+[DEBUG] 04:50:33.348 properties.go:GetString:28 → files
+[TRACE] 04:50:33.348 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.348 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.348 shell.go:HasFiles(.perl-version) - 46.314µs
+[TRACE] 04:50:33.348 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.349 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.349 shell.go:HasFiles(*.pl) - 219.606µs
+[TRACE] 04:50:33.349 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.349 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.349 shell.go:HasFiles(*.pm) - 201.162µs
+[TRACE] 04:50:33.349 shell.go:Pwd() - 408ns
+[DEBUG] 04:50:33.349 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.349 shell.go:HasFiles(*.t) - 205.884µs
+[DEBUG] 04:50:33.349 block.go:Debug:280 → Segment: php
+[TRACE] 04:50:33.349 shell.go:Pwd() - 389ns
+[TRACE] 04:50:33.349 shell.go:GOOS() - 241ns
+[DEBUG] 04:50:33.349 properties.go:GetStringArray:52 → extensions: [*.php composer.json composer.lock .php-version blade.php]
+[DEBUG] 04:50:33.349 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.349 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.349 shell.go:Pwd() - 425ns
+[DEBUG] 04:50:33.349 properties.go:GetString:28 → files
+[TRACE] 04:50:33.349 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.349 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.349 shell.go:HasFiles(*.php) - 206.477µs
+[TRACE] 04:50:33.349 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.349 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.349 shell.go:HasFiles(composer.json) - 49.184µs
+[TRACE] 04:50:33.349 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.349 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.349 shell.go:HasFiles(composer.lock) - 46.147µs
+[TRACE] 04:50:33.350 shell.go:Pwd() - 351ns
+[DEBUG] 04:50:33.350 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.350 shell.go:HasFiles(.php-version) - 47.11µs
+[TRACE] 04:50:33.350 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.350 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.350 shell.go:HasFiles(blade.php) - 61.37µs
+[DEBUG] 04:50:33.350 block.go:Debug:280 → Segment: python
+[DEBUG] 04:50:33.350 properties.go:GetString:28 → environment
+[TRACE] 04:50:33.350 shell.go:Pwd() - 445ns
+[TRACE] 04:50:33.350 shell.go:GOOS() - 240ns
+[DEBUG] 04:50:33.350 properties.go:GetStringArray:52 → extensions: [*.py *.ipynb pyproject.toml venv.bak]
+[DEBUG] 04:50:33.350 properties.go:GetStringArray:52 → folders: [.venv venv virtualenv env venv-win pyenv-win]
+[DEBUG] 04:50:33.350 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.350 shell.go:Pwd() - 463ns
+[DEBUG] 04:50:33.350 properties.go:GetBool:22 → fetch_virtual_env: true
+[DEBUG] 04:50:33.350 shell.go:CommandPath:590 → /usr/bin/python
+[TRACE] 04:50:33.350 shell.go:CommandPath(python) - 127.83µs
+[DEBUG] 04:50:33.350 shell.go:HasFilesInDir:454 → false
+[TRACE] 04:50:33.350 shell.go:HasFilesInDir(pyvenv.cfg) - 34.944µs
+[DEBUG] 04:50:33.350 shell.go:HasFilesInDir:454 → false
+[TRACE] 04:50:33.350 shell.go:HasFilesInDir(pyvenv.cfg) - 30.332µs
+[DEBUG] 04:50:33.350 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.350 shell.go:Getenv(VIRTUAL_ENV) - 18.759µs
+[DEBUG] 04:50:33.350 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.350 shell.go:Getenv(CONDA_ENV_PATH) - 13.425µs
+[DEBUG] 04:50:33.350 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.350 shell.go:Getenv(CONDA_DEFAULT_ENV) - 13.148µs
+[DEBUG] 04:50:33.350 block.go:Debug:280 → Segment: r
+[TRACE] 04:50:33.350 shell.go:Pwd() - 556ns
+[TRACE] 04:50:33.350 shell.go:GOOS() - 241ns
+[DEBUG] 04:50:33.350 properties.go:GetStringArray:52 → extensions: [*.R *.Rmd *.Rsx *.Rda *.Rd *.Rproj .Rproj.user]
+[DEBUG] 04:50:33.350 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.350 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.350 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.350 properties.go:GetString:28 → files
+[TRACE] 04:50:33.350 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.351 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.351 shell.go:HasFiles(*.R) - 212.403µs
+[TRACE] 04:50:33.351 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.351 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.351 shell.go:HasFiles(*.Rmd) - 223.477µs
+[TRACE] 04:50:33.351 shell.go:Pwd() - 426ns
+[DEBUG] 04:50:33.351 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.351 shell.go:HasFiles(*.Rsx) - 209.588µs
+[TRACE] 04:50:33.351 shell.go:Pwd() - 407ns
+[DEBUG] 04:50:33.351 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.351 shell.go:HasFiles(*.Rda) - 225.829µs
+[TRACE] 04:50:33.351 shell.go:Pwd() - 407ns
+[DEBUG] 04:50:33.351 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.351 shell.go:HasFiles(*.Rd) - 204.866µs
+[TRACE] 04:50:33.351 shell.go:Pwd() - 408ns
+[DEBUG] 04:50:33.352 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.352 shell.go:HasFiles(*.Rproj) - 218.421µs
+[TRACE] 04:50:33.352 shell.go:Pwd() - 407ns
+[DEBUG] 04:50:33.352 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.352 shell.go:HasFiles(.Rproj.user) - 49.128µs
+[DEBUG] 04:50:33.352 block.go:Debug:280 → Segment: ruby
+[TRACE] 04:50:33.352 shell.go:Pwd() - 482ns
+[TRACE] 04:50:33.352 shell.go:GOOS() - 519ns
+[DEBUG] 04:50:33.352 properties.go:GetStringArray:52 → extensions: [*.rb Rakefile Gemfile]
+[DEBUG] 04:50:33.352 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.352 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.352 shell.go:Pwd() - 444ns
+[DEBUG] 04:50:33.352 properties.go:GetString:28 → files
+[TRACE] 04:50:33.352 shell.go:Pwd() - 352ns
+[DEBUG] 04:50:33.352 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.352 shell.go:HasFiles(*.rb) - 214.292µs
+[TRACE] 04:50:33.352 shell.go:Pwd() - 445ns
+[DEBUG] 04:50:33.352 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.352 shell.go:HasFiles(Rakefile) - 44.018µs
+[TRACE] 04:50:33.352 shell.go:Pwd() - 278ns
+[DEBUG] 04:50:33.352 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.352 shell.go:HasFiles(Gemfile) - 31.536µs
+[DEBUG] 04:50:33.352 block.go:Debug:280 → Segment: rust
+[TRACE] 04:50:33.352 shell.go:Pwd() - 259ns
+[TRACE] 04:50:33.352 shell.go:GOOS() - 148ns
+[DEBUG] 04:50:33.352 properties.go:GetStringArray:52 → extensions: [*.rs Cargo.toml Cargo.lock]
+[DEBUG] 04:50:33.352 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.352 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.352 shell.go:Pwd() - 315ns
+[DEBUG] 04:50:33.352 properties.go:GetString:28 → files
+[TRACE] 04:50:33.352 shell.go:Pwd() - 278ns
+[DEBUG] 04:50:33.353 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.353 shell.go:HasFiles(*.rs) - 143.645µs
+[TRACE] 04:50:33.353 shell.go:Pwd() - 296ns
+[DEBUG] 04:50:33.353 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.353 shell.go:HasFiles(Cargo.toml) - 32.388µs
+[TRACE] 04:50:33.353 shell.go:Pwd() - 222ns
+[DEBUG] 04:50:33.353 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.353 shell.go:HasFiles(Cargo.lock) - 30.555µs
+[DEBUG] 04:50:33.353 block.go:Debug:280 → Segment: swift
+[TRACE] 04:50:33.353 shell.go:Pwd() - 240ns
+[TRACE] 04:50:33.353 shell.go:GOOS() - 149ns
+[DEBUG] 04:50:33.353 properties.go:GetStringArray:52 → extensions: [*.swift *.SWIFT]
+[DEBUG] 04:50:33.353 properties.go:GetStringArray:52 → folders: []
+[DEBUG] 04:50:33.353 properties.go:GetBool:22 → home_enabled: false
+[TRACE] 04:50:33.353 shell.go:Pwd() - 315ns
+[DEBUG] 04:50:33.353 properties.go:GetString:28 → files
+[TRACE] 04:50:33.353 shell.go:Pwd() - 260ns
+[DEBUG] 04:50:33.353 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.353 shell.go:HasFiles(*.swift) - 146.83µs
+[TRACE] 04:50:33.353 shell.go:Pwd() - 297ns
+[DEBUG] 04:50:33.353 shell.go:HasFiles:440 → false
+[TRACE] 04:50:33.353 shell.go:HasFiles(*.SWIFT) - 145.849µs
+[DEBUG] 04:50:33.353 block.go:Debug:280 → Segment: time
+[TRACE] 04:50:33.353 shell.go:Pwd() - 315ns
+[TRACE] 04:50:33.353 shell.go:GOOS() - 148ns
+[DEBUG] 04:50:33.353 properties.go:GetString:28 → 15:04:05
+[TRACE] 04:50:33.353 shell.go:TemplateCache() - 1.333µs
+[TRACE] 04:50:33.354 shell.go:TemplateCache() - 556ns
+[TRACE] 04:50:33.354 shell.go:Shell() - 796ns
+[TRACE] 04:50:33.354 shell.go:Flags() - 611ns
+[DEBUG] 04:50:33.354 block.go:Debug:280 → Segment: text
+[TRACE] 04:50:33.354 shell.go:Pwd() - 315ns
+[TRACE] 04:50:33.354 shell.go:GOOS() - 148ns
+[TRACE] 04:50:33.354 shell.go:TemplateCache() - 351ns
+[TRACE] 04:50:33.354 shell.go:Shell() - 241ns
+[DEBUG] 04:50:33.354 block.go:Debug:280 → Segment: upgrade
+[TRACE] 04:50:33.354 shell.go:Pwd() - 334ns
+[TRACE] 04:50:33.354 shell.go:GOOS() - 204ns
+[DEBUG] 04:50:33.354 block.go:Debug:280 → Segment: exit
+[DEBUG] 04:50:33.354 properties.go:GetString:28 → {{ .Code }}
+[TRACE] 04:50:33.354 shell.go:Pwd() - 314ns
+[TRACE] 04:50:33.354 shell.go:GOOS() - 148ns
+[TRACE] 04:50:33.354 shell.go:StatusCodes() - 555ns
+[TRACE] 04:50:33.355 shell.go:TemplateCache() - 760ns
+[DEBUG] 04:50:33.355 properties.go:GetBool:22 → always_enabled: true
+[TRACE] 04:50:33.355 shell.go:TemplateCache() - 407ns
+[TRACE] 04:50:33.356 shell.go:TemplateCache() - 2.5µs
+[TRACE] 04:50:33.357 shell.go:Shell() - 778ns
+[TRACE] 04:50:33.358 shell.go:TemplateCache() - 1.981µs
+[DEBUG] 04:50:33.358 shell.go:Getenv:388 → NO DATA
+[TRACE] 04:50:33.358 shell.go:Getenv(XDG_CACHE_HOME) - 17.148µs
+[TRACE] 04:50:33.358 shell_unix.go:CachePath() - 115.813µs
+[TRACE] 04:50:33.358 shell.go:Flags() - 426ns
