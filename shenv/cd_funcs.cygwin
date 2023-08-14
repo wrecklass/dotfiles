@@ -5,6 +5,7 @@ alias cd2="_cd2"
 alias cda="_cda"
 alias cdah="_cdah"
 alias cdahk="_cdah"
+alias cdb="_cdb"
 alias cdc="_cdc"
 alias cdd="_cdd"
 alias cdo="_cdot"
@@ -67,6 +68,9 @@ _cdah() {
     fi
 }
 
+_cdb() {
+    cd_func "/c/Users/smartin/AppData/Local/Larian Studios/Baldur's Gate 3"
+}
 _cdc() {
     if [ $# -gt 0 ]; then
         cd_func "$USERPROFILE/Saved Games/CD Projekt Red/${*}"
