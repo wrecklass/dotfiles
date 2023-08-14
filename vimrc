@@ -252,7 +252,7 @@ Plug 'terryma/vim-smooth-scroll'
 
 Plug 'raimondi/delimitmate'
 
-Plug 'ap/vim-css-color'
+" Plug 'ap/vim-css-color'
 
 " Just really really slow:
 " Plug 'frazrepo/vim-rainbow'
@@ -266,14 +266,15 @@ Plug 'wrecklass/wc.vim'
 " Plug 'kkew3/wc.vim'
 
 " Ok, colorschemes:
+" Plug 'vimpostor/vim-lumen'
 " Plug 'haystackandroid/carbonized'
 " Plug 'haystackandroid/vimspectr'
-Plug 'gruvbox-community/gruvbox'
+" Plug 'gruvbox-community/gruvbox'
 Plug 'nlknguyen/papercolor-theme'
 " Plug 'sainnhe/gruvbox-material'
 " Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
 " Plug 'haystackandroid/snow'
-Plug 'tomasiser/vim-code-dark'
+" Plug 'tomasiser/vim-code-dark'
 
 " Powerline Status Line
 Plug 'vim-airline/vim-airline'
