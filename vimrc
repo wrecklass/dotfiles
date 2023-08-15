@@ -378,13 +378,11 @@ try
   " \         'color00'       : ['#080808', '232'],
   " \         'linenumber_bg' : ['#082838', '232'],
   " \         'linenumber_fg' : ['#767676', '243'],
-
   colorscheme PaperColor
   " I like italics
   highlight Folded gui=italic cterm=italic
   let g:airline_theme='papercolor'
   " END PAPERCOLOR
-
 catch
 endtry
 
@@ -782,7 +780,7 @@ augroup TWS
   autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 " }}}
-" {{{ visualselection
+" {{{ Visualselection
 function! CmdLine(str)
   call feedkeys(":" . a:str)
   " Old way
@@ -827,10 +825,10 @@ function! s:HighLightsCD()
   redraw
 endfunction
 " call HighLightsCD()
-command! Codelights call <SID>HighLightsCD()
+command! Codelights call HighLightsCD()
 
 " Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
+command! Bclose call BufcloseCloseIt()
 function! s:BufcloseCloseIt()
   let l:currentBufNum = bufnr("%")
   let l:alternateBufNum = bufnr("#")
