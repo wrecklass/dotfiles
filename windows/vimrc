@@ -824,11 +824,11 @@ function! s:HighLightsCD()
   highlight CursorLine guibg=#41403f
   redraw
 endfunction
-call HighLightsCD()
-command! Codelights call HighLightsCD()
+call <SID>HighLightsCD()
+command! Codelights call <SID>HighLightsCD()
 
 " Don't close window, when deleting a buffer
-command! Bclose call BufcloseCloseIt()
+command! Bclose call <SID>BufcloseCloseIt()
 function! s:BufcloseCloseIt()
   let l:currentBufNum = bufnr("%")
   let l:alternateBufNum = bufnr("#")
