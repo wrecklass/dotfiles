@@ -682,10 +682,10 @@ ab cbe2 ■
 ab okk ✓
 ab str ★
 
-nnoremap bs i#!/usr/bin/env bash<ESC>0
-nnoremap be i#!/usr/bin/env bash<ESC>0
-nnoremap bp i#!/usr/bin/env python<ESC>0
-nnoremap br i#!/usr/bin/env ruby<ESC>0
+nnoremap bs ggO<BS>#!/usr/bin/env bash<ESC>0
+nnoremap be ggO<BS>#!/usr/bin/env bash<ESC>0
+nnoremap bp ggO<BS>#!/usr/bin/env python<ESC>0
+nnoremap br ggO<BS>#!/usr/bin/env ruby<ESC>0
 
 " Map jj to Escape easily
 " Really helpful when in insert mode and start typing j to navigate
