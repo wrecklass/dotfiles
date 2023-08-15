@@ -69,8 +69,11 @@ _cdah() {
 }
 
 _cdb() {
-    cd_func "/c/Users/smartin/AppData/Local/Larian Studios/Baldur's Gate 3"
+    if [[ -d "/c/Users/smartin/AppData/Local/Larian Studios/Baldur's Gate 3" ]];then
+      cd_func "/c/Users/smartin/AppData/Local/Larian Studios/Baldur's Gate 3"
+    fi
 }
+
 _cdc() {
     if [ $# -gt 0 ]; then
         cd_func "$USERPROFILE/Saved Games/CD Projekt Red/${*}"
