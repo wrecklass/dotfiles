@@ -138,8 +138,9 @@
   info = status
   # Edit the global config file
   # e = config --global -e
-  edit = !/usr/bin/vim ~/.gitconfig
-  e = !/usr/bin/vim ~/.gitconfig
+  edit = !vim ~/.gitconfig
+  e = !vim ~/.gitconfig
+  vim = !vim ~/.gitconfig
   # Just show the date in compressed format
   dt  = !date +"%Y%m%dT%H%M%S"
   # Longer format
