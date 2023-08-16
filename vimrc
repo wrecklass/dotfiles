@@ -828,7 +828,6 @@ endfunction
 command! Codelights call <SID>HighLightsCD()
 
 " Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
 function! s:BufcloseCloseIt()
   let l:currentBufNum = bufnr("%")
   let l:alternateBufNum = bufnr("#")
@@ -847,6 +846,7 @@ function! s:BufcloseCloseIt()
     execute("bdelete! ".l:currentBufNum)
   endif
 endfunction
+command! Bclose call <SID>BufcloseCloseIt()
 
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.

@@ -682,10 +682,10 @@ ab cbe2 ■
 ab okk ✓
 ab str ★
 
-nnoremap bs i#!/usr/bin/env bash<ESC>0
-nnoremap be i#!/usr/bin/env bash<ESC>0
-nnoremap bp i#!/usr/bin/env python<ESC>0
-nnoremap br i#!/usr/bin/env ruby<ESC>0
+nnoremap bs ggO<BS>#!/usr/bin/env bash<ESC>0
+nnoremap be ggO<BS>#!/usr/bin/env bash<ESC>0
+nnoremap bp ggO<BS>#!/usr/bin/env python<ESC>0
+nnoremap br ggO<BS>#!/usr/bin/env ruby<ESC>0
 
 " Map jj to Escape easily
 " Really helpful when in insert mode and start typing j to navigate
@@ -828,7 +828,6 @@ call <SID>HighLightsCD()
 command! Codelights call <SID>HighLightsCD()
 
 " Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
 function! s:BufcloseCloseIt()
   let l:currentBufNum = bufnr("%")
   let l:alternateBufNum = bufnr("#")
@@ -847,6 +846,7 @@ function! s:BufcloseCloseIt()
     execute("bdelete! ".l:currentBufNum)
   endif
 endfunction
+command! Bclose call <SID>BufcloseCloseIt()
 
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.
