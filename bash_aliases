@@ -262,5 +262,10 @@ if [ -n "${hub_path}" ];then
 fi
 # }}}
 # {{{ Duck Duck Go Search
-alias ddgr='ddgr -n 8 --url-handler "c:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"'
+
+if [[ -x "/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe" ]];then
+  alias ddgr='ddgr -n 8 --url-handler "c:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"'
+elif [[ -x /snap/bin/brave ]]; then
+  alias ddgr='ddgr -n 8 --url-handler "/snap/bin/brave"'
+fi
 # }}}
