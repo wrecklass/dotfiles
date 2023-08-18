@@ -33,7 +33,11 @@ alias cdx="_cdx"
 alias cdxp="_cdx"
 alias cdz="_cdz"
 alias mkcd="_mkcd"
-alias cd="cd_func"
+if command -v zoxide 2> /dev/null ; then
+  alias cd="z"
+else
+  alias cd="cd_func"
+fi
 
 PROGDIR="$(cygpath "$PROGRAMFILES")"
 export PROGDIR
