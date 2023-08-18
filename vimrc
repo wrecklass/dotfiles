@@ -828,6 +828,7 @@ endfunction
 command! Codelights call <SID>HighLightsCD()
 
 " Don't close window, when deleting a buffer
+command! Bclose call <SID>BufcloseCloseIt()
 function! s:BufcloseCloseIt()
   let l:currentBufNum = bufnr("%")
   let l:alternateBufNum = bufnr("#")
