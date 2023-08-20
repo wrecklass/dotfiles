@@ -25,17 +25,17 @@ fi
 
 # Open that works on either cygwin or linux
 function open() {
-  if command -v cygstart; then
+  if command -v cygstart > /dev/null; then
     if [ $# -eq 0 ]; then
       cygstart .
     else
       cygstart "$@"
     fi
-  elif command -v xdg-open; then
+  elif command -v xdg-open > /dev/null; then
     if [ $# -eq 0 ]; then
-      xdg-open . 2> /dev/null
+      xdg-open . &> /dev/null
     else
-      xdg-open "$@" 2> /dev/null
+      xdg-open "$@" &> /dev/null
     fi
   fi
 }
@@ -225,6 +225,16 @@ __man() {
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
 function o() {
+  if [ $# -eq 0 ]; then
+    open .
+  else
+    open "$@"
+  fi
+}
+
+# `start` with no arguments opens the current directory, otherwise opens the given
+# location
+function start() {
   if [ $# -eq 0 ]; then
     open .
   else
