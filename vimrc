@@ -364,8 +364,8 @@ try
   \     'default.dark': {
   \       'allow_italic'  : 1,
   \       'override' : {
-  \         'color10'       : ['#0087AF', '31'],
   \         'color05'       : ['#00875F', '28'],
+  \         'color10'       : ['#0087DF', '31'],
   \         'cursorline'    : ['#002F57', '24'],
   \         'cursorcolumn'  : ['#002F57', '24'],
   \         'folded_bg'     : ['#223E55', '242'],
