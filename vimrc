@@ -243,7 +243,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
-Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+if $UNAME != "cygwin"
+  Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+endif
 " Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
 " Plug 'fisadev/vim-sane-gocomplete'
@@ -459,13 +461,14 @@ let g:airline_powerline_fonts=1
 
 let mapleader = " "
 let g:mapleader = " "
+
 " Terminal:
-" let g:terminal_height = -10
-" set termwinsize=18x200
-" nnoremap <leader>` :botright terminal<CR>
-" tnoremap <c-j> <c-\><c-n><c-w>j
-" tnoremap <c-k> <c-\><c-n><c-w>k
-" set shell=/bin/bash
+let g:terminal_height = -10
+set termwinsize=18x200
+set shell=/bin/bash
+nnoremap <leader>` :botright terminal<CR>
+tnoremap <c-j> <c-\><c-n><c-w>j
+tnoremap <c-k> <c-\><c-n><c-w>k
 
 " map for cprev and cnext, also opne folds at location
 nnoremap <leader><      :cprev<CR>zv
