@@ -6,6 +6,7 @@
 if $UNAME == "cygwin"
   let $TERM="cygwin"
 endif
+
 " Because file permissions don't matter much to us:
 set autoread
 " Start this way, turn on once plugins are loaded
@@ -849,7 +850,6 @@ function! s:BufcloseCloseIt() abort
     execute("bdelete! ".l:currentBufNum)
   endif
 endfunction
-command! Bclose call <SID>BufcloseCloseIt()
 
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.

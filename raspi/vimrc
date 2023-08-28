@@ -6,6 +6,7 @@
 if $UNAME == "cygwin"
   let $TERM="cygwin"
 endif
+
 " Because file permissions don't matter much to us:
 set autoread
 " Start this way, turn on once plugins are loaded
@@ -243,7 +244,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
-" Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+if $UNAME != "cygwin"
+  " Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+endif
 " Plug 'octol/vim-cpp-enhanced-highlight'
 " Go complete, quite old
 " Plug 'fisadev/vim-sane-gocomplete'
@@ -316,28 +319,27 @@ try
   " highlight Function guifg=#4EB9C0
   " highlight Conditional guifg=LightGreen
   " highlight Keyword     guifg=#569CD6
-  " highlight Statement guifg=#569cd6
-  " highlight Conditional guifg=#569cd6
-  " highlight Repeat guifg=#569cd6
-  " highlight Label guifg=#569cd6
-  " highlight Operator guifg=#569cd6
-  " highlight Exception guifg=#569cd6
-  " highlight PreProc guifg=#569cd6
-  " highlight Include guifg=#569cd6
-  " highlight Define guifg=#569cd6
-  " highlight Macro guifg=#569cd6
-  " highlight PreCondit guifg=#569cd6
+  " highlight Statement guifg=#569CD6
+  " highlight Conditional guifg=#569CD6
+  " highlight Repeat guifg=#569CD6
+  " highlight Label guifg=#569CD6
+  " highlight Operator guifg=#569CD6
+  " highlight Exception guifg=#569CD6
+  " highlight PreProc guifg=#569CD6
+  " highlight Include guifg=#569CD6
+  " highlight Define guifg=#569CD6
+  " highlight Macro guifg=#569CD6
+  " highlight PreCondit guifg=#569CD6
   " highlight String guifg=#6A9955 ctermfg=17
   " highlight Comment guifg=#4E7D39 ctermfg=17
-  " highlight pyConditional guifg=#569cd6
-  " highlight pythonConditional guifg=#569cd6
-  " highlight pythonException guifg=#569cd6
-  " highlight pythonRepeat guifg=#569cd6
-  " highlight pythonOperator guifg=#569cd6
+  " highlight pyConditional guifg=#569CD6
+  " highlight pythonConditional guifg=#569CD6
+  " highlight pythonException guifg=#569CD6
+  " highlight pythonRepeat guifg=#569CD6
+  " highlight pythonOperator guifg=#569CD6
   " END GRUVBOX
 
   " let g:hardhacker_darker = 1
-
   " colorscheme hardhacker
   " END HARDHACKER
 
@@ -355,7 +357,7 @@ try
   " highlight String guifg=#87E7FE ctermfg=17
   " highlight Identifier guifg=LightGreen
   " highlight Function guifg=#4EB9C0
-  " highlight CursorLine guibg=#41403f
+  " highlight CursorLine guibg=#41403F
   " let g:airline_theme='codedark'
   " END CODEDARK
 
@@ -364,8 +366,8 @@ try
   \     'default.dark': {
   \       'allow_italic'  : 1,
   \       'override' : {
-  \         'color10'       : ['#0087AF', '31'],
   \         'color05'       : ['#00875F', '28'],
+  \         'color10'       : ['#0087DF', '31'],
   \         'cursorline'    : ['#002F57', '24'],
   \         'cursorcolumn'  : ['#002F57', '24'],
   \         'folded_bg'     : ['#223E55', '242'],
@@ -459,13 +461,14 @@ let g:airline_powerline_fonts=1
 
 let mapleader = " "
 let g:mapleader = " "
+
 " Terminal:
-" let g:terminal_height = -10
-" set termwinsize=18x200
-" nnoremap <leader>` :botright terminal<CR>
-" tnoremap <c-j> <c-\><c-n><c-w>j
-" tnoremap <c-k> <c-\><c-n><c-w>k
-" set shell=/bin/bash
+let g:terminal_height = -10
+set termwinsize=18x200
+set shell=/bin/bash
+nnoremap <leader>` :botright terminal<CR>
+tnoremap <c-j> <c-\><c-n><c-w>j
+tnoremap <c-k> <c-\><c-n><c-w>k
 
 " map for cprev and cnext, also opne folds at location
 nnoremap <leader><      :cprev<CR>zv
@@ -542,7 +545,7 @@ nnoremap <F4> :WC<CR>
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
 " Toggle from / to \ or vice versa on selected line(s)
-function! ToggleSlash(independent) range
+function! ToggleSlash(independent) range abort
   let from = ''
   for lnum in range(a:firstline, a:lastline)
     let line = getline(lnum)
@@ -568,7 +571,7 @@ noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 map <leader>e :e! $MYVIMRC<cr>
 map <leader>ev :vsplit $MYVIMRC<cr>
 augroup SourceMyVimRc
-  autocmd! BufWritePost $MYVIMRC source $MYVIMRC
+  autocmd! BufWritePost $MYVIMRC nested source $MYVIMRC
 augroup END
 
 " Use <space>pp to toggle Paste mode
@@ -781,7 +784,7 @@ augroup TWS
 augroup END
 " }}}
 " {{{ Visualselection
-function! CmdLine(str)
+function! CmdLine(str) abort
   call feedkeys(":" . a:str)
   " Old way
   " exe "menu Foo.Bar :" . a:str
@@ -789,7 +792,7 @@ function! CmdLine(str)
   " unmenu Foo
 endfunction
 
-function! VisualSelection(direction, extra_filter) range
+function! VisualSelection(direction, extra_filter) range abort
   let l:saved_reg = @"
   execute "normal! vgvy"
 
@@ -814,7 +817,7 @@ endfunction
 " {{{ Functions
 
 " For some reason highlight commands don't work with the Windows EXE vim
-function! s:HighLightsCD()
+function! s:HighLightsCD() abort
   highlight Folded guibg=#223E55 guifg=#AFAFAF gui=italic ctermfg=144 ctermbg=24 cterm=italic
   highlight String guifg=#87E7FE ctermfg=17
   highlight Identifier guifg=LightGreen
@@ -829,7 +832,7 @@ command! Codelights call <SID>HighLightsCD()
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
-function! s:BufcloseCloseIt()
+function! s:BufcloseCloseIt() abort
   let l:currentBufNum = bufnr("%")
   let l:alternateBufNum = bufnr("#")
 
@@ -847,14 +850,13 @@ function! s:BufcloseCloseIt()
     execute("bdelete! ".l:currentBufNum)
   endif
 endfunction
-command! Bclose call <SID>BufcloseCloseIt()
 
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.
 if &diffopt !~# 'internal'
   set diffexpr=MyDiff()
 endif
-function MyDiff()
+function MyDiff() abort
   let opt = '-a --binary '
   if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
   if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
