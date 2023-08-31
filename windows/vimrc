@@ -277,7 +277,7 @@ Plug 'nlknguyen/papercolor-theme'
 " Plug 'sainnhe/gruvbox-material'
 " Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
 " Plug 'haystackandroid/snow'
-" Plug 'tomasiser/vim-code-dark'
+Plug 'tomasiser/vim-code-dark'
 
 " Powerline Status Line
 Plug 'vim-airline/vim-airline'
@@ -308,7 +308,7 @@ try
   syntax enable
   syntax on
   " We want dark anyway
-  " set background=dark
+  set background=dark
 
   " let g:gruvbox_italic=1
 
@@ -357,7 +357,7 @@ try
   " highlight String guifg=#87E7FE ctermfg=17
   " highlight Identifier guifg=LightGreen
   " highlight Function guifg=#4EB9C0
-  " highlight CursorLine guibg=#41403F
+  " highlight CursorLine guibg=#002F57
   " let g:airline_theme='codedark'
   " END CODEDARK
 
@@ -828,7 +828,9 @@ function! s:HighLightsCD() abort
   highlight Function guifg=#4EB9C0
   highlight QuickFixLine guibg=#95000B guifg=#CFCFCF ctermbg=darkred
   highlight Normal guibg=background
-  highlight CursorLine guibg=#41403f
+  " highlight CursorLine guibg=#223E55
+  highlight CursorLine guibg=#002F57
+  set background=dark
   redraw
 endfunction
 call <SID>HighLightsCD()
