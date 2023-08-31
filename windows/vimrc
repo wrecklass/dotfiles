@@ -592,10 +592,14 @@ nnoremap <c-l>  <C-W>l
 " noremap <c-space> 8k
 " Smooth movements
 " noremap <silent> <space> :call smooth_scroll#down(&scroll,20,1)<CR>
-noremap <silent> <c-b>   :call smooth_scroll#up(&scroll,20,1)<CR>
-noremap <silent> <c-f>   :call smooth_scroll#down(&scroll,20,1)<CR>
-noremap <silent> <c-u>   :call smooth_scroll#up(&scroll/2,20,1)<CR>
-noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,20,1)<CR>
+noremap <silent> <c-b>   :call smooth_scroll#up(&scroll,40,1)<CR>
+noremap <silent> <c-f>   :call smooth_scroll#down(&scroll,40,1)<CR>
+noremap <silent> <c-u>   :call smooth_scroll#up(&scroll/2,40,1)<CR>
+noremap <silent> <c-d>   :call smooth_scroll#down(&scroll/2,40,1)<CR>
+
+" Up and Down arrows perform simple scroll on center line of text
+nnoremap <Down> gjzz
+nnoremap <Up> gkzz
 
 " grep word under cursor and place in quickfix list
 command! -nargs=+ GG silent execute "Ggrep! -niI --exclude-standard --untracked ".string(<q-args>)
