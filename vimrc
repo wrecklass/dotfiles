@@ -25,7 +25,9 @@ let g:ft_man_open_mode='tab'
 if v:version >= 900
   set wildoptions+=pum
 endif
-set wildmenu
+" Set in defaults.vim
+" set wildmenu
+
 "Ignore files
 set wildignore+=*.o
 set wildignore+=*~
@@ -75,9 +77,12 @@ set novisualbell
 set noerrorbells
 set t_vb=
 
-set showcmd
+" Set in defaults.vim
+" set showcmd
+
 set timeoutlen=500
-set ttimeoutlen=100
+" Set in defaults.vim
+" set ttimeoutlen=100
 
 " Having longer updatetime (default is 4000ms = 4 s) leads to
 " noticeable delays and poor user experience
@@ -109,7 +114,8 @@ set cursorcolumn
 set colorcolumn=
 
 " Where the backspace key works
-set backspace=eol,start,indent
+" Set in defaults.vim
+" set backspace=eol,start,indent
 
 " Move over EOL when moving cursor
 set whichwrap+=<,>,h,l
@@ -147,7 +153,8 @@ set cmdheight=2
 set display=lastline
 
 " Minimal number of screen lines to keep above and below the cursor.
-set scrolloff=5
+" Set in defaults.vim
+" set scrolloff=5
 
 " Not really meaningful with 'set wrap'
 set sidescrolloff=5
@@ -156,7 +163,8 @@ set sidescrolloff=5
 set lazyredraw
 
 " Show the line and column number of the cursor position
-set ruler
+" Set in defaults.vim
+" set ruler
 
 " Always show statusline
 set laststatus=2
@@ -903,10 +911,11 @@ if has("autocmd")
 
     filetype plugin indent on
     " Move to the last position ('") when this file was opened
-    autocmd BufReadPost *
-          \  if line("'\"") > 0 && line("'\"") <= line("$") |
-          \    exe "normal! g'\"" |
-          \  endif
+    " Set in defaults.vim
+    " autocmd BufReadPost *
+    "       \  if line("'\"") > 0 && line("'\"") <= line("$") |
+    "       \    exe "normal! g'\"" |
+    "       \  endif
 
     " set viminfo^=%
     set viminfo='20,\"100,:100,%,n~/.viminfo
