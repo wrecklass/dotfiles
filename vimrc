@@ -252,7 +252,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
-if $UNAME != "cygwin"
+if $UNAME != "cygwin" && $MTYPE != "Ras"
   Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 endif
 " Plug 'octol/vim-cpp-enhanced-highlight'

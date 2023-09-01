@@ -32,6 +32,11 @@ if [ -z "$UNAMECMD" ];then
     UNAMECMD=/usr/bin/uname
   fi
 fi
+
+declare -x MTYPE='Win'
+if grep -q BCM /proc/cpuinfo &> /dev/null ; then
+  MTYPE='Ras'
+fi
 # UNAMECMD="/usr/bin/uname"
 declare -x -l UNAME
 : "${HOME=~}"
@@ -56,7 +61,7 @@ fi
 UNAME="${UNAME/*linux/linux}"
 
 # Set =1 for verbose output
-declare -x -i VERBOSE=0
+declare -x -i VERBOSE=1
 
 _log() {
     if [ "$VERBOSE" -eq 1 ];then
@@ -68,6 +73,7 @@ _log() {
 _log ".bashrc"
 _log "USER: $USER"
 _log "UNAME: $UNAME"
+_log "MTYPE: $MTYPE"
 # _log "PATH: $PATH"
 # }}}
 # {{{ shopts
