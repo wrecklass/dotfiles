@@ -520,7 +520,7 @@ nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
 
 " Easy vertical split
 nnoremap  <leader>v    :vs<CR>
-nnoremap  <leader>H    :sp<CR>
+nnoremap  <leader>h    :sp<CR>
 
 " end highlighting by searching for garbage
 nnoremap  <leader>;    /xckla<CR>
@@ -534,7 +534,7 @@ noremap <leader>l :setlocal relativenumber!<CR>
 
 " Turn off hlsearch temporarily
 nnoremap \q :set hlsearch!<CR>:setlocal hlsearch?<CR>
-noremap <leader>h :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
+noremap <leader>H :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
 
 " Globally search and replace the <word> under the cursor
 nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
