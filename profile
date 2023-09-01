@@ -34,7 +34,11 @@
 
 # if running bash
 # {{{ Logging
-export VERBOSE=0
+declare -x -i VERBOSE=0
+
+if [[ -f "$HOME/.verbose" ]];then
+  VERBOSE=1
+fi
 
 _log() {
     if [ "$VERBOSE" -eq 1 ];then

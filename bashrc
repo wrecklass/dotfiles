@@ -61,7 +61,11 @@ fi
 UNAME="${UNAME/*linux/linux}"
 
 # Set =1 for verbose output
-declare -x -i VERBOSE=1
+declare -x -i VERBOSE=0
+
+if [[ -f "$HOME/.verbose" ]];then
+  VERBOSE=1
+fi
 
 _log() {
     if [ "$VERBOSE" -eq 1 ];then
