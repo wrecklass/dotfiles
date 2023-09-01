@@ -106,7 +106,8 @@ shopt -s checkwinsize
 # For grepping our IP addresses
 export IPV4_REGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
 
-export BAT_THEME="Solarized (dark)"
+# export BAT_THEME="Solarized (dark)"
+export BAT_THEME="ansi"
 
 # Deprecated:
 # export NETREGX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
