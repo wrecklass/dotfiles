@@ -23,6 +23,8 @@ case $- in
 esac
 # }}}
 # {{{ Logging
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 ORIGPATH="$PATH"
 UNAMECMD=$(command -v uname)
 if [ -z "$UNAMECMD" ];then
