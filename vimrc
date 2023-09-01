@@ -858,7 +858,9 @@ function! s:HighLightsCD() abort
   highlight Function guifg=#4EB9C0
   highlight QuickFixLine guibg=#95000B guifg=#CFCFCF ctermbg=darkred
   highlight Normal guibg=background
-  highlight CursorLine guibg=#41403f
+  " highlight CursorLine guibg=#223E55
+  highlight CursorLine guibg=#002F57
+  set background=dark
   redraw
 endfunction
 " call <SID>HighLightsCD()

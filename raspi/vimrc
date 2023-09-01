@@ -25,7 +25,9 @@ let g:ft_man_open_mode='tab'
 if v:version >= 900
   set wildoptions+=pum
 endif
-set wildmenu
+" Set in defaults.vim
+" set wildmenu
+
 "Ignore files
 set wildignore+=*.o
 set wildignore+=*~
@@ -75,9 +77,12 @@ set novisualbell
 set noerrorbells
 set t_vb=
 
-set showcmd
+" Set in defaults.vim
+" set showcmd
+
 set timeoutlen=500
-set ttimeoutlen=100
+" Set in defaults.vim
+" set ttimeoutlen=100
 
 " Having longer updatetime (default is 4000ms = 4 s) leads to
 " noticeable delays and poor user experience
@@ -109,7 +114,8 @@ set cursorcolumn
 set colorcolumn=
 
 " Where the backspace key works
-set backspace=eol,start,indent
+" Set in defaults.vim
+" set backspace=eol,start,indent
 
 " Move over EOL when moving cursor
 set whichwrap+=<,>,h,l
@@ -147,7 +153,8 @@ set cmdheight=2
 set display=lastline
 
 " Minimal number of screen lines to keep above and below the cursor.
-set scrolloff=5
+" Set in defaults.vim
+" set scrolloff=5
 
 " Not really meaningful with 'set wrap'
 set sidescrolloff=5
@@ -156,7 +163,8 @@ set sidescrolloff=5
 set lazyredraw
 
 " Show the line and column number of the cursor position
-set ruler
+" Set in defaults.vim
+" set ruler
 
 " Always show statusline
 set laststatus=2
@@ -512,7 +520,34 @@ nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
 
 " Easy vertical split
 nnoremap  <leader>v    :vs<CR>
-nnoremap  <leader>H    :sp<CR>
+nnoremap  <leader>h    :sp<CR>
+
+"============================================="
+" split automatically if window doesn't exist "
+"============================================="
+function! WinMove(key) abort
+  let t:curwin = winnr()
+  exec "wincmd ".a:key
+  if (t:curwin == winnr()) "we haven't moved
+    if (match(a:key,'[jk]')+1) "we want to go up/down
+      wincmd s
+    elseif (match(a:key, '[hl]')+1) " we want to go left/right
+      wincmd v
+    endif
+    exec "wincmd ".a:key
+  endif
+endfunction
+
+map <c-h> :call WinMove('h')<CR>
+map <c-k> :call WinMove('k')<CR>
+map <c-l> :call WinMove('l')<CR>
+map <c-j> :call WinMove('j')<CR>
+
+" Replaced by above:
+" nnoremap <c-j>  <C-W>w
+" nnoremap <c-k>  <C-W>W
+" nnoremap <c-h>  <C-W>h
+" nnoremap <c-l>  <C-W>l
 
 " end highlighting by searching for garbage
 nnoremap  <leader>;    /xckla<CR>
@@ -526,7 +561,7 @@ noremap <leader>l :setlocal relativenumber!<CR>
 
 " Turn off hlsearch temporarily
 nnoremap \q :set hlsearch!<CR>:setlocal hlsearch?<CR>
-noremap <leader>h :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
+noremap <leader>H :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
 
 " Globally search and replace the <word> under the cursor
 nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
@@ -582,11 +617,6 @@ augroup END
 " Swap lines in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<+1<CR>gv=gv
-
-nnoremap <c-j>  <C-W>w
-nnoremap <c-k>  <C-W>W
-nnoremap <c-h>  <C-W>h
-nnoremap <c-l>  <C-W>l
 
 "noremap <space> 8j
 " noremap <c-space> 8k
@@ -828,7 +858,9 @@ function! s:HighLightsCD() abort
   highlight Function guifg=#4EB9C0
   highlight QuickFixLine guibg=#95000B guifg=#CFCFCF ctermbg=darkred
   highlight Normal guibg=background
-  highlight CursorLine guibg=#41403f
+  " highlight CursorLine guibg=#223E55
+  highlight CursorLine guibg=#002F57
+  set background=dark
   redraw
 endfunction
 " call <SID>HighLightsCD()
@@ -903,10 +935,11 @@ if has("autocmd")
 
     filetype plugin indent on
     " Move to the last position ('") when this file was opened
-    autocmd BufReadPost *
-          \  if line("'\"") > 0 && line("'\"") <= line("$") |
-          \    exe "normal! g'\"" |
-          \  endif
+    " Set in defaults.vim
+    " autocmd BufReadPost *
+    "       \  if line("'\"") > 0 && line("'\"") <= line("$") |
+    "       \    exe "normal! g'\"" |
+    "       \  endif
 
     " set viminfo^=%
     set viminfo='20,\"100,:100,%,n~/.viminfo
