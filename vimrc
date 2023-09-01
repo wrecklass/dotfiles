@@ -522,6 +522,33 @@ nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
 nnoremap  <leader>v    :vs<CR>
 nnoremap  <leader>h    :sp<CR>
 
+"============================================="
+" split automatically if window doesn't exist "
+"============================================="
+function! WinMove(key) abort
+  let t:curwin = winnr()
+  exec "wincmd ".a:key
+  if (t:curwin == winnr()) "we haven't moved
+    if (match(a:key,'[jk]')+1) "we want to go up/down
+      wincmd s
+    elseif (match(a:key, '[hl]')+1) " we want to go left/right
+      wincmd v
+    endif
+    exec "wincmd ".a:key
+  endif
+endfunction
+
+map <c-h> :call WinMove('h')<CR>
+map <c-k> :call WinMove('k')<CR>
+map <c-l> :call WinMove('l')<CR>
+map <c-j> :call WinMove('j')<CR>
+
+" Replaced by above:
+" nnoremap <c-j>  <C-W>w
+" nnoremap <c-k>  <C-W>W
+" nnoremap <c-h>  <C-W>h
+" nnoremap <c-l>  <C-W>l
+
 " end highlighting by searching for garbage
 nnoremap  <leader>;    /xckla<CR>
 
@@ -590,11 +617,6 @@ augroup END
 " Swap lines in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<+1<CR>gv=gv
-
-nnoremap <c-j>  <C-W>w
-nnoremap <c-k>  <C-W>W
-nnoremap <c-h>  <C-W>h
-nnoremap <c-l>  <C-W>l
 
 "noremap <space> 8j
 " noremap <c-space> 8k
