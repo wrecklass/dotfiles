@@ -94,7 +94,7 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 set nosmartindent
-set formatoptions+=l
+set formatoptions+=lj
 
 " Insert tabs according to Shiftwidth
 set nosmarttab
