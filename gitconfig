@@ -81,6 +81,7 @@
   hh = !git log | bat
   last = log -1 HEAD
   l = log --pretty=oneline --graph --all --abbrev-commit
+  oneline = log --oneline
   lcm = log --pretty=oneline --graph --all
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
