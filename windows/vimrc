@@ -131,7 +131,7 @@ set noswapfile
 
 " No backup file created
 set nobackup
-set nowb
+set nowritebackup
 
 " Where to store undo history
 set undodir=~/.vim/undodir

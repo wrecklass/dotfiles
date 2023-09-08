@@ -1,6 +1,5 @@
 " Author: Stephen Martin
 " File: .vimrc
-" Date: 10/25/21 01:44:17
 " {{{ Settings
 " Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
 if $UNAME == "cygwin"
@@ -131,7 +130,7 @@ set noswapfile
 
 " No backup file created
 set nobackup
-set nowb
+set nowritebackup
 
 " Where to store undo history
 set undodir=~/.cache/undodir
@@ -391,7 +390,7 @@ try
   colorscheme PaperColor
   " I like italics
   highlight Folded gui=italic cterm=italic
-  let g:airline_theme='papercolor'
+  " let g:airline_theme='papercolor'
   " END PAPERCOLOR
 catch
 endtry
@@ -437,7 +436,7 @@ let g:airline_powerline_fonts=1
 " let g:airline_theme='base16_flat'
 " let g:airline_theme='base16_framer'
 " let g:airline_theme='base16_gigavolt'
-" let g:airline_theme='base16_google'
+let g:airline_theme='base16_google'
 " let g:airline_theme='base16_grayscale'
 " let g:airline_theme='base16_gruvbox_dark_soft'
 " let g:airline_theme='base16_gruvbox_dark_medium'
