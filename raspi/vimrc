@@ -1,6 +1,5 @@
 " Author: Stephen Martin
 " File: .vimrc
-" Date: 10/25/21 01:44:17
 " {{{ Settings
 " Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
 if $UNAME == "cygwin"
