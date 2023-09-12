@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export HISTCONTROL='erasedups:ignoreboth'
-export HISTIGNORE="x:fg:h:history:ls:ps:ll:exit"
+export HISTIGNORE="alias:cls:clear:date:dir:dot:x:fg:h:history:ls:ll:ps:exit"
 export HISTSIZE=5000
 export HISTFILESIZE=5000
 
