@@ -124,6 +124,9 @@
   # Diff to a specific commit passed as parameter
   dr = "!f() { git diff "$1"^.."$1"; }; f"
   diffr = "!f() { git diff "$1"^.."$1"; }; f"
+  # make a patch file
+  patch = !git --no-pager diff --no-color
+
   lc = "!f() { git ll "$1"^.."$1"; }; f"
 
   # Pull in all of the remote changes including submodules
@@ -153,7 +156,7 @@
   pushtags = !git remote | xargs -I X git push X --tags
 
   # Note that this adds UNTRACKED files to the repository:
-  cm = !git add -A && git commit -m
+  cm = commit -m
   ca = commit -am
   # Saves Work in Progress. Leaves untracked alone.
   wip = commit -am "WIP"
@@ -208,6 +211,7 @@
   remotes = remote -v
 
   # Merge aliases
+  mm = merge master
   # Checkout commits I've made
   ours = "!f() { git co --ours $@ && git add $@; }; f"
   # Checkout commits from the repo that need merging with mine
@@ -223,11 +227,15 @@
   # Saves some typing like the old 'svn ci'
   commit = ci
   # Saves some typing like the old 'svn co'
+  cc = checkout -- .
   co = checkout
+  cp = checkout -
   # Prepare to work on a new branch:
   cob = checkout -b
   diff = diff --word-diff
   dc = diff --cached
+
+  f = fetch
 
   # Reset Commands
   # Reset progressively further back and harder
