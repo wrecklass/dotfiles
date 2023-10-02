@@ -113,6 +113,7 @@
   # Find commit by commit message/comment
   fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad %Creset%s%Cgreen [%cn] %Cred%d' --decorate --date=short --grep=\"$1\"; };f"
 
+  g = !exec git
   # Search for a file containing a string
   gr = grep -Ii
   gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; } ; f"
