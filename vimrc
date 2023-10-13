@@ -1,5 +1,6 @@
 " Author: Stephen Martin
 " File: .vimrc
+" Date: 10/25/21 01:44:17
 " {{{ Settings
 " Force fzf.vim to work on Cygwin. Might need to unset for Unix systems.
 if $UNAME == "cygwin"
@@ -106,10 +107,12 @@ set textwidth=0
 
 set matchpairs+=<:>
 
-" Highlight the cursor line and column on display
+" Don't Highlight the cursor line and column on display
 set cursorline
-set cursorcolumn
-" No column ruler at 80 characters.
+" Highlight the number column only
+set cursorlineopt=number
+set nocursorcolumn
+" No column ruler
 set colorcolumn=
 
 " Where the backspace key works
@@ -162,13 +165,14 @@ set sidescrolloff=5
 set lazyredraw
 
 " Show the line and column number of the cursor position
+" Makes no difference with Airline status line.
 " Set in defaults.vim
 " set ruler
 
 " Always show statusline
 set laststatus=2
 
-" Always show tabline
+" Always show tabs
 set showtabline=2
 
 " Round indent to multiple of 'shiftwidth'.  Applies to > and <
