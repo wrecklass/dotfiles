@@ -133,7 +133,7 @@ export IPV6_REGX='(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){
 # export LSCOLORS='Gxfxcxdxdxegedabagacad'
 # export CDPATH=".:~:~/src"
 export ORIGPATH
-export PATH
+# export PATH
 export LESS='FXRj5'
 [[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"
 
