@@ -63,6 +63,8 @@ set incsearch
 set smartcase
 set ignorecase
 
+set smoothscroll
+
 " Show matching parens
 set showmatch
 

@@ -17,6 +17,7 @@ alias cdgo="_cdgo"
 alias cdm="_cdm"
 alias cdn="_cdn"
 alias cdl="_cdl"
+alias cdz="_cdl" # To match #z:: from AHK
 alias cdp="_cdp"
 alias cdr="_cdr"
 alias cdrep="_cdrep"
@@ -31,7 +32,7 @@ alias cdv="_cdv"
 # alias cdwi="_cdwi"
 alias cdx="_cdx"
 alias cdxp="_cdx"
-alias cdz="_cdz"
+alias cdw="_cdw"
 alias mkcd="_mkcd"
 
 alias cd="cd_func"
@@ -365,7 +366,7 @@ _cdv() {
 #   fi
 # }
 
-_cdz() {
+_cdw() {
     if [ $# -gt 0 ]; then
         cd_func "$(cygpath --windir)/${*}"
     else
