@@ -286,16 +286,6 @@ _cdsa() {
   fi
 }
 
-_cdst() {
-  if [ -d "/c/apps/steamapps" ];then
-    if [ $# -gt 0 ]; then
-      cd_func "/c/apps/steamapps/${*}"
-    else
-      cd_func "/c/apps/steamapps/"
-    fi
-  fi
-}
-
 _cdu() {
   if [ -d "/d/Users/${USER}" ];then
     if [ $# -gt 0 ]; then
@@ -382,14 +372,19 @@ _mkcd() {
 alias cdst="_cdst"
 
 _cdst() {
-  if [ -d "/d/apps/steam" ];then
+  if [ -d "/c/apps/steamapps" ];then
+    if [ $# -gt 0 ]; then
+      cd_func "/c/apps/steamapps/${*}"
+    else
+      cd_func "/c/apps/steamapps/"
+    fi
+  elif [ -d "/d/apps/steam" ];then
     if [ $# -gt 0 ]; then
       cd_func "/d/Apps/Steam/${*}"
     else
       cd_func "/d/Apps/Steam/"
     fi
-  fi
-  if [ -d "/d/apps/Steamlibrary" ];then
+  elif [ -d "/d/apps/Steamlibrary" ];then
     if [ $# -gt 0 ]; then
       cd_func "/d/Apps/Steamlibrary/${*}"
     else
