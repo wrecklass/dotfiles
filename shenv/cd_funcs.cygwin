@@ -14,6 +14,7 @@ alias cde="_cde"
 alias cdf="_cdf"
 alias cdg="_cdg"
 alias cdgo="_cdgo"
+alias cdgzw="_cdgzw"
 alias cdm="_cdm"
 alias cdn="_cdn"
 alias cdl="_cdl"
@@ -254,6 +255,12 @@ _cdrep() {
     fi
 }
 
+_cdst() {
+  if [ -d "/c/Program Files (x86)/Steam/steamapps/common/" ];then
+    cd_func "/c/Program Files (x86)/Steam/steamapps/common/"
+  fi
+}
+
 _cdark() {
   if [ -d "/e/Apps/SteamLibrary/steamapps/common/" ];then
     cd_func "/e/Apps/SteamLibrary/steamapps/common/"
@@ -282,16 +289,6 @@ _cdsa() {
       cd_func "/d/apps/steamlibrary/steamapps/${*}"
     else
       cd_func "/d/apps/steamlibrary/steamapps/"
-    fi
-  fi
-}
-
-_cdst() {
-  if [ -d "/c/apps/steamapps" ];then
-    if [ $# -gt 0 ]; then
-      cd_func "/c/apps/steamapps/${*}"
-    else
-      cd_func "/c/apps/steamapps/"
     fi
   fi
 }
@@ -379,24 +376,24 @@ _mkcd() {
     cd_func "$*"
 }
 
-alias cdst="_cdst"
+# alias cdst="_cdst"
 
-_cdst() {
-  if [ -d "/d/apps/steam" ];then
-    if [ $# -gt 0 ]; then
-      cd_func "/d/Apps/Steam/${*}"
-    else
-      cd_func "/d/Apps/Steam/"
-    fi
-  fi
-  if [ -d "/d/apps/Steamlibrary" ];then
-    if [ $# -gt 0 ]; then
-      cd_func "/d/Apps/Steamlibrary/${*}"
-    else
-      cd_func "/d/Apps/Steamlibrary/"
-    fi
-  fi
-}
+# _cdst() {
+#   if [ -d "/d/apps/steam" ];then
+#     if [ $# -gt 0 ]; then
+#       cd_func "/d/Apps/Steam/${*}"
+#     else
+#       cd_func "/d/Apps/Steam/"
+#     fi
+#   fi
+#   if [ -d "/d/apps/Steamlibrary" ];then
+#     if [ $# -gt 0 ]; then
+#       cd_func "/d/Apps/Steamlibrary/${*}"
+#     else
+#       cd_func "/d/Apps/Steamlibrary/"
+#     fi
+#   fi
+# }
 
 # function cd_func
 # This function defines a 'cd' replacement function capable of keeping,
