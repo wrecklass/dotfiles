@@ -107,12 +107,10 @@ set textwidth=0
 
 set matchpairs+=<:>
 
-" Don't Highlight the cursor line and column on display
+" Highlight the cursor line and column on display
 set cursorline
-" Highlight the number column only
-set cursorlineopt=number
-set nocursorcolumn
-" No column ruler
+set cursorcolumn
+" No column ruler at 80 characters.
 set colorcolumn=
 
 " Where the backspace key works
@@ -172,7 +170,7 @@ set lazyredraw
 " Always show statusline
 set laststatus=2
 
-" Always show tabs
+" Always show tabline
 set showtabline=2
 
 " Round indent to multiple of 'shiftwidth'.  Applies to > and <
@@ -196,7 +194,7 @@ set mouse=a
 if has ("gui")
     " set guifont=Consolas:h14
     " set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h13
-    set guifont=FiraCode\ Nerd\ Font\ Mono:h12
+    set guifont=FiraCode\ Nerd\ Font\ Mono,12
     set lines=50 columns=120
 endif
 
@@ -209,7 +207,7 @@ set fileformats=unix,dos,mac
 " {{{ Startify
 " Bookmarks for Startify:
 let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'c': 'c:/tools/bcurran3/choco-output.txt'} ]
-let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'} ]
+let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'}, {'s' : 'so $MYVIMRC'} ]
 let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
 let g:startify_lists = [
           \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
