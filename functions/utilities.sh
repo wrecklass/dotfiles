@@ -130,6 +130,11 @@ digga() {
   dig +nocmd "$1" any +multiline +noall +answer
 }
 
+# Reverse lookup
+digr() {
+  dig +short -x "$1"
+}
+
 # Query Wikipedia via console over DNS
 mwiki() {
   dig +short txt "$*".wp.dg.cx
