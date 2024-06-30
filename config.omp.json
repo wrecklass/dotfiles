@@ -1,6 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "version": 2,
+  "auto_upgrade" : true,
   "final_space": true,
   "console_title_template": "{{ .Shell }} in {{ .Folder }}",
   "blocks": [
@@ -52,7 +53,7 @@
           "foreground": "p:black",
           "background": "p:orange",
           "properties": {
-            "folder_seperator_icon": "/",
+            "folder_separator_icon": "/",
             "home_icon": "\uf46d",
             "mapped_locations": {
               "C:/Users/smartin": "\uf4e2"
