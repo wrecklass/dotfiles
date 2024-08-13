@@ -164,24 +164,6 @@
           "template": "\ue7ad {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} "
         },
         {
-          "type": "az",
-          "style": "diamond",
-          "foreground": "#337bb6",
-          "background": "#ffffff",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "<transparent,#ffffff>\ue0b2</>",
-          "template": "\udb82\udc05 {{ .EnvironmentName }} "
-        },
-        {
-          "type": "azfunc",
-          "style": "diamond",
-          "foreground": "#5398c2",
-          "background": "#ffffff",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "<transparent,#ffffff>\ue0b2</>",
-          "template": "\uf104<#f5bf45>\uf0e7</>\uf105 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
-        },
-        {
           "type": "crystal",
           "style": "diamond",
           "foreground": "#000000",
@@ -450,18 +432,6 @@
       "properties": {
         "display_default": true
       }
-    },
-    {
-      "type": "az",
-      "tips": [
-        "az"
-      ],
-      "style": "diamond",
-      "foreground": "p:white",
-      "background": "p:blue",
-      "leading_diamond": "\ue0b6",
-      "trailing_diamond": "\ue0b4",
-      "template": " \udb82\udc05 {{ .Name }} "
     }
   ],
   "transient_prompt": {
