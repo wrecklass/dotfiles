@@ -3,7 +3,6 @@
   "version": 2,
   "auto_upgrade" : true,
   "final_space": true,
-  "auto_upgrade": false,
   "console_title_template": "{{ .Shell }} in {{ .Folder }}",
   "blocks": [
     {

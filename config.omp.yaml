@@ -1,7 +1,7 @@
 $schema: https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 version: 2
-final_space: true
 auto_upgrade: true
+final_space: true
 console_title_template: '{{ .Shell }} in {{ .Folder }}'
 blocks:
   - type: prompt
@@ -41,7 +41,7 @@ blocks:
         foreground: p:black
         background: p:orange
         properties:
-          folder_seperator_icon: /
+          folder_separator_icon: /
           home_icon: 
           mapped_locations:
             C:/Users/smartin: 
@@ -123,20 +123,6 @@ blocks:
         leading_diamond: 
         trailing_diamond: <transparent,#565656></>
         template: ' {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} '
-      - type: az
-        style: diamond
-        foreground: '#337bb6'
-        background: '#ffffff'
-        leading_diamond: 
-        trailing_diamond: <transparent,#ffffff></>
-        template: "\U000F0805 {{ .EnvironmentName }} "
-      - type: azfunc
-        style: diamond
-        foreground: '#5398c2'
-        background: '#ffffff'
-        leading_diamond: 
-        trailing_diamond: <transparent,#ffffff></>
-        template: '<#f5bf45></> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
       - type: crystal
         style: diamond
         foreground: '#000000'
@@ -340,15 +326,6 @@ tooltips:
     template: '  {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} '
     properties:
       display_default: true
-  - type: az
-    tips:
-      - az
-    style: diamond
-    foreground: p:white
-    background: p:blue
-    leading_diamond: 
-    trailing_diamond: 
-    template: " \U000F0805 {{ .Name }} "
 transient_prompt:
   foreground: p:black
   background: transparent
