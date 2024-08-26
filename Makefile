@@ -11,12 +11,13 @@ deploy: dotfiles fishconf windot vimfiles vimdocs ## Install everything, use thi
 # Fish and Vim is handled below
 .PHONY := dotfiles
 dotfiles:            ## Install (link) the dotfiles
-	for file in $(shell find $(CURDIR) -maxdepth 1 ! -name raspi ! -name dotfiles.code-workspace ! -name gitconfig ! -name windows ! -name tags ! -name dotfiles ! -name "config.omp.*" ! -name ".[a-zA-Z]*" ! -name "README.md" ! -name "vim" ! -name "Makefile" ! -name "assh.yml" ! -name "fish"); do \
+	for file in $(shell find $(CURDIR) -maxdepth 1 ! -name raspi ! -name dotfiles.code-workspace ! -name gitconfig ! -name windows ! -name tags ! -name dotfiles ! -name "config.omp.*" ! -name ".[a-zA-Z]*" ! -name "README.md" ! -name "vim" ! -name "Makefile" ! -name "assh.yml" ! -name "fish" ! -name wayfire.ini); do \
 		f="$$(basename $$file)"; \
 		ln -sfn $$file ~/.$$f; \
 	done
 	ln -f gitconfig ~/.gitconfig
 	ln -f ./assh.yml ~/.ssh/
+	ln -f ./wayfire.ini ~/.config/
 
 .PHONY := raspi
 raspi: raspi/vimrc   ## Install Raspberry Pi versions of files
