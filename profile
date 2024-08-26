@@ -34,9 +34,10 @@
 
 # if running bash
 # {{{ Logging
-declare -x -i VERBOSE=0
+# declare -x -i VERBOSE=0
+VERBOSE=0
 
-if [[ -f "$HOME/.verbose" ]];then
+if [ -f "$HOME/.verbose" ];then
   VERBOSE=1
 fi
 
