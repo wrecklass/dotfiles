@@ -197,6 +197,9 @@ fi
 # {{{ Import our standard files and some specials
 # Import all of the files we use
 # Note that bash_prompt is a case by case basis per OS
+
+PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\]"
+
 for file in ~/.{bash_aliases,path,extra,exports,override}; do
   [[ -f "$file" ]] && _log ".bashrc file:${file}"
   [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
