@@ -45,7 +45,7 @@ fi
 declare -x -l UNAME
 : "${HOME=~}"
 : "${UNAME=$($UNAMECMD -o)}"
-export UNAME
+# export UNAME
 if [ "${UNAME}" = "cygwin" ]; then
   PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/lib/lapack:$PATH"
 fi

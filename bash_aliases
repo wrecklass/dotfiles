@@ -245,8 +245,15 @@ alias via='vi ~/.ssh/assh.yml'
 # More typo fixing
 alias ssu='ssh'
 
+export EDITOR
 if [ -z "$EDITOR" ];then
-  export EDITOR="/bin/vim"
+  if [ -x "/bin/vim.basic" ]; then
+    EDITOR="/bin/vim.basic"
+  elif [ -x "/bin/vim.tiny" ]; then
+    EDITOR="/bin/vim.tiny"
+  elif [ -x "/bin/vim" ]; then
+    EDITOR="/bin/vim"
+  fi
 fi
 alias vi="\$EDITOR"
 alias vim="\$EDITOR"
