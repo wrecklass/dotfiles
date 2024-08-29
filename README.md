@@ -1,5 +1,4 @@
-dotfiles
-========
+# dotfiles
 
 ## My current dotfiles
 
@@ -15,4 +14,3 @@ Plugins and docs will be updated with the *vimfiles* and *vimdocs* `make` target
 *Note* that none of these files are preceded by a dot, to make them easier to see
 and edit on a Linux/Un\*x style system. Dots are added during the deployment
 phase. Target is *dotfiles*.
-

@@ -14,7 +14,7 @@ alias mkcd="_mkcd"
 
 _cdot() {
   local mydir
-  mydir="$(dirname $(readlink "$HOME/.bashrc"))"
+  mydir="$(dirname $(readlink "$HOME/.profile"))"
   cd_func "$mydir"
 }
 
@@ -108,7 +108,7 @@ cd_func() {
 
     the_new_dir=$1
     [[ -z $1 ]] && the_new_dir=$HOME
-    
+
     if [[ ${the_new_dir:0:1} == '-' ]]; then
         #
         # When argument is '-N' Extract dir N from dirs
