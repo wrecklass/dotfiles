@@ -211,7 +211,7 @@ set fileformats=unix,dos,mac
 " {{{ Startify
 " Bookmarks for Startify:
 let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'} ]
-let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'} ]
+let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'}, {'p': 'PlugUpdate'} ]
 let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
 let g:startify_lists = [
           \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
