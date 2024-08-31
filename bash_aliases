@@ -52,9 +52,6 @@ alias ''='clear -x'
 # }}}
 # {{{ Aliases
 
-alias aps='apt-cache search'
-alias apsh='apt-cache show'
-
 alias dfh='df -h '
 alias duh='du -sh'
 alias dus='du -sh . | sort -h'
@@ -111,11 +108,10 @@ alias ppath='echo -e ${PATH//:/\\n}'
 
 # {{{ IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias winip='ipconfig /all | grep "Wi-Fi 3" -A 18'
-alias mywinip='ipconfig /all|  grep IPv4 | /bin/grep -Eo "$NETREGX"'
 # }}}
 
-alias j='jobs'
+# Overlaps with new alias for 'jump'
+# alias j='jobs'
 
 # {{{ File lists 'ls'
 alias dot='ls -dAF ${colorflag} .[a-zA-Z0-9]*'
@@ -153,14 +149,13 @@ alias nowtime='now'
 alias nowdate='date +"%d-%m-%Y"'
 
 alias pp='ping 8.8.8.8'
-alias fastping='ping -c 10 -i .2'
+# alias fastping='ping -c 10 -i .2'
 alias r='fc -s'
 alias ri='ri -f bs '
 alias rit='ri -T -f bs '
 
 alias res='printf "%s x %s\n" "$COLUMNS" "$LINES"'
 
-alias trash="gio trash"
 alias rm='rm -i'
 alias mr='rm -i'
 alias cp='cp -i'
@@ -170,15 +165,14 @@ alias vm='mv -i'
 alias sw='telnet  towel.blinkenlights.nl'
 # alias sx='startxwin.sh &> .xwin_errors'
 
-# View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
 alias untar='tar xvf'
 alias xtar="tar xvf"
 alias ctar="tar cvf"
 alias ttar="tar tvf"
 alias ttc='tty-clock -scxBC 6'
+
+# More typo fixing
+alias ssu='ssh'
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
@@ -202,14 +196,11 @@ alias xit='exit'
 alias x='chmod a+rx'
 
 # Weather Underground
-alias wuf='start https://www.wunderground.com/forecast/us/co/aurora/KCOAUROR322'
-alias wu='start https://www.wunderground.com/weather/us/co/aurora/KCOAUROR322'
+alias wuf='open https://www.wunderground.com/forecast/us/co/aurora/KCOAUROR322'
+alias wu='open https://www.wunderground.com/weather/us/co/aurora/KCOAUROR322'
 
-# EditPadPro
-alias edit='cygstart "/c/users/smartin/appdata/local/just great software/editpad pro 8/editpadpro8.exe"'
-
-alias muffins='cygstart '\''https://www.amazon.com/dp/B007YPOBLI?psc=1&ref=ppx_yo2ov_dt_b_product_details'\'''
-alias orders='cygstart "https://www.amazon.com/gp/css/order-history"'
+alias muffins='open '\''https://www.amazon.com/Katz-Gluten-Free-English-Muffins/dp/B07N1WSDC8/ref=sr_1_1_pp?s=grocery&sr=1-1'\'''
+alias orders='open "https://www.amazon.com/gp/css/order-history"'
 # }}}
 # {{{ Completions
 # So these two aliases do bash_completion from git
@@ -240,22 +231,19 @@ fi
 # {{{ Vim config
 if [ -x "$HOME/bin/vim" ];then
   alias sec='$HOME/bin/vim $HOME/bin/.secret'
+elif [ -x /usr/local/bin/vim ]; then
+  alias sec='/usr/local/bin/vim $HOME/bin/.secret'
 else
   alias sec='/usr/bin/vim $HOME/bin/.secret'
 fi
 alias svi='sudo vim'
-alias via='vi ~/.ssh/assh.yml'
-# More typo fixing
-alias ssu='ssh'
+# alias via='vi ~/.ssh/assh.yml'
 
-export EDITOR
 if [ -z "$EDITOR" ];then
   if [ -x "/bin/vim.basic" ]; then
     EDITOR="/bin/vim.basic"
   elif [ -x "/bin/vim.tiny" ]; then
     EDITOR="/bin/vim.tiny"
-  elif [ -x "/bin/vim" ]; then
-    EDITOR="/bin/vim"
   fi
 fi
 alias vi="\$EDITOR"
@@ -272,10 +260,21 @@ if [ -n "${hub_path}" ];then
 fi
 # }}}
 # {{{ Duck Duck Go Search
+declare -x BRAVE
+if [ "$UNAME" == "cygwin" ];then
+  if [[ -x "/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe" ]];then
+    BRAVE="c:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
+  fi
+else
+  BRAVE="$(command -v brave)"
+  if [ -z "$BRAVE" ]; then
+    BRAVE="$(command -v brave-browser)"
+  fi
+fi
 
-if [[ -x "/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe" ]];then
-  alias ddgr='ddgr -n 8 --url-handler "c:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"'
-elif [[ -x /snap/bin/brave ]]; then
-  alias ddgr='ddgr -n 8 --url-handler "/snap/bin/brave"'
+if [ -n "$BRAVE" ]; then
+  alias ddgr='ddgr -n 8 --url-handler "$BRAVE"'
+else
+  _log "No brave found!"
 fi
 # }}}
