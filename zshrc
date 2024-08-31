@@ -1,7 +1,7 @@
 #!/usr/local/bin/zsh
 ################################# START MY DATA ##############################
 # My personal vars
-# export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+export JAVA_HOME="/usr/local/jdk"
 export FZF_BASE='/usr/local/opt/fzf'
 
 export GOROOT="C:/Program Files/Go"
