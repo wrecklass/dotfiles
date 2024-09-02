@@ -253,11 +253,6 @@ if [ -n "$GOC" ]; then
   complete -C "$GOC" go
 fi
 
-# Cargo env
-if [ -f "$HOME/.cargo/env" ];then
-  source "$HOME/.cargo/env"
-fi
-
 export BASH_RC
 # }}}
 # {{{ Figlet
