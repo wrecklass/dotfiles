@@ -71,13 +71,24 @@ if [[ -f "$HOME/.verbose" ]];then
   VERBOSE=1
 fi
 
-_log() {
+if [ ! -d "$HOME/.logs" ]; then
+  mkdir -p "$HOME/.logs"
+fi
+if [ -n "$PS1" ]; then
+  _log() {
     if [ "$VERBOSE" -eq 1 ];then
       dt="$(date)"
       printf "%s-%s: %s\n" "${dt}" "BASHRC[$$]" "$*"
     fi
-}
-
+  }
+else
+  _log() {
+    if [ "$VERBOSE" -eq 1 ];then
+      dt="$(date)"
+      printf "%s-%s: %s\n" "${dt}" "BASHRC[$$]" "$*" >> "$HOME/.logs/bashrc.log"
+    fi
+  }
+fi
 _log ".bashrc"
 _log "USER: $USER"
 _log "UNAME: $UNAME"
@@ -248,5 +259,24 @@ if [ -f "$HOME/.cargo/env" ];then
 fi
 
 export BASH_RC
+# }}}
+# {{{ Figlet
+if [ -n "$PS1" ]; then
+  FIGLET=$(command -v figlet)
+  if [ -n "${FIGLET}" ]; then
+    "${FIGLET}" -tf smslant "Welcome  to"
+    # "${FIGLET}" -tC upper -f slant "$HOSTNAME"
+    "${FIGLET}" -tf big "$HOSTNAME"
+  else
+    printf "Welcome to $HOSTNAME\n"
+  fi
+fi
+# }}}
+# {{{ node
+export NVM_DIR="$HOME/.nvm"
+if [ -d "$NVM_DIR" ];then
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 # }}}
 #vim: set et sw=2 foldmethod=marker
