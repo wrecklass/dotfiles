@@ -272,6 +272,12 @@ if [ -n "$PS1" ]; then
   fi
 fi
 # }}}
+# {{{ fortune
+FORTUNE="$(command -v fortune)"
+if [ -x "$FORTUNE" ];then
+  "$FORTUNE"
+fi
+# }}}
 # {{{ node
 export NVM_DIR="$HOME/.nvm"
 if [ -d "$NVM_DIR" ];then
