@@ -81,7 +81,7 @@
   # some log aliases
   history = log
   h = !git log | cat
-  hh = !git log | bat
+  hh = !git log | batcat
   last = log -1 HEAD
   l = log --pretty=oneline --graph --all --abbrev-commit
   oneline = log --oneline
