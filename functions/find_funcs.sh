@@ -75,3 +75,16 @@ _vifzf() {
     vim "$(fzf --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)"
   fi
 }
+
+# See if fd is installed
+# if not see if fdfind is installed and
+# give it a function (alias) to fd if so
+FD="$(command -v fd)"
+if [ -z "$FD" ]; then
+  FD="$(command -v fdfind)"
+  if [ -n "$FD" ]; then
+    function fd {
+      fdfind "$@"
+    }
+  fi
+fi
