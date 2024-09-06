@@ -72,8 +72,6 @@
   aliases = config --get-regexp alias
 
   la = "!git config -l | grep alias "
-  rv = remote -v
-  r = remote -v
   z = status -z -u
   # Add a new remote to the current repository, $1=Name(origin), $2=URL(git@github.com/...)
   ra = "!f() { git remote add $1 $2; }; f"
@@ -159,8 +157,9 @@
   pushall = !git remote | xargs -I X git push X --all
   pushtags = !git remote | xargs -I X git push X --tags
 
-  # Note that this adds UNTRACKED files to the repository:
+  # Note that this DOES NOT add UNTRACKED files to the repository:
   cm = commit -m
+  # Note that this adds UNTRACKED files to the repository:
   ca = commit -am
   # Saves Work in Progress. Leaves untracked alone.
   wip = commit -am "WIP"
@@ -181,7 +180,7 @@
   # Clean up branches
   bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
   # Better for me I think:
-  brm = "!f() { if [ ! -z \"$1\" ]; then git branch -d $1 ; else echo No branch named ; fi; }; f"
+  brm = "!f() { if [ ! -z \"$1\" ]; then git branch -d $1 ; else echo No branch named.; fi; }; f"
 
   # Clean up/delete current branch (e.g. dev), co master and start some new work. Follow with cob
   bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
@@ -213,6 +212,8 @@
   b  = branch -v
   bs = branch -a
   remotes = remote -v
+  rv = remote -v
+  r = remote -v
 
   # Merge aliases
   mm = merge master
