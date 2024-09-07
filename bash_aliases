@@ -61,7 +61,7 @@ alias d='dirs -v'
 
 alias fild='file'
 alias fiel='file'
-
+# {{{ git stuff
 alias bit="git"
 alias g="git"
 alias get='git'
@@ -94,12 +94,13 @@ alias gfo='git fetch origin'
 
 alias gp='git push'
 alias gpa='git remote | xargs -I X git push X --all'
+alias gr='git remote'
 alias grv='git remote -v'
 alias gss='git status -s'
 alias gs='git status'
 
 alias gsu='git submodule update'
-
+# }}}
 alias hp='hashapass.sh'
 
 alias irb='irb --readline -r irb/completion'
