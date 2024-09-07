@@ -12,7 +12,8 @@ function _err {
   fi
 
   # The numeric error codes are 'SpaceNUMTab'
-  if ! grep -P " ${*}\t" /usr/include/sys/errno.h 2> /dev/null ; then
+  # if ! grep -P " ${*}\t" /usr/include/sys/errno.h 2> /dev/null ; then
+  if ! egrep -w "${*}" $(locate -r errno.h$) 2> /dev/null ; then
     echo "Not found."
   fi
 }
