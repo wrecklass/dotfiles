@@ -7,10 +7,10 @@ _log "SHELL: $SHELL"
 # }}}
 # {{{ Colorflags
 # Detect which `ls` flavor is in use
-export colorflag="-G"
-if ls --color &> /dev/null ; then # GNU `ls`
-  colorflag="--color"
-fi # OS X `ls`
+# export colorflag="-G"
+# if ls --color &> /dev/null ; then # GNU `ls`
+colorflag="--color=always"
+# fi # OS X `ls`
 
 if command -v colordiff &> /dev/null; then
   alias diff='colordiff'
@@ -115,26 +115,47 @@ alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 # alias j='jobs'
 
 # {{{ File lists 'ls'
-alias dot='ls -dAF ${colorflag} .[a-zA-Z0-9]*'
-alias dolt='ls -dlAF ${colorflag} .[a-zA-Z0-9]*'
-alias l.='ls -dAF ${colorflag} .*'
-alias ll.='ls -ldF ${colorflag} .*'
-alias l='ls -lF ${colorflag}'
+export DF
+export ICO
+export DOT
+if command -v exa &> /dev/null ;then
+  DF="--group-directories-first"
+  ICO="--icons"
+  DOT="-a"
+
+  alias ls='exa ${DF} ${ICO} -F'
+  alias lltg='ls -snew -lgF ${DF} ${ICO} ${colorflag}'
+  alias llgt='ls -snew -lgF ${DF} ${ICO} ${colorflag}'
+  alias lg='ls -lgF ${DF} ${ICO} ${colorflag}'
+  alias lG='ls -lGF ${DF} ${ICO} ${colorflag}'
+  alias llg='ls -lgF ${DF} ${ICO} ${colorflag}'
+  alias llG='ls -lGF ${DF} ${ICO} ${colorflag}'
+  alias lt='ls -snew -lF ${DF} ${ICO} ${colorflag}'
+  alias llt='ls -snew -lF ${DF} ${ICO} ${colorflag}'
+else
+  alias ls='ls -F ${colorflag}'
+  DOT="-A"
+  alias lltg='ls -lGrtF ${colorflag}'
+  alias llgt='ls -lGrtF ${colorflag}'
+  alias lg='ls -lGF ${colorflag}'
+  alias llg='ls -lGF ${colorflag}'
+  alias lt='ls -lrtF ${colorflag}'
+  alias llt='ls -lrtF ${colorflag}'
+fi
+
+alias dot='ls ${DOT} -dF ${DF} ${ICO} ${colorflag} .[a-zA-Z0-9]*'
+alias dolt='ls ${DOT} -dlF ${DF} ${ICO} ${colorflag} .[a-zA-Z0-9]*'
+alias l.='ls ${DOT} -dF ${DF} ${ICO} ${colorflag} .*'
+alias ll.='ls -ldF ${DF} ${ICO} ${colorflag} .*'
+alias l='ls -lF ${DF} ${ICO} ${colorflag}'
 alias lesb='$(history -p !!) | less'
-alias ls='ls -F ${colorflag}'
-alias lsa='ls -AF ${colorflag}'
+alias lsa='ls ${DOT} -F ${DF} ${ICO} ${colorflag}'
 alias lsp='\ls -F'
 # alias la='ls -AF ${colorflag}'
-alias ll='ls -lF ${colorflag}'
-alias lla='ls -AlF ${colorflag}'
-alias lh='ls -lhF ${colorflag}'
-alias llh='ls -lhF ${colorflag}'
-alias lt='ls -lrtF ${colorflag}'
-alias llt='ls -lrtF ${colorflag}'
-alias lltg='ls -lGrtF ${colorflag}'
-alias llgt='ls -lGrtF ${colorflag}'
-alias lg='ls -lGF ${colorflag}'
-alias llg='ls -lGF ${colorflag}'
+alias ll='ls -lF ${DF} ${ICO} ${colorflag}'
+alias lla='ls ${DOT} -lF ${DF} ${ICO} ${colorflag}'
+alias lh='ls -lhF ${DF} ${ICO} ${colorflag}'
+alias llh='ls -lhF ${DF} ${ICO} ${colorflag}'
 # }}}
 alias md='mkdir'
 alias mdp='mkdir -p'
