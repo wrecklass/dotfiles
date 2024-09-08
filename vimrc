@@ -208,28 +208,6 @@ set fileformats=unix,dos,mac
 " Don't pass messages to |ins-completion-menu|.
 " set shortmess+=c
 " }}}
-" {{{ Startify
-" Bookmarks for Startify:
-let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'} ]
-let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'}, {'s': 'source $MYVIMRC'}, {'p': 'PlugUpdate'} ]
-let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
-let g:startify_lists = [
-          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
-          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
-          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
-          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
-          \ ]
-
-" Highlights
-highlight StartifyBracket ctermfg=240
-highlight StartifyFile    ctermfg=147
-highlight StartifyFooter  ctermfg=240
-highlight StartifyHeader  ctermfg=114
-highlight StartifyNumber  ctermfg=215
-highlight StartifyPath    ctermfg=245
-highlight StartifySlash   ctermfg=240
-highlight StartifySpecial ctermfg=240
-" }}}
 " {{{ Plugins
 
 call plug#begin('~/.vim/plugged')
@@ -257,6 +235,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
+Plug 'rust-lang/rust.vim'
 if $UNAME != "cygwin" && $MTYPE != "Ras"
   Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 endif
@@ -856,6 +835,28 @@ function! VisualSelection(direction, extra_filter) range abort
   let @" = l:saved_reg
 endfunction
 
+" }}}
+" {{{ Startify
+" Bookmarks for Startify:
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'b': '~/.bashrc'} ]
+let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'}, {'s': 'source $MYVIMRC'}, {'p': 'PlugUpdate'} ]
+let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
+let g:startify_lists = [
+          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
+          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
+          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
+          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
+          \ ]
+
+" Highlights
+highlight StartifyBracket ctermfg=240
+highlight StartifyFile    ctermfg=147
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
 " }}}
 " {{{ Functions
 
