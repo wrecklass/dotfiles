@@ -113,6 +113,8 @@ set matchpairs+=<:>
 set cursorline
 " Highlight the number column only
 set cursorlineopt=number
+
+" No column ruler at 80 characters.
 set nocursorcolumn
 " No column ruler
 set colorcolumn=
@@ -174,7 +176,7 @@ set lazyredraw
 " Always show statusline
 set laststatus=2
 
-" Always show tabs
+" Always show tabline
 set showtabline=2
 
 " Round indent to multiple of 'shiftwidth'.  Applies to > and <
@@ -334,11 +336,13 @@ try
   " let g:hardhacker_darker = 1
   " colorscheme hardhacker
   " END HARDHACKER
+  " colorscheme carbonized-dark
 
   " let g:vimspectrLineNr = 'on'
   " let g:vimspectrItalicComment = 'on'
   " colorscheme vimspectrgrey-dark
   " END VIMSPECTRGREY
+
 
   " let g:codedark_conservative=1
   " let g:codedark_modern=0
