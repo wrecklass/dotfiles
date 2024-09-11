@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## [1.5.1] - 2024-09-10
+
+### 📚 Documentation
+
+- dust vs cargo/dust
+
+
+### ◀️ Note
+
+- Give back some standard ls functions.
+
+## [1.5.0] - 2024-09-09
+
+### 📚 Documentation
+
+- Doc adding git cliff change logging
+
+
 ## [1.4.180] - 2024-09-09
 
 ### ◀️ Note
