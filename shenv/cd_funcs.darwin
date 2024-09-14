@@ -9,6 +9,7 @@ alias cde="_cde"
 alias cdf="_cdf"
 alias cdpf="_cdf"
 alias cdg="_cdg"
+alias cdgh="_cdg"
 alias cdgo="_cdgo"
 alias cdl="_cdl"
 alias cdn="_cdn"
@@ -167,7 +168,7 @@ cd_func() {
 
     the_new_dir=$1
     [[ -z $1 ]] && the_new_dir=$HOME
-    
+
     if [[ ${the_new_dir:0:1} == '-' ]]; then
         #
         # When argument is '-N' Extract dir N from dirs
