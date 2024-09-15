@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.5] - 2024-09-15
+
+### 🚀 Features
+
+- Prefer directories first in ls
+
+
 ## [1.5.4] - 2024-09-15
 
 ### ◀️ Note
