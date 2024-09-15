@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.4] - 2024-09-15
+
+### ◀️ Note
+
+- Cdd extended to cdoc and cddoc for mnemonic
+cdgh as well as cdg
+
+
+## [1.5.3] - 2024-09-14
+
+### ◀️ Note
+
+- Cdd extended to cdoc and cddoc for mnemonic
+
+
+## [1.5.2] - 2024-09-14
+
+### ◀️ Note
+
+- Removing deprecated cd aliases
+
+- Cdgh as well as cdg
+
+
+
 ## [1.5.1] - 2024-09-10
 
 ### 📚 Documentation
