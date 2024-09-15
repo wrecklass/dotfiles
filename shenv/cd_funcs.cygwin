@@ -220,20 +220,12 @@ _cdp() {
 }
 
 _cdr() {
-    if [ -d "$USERPROFILE/Dropbox" ];then
+    if [ -d "$HOME/src/rustlings" ];then
         if [ $# -gt 0 ]; then
-            cd_func "$USERPROFILE/Dropbox/${*}"
+            cd_func "~/src/rustlings/${*}"
         else
-            cd_func "$USERPROFILE/Dropbox/"
+            cd_func "~/src/rustlings/"
         fi
-        return
-    elif [ -d "/d/Users/${USER}/Dropbox" ];then
-        if [ $# -gt 0 ]; then
-            cd_func "/d/Users/${USER}/Dropbox/${*}"
-        else
-            cd_func "/d/Users/${USER}/Dropbox/"
-        fi
-        return
     fi
 }
 
@@ -244,14 +236,12 @@ _cdrep() {
         else
             cd_func "/c/Apps/World_Of_Warships_NA/replays/"
         fi
-        return
     elif [ -d "/d/Apps/World_Of_Warships_NA/replays" ];then
         if [ $# -gt 0 ]; then
             cd_func "/d/Apps/World_Of_Warships_NA/replays/${*}"
         else
             cd_func "/d/Apps/World_Of_Warships_NA/replays/"
         fi
-        return
     fi
 }
 
