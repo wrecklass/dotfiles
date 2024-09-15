@@ -3,12 +3,11 @@
 # echo "cd_funcs"
 
 alias cda="_cda"
-alias cdc="_cdc"
-alias cdcc="_cdcc"
 alias cde="_cde"
 alias cdf="_cdf"
 alias cdpf="_cdf"
 alias cdg="_cdg"
+alias cdgh="_cdg"
 alias cdgo="_cdgo"
 alias cdl="_cdl"
 alias cdn="_cdn"
@@ -45,22 +44,6 @@ _cda() {
         cd_func "/Users/${USER}/src/charter/adapticus/${*}"
     else
         cd_func "/Users/${USER}/src/charter/adapticus"
-    fi
-}
-
-_cdc() {
-    if [ $# -gt 0 ]; then
-        cd_func "/Users/${USER}/src/charter/${*}"
-    else
-        cd_func "/Users/${USER}/src/charter"
-    fi
-}
-
-_cdcc() {
-    if [ $# -gt 0 ]; then
-        cd_func "/Users/${USER}/src/charter/Containerization/${*}"
-    else
-        cd_func "/Users/${USER}/src/charter/Containerization/"
     fi
 }
 
@@ -167,7 +150,7 @@ cd_func() {
 
     the_new_dir=$1
     [[ -z $1 ]] && the_new_dir=$HOME
-    
+
     if [[ ${the_new_dir:0:1} == '-' ]]; then
         #
         # When argument is '-N' Extract dir N from dirs

@@ -1,8 +1,11 @@
 #!/bin/bash
 
 alias cdd="_cdd"
+alias cddoc="_cdd"
+alias cdoc="_cdd"
 alias cde="_cde"
 alias cdg="_cdg"
+alias cdgh="_cdg"
 alias cdgo="_cdgo"
 alias cdl="_cdl"
 alias cdot="_cdot"
