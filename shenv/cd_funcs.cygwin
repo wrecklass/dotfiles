@@ -15,14 +15,16 @@ alias cde="_cde"
 alias cdf="_cdf"
 alias cdg="_cdg"
 alias cdgo="_cdgo"
+alias cdgz="_cdgzw"
 alias cdgzw="_cdgzw"
 alias cdm="_cdm"
 alias cdn="_cdn"
 alias cdl="_cdl"
 alias cdz="_cdl" # To match #z:: from AHK
 alias cdp="_cdp"
-alias cdr="_cdr"
-alias cdrep="_cdrep"
+alias cdpr="_cdpr"
+# alias cdr="_cdr"
+# alias cdrep="_cdrep"
 alias cds="_cds"
 alias cdt="_cdt"
 alias cdsa="_cdsa"
@@ -157,9 +159,9 @@ _cdg() {
 
 _cdgo() {
     if [ $# -gt 0 ]; then
-        cd_func "$HOME/src/gocode/${*}"
+        cd_func "$GOPATH/${*}"
     else
-        cd_func "$HOME/src/gocode"
+        cd_func "$GOPATH"
     fi
 }
 
@@ -219,41 +221,49 @@ _cdp() {
     fi
 }
 
-_cdr() {
-    if [ -d "$USERPROFILE/Dropbox" ];then
-        if [ $# -gt 0 ]; then
-            cd_func "$USERPROFILE/Dropbox/${*}"
-        else
-            cd_func "$USERPROFILE/Dropbox/"
-        fi
-        return
-    elif [ -d "/d/Users/${USER}/Dropbox" ];then
-        if [ $# -gt 0 ]; then
-            cd_func "/d/Users/${USER}/Dropbox/${*}"
-        else
-            cd_func "/d/Users/${USER}/Dropbox/"
-        fi
-        return
+_cdpr() {
+    if [ $# -gt 0 ]; then
+        cd_func "/c/Users/smartin/OneDrive/Documents/Processing/${*}"
+    else
+        cd_func "/c/Users/smartin/OneDrive/Documents/Processing/"
     fi
 }
 
-_cdrep() {
-    if [ -d "/c/Apps/World_Of_Warships_NA/replays" ];then
-        if [ $# -gt 0 ]; then
-            cd_func "/c/Apps/World_Of_Warships_NA/replays/${*}"
-        else
-            cd_func "/c/Apps/World_Of_Warships_NA/replays/"
-        fi
-        return
-    elif [ -d "/d/Apps/World_Of_Warships_NA/replays" ];then
-        if [ $# -gt 0 ]; then
-            cd_func "/d/Apps/World_Of_Warships_NA/replays/${*}"
-        else
-            cd_func "/d/Apps/World_Of_Warships_NA/replays/"
-        fi
-        return
-    fi
-}
+# _cdr() {
+#     if [ -d "$USERPROFILE/Dropbox" ];then
+#         if [ $# -gt 0 ]; then
+#             cd_func "$USERPROFILE/Dropbox/${*}"
+#         else
+#             cd_func "$USERPROFILE/Dropbox/"
+#         fi
+#         return
+#     elif [ -d "/d/Users/${USER}/Dropbox" ];then
+#         if [ $# -gt 0 ]; then
+#             cd_func "/d/Users/${USER}/Dropbox/${*}"
+#         else
+#             cd_func "/d/Users/${USER}/Dropbox/"
+#         fi
+#         return
+#     fi
+# }
+
+# _cdrep() {
+#     if [ -d "/c/Apps/World_Of_Warships_NA/replays" ];then
+#         if [ $# -gt 0 ]; then
+#             cd_func "/c/Apps/World_Of_Warships_NA/replays/${*}"
+#         else
+#             cd_func "/c/Apps/World_Of_Warships_NA/replays/"
+#         fi
+#         return
+#     elif [ -d "/d/Apps/World_Of_Warships_NA/replays" ];then
+#         if [ $# -gt 0 ]; then
+#             cd_func "/d/Apps/World_Of_Warships_NA/replays/${*}"
+#         else
+#             cd_func "/d/Apps/World_Of_Warships_NA/replays/"
+#         fi
+#         return
+#     fi
+# }
 
 
 _cdark() {
@@ -263,6 +273,12 @@ _cdark() {
     cd_func "/f/SteamLibrary/steamapps/common/"
   elif [ -d "/d/Apps/SteamLibrary/steamapps/common/" ];then
     cd_func "/d/Apps/SteamLibrary/steamapps/common/"
+  fi
+}
+
+_cdgzw() {
+  if [ -d "/d/apps/steamlibrary/steamapps/common/Gray Zone Warfare" ];then
+    cd "/d/apps/steamlibrary/steamapps/common/Gray Zone Warfare"
   fi
 }
 
