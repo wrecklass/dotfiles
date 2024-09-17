@@ -102,6 +102,7 @@ alias gs='git status'
 alias gsu='git submodule update'
 # }}}
 alias hp='hashapass.sh'
+alias lesb='$(history -p !!) | less'
 
 alias irb='irb --readline -r irb/completion'
 
@@ -118,8 +119,8 @@ alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 export DF
 export ICO
 export DOT
+DF="--group-directories-first"
 if command -v exa &> /dev/null ;then
-  DF="--group-directories-first"
   ICO="--icons"
   DOT="-a"
 
@@ -133,14 +134,14 @@ if command -v exa &> /dev/null ;then
   alias lt='ls -snew -lF ${DF} ${ICO} ${colorflag}'
   alias llt='ls -snew -lF ${DF} ${ICO} ${colorflag}'
 else
-  alias ls='ls -F ${colorflag}'
+  alias ls='ls -F $DF ${colorflag}'
   DOT="-A"
-  alias lltg='ls -lGrtF ${colorflag}'
-  alias llgt='ls -lGrtF ${colorflag}'
-  alias lg='ls -lGF ${colorflag}'
-  alias llg='ls -lGF ${colorflag}'
-  alias lt='ls -lrtF ${colorflag}'
-  alias llt='ls -lrtF ${colorflag}'
+  alias lltg='ls -lGrtF $DF ${colorflag}'
+  alias llgt='ls -lGrtF $DF ${colorflag}'
+  alias lg='ls -lGF $DF ${colorflag}'
+  alias llg='ls -lGF $DF ${colorflag}'
+  alias lt='ls -lrtF $DF ${colorflag}'
+  alias llt='ls -lrtF $DF ${colorflag}'
 fi
 
 alias dot='ls ${DOT} -dF ${DF} ${ICO} ${colorflag} .[a-zA-Z0-9]*'
@@ -148,8 +149,7 @@ alias dolt='ls ${DOT} -dlF ${DF} ${ICO} ${colorflag} .[a-zA-Z0-9]*'
 alias l.='ls ${DOT} -dF ${DF} ${ICO} ${colorflag} .*'
 alias ll.='ls -ldF ${DF} ${ICO} ${colorflag} .*'
 alias lf='/bin/ls -F ${DF} ${colorflag}'
-alias l='/bin/ls -lGF ${DF} ${colorflag}'
-alias lesb='$(history -p !!) | less'
+alias l='/bin/ls -lGF ${colorflag}'
 alias lsa='ls ${DOT} -F ${DF} ${ICO} ${colorflag}'
 alias lsp='\ls -F'
 # alias la='ls -AF ${colorflag}'

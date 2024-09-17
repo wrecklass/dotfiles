@@ -8,12 +8,14 @@ alias cdahk="_cdah"
 alias cdb="_cdb"
 alias cdc="_cdc"
 alias cdd="_cdd"
+alias cddoc="_cdd"
+alias cdoc="_cdd"
 alias cdo="_cdot"
 alias cdot="_cdot"
-alias cdoc="_cdd"
 alias cde="_cde"
 alias cdf="_cdf"
 alias cdg="_cdg"
+alias cdgh="_cdg"
 alias cdgo="_cdgo"
 alias cdgz="_cdgzw"
 alias cdgzw="_cdgzw"
@@ -229,42 +231,21 @@ _cdpr() {
     fi
 }
 
-# _cdr() {
-#     if [ -d "$USERPROFILE/Dropbox" ];then
-#         if [ $# -gt 0 ]; then
-#             cd_func "$USERPROFILE/Dropbox/${*}"
-#         else
-#             cd_func "$USERPROFILE/Dropbox/"
-#         fi
-#         return
-#     elif [ -d "/d/Users/${USER}/Dropbox" ];then
-#         if [ $# -gt 0 ]; then
-#             cd_func "/d/Users/${USER}/Dropbox/${*}"
-#         else
-#             cd_func "/d/Users/${USER}/Dropbox/"
-#         fi
-#         return
-#     fi
-# }
-
-# _cdrep() {
-#     if [ -d "/c/Apps/World_Of_Warships_NA/replays" ];then
-#         if [ $# -gt 0 ]; then
-#             cd_func "/c/Apps/World_Of_Warships_NA/replays/${*}"
-#         else
-#             cd_func "/c/Apps/World_Of_Warships_NA/replays/"
-#         fi
-#         return
-#     elif [ -d "/d/Apps/World_Of_Warships_NA/replays" ];then
-#         if [ $# -gt 0 ]; then
-#             cd_func "/d/Apps/World_Of_Warships_NA/replays/${*}"
-#         else
-#             cd_func "/d/Apps/World_Of_Warships_NA/replays/"
-#         fi
-#         return
-#     fi
-# }
-
+_cdrep() {
+    if [ -d "/c/Apps/World_Of_Warships_NA/replays" ];then
+        if [ $# -gt 0 ]; then
+            cd_func "/c/Apps/World_Of_Warships_NA/replays/${*}"
+        else
+            cd_func "/c/Apps/World_Of_Warships_NA/replays/"
+        fi
+    elif [ -d "/d/Apps/World_Of_Warships_NA/replays" ];then
+        if [ $# -gt 0 ]; then
+            cd_func "/d/Apps/World_Of_Warships_NA/replays/${*}"
+        else
+            cd_func "/d/Apps/World_Of_Warships_NA/replays/"
+        fi
+    fi
+}
 
 _cdark() {
   if [ -d "/e/Apps/SteamLibrary/steamapps/common/" ];then
