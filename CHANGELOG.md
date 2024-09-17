@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.7] - 2024-09-17
+
+### 🚀 Features
+
+- Added substring bash funciton and FZF_ALT_C command variable
+
 ## [1.5.6] - 2024-09-17
 
 ### 🚀 Features
