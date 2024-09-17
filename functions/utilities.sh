@@ -255,3 +255,21 @@ function mhz() {
 function ver() {
   [[ -n "$1" ]] && "$1" --version
 }
+
+substring () {
+	# Return a substring of $1 containing $3 characters starting at
+	# zero-based offset $2.
+	#
+	# Examples:
+	#
+	#   substring "Hello world" 0 4  --> "Hell"
+	#   substring "Hello world" 3 4  --> "lo w"
+	#   substring "Hello world" 3 10 --> "lo world"
+
+	STRING=$1
+	START=$2
+	LEN=$3
+
+	echo "$STRING" | cut -c$(( START + 1 ))-$(( START + $LEN ))
+}
+
