@@ -466,7 +466,7 @@ nnoremap <leader>` :botright terminal<CR>
 tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 
-" map for cprev and cnext, also opne folds at location
+" map for cprev and cnext, also open folds at location
 nnoremap <leader><      :cprev<CR>zv
 nnoremap <leader>>      :cnext<CR>zv
 
