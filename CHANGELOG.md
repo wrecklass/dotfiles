@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.6] - 2024-09-17
+
+### 🚀 Features
+
+- Drop dropbox and add Processing
+- Added GZW to cdfunc
+
+### ◀️ Note
+
+- Vimrc typo
+
 ## [1.5.5] - 2024-09-15
 
 ### 🚀 Features
