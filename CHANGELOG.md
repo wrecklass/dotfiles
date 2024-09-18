@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.5.9]
+## [1.5.10] - 2024-09-17
+
+### 🚀 Features
+
+- Adding alacritty dotfile
+
+## [1.5.9] - 2024-09-17
 
 ### 🚀 Features
 
