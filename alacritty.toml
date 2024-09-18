@@ -1,0 +1,79 @@
+# $HOME/.config/alacritty/alacritty.toml
+# by Rito Ghosh 2023-10-06
+
+# Alacritty now uses TOML formatting for its config files.
+# This i2 a simple example.
+
+# There are the specification here: https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd
+# It is 1ot obvious how it translates to TOML. But it is extremely straightforward.
+
+# example: WINDOW, COLORS, etc. are tables, and should be represented as [window], [colors], respectively.
+# specifics of variables go under them. e.g.- look under "dynamic_padding" under-
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#window
+# write `dynamic_padding = true` (without backticks -`) under the table [window]
+# for variables with multiple values, use "dotted keys". Like setting `padding.x = 5` under [window].
+# This is simple. If not clear, do several trials and errors.
+
+# Below is my initial set-up. The TOML homepage (https://toml.io/en/v1.0.0) was very helpful in figuring this out.
+# I put the file alacritty.toml in $HOME/.config/alacritty. However it can be kept anywhere among the places mentioned in
+# https://github.com/alacritty/alacritty/tree/master#configuration
+
+[env]
+TERM = "xterm-256color"
+
+[general]
+shell.program  ="/bin/bash"
+shell.args  = ["-l"]
+ipc_socket = true
+
+[window]
+
+startup_mode = "Windowed"
+opacity = 0.8
+blur = true
+dynamic_padding = false
+dynamic_title = true
+padding.x = 0
+padding.y = 0
+decorations = "full"
+decorations_theme_variant = "Dark" # "Light"
+
+[window.dimensions]
+columns  = 137
+lines = 54
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+
+normal.family = "FiraCode Nerd Font Mono"
+bold.family = "FiraCode Nerd Font Mono"
+italic.family = "FiraCode Nerd Font Mono"
+bold_italic.family = "FiraCode Nerd Font Mono"
+
+size = 11.0
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "PasteSelection"
+key = "Insert"
+mods = "Shift"
+
+# [[keyboard.bindings]]
+# chars = "\u001BOP"
+# key = "F1"
+
+# Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
+# Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a
+# small box when a HEX is detected by the editor.
