@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.9]
+
+### 🚀 Features
+
+- Adding specific files I add/changed for LazyVim
 
 ## [1.5.7] - 2024-09-17
 
