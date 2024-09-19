@@ -2,12 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.5.12]
+## [1.5.12] - 2024-09-19
 
 ### ◀️ Note
 
-- Removed old alacritty file
-
+- Alacrity changes and cleanup
 
 ## [1.5.11] - 2024-09-18
 
@@ -50,7 +49,6 @@ All notable changes to this project will be documented in this file.
 
 - Prefer directories first in ls
 
-
 ## [1.5.4] - 2024-09-15
 
 ### ◀️ Note
@@ -58,13 +56,11 @@ All notable changes to this project will be documented in this file.
 - Cdd extended to cdoc and cddoc for mnemonic
 cdgh as well as cdg
 
-
 ## [1.5.3] - 2024-09-14
 
 ### ◀️ Note
 
 - Cdd extended to cdoc and cddoc for mnemonic
-
 
 ## [1.5.2] - 2024-09-14
 
@@ -74,14 +70,11 @@ cdgh as well as cdg
 
 - Cdgh as well as cdg
 
-
-
 ## [1.5.1] - 2024-09-10
 
 ### 📚 Documentation
 
 - dust vs cargo/dust
-
 
 ### ◀️ Note
 
@@ -93,13 +86,11 @@ cdgh as well as cdg
 
 - Doc adding git cliff change logging
 
-
 ## [1.4.180] - 2024-09-09
 
 ### ◀️ Note
 
 - Dust vs cargo/dust
-
 
 ## [1.4.179] - 2024-09-09
 
@@ -107,13 +98,11 @@ cdgh as well as cdg
 
 - Syncing with ras_dotfiles vimrc
 
-
 ## [1.4.178] - 2024-09-09
 
 ### ◀️ Note
 
 - Source broot function if we have a file
-
 
 ## [1.4.177] - 2024-09-08
 
@@ -121,13 +110,11 @@ cdgh as well as cdg
 
 - Use exa in favor over ls if available
 
-
 ## [1.4.176] - 2024-09-08
 
 ### ◀️ Note
 
 - Updated to latest vcgencmd completion script
-
 
 ## [1.4.175] - 2024-09-08
 
@@ -135,13 +122,11 @@ cdgh as well as cdg
 
 - Added BROWSER env variable for man -H
 
-
 ## [1.4.174] - 2024-09-08
 
 ### 🚀 Features
 
 - Add vcgencmd and move fzf completion for new make target
-
 
 ## [1.4.173] - 2024-09-08
 
@@ -149,13 +134,11 @@ cdgh as well as cdg
 
 - Add rust to vimrc
 
-
 ## [1.4.172] - 2024-09-07
 
 ### 🚀 Features
 
 - Add 'git remote' alias: gr
-
 
 ## [1.4.171] - 2024-09-07
 
@@ -163,13 +146,11 @@ cdgh as well as cdg
 
 - Another attempt at making my err() function work on diff systems
 
-
 ## [1.4.170] - 2024-09-06
 
 ### ◀️ Note
 
 - Some rearranging for clarity.
-
 
 ## [1.4.169] - 2024-09-06
 
@@ -177,13 +158,11 @@ cdgh as well as cdg
 
 - New, perhaps standardized, JDK location.
 
-
 ## [1.4.168] - 2024-09-05
 
 ### ◀️ Note
 
 - Bat or batcat, that is the question
-
 
 ## [1.4.167] - 2024-09-05
 
@@ -191,13 +170,11 @@ cdgh as well as cdg
 
 - Adding fd/fdfind aliasing
 
-
 ## [1.4.166] - 2024-09-05
 
 ### ◀️ Note
 
 - Added fortunes to bashrc if we have it installed
-
 
 ## [1.4.165] - 2024-09-05
 
@@ -205,12 +182,11 @@ cdgh as well as cdg
 
 - Add source $MYVIMRC to vimrc
 
-
 ## [1.4.164] - 2024-09-04
 
 ### ◀️ Note
 
--   add cdoc as alias to Documents
+- add cdoc as alias to Documents
   use the apt search/show instead of apt-cache
   Indecisiveness about where to start cargo
   Indecisiveness
@@ -221,12 +197,11 @@ cdgh as well as cdg
   Added apt-cache search and show aliases
   Add plugupdate to startify commands
 
-
 ## [1.4.163] - 2024-09-04
 
 ### ◀️ Note
 
--   use the apt search/show instead of apt-cache
+- use the apt search/show instead of apt-cache
   Indecisiveness about where to start cargo
   Indecisiveness
   Figlets and nvm added. Send log to a file if not interactive
@@ -235,13 +210,11 @@ cdgh as well as cdg
   sorted some stuff on zshrc.
   Added apt-cache search and show aliases
 
-
 ## [1.4.162] - 2024-09-02
 
 ### ◀️ Note
 
 - Use the apt search/show instead of apt-cache
-
 
 ## [1.4.161] - 2024-09-02
 
@@ -251,13 +224,11 @@ cdgh as well as cdg
 
 - Indecisiveness about where to start cargo
 
-
 ## [1.4.160] - 2024-09-02
 
 ### ◀️ Note
 
 - Figlets and nvm added. Send log to a file if not interactive
-
 
 ## [1.4.159] - 2024-09-01
 
@@ -265,13 +236,11 @@ cdgh as well as cdg
 
 - Scan for wifi networks aliases added
 
-
 ## [1.4.158] - 2024-08-31
 
 ### ◀️ Note
 
 - Sorted aliases that belonged in specific environments
-
 
 ## [1.4.157] - 2024-08-31
 
@@ -279,18 +248,15 @@ cdgh as well as cdg
 
 - Sorted some stuff on zshrc.
 
-
 ## [1.4.156] - 2024-08-31
 
 ### 🚀 Features
 
 - Added apt-cache search and show aliases
 
-
 ### ◀️ Note
 
 - Add cdoc as alias to Documents
-
 
 ## [1.4.155] - 2024-08-29
 
@@ -299,7 +265,6 @@ cdgh as well as cdg
 - Adding GO paths
 
 - Add plugupdate to startify commands
-
 
 ### ◀️ Note
 
@@ -314,13 +279,11 @@ Fix to some Markdown issues in Readme.md
 upgrading oh-my-posh temporarily disabled. Correct oh-my-posh startup line
 remove azure stuff due to errors that were caused in OMP bug
 
-
 ## [1.4.154] - 2024-08-28
 
 ### ◀️ Note
 
 - RetroPie uncovered some issues, like using bashrc for the readlink
-
 
 ## [1.4.153] - 2024-08-27
 
@@ -328,13 +291,11 @@ remove azure stuff due to errors that were caused in OMP bug
 
 - Added a default PS1
 
-
 ## [1.4.152] - 2024-08-27
 
 ### ◀️ Note
 
 - Change to my standard <super> B for new Terminal
-
 
 ## [1.4.151] - 2024-08-26
 
@@ -342,13 +303,11 @@ remove azure stuff due to errors that were caused in OMP bug
 
 - Changes to make .profile compatible with X
 
-
 ## [1.4.150] - 2024-08-26
 
 ### 🚀 Features
 
 - Added wayfire.ini
-
 
 ## [1.4.149] - 2024-08-26
 
@@ -356,13 +315,11 @@ remove azure stuff due to errors that were caused in OMP bug
 
 - Change Fkey for syntax info
 
-
 ## [1.4.148] - 2024-08-25
 
 ### ◀️ Note
 
 - Removed azure components and allowed auto upgrades in OMP.
-
 
 ## [1.4.147] - 2024-08-23
 
@@ -370,13 +327,11 @@ remove azure stuff due to errors that were caused in OMP bug
 
 - Fix to some Markdown issues in Readme.md
 
-
 ## [1.4.146] - 2024-08-18
 
 ### ◀️ Note
 
 - Upgrading oh-my-posh temporarily disabled. Correct oh-my-posh startup line
-
 
 ## [1.4.145] - 2024-08-13
 
@@ -384,13 +339,11 @@ remove azure stuff due to errors that were caused in OMP bug
 
 - Remove azure stuff due to errors that were caused in OMP bug
 
-
 ## [1.4.144] - 2024-07-25
 
 ### ◀️ Note
 
 - Add F10 highlighter syntax tracker
-
 
 ## [1.4.143] - 2024-07-25
 
@@ -398,16 +351,14 @@ remove azure stuff due to errors that were caused in OMP bug
 
 - Added jump list functions for CLI
 
-
 ## [1.4.142] - 2024-07-07
 
 ### ◀️ Note
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Add auto_upgrade to oh_my_posh config
-
 
 ## [1.4.141] - 2024-06-30
 
@@ -417,21 +368,19 @@ remove azure stuff due to errors that were caused in OMP bug
 
 - Add auto_upgrade to oh_my_posh config
 
-
 ### ◀️ Note
 
 - Added dig reverse lookup shortcut
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   added dig reverse lookup shortcut
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Update utilities.sh
-
 
 ## [1.4.140] - 2024-06-04
 
@@ -441,13 +390,11 @@ remove azure stuff due to errors that were caused in OMP bug
 
 Added dig reverse lookup as 'digr'
 
-
 ## [1.4.139] - 2024-05-12
 
 ### ◀️ Note
 
 - Shenv/cd_funcs.cygwin
-
 
 ## [1.4.138] - 2024-05-12
 
@@ -459,9 +406,8 @@ Added dig reverse lookup as 'digr'
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Added command to source  for gvim. Dunno why this isn't happening
-
 
 ## [1.4.137] - 2024-05-03
 
@@ -469,16 +415,14 @@ Added dig reverse lookup as 'digr'
 
 - Added command to source  for gvim. Dunno why this isn't happening
 
-
 ## [1.4.136] - 2024-04-27
 
 ### ◀️ Note
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   export not export
-
 
 ## [1.4.135] - 2024-04-27
 
@@ -488,13 +432,11 @@ Added dig reverse lookup as 'digr'
 
 - Export not export
 
-
 ## [1.4.134] - 2023-10-21
 
 ### ◀️ Note
 
 - Add new OMP_CACHE_DIR for cygwin
-
 
 ## [1.4.133] - 2023-10-15
 
@@ -502,13 +444,11 @@ Added dig reverse lookup as 'digr'
 
 - Added gc section to gitconfig
 
-
 ## [1.4.132] - 2023-10-13
 
 ### ◀️ Note
 
 - Turn off full line cursorline and cursorcolumn in vim
-
 
 ## [1.4.131] - 2023-10-02
 
@@ -516,20 +456,17 @@ Added dig reverse lookup as 'digr'
 
 - Git alias to exec git
 
-
 ## [1.4.130] - 2023-10-02
 
 ### ◀️ Note
 
 - Make la a function to see ls -l with octel perms
 
-
 ## [1.4.129] - 2023-10-02
 
 ### ◀️ Note
 
 - New aliases for gitconfig
-
 
 ## [1.4.128] - 2023-09-12
 
@@ -548,13 +485,11 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - Adding some extra stuff to HISTIGNORE
 
-
 ## [1.4.127] - 2023-09-10
 
 ### ◀️ Note
 
 - Tmux term color settings
-
 
 ## [1.4.126] - 2023-09-08
 
@@ -562,13 +497,11 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - The vimrc 'Date' is arbitrary and meaningless
 
-
 ## [1.4.125] - 2023-09-07
 
 ### ◀️ Note
 
 - Online alias in gitconfig
-
 
 ## [1.4.124] - 2023-09-07
 
@@ -576,13 +509,11 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - Eliminate abbreviations on vimrc
 
-
 ## [1.4.123] - 2023-09-02
 
 ### ◀️ Note
 
 - New airline_theme for awhile
-
 
 ## [1.4.122] - 2023-09-01
 
@@ -590,13 +521,11 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - Ok deal with WSL not liking us changing LANG
 
-
 ## [1.4.121] - 2023-09-01
 
 ### ◀️ Note
 
 - Move all of the LANG LC_ALL stuff to bashrc?
-
 
 ## [1.4.120] - 2023-09-01
 
@@ -604,13 +533,11 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - Bashrc where fore art though
 
-
 ## [1.4.118] - 2023-09-01
 
 ### ◀️ Note
 
 - Turn off verbose mode in bashrc
-
 
 ## [1.4.119] - 2023-09-01
 
@@ -618,13 +545,11 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - Allow verbose to be flagged by a file ~/.verbose
 
-
 ## [1.4.117] - 2023-09-01
 
 ### ◀️ Note
 
 - New MTYPE check to load or not load vim-go plugin
-
 
 ## [1.4.116] - 2023-09-01
 
@@ -632,13 +557,11 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - Adding formatoptions+ j to other vimrcs
 
-
 ## [1.4.115] - 2023-09-01
 
 ### ◀️ Note
 
 - Get rid of comment characters when Joining lines
-
 
 ## [1.4.114] - 2023-09-01
 
@@ -646,13 +569,11 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - Moving the new changes to other vimrc files
 
-
 ## [1.4.113.1] - 2023-09-01
 
 ### ◀️ Note
 
 - Reddit idea for moving windows or splitting if no window exists
-
 
 ## [1.4.113] - 2023-09-01
 
@@ -660,13 +581,11 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - Racket for CLI
 
-
 ## [1.4.112] - 2023-09-01
 
 ### ◀️ Note
 
 - Leader h and v of course!
-
 
 ## [1.4.111] - 2023-09-01
 
@@ -674,13 +593,11 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - New BAT_THEME, new bat color!
 
-
 ## [1.4.110] - 2023-08-31
 
 ### ◀️ Note
 
 - Comment out those vim settings that are already done in defaults.vim
-
 
 ## [1.4.109] - 2023-08-31
 
@@ -688,20 +605,17 @@ move all of the LANG LC_ALL stuff to bashrc?
 
 - Set background=dark in the HighLightsCD function on Windows gvim
 
-
 ## [1.4.108] - 2023-08-31
 
 ### ◀️ Note
 
 - Slow down and add more smooth scrolling options to vimrc
 
-
 ## [1.4.107] - 2023-08-28
 
 ### ◀️ Note
 
 - Synchronizing vimrc's across platforms
-
 
 ## [1.4.106] - 2023-08-28
 
@@ -710,7 +624,6 @@ move all of the LANG LC_ALL stuff to bashrc?
 - Allow abort on functions
 Standardize how we do colorscheme highlight hexadecimal
 
-
 ## [1.4.105] - 2023-08-28
 
 ### ◀️ Note
@@ -718,13 +631,11 @@ Standardize how we do colorscheme highlight hexadecimal
 - Vim-go doesn't work well with Cygwin
 Enable the Terminal maps and settings
 
-
 ## [1.4.104] - 2023-08-27
 
 ### ◀️ Note
 
 - Slightly bluer keywords in vim
-
 
 ## [1.4.103] - 2023-08-21
 
@@ -732,13 +643,11 @@ Enable the Terminal maps and settings
 
 - Unalias start in favor of function start
 
-
 ## [1.4.102] - 2023-08-20
 
 ### ◀️ Note
 
 - Standardize start to open urls on Cygwin and Linux
-
 
 ## [1.4.101] - 2023-08-18
 
@@ -746,20 +655,17 @@ Enable the Terminal maps and settings
 
 - Sync vimrc's across platforms
 
-
 ## [1.4.100] - 2023-08-18
 
 ### 🚀 Features
 
 - Add raspberry pi configs to makefile
 
-
 ## [1.4.99] - 2023-08-18
 
 ### ◀️ Note
 
 - Nope, alias cd='cd_func'
-
 
 ## [1.4.98] - 2023-08-18
 
@@ -769,13 +675,11 @@ Enable the Terminal maps and settings
 
 - Nope, alias cd='cd_func'
 
-
 ## [1.4.97] - 2023-08-18
 
 ### 🚀 Features
 
 - Adding zoxide for cd shortcuts with cd_func
-
 
 ## [1.4.96] - 2023-08-17
 
@@ -783,13 +687,11 @@ Enable the Terminal maps and settings
 
 - Set GOBIN off of GOPATH
 
-
 ## [1.4.95] - 2023-08-17
 
 ### ◀️ Note
 
 - Correct guifont setting for for vimrc?
-
 
 ## [1.4.94] - 2023-08-17
 
@@ -797,13 +699,11 @@ Enable the Terminal maps and settings
 
 - Set up ddgr alias based on environment and path to browser
 
-
 ## [1.4.93] - 2023-08-16
 
 ### ◀️ Note
 
 - Allow git-edit to use best version of vim
-
 
 ## [1.4.92] - 2023-08-16
 
@@ -811,13 +711,11 @@ Enable the Terminal maps and settings
 
 - Further synchronization on vimrc
 
-
 ## [1.4.91] - 2023-08-15
 
 ### ◀️ Note
 
--   To SID or not to SID
-
+- To SID or not to SID
 
 ## [1.4.90] - 2023-08-15
 
@@ -827,13 +725,11 @@ Enable the Terminal maps and settings
 
 - To SID or not to SID
 
-
 ## [1.4.89] - 2023-08-15
 
 ### ◀️ Note
 
 - Synchronize cygwin and Windows vimrc as much as possible
-
 
 ## [1.4.88] - 2023-08-15
 
@@ -841,13 +737,11 @@ Enable the Terminal maps and settings
 
 - Make a check for the Baldur's Gate directory before cd
 
-
 ## [1.4.87] - 2023-08-14
 
 ### 🚀 Features
 
 - Added cdb to Baldur's Gate save files
-
 
 ## [1.4.86] - 2023-08-14
 
@@ -855,13 +749,11 @@ Enable the Terminal maps and settings
 
 - Vim-css-color keeps causing slowdowns in some files, vimrc?
 
-
 ## [1.4.85] - 2023-08-13
 
 ### ◀️ Note
 
 - Vim-go needs GOBIN defined.
-
 
 ## [1.4.84] - 2023-08-13
 
@@ -881,13 +773,11 @@ Enable the Terminal maps and settings
   option to use go library location if from bootstrap
   uname moves around it seems
 
-
 ## [1.4.82] - 2023-08-09
 
 ### ◀️ Note
 
 - Syncing up and saving windows terminal preview settings
-
 
 ## [1.4.83] - 2023-08-09
 
@@ -897,13 +787,11 @@ Enable the Terminal maps and settings
 
 - Back up the settings.json for WindowsTerminalPreview!
 
-
 ## [1.4.79] - 2023-08-07
 
 ### ◀️ Note
 
 - Bat function for batcat
-
 
 ## [1.4.80] - 2023-08-09
 
@@ -911,13 +799,11 @@ Enable the Terminal maps and settings
 
 - Forever typing ssu when ssh is wanted
 
-
 ## [1.4.78] - 2023-08-07
 
 ### ◀️ Note
 
 - Set foldmethod for c,h,cpp files to syntax
-
 
 ## [1.4.77] - 2023-08-07
 
@@ -925,19 +811,17 @@ Enable the Terminal maps and settings
 
 - Changing some non-executable script colors
 
-
 ## [1.4.76] - 2023-08-06
 
 ### ◀️ Note
 
 - Uname is a hard one to master. Python311 in cygwin defaults
 
-
 ## [1.4.75] - 2023-08-06
 
 ### ◀️ Note
 
--   uname moves around it seems
+- uname moves around it seems
   include alias options for bat being batcat
   Make sure rustup/cargo gets path set late in setup
   check if we are on WSL
@@ -950,7 +834,6 @@ Enable the Terminal maps and settings
   because tabs are essential in Makefile
   change to min/max width in OMP path config
 
-
 ## [1.4.74] - 2023-08-06
 
 ### ◀️ Note
@@ -961,13 +844,11 @@ Enable the Terminal maps and settings
 
 - Uname moves around it seems
 
-
 ## [1.4.73] - 2023-08-02
 
 ### ◀️ Note
 
 - Include alias options for bat being batcat
-
 
 ## [1.4.72] - 2023-08-02
 
@@ -975,20 +856,17 @@ Enable the Terminal maps and settings
 
 - Make sure rustup/cargo gets path set late in setup
 
-
 ## [1.4.71] - 2023-08-02
 
 ### ◀️ Note
 
 - Check if we are on WSL
 
-
 ## [1.4.70.1] - 2023-08-02
 
 ### ◀️ Note
 
 - Add a ver() function to perform "command --version"
-
 
 ## [1.4.70] - 2023-08-01
 
@@ -998,13 +876,11 @@ Enable the Terminal maps and settings
 
 - VSCode workspace definition added
 
-
 ## [1.4.69] - 2023-08-01
 
 ### ◀️ Note
 
 - Adjustments to OMP session size delimiter
-
 
 ## [1.4.68] - 2023-08-01
 
@@ -1012,13 +888,11 @@ Enable the Terminal maps and settings
 
 - Some GOPATH updates
 
-
 ## [1.4.67] - 2023-08-01
 
 ### ◀️ Note
 
 - Minor whitespace fix in vimrc
-
 
 ## [1.4.66] - 2023-08-01
 
@@ -1026,13 +900,11 @@ Enable the Terminal maps and settings
 
 - Because tabs are essential in Makefile
 
-
 ## [1.4.65] - 2023-08-01
 
 ### ◀️ Note
 
 - Change to min/max width in OMP path config
-
 
 ## [1.4.64] - 2023-07-31
 
@@ -1040,20 +912,17 @@ Enable the Terminal maps and settings
 
 - Ruby explodes with ctags in wrong directory
 
-
 ## [1.4.63] - 2023-07-31
 
 ### ◀️ Note
 
 - Ruby explodes with ctags in wrong directory
 
-
 ## [1.4.62] - 2023-07-30
 
 ### ◀️ Note
 
--   Lets turn off tags in vim for now
-
+- Lets turn off tags in vim for now
 
 ## [1.4.61] - 2023-07-29
 
@@ -1065,13 +934,11 @@ Enable the Terminal maps and settings
 
 - Vim already has K mapped to get help or man pages!
 
-
 ## [1.4.60] - 2023-07-28
 
 ### ◀️ Note
 
 - Vim already has K mapped to get help or man pages!
-
 
 ## [1.4.59] - 2023-07-26
 
@@ -1079,13 +946,11 @@ Enable the Terminal maps and settings
 
 - Aliases for editting autohotkey init in vim
 
-
 ## [1.4.58] - 2023-07-26
 
 ### ◀️ Note
 
 - Using Delta for git diffs
-
 
 ## [1.4.57] - 2023-07-26
 
@@ -1093,13 +958,11 @@ Enable the Terminal maps and settings
 
 - New highlighting for git diffs
 
-
 ## [1.4.56] - 2023-07-25
 
 ### ◀️ Note
 
 - Changed to new OMP status type
-
 
 ## [1.4.55] - 2023-07-24
 
@@ -1107,9 +970,8 @@ Enable the Terminal maps and settings
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   better urlencoding with bash function
-
 
 ## [1.4.54] - 2023-07-23
 
@@ -1119,18 +981,16 @@ Enable the Terminal maps and settings
 
 - Better urlencoding with bash function
 
-
 ## [1.4.53] - 2023-07-23
 
 ### ◀️ Note
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Install fzf completions to proper location
   cleaned up which and allow for multiple args
   Exclude VCS dirs and ignores in targz
-
 
 ## [1.4.52] - 2023-07-22
 
@@ -1138,13 +998,11 @@ Enable the Terminal maps and settings
 
 - Install fzf completions to proper location
 
-
 ## [1.4.51] - 2023-07-22
 
 ### ◀️ Note
 
 - Cleaned up which and allow for multiple args
-
 
 ## [1.4.50] - 2023-07-22
 
@@ -1154,13 +1012,11 @@ Enable the Terminal maps and settings
 
 - Exclude VCS dirs and ignores in targz
 
-
 ## [1.4.49] - 2023-07-22
 
 ### ◀️ Note
 
 - Added different oneline logs and shortcut to tig in git aliases
-
 
 ## [1.4.48] - 2023-07-22
 
@@ -1168,13 +1024,11 @@ Enable the Terminal maps and settings
 
 - Is it slow, is it no?
 
-
 ## [1.4.47] - 2023-07-22
 
 ### ◀️ Note
 
 - Move windows related files out of the base directory
-
 
 ## [1.4.46] - 2023-07-21
 
@@ -1182,13 +1036,11 @@ Enable the Terminal maps and settings
 
 - Adding Weather Underground aliases
 
-
 ## [1.4.45] - 2023-07-17
 
 ### ◀️ Note
 
 - Removed the triple bracket shortcuts for many reasons
-
 
 ## [1.4.44] - 2023-07-17
 
@@ -1196,20 +1048,17 @@ Enable the Terminal maps and settings
 
 - Use delimitmate instead of hard maps for brace closure
 
-
 ## [1.4.43] - 2023-07-17
 
 ### ◀️ Note
 
 - Alias for vim -S Session.vim
 
-
 ## [1.4.42] - 2023-07-17
 
 ### ◀️ Note
 
 - Tab and Shift-Tab for gt and GT
-
 
 ## [1.4.41] - 2023-07-17
 
@@ -1218,13 +1067,11 @@ Enable the Terminal maps and settings
 - Ggrep for word under cursor with results to clist
 Maps for cprev cnext open fold at found text
 
-
 ## [1.4.40] - 2023-07-17
 
 ### ◀️ Note
 
 - Some bracket and search improvements
-
 
 ## [1.4.39] - 2023-07-15
 
@@ -1232,9 +1079,8 @@ Maps for cprev cnext open fold at found text
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   add Start Menu to cd aliases
-
 
 ## [1.4.38] - 2023-07-14
 
@@ -1244,13 +1090,11 @@ Maps for cprev cnext open fold at found text
 
 - Add Start Menu to cd aliases
 
-
 ## [1.4.37] - 2023-07-13
 
 ### ◀️ Note
 
 - Verbose last-tag and log to bat
-
 
 ## [1.4.36] - 2023-07-13
 
@@ -1258,13 +1102,11 @@ Maps for cprev cnext open fold at found text
 
 - Github credentials for gh
 
-
 ## [1.4.35] - 2023-07-13
 
 ### ◀️ Note
 
 - Reorganize and add folds to bash_aliases
-
 
 ## [1.4.34] - 2023-07-11
 
@@ -1272,9 +1114,8 @@ Maps for cprev cnext open fold at found text
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   colorscheme tweaking
-
 
 ## [1.4.33] - 2023-07-11
 
@@ -1284,20 +1125,17 @@ Maps for cprev cnext open fold at found text
 
 - Colorscheme tweaking
 
-
 ## [1.4.32] - 2023-07-10
 
 ### ◀️ Note
 
 - Tweaking tweaking vimrc/PaperColor
 
-
 ## [1.4.31] - 2023-07-10
 
 ### ◀️ Note
 
 - Minorest of typo fixes
-
 
 ## [1.4.30] - 2023-07-09
 
@@ -1308,13 +1146,11 @@ Maps for cprev cnext open fold at found text
 - Make 'master' the default
 Do not keep mergetool backups
 
-
 ## [1.4.29] - 2023-07-06
 
 ### ◀️ Note
 
 - Change how alias 'x' works
-
 
 ## [1.4.28] - 2023-07-06
 
@@ -1322,13 +1158,11 @@ Do not keep mergetool backups
 
 - Papercolor tweaks
 
-
 ## [1.4.27] - 2023-07-05
 
 ### ◀️ Note
 
 - Papercolor tryouts
-
 
 ## [1.4.26] - 2023-07-05
 
@@ -1340,13 +1174,11 @@ Do not keep mergetool backups
 
 - Oops, sourcing vimrc_examples does bad things. Abort
 
-
 ## [1.4.25] - 2023-07-05
 
 ### ◀️ Note
 
 - Syncing vimrc's
-
 
 ## [1.4.24] - 2023-07-04
 
@@ -1356,13 +1188,11 @@ Do not keep mergetool backups
 
 - Multiple things done to bashrc
 
-
 ## [1.4.23] - 2023-07-04
 
 ### ◀️ Note
 
 - Setting a few things in lieu of having login bash in cygwin
-
 
 ## [1.4.22] - 2023-07-04
 
@@ -1370,13 +1200,11 @@ Do not keep mergetool backups
 
 - Shellchecks for more bash scripts
 
-
 ## [1.4.21] - 2023-07-04
 
 ### ◀️ Note
 
 - Move to lowercase as we should have at first
-
 
 ## [1.4.20] - 2023-06-30
 
@@ -1384,13 +1212,11 @@ Do not keep mergetool backups
 
 - Sorting git tags, that's the ticket
 
-
 ## [1.4.19] - 2023-06-30
 
 ### ◀️ Note
 
 - Vim-vinegar for those netrw days
-
 
 ## [1.4.18] - 2023-06-30
 
@@ -1398,13 +1224,11 @@ Do not keep mergetool backups
 
 - Update Windows vimrc or mercurial and improved highlights
 
-
 ## [1.4.17] - 2023-06-30
 
 ### ◀️ Note
 
 - Added git log -p alias
-
 
 ## [1.4.15] - 2023-06-29
 
@@ -1412,13 +1236,11 @@ Do not keep mergetool backups
 
 - Wildoptions+=pum, add mercury directory to wildignore
 
-
 ## [1.4.14] - 2023-06-29
 
 ### ◀️ Note
 
 - Update Nerd Font in mintty
-
 
 ## [1.4.13] - 2023-06-29
 
@@ -1426,13 +1248,11 @@ Do not keep mergetool backups
 
 - Removed some spaces that caused unexpected cursor movements in some maps
 
-
 ## [1.4.12] - 2023-06-29
 
 ### ◀️ Note
 
 - Update config.omp.yaml from json
-
 
 ## [1.4.11] - 2023-06-29
 
@@ -1440,16 +1260,14 @@ Do not keep mergetool backups
 
 - Left some instrumentation in
 
-
 ## [1.4.10] - 2023-06-29
 
 ### ◀️ Note
 
 - Merge branch 'master' of ras42:smartin/dotfiles
 
-* 'master' of ras42:smartin/dotfiles:
+- 'master' of ras42:smartin/dotfiles:
   path function shoud use standard grep
-
 
 ## [1.4.9] - 2023-06-29
 
@@ -1459,13 +1277,11 @@ Do not keep mergetool backups
 
 - Path function shoud use standard grep
 
-
 ## [1.4.8] - 2023-06-29
 
 ### ◀️ Note
 
 - Fixing Linux locations for java and ant
-
 
 ## [1.4.7] - 2023-06-29
 
@@ -1482,13 +1298,11 @@ Do not keep mergetool backups
 
 - Tty-clock alias
 
-
 ## [1.4.6] - 2023-06-26
 
 ### ◀️ Note
 
 - Decrease columns for name@hostname for bigger font
-
 
 ## [1.4.5] - 2023-06-26
 
@@ -1496,13 +1310,11 @@ Do not keep mergetool backups
 
 - Git pushtags alias
 
-
 ## [1.4.4] - 2023-06-26
 
 ### ◀️ Note
 
 - Added diff3 and difftool configs for git
-
 
 ## [1.4.3] - 2023-06-25
 
@@ -1518,7 +1330,7 @@ Do not keep mergetool backups
 
 - Merge branch 'master' of ras42:smartin/dotfiles
 
-* 'master' of ras42:smartin/dotfiles:
+- 'master' of ras42:smartin/dotfiles:
   if you're gonna have a cursor line, make it visible
   Papercolor is back baby
   use bat if it is available
@@ -1526,7 +1338,7 @@ Do not keep mergetool backups
 
 - Merge branch 'master' of ras42:smartin/dotfiles
 
-* 'master' of ras42:smartin/dotfiles:
+- 'master' of ras42:smartin/dotfiles:
   check v:version for wildoptions
 
 - Dos2unix check not needed with new wc.vim
@@ -1534,7 +1346,6 @@ Do not keep mergetool backups
 - Batcat use standard mechanism to force colors
 
 - Remove duplicates and properly munge /usr/local/bin
-
 
 ## [1.4.1] - 2023-06-24
 
@@ -1556,7 +1367,6 @@ vimrc.users don't use TERM=cygwin in powershell
 
 - Use bat if it is available
 
-
 ## [1.4.0] - 2023-06-22
 
 ### 🚀 Features
@@ -1570,7 +1380,6 @@ vimrc.users don't use TERM=cygwin in powershell
 - Added choco-output.log to Startify bookmarks
 
 - Add defaults.vim mainly for DiffOrig
-
 
 ### ◀️ Note
 
@@ -1618,12 +1427,12 @@ vimrc.users don't use TERM=cygwin in powershell
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Adding OMP Upgrade prompt segment, required OMP 16.6.0
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Added choco-output.log to Startify bookmarks
 
 - Ok, pathmunge didn't work for reasons.
@@ -1636,7 +1445,7 @@ vimrc.users don't use TERM=cygwin in powershell
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   alias d=dirs -f
 
 - New aliases to get windows ip from ipconfig
@@ -1657,7 +1466,7 @@ vimrc.users don't use TERM=cygwin in powershell
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Simple edit of VIMRC
 
 - Update windows vimrc
@@ -1694,12 +1503,12 @@ vimrc.users don't use TERM=cygwin in powershell
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Forked wc.vim since the CRLF issue hasn't been fixed in 9 years by author
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Use the standard vim-code-dark colorscheme and override the Fold colors in vimrc
 
 - Unmap the 'b vb' map because it slows us down'
@@ -1726,7 +1535,7 @@ vimrc.users don't use TERM=cygwin in powershell
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Try a more Windows Centric Temp directory
 
 - Clean up and remove duplication
@@ -1741,7 +1550,7 @@ vimrc.users don't use TERM=cygwin in powershell
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Remove unused plugins, more colorscheme tweaking.
   Who am I?
 
@@ -1750,9 +1559,8 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Add defaults.vim mainly for DiffOrig
-
 
 ## [1.3.1] - 2023-05-07
 
@@ -1768,7 +1576,6 @@ Switch colorschemes again!
 
 - Added duck duck go cli search
 
-
 ### ◀️ Note
 
 - Added vim-gutentag plugin for automatic ctag creation
@@ -1781,7 +1588,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Fixes to how we make sure startup scripts are read once only.
 
 - Standardize variables to check that RC files are run once only.:
@@ -1798,13 +1605,13 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Simplify history use, i.e. go back to the original way.
   Make sure we append history to histfile on logout
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   mapped ctrl-s to :w for reasons
 
 - Didn't use 'cygstart -e'
@@ -1819,7 +1626,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   More fixes to OMP startup. Remember to quote the quotes being quoted.
   Attempt to move to a standard pattern for omp setup on all OS's
 
@@ -1849,7 +1656,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   For whatever reason the vimrc alias stopped workign correctly on the link
 
 - Moved vim-airline, though not really necessary
@@ -1878,13 +1685,11 @@ Switch colorschemes again!
 
 - Added Ipify public IP to OMP prompt.
 
-
 ## [1.3.0] - 2023-02-19
 
 ### 🚀 Features
 
 - Addid vim-peekaboo and vimrc improvements
-
 
 ### ◀️ Note
 
@@ -1896,7 +1701,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Fixed Linux UNAME stuff. Half one, 6 of other.
 
 - Important case sensitivity for Linux
@@ -1907,13 +1712,11 @@ Switch colorschemes again!
 
 - R/vim vimrc guidelines. Get rid of tabs in some old scripts!
 
-
 ## [1.2.1] - 2023-02-14
 
 ### ◀️ Note
 
 - Typo in git aliases
-
 
 ## [1.2] - 2023-02-14
 
@@ -1923,7 +1726,6 @@ Switch colorschemes again!
 
 - Added colorful parens in vim and some mappings.
 
-
 ### ◀️ Note
 
 - Readme fixes
@@ -1932,7 +1734,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   mintty changes while trying tmux
   Adding some comments to vimrc
   Readme fixes
@@ -1945,11 +1747,10 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   vimrc set TERM if UNAME is 'cygwin'. Simplify uname with -o in bashrc
   Works on cygwin.
   Added colorful parens in vim and some mappings.
-
 
 ## [1.1] - 2023-02-09
 
@@ -1963,7 +1764,6 @@ Switch colorschemes again!
 
 - Add oh-my-posh.lua for clink (cmd)
 
-
 ### ◀️ Note
 
 - Switch to GruvBox and set airline_theme to cool in vimrc
@@ -1976,7 +1776,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Add a new function to open git repo in browser.
   Remove git-prompt
 
@@ -1986,7 +1786,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Move background down to maybe help colorscheme ordering in vimrc.
   Updated giturl
   Adding ALE to vim plugins.
@@ -2004,7 +1804,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Vim airline themes added
   better comment/doc.
   vimrc comment cleanups in maps.
@@ -2026,7 +1826,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Fixing oh-my-posh for different environments.
   Hard code vim path
   Testing FZF in vim
@@ -2042,7 +1842,6 @@ Switch colorschemes again!
 - Use HOME for configs instead of full path name
 
 - Merging to ras42
-
 
 ## [1.0] - 2023-01-19
 
@@ -2066,11 +1865,9 @@ Switch colorschemes again!
 
 - Add alias to switch locale filemode to false
 
-
 ### 🐛 Bug Fixes
 
 - Fix the "delete trailing spaces" functionality
-
 
 ### ◀️ Note
 
@@ -2098,7 +1895,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   Removing FZF which seems to be broken in current version.
 
 - Changes to themes. Updated airline-themes
@@ -2141,9 +1938,9 @@ Switch colorschemes again!
 
 - Noswapfile and fixes for GUI in gvim, learned how guifont is parsed
 
-- Merge branch 'master' of https://github.com/wrecklass/dotfiles
+- Merge branch 'master' of <https://github.com/wrecklass/dotfiles>
 
-* 'master' of https://github.com/wrecklass/dotfiles: (46 commits)
+- 'master' of <https://github.com/wrecklass/dotfiles>: (46 commits)
   Add RFC plugin
   noswapfile and fixes for GUI in gvim, learned how guifont is parsed
   no can do connect stuff in assh.yml?!
@@ -2178,7 +1975,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   trying to get ASSHBinaryPathworking in assh
   getting the right omp theme
   Fixes for oh-my-posh on linux
@@ -2190,7 +1987,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Added Netserver to hosts in assh
   trying to get ASSHBinaryPathworking in assh
   getting the right omp theme
@@ -2214,7 +2011,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   changes to LESS and dircolors for dark screen
 
 - Turning off docker and tomcat scripts
@@ -2223,7 +2020,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles: (52 commits)
+- 'master' of github.com:wrecklass/dotfiles: (52 commits)
   simple updates
   Turning off docker and tomcat scripts
   moved cdst and added viwt to edit WindowsTerminal settings
@@ -2306,7 +2103,6 @@ Switch colorschemes again!
 
 - Added pushall alias to gitconfig.
 
-
 ## [0.9] - 2021-10-18
 
 ### 🚀 Features
@@ -2353,7 +2149,6 @@ Switch colorschemes again!
 
 - Added new Paths to cygwin cd_funcs
 
-
 ### 🐛 Bug Fixes
 
 - Fixing some maps
@@ -2364,11 +2159,9 @@ Switch colorschemes again!
 
 - Fixing a fold in bashrc
 
-
 ### 🧪 Testing
 
 - Testing colorscheme gruvbox, nope
-
 
 ### ◀️ Note
 
@@ -2570,7 +2363,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   fixing some maps
   Adding gnubin make to PATH
   path function sed no longer seds?
@@ -2584,7 +2377,7 @@ Switch colorschemes again!
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   fixing some maps
 
 - Improved makefile
@@ -2605,7 +2398,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   New map and some cleanup
   Not using powerline on aws for now
   Powerline variables added to Linux env.
@@ -2617,7 +2410,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   More awesome-vimrc ideas
   WIP
   Added cdgo
@@ -2654,7 +2447,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   Fix for man pages function overload
   CDPATH more trouble than worth at times.
   Instrumentation and remove a stray error code
@@ -2686,7 +2479,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   Find GOROOT on Linux, adding assh.yml processing.
   Get this in now before we fuck up again
   avoid sourcing files more than once
@@ -2704,7 +2497,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   Add temporary path to front of list for testing stuff
   Yummy
   Make the path function better and not add duplicates
@@ -2726,7 +2519,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of github.com:wrecklass/dotfiles
 
-* 'master' of github.com:wrecklass/dotfiles:
+- 'master' of github.com:wrecklass/dotfiles:
   No need for AWS profile.
 
 - Moved the rust/cargo path to /home/smartin/.extra
@@ -2773,7 +2566,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles: (53 commits)
+- 'master' of ssh://github.com/wrecklass/dotfiles: (53 commits)
   Minor additions to assh and aliases
   cleaning up assh and Makefile
   Readme additions
@@ -2800,7 +2593,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   Adding XPlane directory to cd funcs"
 
 - Permissions
@@ -2811,7 +2604,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles into master
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   added cd ark
 
 - Fix merge issues
@@ -2832,7 +2625,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   Assume EDITOR=/bin/vim
 
 - Pull section moved
@@ -2845,7 +2638,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   Linux updates from WSL
   fixed tsh (tmux script)
 
@@ -2857,7 +2650,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   Fixes to powerline-go on cygwin
 
 - Drop some useless (to me) powerline-go mods
@@ -2868,7 +2661,7 @@ Make powerline go modules overrideable
 
 - Merge branch 'master' of ssh://github.com/wrecklass/dotfiles
 
-* 'master' of ssh://github.com/wrecklass/dotfiles:
+- 'master' of ssh://github.com/wrecklass/dotfiles:
   Fixed a missing fold mark in bashrc
 
 - Set guiFont to Fira Code
@@ -2883,7 +2676,6 @@ Make powerline go modules overrideable
 
 - Upgrading to oh-my-posh
 
-
 ## [0.8.1] - 2019-04-15
 
 ### ◀️ Note
@@ -2894,13 +2686,11 @@ Make powerline go modules overrideable
 
 - Minor fixes and addition of powerline-go
 
-
 ## [0.8] - 2019-02-15
 
 ### 🚀 Features
 
 - Adding some useful utilities and aliases
-
 
 ### ◀️ Note
 
@@ -2942,13 +2732,11 @@ Make powerline go modules overrideable
 
 - Merging changes
 
-
 ## [0.2.0] - 2018-06-11
 
 ### 🚀 Features
 
 - Added GOPATH/bin to PATH
-
 
 ### 🐛 Bug Fixes
 
@@ -2956,11 +2744,9 @@ Make powerline go modules overrideable
 
 - Fixes for docker and kitematic
 
-
 ### 📚 Documentation
 
 - Docker and darwin changes
-
 
 ### ◀️ Note
 
@@ -2972,7 +2758,7 @@ Make powerline go modules overrideable
 
 - More separation of aliases. EDITOR variable used to set aliases for vim
 
-- Merge branch 'master' of http://github.com/wrecklass/dotfiles
+- Merge branch 'master' of <http://github.com/wrecklass/dotfiles>
 
 - Varius darwin changes
 
@@ -3070,12 +2856,10 @@ Make powerline go modules overrideable
 
 - Refactoring
 
-
 ## [0.1] - 2016-04-20
 
 ### ◀️ Note
 
 - First commit
-
 
 <!-- generated by git-cliff -->
