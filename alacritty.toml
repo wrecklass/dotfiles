@@ -19,8 +19,8 @@
 # https://github.com/alacritty/alacritty/tree/master#configuration
 
 # [general]
-shell.program  ="/bin/bash"
-shell.args  = ["-l"]
+shell.program = "/bin/bash"
+shell.args = ["-l"]
 ipc_socket = true
 
 [env]
@@ -29,7 +29,7 @@ TERM = "xterm-256color"
 [window]
 
 startup_mode = "Windowed"
-opacity = 0.8
+opacity = 0.9
 blur = true
 dynamic_padding = false
 dynamic_title = true
@@ -39,7 +39,7 @@ decorations = "full"
 decorations_theme_variant = "Dark" # "Light"
 
 [window.dimensions]
-columns  = 137
+columns = 137
 lines = 54
 
 [scrolling]
@@ -55,11 +55,13 @@ bold_italic.family = "FiraCode Nerd Font Mono"
 
 size = 11.0
 
-# [cursor]
-# blink = "On"
-# shape = "Block"
-# vi_mode_style.shape = "Beam"
-# vi_mode_style.blink =  "On"
+[cursor]
+blink_timeout = 0
+blink_interval = 750
+style.shape = "Block"
+style.blinking = "On"
+vi_mode_style.shape = "Beam"
+vi_mode_style.blinking = "On"
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -80,9 +82,7 @@ mods = "Shift"
 # chars = "\u001BOP"
 # key = "F1"
 [mouse]
-bindings = [
-{ mouse = "Right", mods = "Control", action = "Paste" },
-]
+bindings = [{ mouse = "Right", mods = "Control", action = "Paste" }]
 
 [[hints.enabled]]
 command = "xdg-open" # On Linux/BSD
@@ -94,4 +94,3 @@ persist = false
 mouse.enabled = true
 binding = { key = "U", mods = "Control|Shift" }
 regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
-

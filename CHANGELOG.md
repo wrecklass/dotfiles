@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.12]
+
+### ◀️ Note
+
+- Removed old alacritty file
+
+
 ## [1.5.11] - 2024-09-18
 
 ### 🚀 Features
