@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.11] - 2024-09-18
+
+### 🚀 Features
+
+- Added the .toml suffix forgotten earlier.
+
 ## [1.5.10] - 2024-09-17
 
 ### 🚀 Features

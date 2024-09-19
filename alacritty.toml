@@ -18,13 +18,13 @@
 # I put the file alacritty.toml in $HOME/.config/alacritty. However it can be kept anywhere among the places mentioned in
 # https://github.com/alacritty/alacritty/tree/master#configuration
 
-[env]
-TERM = "xterm-256color"
-
-[general]
+# [general]
 shell.program  ="/bin/bash"
 shell.args  = ["-l"]
 ipc_socket = true
+
+[env]
+TERM = "xterm-256color"
 
 [window]
 
@@ -55,6 +55,12 @@ bold_italic.family = "FiraCode Nerd Font Mono"
 
 size = 11.0
 
+# [cursor]
+# blink = "On"
+# shape = "Block"
+# vi_mode_style.shape = "Beam"
+# vi_mode_style.blink =  "On"
+
 [[keyboard.bindings]]
 action = "Paste"
 key = "V"
@@ -73,7 +79,19 @@ mods = "Shift"
 # [[keyboard.bindings]]
 # chars = "\u001BOP"
 # key = "F1"
+[mouse]
+bindings = [
+{ mouse = "Right", mods = "Control", action = "Paste" },
+]
 
-# Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
-# Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a
-# small box when a HEX is detected by the editor.
+[[hints.enabled]]
+command = "xdg-open" # On Linux/BSD
+# command = "open" # On macOS
+# command = { program = "cmd", args = [ "/c", "start", "" ] } # On Windows
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "U", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
