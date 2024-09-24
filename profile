@@ -37,15 +37,15 @@
 # declare -x -i VERBOSE=0
 VERBOSE=0
 
-if [ -f "$HOME/.verbose" ];then
+if [ -f "$HOME/.verbose" ]; then
   VERBOSE=1
 fi
 
 _log() {
-    if [ "$VERBOSE" -eq 1 ];then
-      dt="$(date)"
-      printf "%s-%s: %s\n" "${dt}" "PROFILE[$$]" "$*"
-    fi
+  if [ "$VERBOSE" -eq 1 ]; then
+    dt="$(date)"
+    printf "%s-%s: %s\n" "${dt}" "PROFILE[$$]" "$*"
+  fi
 }
 
 _log ".profile"
@@ -69,7 +69,7 @@ fi
 _log ".profile done"
 
 # Cargo env
-if [ -f "$HOME/.cargo/env" ];then
+if [ -f "$HOME/.cargo/env" ]; then
   # shellcheck source=/dev/null
   source "$HOME/.cargo/env"
 fi

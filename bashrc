@@ -18,8 +18,8 @@
 [[ -z "${BASH_RC}" ]] && readonly BASH_RC=true || return 0
 
 case $- in
-  *i*) ;;
-  *) return;;
+*i*) ;;
+*) return ;;
 esac
 # }}}
 # {{{ Logging
@@ -29,16 +29,16 @@ if [[ WSL == "false" ]]; then
 fi
 ORIGPATH="$PATH"
 UNAMECMD=$(command -v uname)
-if [ -z "$UNAMECMD" ];then
-  if [ -x /bin/uname ];then
+if [ -z "$UNAMECMD" ]; then
+  if [ -x /bin/uname ]; then
     UNAMECMD=/bin/uname
-  elif [ -x /usr/bin/uname ];then
+  elif [ -x /usr/bin/uname ]; then
     UNAMECMD=/usr/bin/uname
   fi
 fi
 
 declare -x MTYPE='Win'
-if grep -q BCM /proc/cpuinfo &> /dev/null ; then
+if grep -q BCM /proc/cpuinfo &>/dev/null; then
   MTYPE='Ras'
 fi
 # UNAMECMD="/usr/bin/uname"
@@ -67,7 +67,7 @@ UNAME="${UNAME/*linux/linux}"
 # Set =1 for verbose output
 declare -x -i VERBOSE=0
 
-if [[ -f "$HOME/.verbose" ]];then
+if [[ -f "$HOME/.verbose" ]]; then
   VERBOSE=1
 fi
 
@@ -76,16 +76,16 @@ if [ ! -d "$HOME/.logs" ]; then
 fi
 if [ -n "$PS1" ]; then
   _log() {
-    if [ "$VERBOSE" -eq 1 ];then
+    if [ "$VERBOSE" -eq 1 ]; then
       dt="$(date)"
       printf "%s-%s: %s\n" "${dt}" "BASHRC[$$]" "$*"
     fi
   }
 else
   _log() {
-    if [ "$VERBOSE" -eq 1 ];then
+    if [ "$VERBOSE" -eq 1 ]; then
       dt="$(date)"
-      printf "%s-%s: %s\n" "${dt}" "BASHRC[$$]" "$*" >> "$HOME/.logs/bashrc.log"
+      printf "%s-%s: %s\n" "${dt}" "BASHRC[$$]" "$*" >>"$HOME/.logs/bashrc.log"
     fi
   }
 fi
@@ -113,7 +113,7 @@ shopt -s nocaseglob
 shopt -s hostcomplete
 shopt -s no_empty_cmd_completion
 # Older version of Bash may not like this one:
-shopt -s autocd &> /dev/null
+shopt -s autocd &>/dev/null
 
 # Show expanded command before executing
 # Do the 'Are you sure' thing like ZSH
@@ -154,7 +154,7 @@ export LESS='FXRj5'
 # {{{ shenv for different environments
 # Variables specific to the OS environment
 FZF=$(command -v fzf)
-for file in "${HOME}"/.shenv/*."${UNAME}" ; do
+for file in "${HOME}"/.shenv/*."${UNAME}"; do
   _log "Sourcing ${file}"
 
   if [[ -r "${file}" ]]; then
@@ -166,11 +166,11 @@ done
 # }}}
 # {{{ bash_completion
 
-if [ -r "/usr/share/bash-completion/bash_completion" ];then
+if [ -r "/usr/share/bash-completion/bash_completion" ]; then
   source "/usr/share/bash-completion/bash_completion"
-elif [ -r "/usr/local/etc/bash_completion" ];then
+elif [ -r "/usr/local/etc/bash_completion" ]; then
   source "/usr/local/etc/bash_completion"
-elif [ -r "/etc/bash_completion" ];then
+elif [ -r "/etc/bash_completion" ]; then
   source "/etc/bash_completion"
 else
   _log "No bash_completion script!"
@@ -178,11 +178,11 @@ fi
 
 # This completion is not sourced until git<TAB> is used from the command
 # line. So we need to do it up front for our aliases
-if [ -r "/usr/share/bash-completion/completions/git" ];then
+if [ -r "/usr/share/bash-completion/completions/git" ]; then
   source "/usr/share/bash-completion/completions/git"
-elif [ -r "/usr/local/etc/completions/git" ];then
+elif [ -r "/usr/local/etc/completions/git" ]; then
   source "/usr/local/etc/completions/git"
-elif [ -r "/etc/bash_completion.d/git" ];then
+elif [ -r "/etc/bash_completion.d/git" ]; then
   source "/etc/bash_completion.d/git"
 else
   _log "No git completion script!"
@@ -196,8 +196,8 @@ fi
 # }}}
 # {{{ DIRCOLORS
 # enable color support of ls and also add handy aliases
-if command -v dircolors &> /dev/null ; then
-  if [ -r "${HOME}/.dircolors" ];then
+if command -v dircolors &>/dev/null; then
+  if [ -r "${HOME}/.dircolors" ]; then
     eval "$(dircolors -b "${HOME}/.dircolors")"
   else
     eval "$(dircolors -b)"
@@ -220,13 +220,13 @@ unset file
 # }}}
 # {{{ Functions
 # Get our functions
-if [ -d "${HOME}/.functions/" ];then
+if [ -d "${HOME}/.functions/" ]; then
   for SCRIPT in "${HOME}"/.functions/*; do
     if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
       _log "Not sourcing ${file}"
       continue
     fi
-    if [[ "${SCRIPT}" =~ "off" ]];then
+    if [[ "${SCRIPT}" =~ "off" ]]; then
       continue
     fi
     [ -r "${SCRIPT}" ] && source "${SCRIPT}"
@@ -241,7 +241,7 @@ unset UNAMECMD
 # {{{ Appended by other programs
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash
 
-if type rg &> /dev/null; then
+if type rg &>/dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
   export FZF_DEFAULT_OPTS='-m'
 fi
@@ -254,7 +254,7 @@ if [ -n "$GOC" ]; then
 fi
 
 # Cargo env
-if [ -f "$HOME/.cargo/env" ];then
+if [ -f "$HOME/.cargo/env" ]; then
   source "$HOME/.cargo/env"
 fi
 
@@ -274,15 +274,15 @@ fi
 # }}}
 # {{{ fortune
 FORTUNE="$(command -v fortune)"
-if [ -x "$FORTUNE" ];then
+if [ -x "$FORTUNE" ]; then
   "$FORTUNE"
 fi
 # }}}
 # {{{ node
 export NVM_DIR="$HOME/.nvm"
-if [ -d "$NVM_DIR" ];then
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -d "$NVM_DIR" ]; then
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                   # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 fi
 # }}}
 #vim: set et sw=2 foldmethod=marker

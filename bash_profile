@@ -32,15 +32,15 @@
 # {{{ Logging
 declare -x -i VERBOSE=0
 
-if [[ -f "$HOME/.verbose" ]];then
+if [[ -f "$HOME/.verbose" ]]; then
   VERBOSE=1
 fi
 
 _log() {
-    if [ "$VERBOSE" -eq 1 ];then
-      dt="$(date)"
-      printf "%s-%s: %s\n" "${dt}" "BASH_PROFILE[$$]" "$*"
-    fi
+  if [ "$VERBOSE" -eq 1 ]; then
+    dt="$(date)"
+    printf "%s-%s: %s\n" "${dt}" "BASH_PROFILE[$$]" "$*"
+  fi
 }
 
 _log "bash_profile"
@@ -51,7 +51,7 @@ _log "bash_profile"
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
 for option in autocd globstar; do
-  shopt -s "$option" 2> /dev/null
+  shopt -s "$option" 2>/dev/null
 done
 
 # shellcheck source=/dev/null
@@ -69,7 +69,7 @@ export BASH_PROFILE
 # Handled Elsewhere:
 # Set PATH so it includes user's private bin if it exists
 # if [ -d "${HOME}/bin" ] ; then
- # PATH="${HOME}/bin:${PATH}"
+# PATH="${HOME}/bin:${PATH}"
 # fi
 
 # Set MANPATH so it includes users' private man if it exists
