@@ -47,9 +47,9 @@
 #set output-meta on
 #$if Bash
   # Don't ring bell on completion
-  #set bell-style none
+  set bell-style none
   # or do make a sound:
-  set bell-style audible
+  # set bell-style audible
   # or, don't beep at me - show me
   #set bell-style visible
 
