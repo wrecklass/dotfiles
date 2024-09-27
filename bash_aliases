@@ -43,7 +43,7 @@ alias -- --="cd --"
 alias cate='cat'
 # Don't clear scrollback
 alias clear='clear -x'
-alias clr='clear -x'
+# alias clr='clear -x'
 alias cls='clear -x'
 alias clar='clear -x'
 alias claer='clear -x'
