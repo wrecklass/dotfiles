@@ -384,8 +384,13 @@ try
 catch
 endtry
 
-highlight Normal guibg=background
-highlight QuickFixLine guibg=#65000B guifg=#CFCFCF ctermbg=darkred
+" highlight Normal guibg=background
+highlight Normal guibg=NONE
+highlight SignColumn guibg=NONE
+highlight LineNr guibg=NONE guifg=#747474
+
+highlight QuickFixLine guibg=NONE guifg=#CFCFCF ctermbg=darkred
+" highlight QuickFixLine guibg=#65000B guifg=#CFCFCF ctermbg=darkred
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
