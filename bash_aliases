@@ -12,14 +12,14 @@ _log "SHELL: $SHELL"
 colorflag="--color=always"
 # fi # OS X `ls`
 
-if command -v colordiff &> /dev/null; then
+if command -v colordiff &>/dev/null; then
   alias diff='colordiff'
   alias dif='colordiff'
 else
   alias dif='diff'
 fi
 
-if [ "$UNAME" == "cygwin" ];then
+if [ "$UNAME" == "cygwin" ]; then
   alias diff="diff --color"
   alias dif="diff --color"
 fi
@@ -48,7 +48,8 @@ alias cls='clear -x'
 alias clar='clear -x'
 alias claer='clear -x'
 alias cler='clear -x'
-alias ''='clear -x'
+alias '
+'='clear -x'
 # }}}
 # {{{ Aliases
 
@@ -120,7 +121,7 @@ export DF
 export ICO
 export DOT
 DF="--group-directories-first"
-if command -v exa &> /dev/null ;then
+if command -v exa &>/dev/null; then
   ICO="--icons"
   DOT="-a"
 
@@ -170,6 +171,9 @@ alias nslookupo=nslookup
 alias now='date +"%T"'
 alias nowtime='now'
 alias nowdate='date +"%d-%m-%Y"'
+
+alias ohgit='open https://github.com/jandedobbeleer/oh-my-posh'
+alias gitoh='open https://github.com/jandedobbeleer/oh-my-posh'
 
 alias pp='ping 8.8.8.8'
 # alias fastping='ping -c 10 -i .2'
@@ -227,32 +231,32 @@ alias orders='open "https://www.amazon.com/gp/css/order-history"'
 # }}}
 # {{{ Completions
 # So these two aliases do bash_completion from git
- __git_complete g git
- __git_complete get git
- __git_complete gut git
- __git_complete ga git_add
- __git_complete gaa git_add
- __git_complete gc  git_commit
- __git_complete gcm git_commit
- __git_complete gco git_checkout
- __git_complete gp git_push
- __git_complete gpa git_push
- __git_complete gl git_log
- __git_complete gd git_diff
- __git_complete gf git_fetch
+__git_complete g git
+__git_complete get git
+__git_complete gut git
+__git_complete ga git_add
+__git_complete gaa git_add
+__git_complete gc git_commit
+__git_complete gcm git_commit
+__git_complete gco git_checkout
+__git_complete gp git_push
+__git_complete gpa git_push
+__git_complete gl git_log
+__git_complete gd git_diff
+__git_complete gf git_fetch
 # }}}
 # {{{ fzf and bat aliases
 # Use fzf with a preview window
-if command -v bat &> /dev/null ; then
+if command -v bat &>/dev/null; then
   alias pf='fzf --preview="bat --color=always --decorations=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
-elif command -v batcat &> /dev/null; then
+elif command -v batcat &>/dev/null; then
   alias pf='fzf --preview="batcat --color=always --decorations=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
 else
   alias pf='fzf --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down'
 fi
 # }}}
 # {{{ Vim config
-if [ -x "$HOME/bin/vim" ];then
+if [ -x "$HOME/bin/vim" ]; then
   alias sec='$HOME/bin/vim $HOME/bin/.secret'
 elif [ -x /usr/local/bin/vim ]; then
   alias sec='/usr/local/bin/vim $HOME/bin/.secret'
@@ -262,7 +266,7 @@ fi
 alias svi='sudo vim'
 # alias via='vi ~/.ssh/assh.yml'
 
-if [ -z "$EDITOR" ];then
+if [ -z "$EDITOR" ]; then
   if [ -x "/bin/vim.basic" ]; then
     EDITOR="/bin/vim.basic"
   elif [ -x "/bin/vim.tiny" ]; then
@@ -277,15 +281,15 @@ alias iv="\$EDITOR"
 # }}}
 # {{{ Hub tool
 hub_path=$(command -v hub)
-if [ -n "${hub_path}" ];then
+if [ -n "${hub_path}" ]; then
   # alias git="${hub_path}"
   eval "$(hub alias -s "$SHELL")"
 fi
 # }}}
 # {{{ Duck Duck Go Search
 declare -x BRAVE
-if [ "$UNAME" == "cygwin" ];then
-  if [[ -x "/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe" ]];then
+if [ "$UNAME" == "cygwin" ]; then
+  if [[ -x "/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe" ]]; then
     BRAVE="c:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
   fi
 else
