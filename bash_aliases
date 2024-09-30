@@ -48,8 +48,7 @@ alias cls='clear -x'
 alias clar='clear -x'
 alias claer='clear -x'
 alias cler='clear -x'
-alias '
-'='clear -x'
+alias ''='clear -x'
 # }}}
 # {{{ Aliases
 
