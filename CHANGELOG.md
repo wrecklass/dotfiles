@@ -2,10 +2,95 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.25] - 2024-09-29
+
+### ◀️ Note
+
+- Various refinements to wezterm
+enterprise VSCode settings added
+
+## [1.5.24] - 2024-09-27
+
+### ◀️ Note
+
+- Alias to open oh-my-posh on github
+- Enterprise VSCode settings added
+- Enterprise VSCode settings added
+- Various refinements to wezterm
+
+## [1.5.23] - 2024-09-27
+
+### ◀️ Note
+
+- One tab does not a line take
+
+## [1.5.22] - 2024-09-27
+
+### 🚀 Features
+
+- Adding some more terminal clearing funcs. Kitty.conf added
+
+## [1.5.21] - 2024-09-27
+
+### ◀️ Note
+
+- Getting a taste for opague backgrounds
+
+## [1.5.20] - 2024-09-25
+
+### ◀️ Note
+
+- WezTerm Config added
+
+## [1.5.19] - 2024-09-25
+
+### ◀️ Note
+
+- Silence the Bell!
+
+## [1.5.18] - 2024-09-25
+
+### ◀️ Note
+
+- Minor formatting
+
+## [1.5.17] - 2024-09-24
+
+### ◀️ Note
+
+- Fd find aliased to fdfind when needed
+- Minor formatting
+
+## [1.5.16] - 2024-09-23
+
+### ◀️ Note
+
+- Copilot functions for CLI searches
+
+## [1.5.15] - 2024-09-23
+
+### ◀️ Note
+
+- Make apt search a function capable of narrowing the search
+
+## [1.5.14] - 2024-09-21
+
+### ◀️ Note
+
+- Make help() function more robust to include pages
+
+## [1.5.13] - 2024-09-21
+
+### ◀️ Note
+
+- CHANGELOG
+- Removing submodule standards because...
+
 ## [1.5.12] - 2024-09-19
 
 ### ◀️ Note
 
+- Removed old alacritty file
 - Alacrity changes and cleanup
 
 ## [1.5.11] - 2024-09-18
