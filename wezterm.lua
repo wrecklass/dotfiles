@@ -4,6 +4,12 @@ local wezterm = require("wezterm")
 -- -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+-- Start up in cygwin bash
+config.default_prog = { 'C:/cygwin64/cygwin.bat' }
+
+config.initial_cols = 125
+config.initial_rows = 48
+
 -- Silence the bell
 config.audible_bell = "Disabled"
 
@@ -71,6 +77,17 @@ config.keys = {
     key = "B",
     mods = "CTRL",
     action = wezterm.action({ EmitEvent = "toggle-opacity" }),
+  },
+}
+
+config.launch_menu = {
+  {
+    label = 'Bash',
+    args = { 'C:/cygwin64/cygwin.bat' },
+  },
+  {
+    label = 'Ubuntu',
+    args = { 'bash' },
   },
 }
 -- and finally, return the configuration to wezterm
