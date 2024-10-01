@@ -17,6 +17,9 @@ config.colors = {
   visual_bell = '#202020',
 }
 
+-- Cursor
+config.default_cursor_style = "BlinkingBlock"
+
 -- Some ssh domains
 config.ssh_domains = {
   {
@@ -33,7 +36,14 @@ config.ssh_domains = {
 --
 -- -- For example, changing the color scheme:
 -- config.color_scheme = "AdventureTime"
-config.color_scheme = "Batman"
+-- config.color_scheme = "3024 Night"
+-- config.color_scheme = "astromouse (terminal.sexy)"
+-- config.color_scheme = "WildCherry"
+-- config.color_scheme = "tokyonight-night"
+-- config.color_scheme = "Batman"
+-- config.color_scheme = "Aurora"
+-- config.color_scheme = "Belafonte Day"
+config.color_scheme = "Black Metal (Dark Funeral) (base16)"
 
 -- Scroll bars
 config.enable_scroll_bar = true
@@ -56,15 +66,12 @@ wezterm.on("toggle-opacity", function(window, pane)
   window:set_config_overrides(overrides)
 end)
 
-return {
-  -- Specify the default key bindings
-  keys = {
-    {
-      key = "B",
-      mods = "CTRL",
-      action = wezterm.action({ EmitEvent = "toggle-opacity" }),
-    },
+config.keys = {
+  {
+    key = "B",
+    mods = "CTRL",
+    action = wezterm.action({ EmitEvent = "toggle-opacity" }),
   },
 }
--- -- and finally, return the configuration to wezterm
--- return config
+-- and finally, return the configuration to wezterm
+return config
