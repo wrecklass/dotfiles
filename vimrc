@@ -75,8 +75,9 @@ set matchtime=5
 set path=.,,
 
 " No bells
-set novisualbell
 set noerrorbells
+set belloff=all
+set novisualbell
 set t_vb=
 
 " Set in defaults.vim
