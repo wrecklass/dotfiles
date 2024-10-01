@@ -2,19 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.27] - 2024-10-01
+
+### ◀️ Note
+
+- Wezterm startup in cygwin bash.
+
+## [1.5.26] - 2024-10-01
+
+### ◀️ Note
+
+- Wezterm remove tabs
+- Turn off all bells!
+
 ## [1.5.25] - 2024-09-29
 
 ### ◀️ Note
 
 - Various refinements to wezterm
-enterprise VSCode settings added
 
 ## [1.5.24] - 2024-09-27
 
 ### ◀️ Note
 
 - Alias to open oh-my-posh on github
-- Enterprise VSCode settings added
 - Enterprise VSCode settings added
 - Various refinements to wezterm
 
