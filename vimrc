@@ -11,6 +11,10 @@ endif
 set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
+
+" nvim is supposed to be nocompatible by default
+" This has to come before defaults.vim with vim91
+set nocompatible
 source $VIMRUNTIME/defaults.vim
 
 " let g:ale_completion_enabled = 1
@@ -46,8 +50,6 @@ if has('folding')
   set foldcolumn=1
 endif
 
-" nvim is supposed to be nocompatible by default
-set nocompatible
 " set hidden
 set encoding=utf-8
 set noexrc
@@ -379,6 +381,7 @@ try
   colorscheme PaperColor
   " I like italics
   highlight Folded gui=italic cterm=italic
+  " highlight Error guibg=NONE guifg=#EF0000
   " let g:airline_theme='papercolor'
   " END PAPERCOLOR
 catch
@@ -399,7 +402,7 @@ let g:airline_powerline_fonts=1
 " let g:airline_theme='cool'
 " let g:airline_theme='dark'
 " let g:airline_theme='deus'
-" let g:airline_theme='google_dark'
+let g:airline_theme='google_dark'
 " let g:airline_theme='luna'
 " let g:airline_theme='molokai'
 " let g:airline_theme='monochrome'
@@ -430,7 +433,8 @@ let g:airline_powerline_fonts=1
 " let g:airline_theme='base16_flat'
 " let g:airline_theme='base16_framer'
 " let g:airline_theme='base16_gigavolt'
-let g:airline_theme='base16_google'
+" let g:airline_theme='base16_google'
+" let g:airline_theme='base16_google_dark'
 " let g:airline_theme='base16_grayscale'
 " let g:airline_theme='base16_gruvbox_dark_soft'
 " let g:airline_theme='base16_gruvbox_dark_medium'
