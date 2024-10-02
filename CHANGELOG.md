@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.28] - 2024-10-02
+
+### ◀️ Note
+
+- Nocompatible must be before sourcing defaults.vim now
+
 ## [1.5.27] - 2024-10-01
 
 ### ◀️ Note
