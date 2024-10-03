@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.29] - 2024-10-03
+
+### 🚀 Features
+
+- Change to kitty default terminal size
+
 ## [1.5.28] - 2024-10-02
 
 ### ◀️ Note
