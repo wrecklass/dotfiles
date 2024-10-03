@@ -276,6 +276,8 @@ Plug 'nlknguyen/papercolor-theme'
 " Plug 'haystackandroid/snow'
 " Plug 'tomasiser/vim-code-dark'
 
+Plug 'openuado/vimtips-fortune'
+
 " Powerline Status Line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
