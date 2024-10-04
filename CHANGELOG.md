@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.31] - 2024-10-03
+
+### 🚀 Features
+
+- Added vimtips but make it on demand not every startup
+- Add new nmap to "Titlize" a line
+
 ## [1.5.30] - 2024-10-03
 
 ### 🚀 Features
