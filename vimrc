@@ -23,6 +23,9 @@ source $VIMRUNTIME/defaults.vim
 " Allows us to disable ctags generation
 " let g:gutentags_define_advanced_commands=1
 
+" Turn off vimtips auto display
+let g:fortune_vimtips_auto_display = 0
+
 let g:ft_man_open_mode='tab'
 
 " set wildmode=longest,list,full
@@ -469,6 +472,9 @@ let g:airline_theme='google_dark'
 
 let mapleader = " "
 let g:mapleader = " "
+
+" [N] -- Titlise A Line
+nmap ,t :s/.*/\L&/<bar>:s/\<./\u&/g<cr>
 
 " Terminal:
 let g:terminal_height = -10
