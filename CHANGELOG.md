@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.32] - 2024-10-04
+
+### ◀️ Note
+
+- Wezterm.lua expandtabs
+
 ## [1.5.31] - 2024-10-03
 
 ### 🚀 Features

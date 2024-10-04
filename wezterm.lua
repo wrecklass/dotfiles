@@ -5,7 +5,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- Start up in cygwin bash
-config.default_prog = { 'C:/cygwin64/cygwin.bat' }
+config.default_prog = { "C:/cygwin64/cygwin.bat" }
 
 config.initial_cols = 125
 config.initial_rows = 48
@@ -14,13 +14,13 @@ config.initial_rows = 48
 config.audible_bell = "Disabled"
 
 config.visual_bell = {
-  fade_in_function = 'EaseIn',
+  fade_in_function = "EaseIn",
   fade_in_duration_ms = 150,
-  fade_out_function = 'EaseOut',
+  fade_out_function = "EaseOut",
   fade_out_duration_ms = 150,
 }
 config.colors = {
-  visual_bell = '#202020',
+  visual_bell = "#202020",
 }
 
 -- Cursor
@@ -65,7 +65,7 @@ config.unix_domains = {
 wezterm.on("toggle-opacity", function(window, pane)
   local overrides = window:get_config_overrides() or {}
   if not overrides.window_background_opacity then
-    overrides.window_background_opacity = 0.8
+    overrides.window_background_opacity = 0.7
   else
     overrides.window_background_opacity = nil
   end
@@ -82,12 +82,12 @@ config.keys = {
 
 config.launch_menu = {
   {
-    label = 'Bash',
-    args = { 'C:/cygwin64/cygwin.bat' },
+    label = "Bash",
+    args = { "C:/cygwin64/cygwin.bat" },
   },
   {
-    label = 'Ubuntu',
-    args = { 'bash' },
+    label = "Ubuntu",
+    args = { "bash" },
   },
 }
 -- and finally, return the configuration to wezterm
