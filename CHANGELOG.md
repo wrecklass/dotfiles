@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.33] - 2024-10-05
+
+### ◀️ Note
+
+- Remove br.fish as it was never created correctly.
+
 ## [1.5.32] - 2024-10-04
 
 ### ◀️ Note
