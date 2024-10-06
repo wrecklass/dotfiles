@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.34] - 2024-10-06
+
+### 🚀 Features
+
+- Added PHP clean on load script
+
 ## [1.5.33] - 2024-10-05
 
 ### ◀️ Note

@@ -619,6 +619,10 @@ augroup SourceMyVimRc
   autocmd! BufWritePost $MYVIMRC nested source $MYVIMRC
 augroup END
 
+augroup PHP
+  autocmd BufEnter *.php :%s/[ \t\r]\+$//e
+augroup END
+
 " Use <space>pp to toggle Paste mode
 """"""""""Use F2 Instead""""""""""
 " noremap <leader>pp :setlocal paste!<CR>
