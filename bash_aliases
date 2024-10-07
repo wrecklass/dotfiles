@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # {{{ Logging
 # If we've already read these, don't do it again
-[[ -z "${SET_ALIASES}" ]] && readonly SET_ALIASES=true || return 0
+if [ -z "$TMUX" ]; then
+  [[ -z "${SET_ALIASES}" ]] && readonly SET_ALIASES=true || return 0
+fi
 _log ".bash_aliases"
 _log "SHELL: $SHELL"
 # }}}

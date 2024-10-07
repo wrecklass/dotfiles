@@ -15,7 +15,9 @@
 
 # ulimit -u 1024
 # Only source this once
-[[ -z "${BASH_RC}" ]] && readonly BASH_RC=true || return 0
+if [ -z "$TMUX" ]; then
+  [[ -z "${BASH_RC}" ]] && readonly BASH_RC=true || return 0
+fi
 
 case $- in
 *i*) ;;
