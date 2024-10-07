@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.38] - 2024-10-07
+
+### 🚀  Features
+
+- Added newest git-prompt.sh to our non-OMP prompt
+
+
 ## [1.5.37] - 2024-10-07
 
 ### 🚀  Features
