@@ -7,8 +7,8 @@
 # Only source this file one time
 [[ -z "${BASH_PROMPT}" ]] && readonly BASH_PROMPT=true || return 0
 
-[[ -f "$HOME/.functions/git-prompt" ]] && source "$HOME/.functions/git-prompt"
-[[ -f "$HOME/.functions/git-prompt.off" ]] && source "$HOME/.functions/git-prompt.off"
+[[ -f "$HOME/.functions/git-prompt.sh" ]] && source "$HOME/.functions/git-prompt.sh"
+# [[ -f "$HOME/.functions/git-prompt.off" ]] && source "$HOME/.functions/git-prompt.off"
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color &>/dev/null ; then
   export TERM='gnome-256color'
@@ -88,7 +88,7 @@ fi
 export PS1
 _update_ps1u() {
   PS1="\[${bold}\]\D{%c}\n"; # newline
-  PS1+='$(r=$?; test $r -ne 0 && echo "\[\e[1;31m\][ret:$r] ")'
+  PS1+='$(r=$?; test $r -ne 0 && echo "${red}[ret:$r] ")'
   PS1+="\[${userStyle}\]${userName}"; # username
   PS1+="\[${white}\]@"
   PS1+="\[${hostStyle}\]\h"; # host

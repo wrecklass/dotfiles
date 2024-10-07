@@ -229,6 +229,12 @@ if [ -d "${HOME}/.functions/" ]; then
       continue
     fi
     if [[ "${SCRIPT}" =~ "off" ]]; then
+      _log "Not sourcing ${file}"
+      continue
+    fi
+    if [[ "${SCRIPT}" =~ git-prompt.sh ]]; then
+      _log "Not sourcing ${file}"
+      # We source this later if we need it
       continue
     fi
     [ -r "${SCRIPT}" ] && source "${SCRIPT}"
