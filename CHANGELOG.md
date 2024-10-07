@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.35] - 2024-10-06
+
+### ◀️ Note
+
+- Move windows terminal theme to papercolor and opague
+
 ## [1.5.34] - 2024-10-06
 
 ### 🚀 Features
