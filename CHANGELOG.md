@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.36] - 2024-10-06
+
+### 🚀 Features
+
+- Added settings.json for Win Terminal Preview on Liberty
+
 ## [1.5.35] - 2024-10-06
 
 ### ◀️ Note
