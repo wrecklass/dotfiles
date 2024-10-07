@@ -89,7 +89,7 @@
             "backgroundImage": null,
             "bellStyle": "taskbar",
             "closeOnExit": "always",
-            "colorScheme": "Campbell",
+            "colorScheme": "PaperColor",
             "cursorShape": "filledBox",
             "experimental.retroTerminalEffect": false,
             "font": 
@@ -98,7 +98,7 @@
                 "size": 12
             },
             "intenseTextStyle": "all",
-            "opacity": 80,
+            "opacity": 75,
             "scrollbarState": "always",
             "useAcrylic": false
         },
