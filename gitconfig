@@ -157,6 +157,7 @@
   # seconds since epoch
   dts = !date +'%s'
 
+  pullall = pull --all
   pushall = !git remote | xargs -I X git push X --all
   pushtags = !git remote | xargs -I X git push X --tags
 
