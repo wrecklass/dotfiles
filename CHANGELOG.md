@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.41] - 2024-10-08
+
+### 🚀  Features
+
+- Added alert alias
+
+
 ## [1.5.40] - 2024-10-08
 
 ### 🚀  Features

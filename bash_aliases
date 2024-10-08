@@ -54,6 +54,12 @@ alias ''='clear -x'
 # }}}
 # {{{ Aliases
 
+# Add an "alert" alias for long running commands.
+# Sends a desktop notification when app has finished.
+# Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 alias dfh='df -h '
 alias duh='du -sh'
 alias dus='du -sh . | sort -h'
