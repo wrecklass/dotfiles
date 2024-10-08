@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.42] - 2024-10-08
+
+### 🚀 Features
+
+- Added TMUX exceptions for bashrc and bash_aliases
+
+
 ## [1.5.41] - 2024-10-08
 
 ### 🚀  Features
