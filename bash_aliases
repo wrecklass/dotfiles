@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 # {{{ Logging
-# If we've already read these, don't do it again
-[[ -z "${SET_ALIASES}" ]] && SET_ALIASES=true || return 0
+# If we've already read these, don't do it again, unless TMUX
+if [ -z "$TMUX" ]; then
+  [[ -z "${SET_ALIASES}" ]] && readonly SET_ALIASES=true || return 0
+fi
 _log ".bash_aliases"
 _log "SHELL: $SHELL"
 # }}}
-# {{{ Colorflags
+# {{{ _colorflags
 # Detect which `ls` flavor is in use
-# export colorflag="-G"
+# export _colorflag="-G"
 # if ls --color &> /dev/null ; then # GNU `ls`
-colorflag="--color=always"
+_colorflag="--color=always"
 # fi # OS X `ls`
 
 if command -v colordiff &>/dev/null; then
@@ -51,6 +53,12 @@ alias cler='clear -x'
 alias ''='clear -x'
 # }}}
 # {{{ Aliases
+
+# Add an "alert" alias for long running commands.
+# Sends a desktop notification when app has finished.
+# Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias dfh='df -h '
 alias duh='du -sh'
@@ -116,47 +124,34 @@ alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 # alias j='jobs'
 
 # {{{ File lists 'ls'
-export DF
-export ICO
-export DOT
-DF="--group-directories-first"
-if command -v exa &>/dev/null; then
-  ICO="--icons"
-  DOT="-a"
-
-  alias ls='exa ${DF} ${ICO} -F'
-  alias lltg='ls -snew -lgF ${DF} ${ICO} ${colorflag}'
-  alias llgt='ls -snew -lgF ${DF} ${ICO} ${colorflag}'
-  alias lg='ls -lgF ${DF} ${ICO} ${colorflag}'
-  alias lG='ls -lGF ${DF} ${ICO} ${colorflag}'
-  alias llg='ls -lgF ${DF} ${ICO} ${colorflag}'
-  alias llG='ls -lGF ${DF} ${ICO} ${colorflag}'
-  alias lt='ls -snew -lF ${DF} ${ICO} ${colorflag}'
-  alias llt='ls -snew -lF ${DF} ${ICO} ${colorflag}'
-else
-  alias ls='ls -F $DF ${colorflag}'
-  DOT="-A"
-  alias lltg='ls -lGrtF $DF ${colorflag}'
-  alias llgt='ls -lGrtF $DF ${colorflag}'
-  alias lg='ls -lGF $DF ${colorflag}'
-  alias llg='ls -lGF $DF ${colorflag}'
-  alias lt='ls -lrtF $DF ${colorflag}'
-  alias llt='ls -lrtF $DF ${colorflag}'
+_LS='ls'
+if command -v lsd &> /dev/null; then
+  _LS='lsd'
 fi
+export _DF
+_DF="--group-directories-first"
 
-alias dot='ls ${DOT} -dF ${DF} ${ICO} ${colorflag} .[a-zA-Z0-9]*'
-alias dolt='ls ${DOT} -dlF ${DF} ${ICO} ${colorflag} .[a-zA-Z0-9]*'
-alias l.='ls ${DOT} -dF ${DF} ${ICO} ${colorflag} .*'
-alias ll.='ls -ldF ${DF} ${ICO} ${colorflag} .*'
-alias lf='/bin/ls -F ${DF} ${colorflag}'
-alias l='/bin/ls -lGF ${colorflag}'
-alias lsa='ls ${DOT} -F ${DF} ${ICO} ${colorflag}'
-alias lsp='\ls -F'
-# alias la='ls -AF ${colorflag}'
-alias ll='ls -lF ${DF} ${ICO} ${colorflag}'
-alias lla='ls ${DOT} -lF ${DF} ${ICO} ${colorflag}'
-alias lh='ls -lhF ${DF} ${ICO} ${colorflag}'
-alias llh='ls -lhF ${DF} ${ICO} ${colorflag}'
+alias ls='${_LS} -F $_DF ${_colorflag}'
+alias lltg='${_LS} -lGrtF $_DF ${_colorflag}'
+alias llgt='${_LS} -lGrtF $_DF ${_colorflag}'
+alias lg='${_LS} -lGF $_DF ${_colorflag}'
+alias llg='${_LS} -lGF $_DF ${_colorflag}'
+alias lt='${_LS} -lrtF $_DF ${_colorflag}'
+alias llt='${_LS} -lrtF $_DF ${_colorflag}'
+
+alias dot='${_LS} -A -dF ${_DF} ${_colorflag} .[a-zA-Z0-9]*'
+alias dolt='${_LS} -A -dlF ${_DF} ${_colorflag} .[a-zA-Z0-9]*'
+alias l.='${_LS} -A -dF ${_DF} ${_colorflag} .*'
+alias ll.='${_LS} -ldF ${_DF} ${_colorflag} .*'
+alias lf='/bin/${_LS} -F ${_DF} ${_colorflag}'
+alias l='/bin/${_LS} -lGF ${_colorflag}'
+alias lsa='${_LS} -A -F ${_DF} ${_colorflag}'
+alias lsp='\${_LS} -F'
+# alias la='${_LS} -AF ${_colorflag}'
+alias ll='${_LS} -lF ${_DF} ${_colorflag}'
+alias lla='${_LS} -A -lF ${_DF} ${_colorflag}'
+alias lh='${_LS} -lhF ${_DF} ${_colorflag}'
+alias llh='${_LS} -lhF ${_DF} ${_colorflag}'
 # }}}
 alias md='mkdir'
 alias mdp='mkdir -p'

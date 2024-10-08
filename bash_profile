@@ -28,7 +28,9 @@
 # export LANG=$(locale -uU)
 
 # Set this and only source file once
-[[ -z "${BASH_PROFILE}" ]] && readonly BASH_PROFILE=true || return 0
+if [ -z $"TMUX" ]; then
+  [[ -z "${BASH_PROFILE}" ]] && readonly BASH_PROFILE=true || return 0
+fi
 # {{{ Logging
 declare -x -i VERBOSE=0
 

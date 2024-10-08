@@ -1,14 +1,14 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema-preview",
-    "actions": 
+    "actions":
     [
         {
             "command": "paste",
             "id": "User.paste"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "findMatch",
                 "direction": "next"
@@ -16,7 +16,7 @@
             "id": "User.findMatch.2A0DA8E0"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "copy",
                 "singleLine": false
@@ -28,7 +28,7 @@
             "id": "User.find"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -37,7 +37,7 @@
             "id": "User.splitPane.A6751878"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "findMatch",
                 "direction": "prev"
@@ -54,7 +54,7 @@
     "initialCols": 125,
     "initialPosition": "1282,1",
     "initialRows": 48,
-    "keybindings": 
+    "keybindings":
     [
         {
             "id": "User.find",
@@ -75,15 +75,15 @@
     ],
     "launchMode": "default",
     "minimizeToNotificationArea": false,
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "adjustIndistinguishableColors": "indexed",
             "backgroundImage": null,
@@ -92,7 +92,7 @@
             "colorScheme": "PaperColor",
             "cursorShape": "filledBox",
             "experimental.retroTerminalEffect": false,
-            "font": 
+            "font":
             {
                 "face": "FiraCode Nerd Font Mono",
                 "size": 12
@@ -102,7 +102,7 @@
             "scrollbarState": "always",
             "useAcrylic": false
         },
-        "list": 
+        "list":
         [
             {
                 "commandline": "C:\\cygwin64\\bin\\bash.exe -i",
@@ -145,40 +145,26 @@
                 "name": "Windows PowerShell"
             },
             {
-                "guid": "{e31088f4-f425-5bf0-94d8-530f078921b2}",
+                "guid": "{f7ab82fa-b4d9-51fa-97ab-5b684383c7a1}",
                 "hidden": false,
-                "name": "Developer Command Prompt for VS 2022 (2)",
+                "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{b7a369e5-61e8-52f9-a715-22fa5ea39a3e}",
+                "guid": "{590fdb4f-8c7d-5f15-9cf8-dab0056264f2}",
                 "hidden": false,
-                "name": "Developer PowerShell for VS 2022 (2)",
+                "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "commandline": "c:\\msys64\\msys2_shell.cmd -defterm -here -no-start -ucrt64",
-                "guid": "{cde20251-c514-4415-9024-eef3df399f3f}",
-                "hidden": false,
-                "icon": "C:\\msys64\\ucrt64.ico",
-                "name": "MSYS2/UCRT64",
-                "startingDirectory": "C:\\msys64\\home\\smartin"
             },
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": true,
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}",
-                "hidden": false,
-                "name": "Ubuntu 22.04.3 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#282828",
