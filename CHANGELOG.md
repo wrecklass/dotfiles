@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.40] - 2024-10-08
+
+### 🚀  Features
+
+- Added lsd to our optional aliases
+- Removed exa/eza
+
+
 ## [1.5.39] - 2024-10-07
 
 ### 🚀  Features
