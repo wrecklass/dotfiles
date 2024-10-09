@@ -14,7 +14,7 @@
 # shellcheck disable=SC1091
 
 # ulimit -u 1024
-# Only source this once
+# Only source this once, unless TMUX
 if [ -z "$TMUX" ]; then
   [[ -z "${BASH_RC}" ]] && readonly BASH_RC=true || return 0
 fi

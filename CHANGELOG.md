@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.42] - 2024-10-08
+
+### 🚀 Features
+
+- Added TMUX exceptions for bashrc and bash_aliases
+
+
+## [1.5.41] - 2024-10-08
+
+### 🚀  Features
+
+- Added alert alias
+
+
+## [1.5.40] - 2024-10-08
+
+### 🚀  Features
+
+- Added lsd to our optional aliases
+- Removed exa/eza
+
+
+## [1.5.39] - 2024-10-07
+
+### 🚀  Features
+
+- Added git pullall alias
+
+
 ## [1.5.38] - 2024-10-07
 
 ### 🚀  Features

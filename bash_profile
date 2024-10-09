@@ -64,6 +64,8 @@ done
 
 # Override /etc/profile
 # shellcheck source=/dev/null
+unset BASH_RC
+unset SET_ALIASES
 [[ "$-" == *i* ]] && [[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
 
 export BASH_PROFILE
