@@ -147,7 +147,7 @@ export IPV6_REGX='(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){
 # export CDPATH=".:~:~/src"
 export ORIGPATH
 # export PATH
-export LESS='FXRj5'
+export LESS='FXrj5'
 [[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"
 
 # Make sure we only source this once
