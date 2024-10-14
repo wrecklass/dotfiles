@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.47] - 2024-10-14
+
+### 🚀 Features
+
+- Feature reverse sort tags, putting latest on top
+
+
+## [1.5.46] - 2024-10-14
+
+### 🚀 Features
+
+- Add en_us.UTF-8 except for WSL
+
+
 ## [1.5.45] - 2024-10-14
 
 ### 🚀 Features
