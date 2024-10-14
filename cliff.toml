@@ -56,8 +56,8 @@ commit_preprocessors = [
 ]
 # regex for parsing and grouping commits
 commit_parsers = [
-  { message = "^feat", group = "<!-- 0 -->🚀 Features" },
-  { message = "^Add", group = "<!-- 0 -->🚀 Features" },
+  { message = "^[Ff]eat", group = "<!-- 0 -->🚀 Features" },
+  { message = "^[Aa]dd", group = "<!-- 0 -->🚀 Features" },
   { message = "^fix", group = "<!-- 1 -->🐛 Bug Fixes" },
   { message = "^doc", group = "<!-- 3 -->📚 Documentation" },
   { message = "^perf", group = "<!-- 4 -->⚡ Performance" },
