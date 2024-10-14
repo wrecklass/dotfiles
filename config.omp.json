@@ -56,7 +56,11 @@
             "folder_separator_icon": "/",
             "home_icon": "\uf46d",
             "mapped_locations": {
-              "C:/Users/smartin": "\uf4e2"
+              "C:/Users/smartin": "\uf4e2",
+              "C:/cygwin64": "\u0000/",
+              "/mnt/c": "C:/",
+              "/mnt/d": "D:/",
+              "/mnt/e": "E:/"
             },
             "max_width": 24,
             "style": "powerlevel"

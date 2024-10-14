@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.5.45] - 2024-10-14
+
+### 🚀 Features
+
+- WSL /mnt/DRIVE-LETTER dirs added to oh-my-posh special paths
+
+
+## [1.5.44] - 2024-10-14
+
+### ◀️ Note
+
+- Allow less to show unicode
+
+
+## [1.5.43] - 2024-10-11
+
+### ◀️ Note
+
+- Simple change to bash_aliases
+- Meshing with the new Liberty
+
+
 ## [1.5.42] - 2024-10-08
 
 ### 🚀 Features
