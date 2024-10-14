@@ -25,9 +25,9 @@ case $- in
 esac
 # }}}
 # {{{ Logging
-if [[ WSL == "false" ]]; then
+if [[ -z $WSL ]]; then
   export LANG="en_US.UTF-8"
-  export LC_ALL="en_US.UTF-8"
+  export LC_ALL="C.UTF-8"
 fi
 ORIGPATH="$PATH"
 UNAMECMD=$(command -v uname)
