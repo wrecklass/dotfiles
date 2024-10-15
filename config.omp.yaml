@@ -45,6 +45,10 @@ blocks:
           home_icon: 
           mapped_locations:
             C:/Users/smartin: 
+            C:/cygwin64: "\0/"
+            /mnt/c: C:/
+            /mnt/d: D:/
+            /mnt/e: E:/
           max_width: 24
           style: powerlevel
       - type: git
