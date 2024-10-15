@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.52] - 2024-10-15
+
+### 🚀 Features
+
+- feature: Bring settings.json for Liberty up to date
+
 ## [1.5.51] - 2024-10-15
 
 ### 🚀 Features
