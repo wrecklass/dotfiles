@@ -566,8 +566,9 @@ nnoremap <leader>j  :m+<CR>==
 nnoremap <leader>k  :m-2<CR>==
 
 " Toggle line numbers
-nnoremap \l :setlocal number!<CR>
+nnoremap \l       :setlocal number!<CR>
 noremap <leader>l :setlocal relativenumber!<CR>
+map     <F12>     :setlocal number!<CR>
 
 " Turn off hlsearch temporarily
 nnoremap \q :set hlsearch!<CR>:setlocal hlsearch?<CR>

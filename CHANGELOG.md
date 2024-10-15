@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.51] - 2024-10-15
+
+### 🚀 Features
+
+- feature: <F12> mapped to toggle numbers in vim
+
 ## [1.5.50] - 2024-10-15
 
 ### 🚀 Features
