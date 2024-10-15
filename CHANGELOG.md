@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.49] - 2024-10-15
+
+### 🐛 Bug Fixes
+
+- Fix making omp yaml match json
+
 ## [1.5.48] - 2024-10-14
 
 ### 🚀 Features
