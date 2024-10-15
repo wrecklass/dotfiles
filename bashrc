@@ -156,9 +156,15 @@ export LESS='FXrj5'
 # {{{ shenv for different environments
 # Variables specific to the OS environment
 FZF=$(command -v fzf)
+ZOXIDE=$(command -v zoxide)
 for file in "${HOME}"/.shenv/*."${UNAME}"; do
   _log "Sourcing ${file}"
 
+  # Only do this if zoxide is installed
+  if [[ "${file}" =~ "zoxide" ]] && [[ -z "${ZOXIDE}" ]]; then
+    _log "zoxide not installed"
+    continue
+  fi
   if [[ -r "${file}" ]]; then
     source "${file}"
   else

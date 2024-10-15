@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.50] - 2024-10-15
+
+### 🚀 Features
+
+- feature: Add .wslconfig for bridged network on WSL
+- feature: only source zoxide scripts if zoxide is installed
+
 ## [1.5.49] - 2024-10-15
 
 ### 🐛 Bug Fixes
