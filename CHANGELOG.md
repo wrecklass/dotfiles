@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.54] - 2024-10-17
+
+### ⚙️ Miscellaneous Tasks
+
+- Tweaking kitty window size
+
 ## [1.5.53] - 2024-10-17
 
 ### 🐛 Bug Fixes
