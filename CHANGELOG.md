@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.55] - 2024-10-17
+
+### ⚙️ Miscellaneous Tasks
+
+- Make sure we are on Linux before setting iwconfig - zsh
+
 ## [1.5.54] - 2024-10-17
 
 ### ⚙️ Miscellaneous Tasks

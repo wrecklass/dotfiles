@@ -15,10 +15,12 @@ export LESS='FXR'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 ################################# END MY DATA ################################
 
-# If we have wireless interface, make sure it isn't powered down.
-WLINF="$(ifconfig  | sed  -n -e 's#^\(wl.*\):.*#\1#p')"
-if [[ -n "$WNINF" ]];then
-  sudo iwconfig "${WNINF}" power off
+# If we have wireless interface on linux, make sure it isn't powered down.
+if command -v iwconfig &> /dev/null; then
+  WLINF="$(ifconfig  | sed  -n -e 's#^\(wl.*\):.*#\1#p')"
+  if [[ -n "$WNINF" ]];then
+    sudo iwconfig "${WNINF}" power off
+  fi
 fi
 
 # Path to your oh-my-zsh installation.
