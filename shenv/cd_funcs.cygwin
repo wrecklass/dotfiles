@@ -127,7 +127,7 @@ _cdd() {
 }
 
 _cdot() {
-    dir="$(dirname $(readlink "$HOME/.bashrc"))"
+    dir="$(dirname $(readlink "$HOME/.functions"))"
     if [ $# -gt 0 ]; then
         cd_func "$dir/${*}"
     else

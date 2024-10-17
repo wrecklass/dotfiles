@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.53] - 2024-10-17
+
+### 🐛 Bug Fixes
+
+- bug: switch to using ~/.functions for link to dotfiles
+
 ## [1.5.52] - 2024-10-15
 
 ### 🚀 Features

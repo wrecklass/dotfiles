@@ -17,7 +17,7 @@ alias mkcd="_mkcd"
 
 _cdot() {
   local mydir
-  mydir="$(dirname $(readlink "$HOME/.profile"))"
+  mydir="$(dirname $(readlink "$HOME/.functions"))"
   cd_func "$mydir"
 }
 
