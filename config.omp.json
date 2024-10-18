@@ -146,7 +146,7 @@
           "background": "#8f43f3",
           "leading_diamond": "\ue0b2",
           "trailing_diamond": "<transparent,#8f43f3>\ue0b2</>",
-          "template": "\udb80\udf5b {{ round .PhysicalPercentUsed .Precision }}% "
+          "template": "\ue266 {{ round .PhysicalPercentUsed .Precision }}% "
         },
         {
           "type": "angular",
@@ -155,7 +155,7 @@
           "background": "#ffffff",
           "leading_diamond": "\ue0b2",
           "trailing_diamond": "<transparent,#ffffff>\ue0b2</>",
-          "template": "\ue753 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+          "template": "\ued4b {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         },
         {
           "type": "aws",
@@ -214,11 +214,11 @@
         {
           "type": "dotnet",
           "style": "diamond",
-          "foreground": "#0d6da8",
-          "background": "#0e0e0e",
+          "foreground": "#fefefe",
+          "background": "#4e4e0e",
           "leading_diamond": "\ue0b2",
           "trailing_diamond": "<transparent,#0e0e0e>\ue0b2</>",
-          "template": "\ue77f  {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} "
+          "template": "{{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} "
         },
         {
           "type": "flutter",

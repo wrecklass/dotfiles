@@ -112,14 +112,14 @@ blocks:
         background: '#8f43f3'
         leading_diamond: 
         trailing_diamond: <transparent,#8f43f3></>
-        template: "\U000F035B {{ round .PhysicalPercentUsed .Precision }}% "
+        template: ' {{ round .PhysicalPercentUsed .Precision }}% '
       - type: angular
         style: diamond
         foreground: '#ce092f'
         background: '#ffffff'
         leading_diamond: 
         trailing_diamond: <transparent,#ffffff></>
-        template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
+        template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
       - type: aws
         style: diamond
         foreground: '#faa029'
@@ -164,11 +164,11 @@ blocks:
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
       - type: dotnet
         style: diamond
-        foreground: '#0d6da8'
-        background: '#0e0e0e'
+        foreground: '#fefefe'
+        background: '#4e4e0e'
         leading_diamond: 
         trailing_diamond: <transparent,#0e0e0e></>
-        template: '  {{ if .Unsupported }}{{ else }}{{ .Full }}{{ end }} '
+        template: '{{ if .Unsupported }}{{ else }}{{ .Full }}{{ end }} '
       - type: flutter
         style: diamond
         foreground: '#ffffff'
