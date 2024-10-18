@@ -88,7 +88,7 @@ set t_vb=
 " Set in defaults.vim
 " set showcmd
 
-set timeoutlen=500
+" set timeoutlen=500
 " Set in defaults.vim
 " set ttimeoutlen=100
 
@@ -278,6 +278,7 @@ Plug 'nlknguyen/papercolor-theme'
 " Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
 " Plug 'haystackandroid/snow'
 " Plug 'tomasiser/vim-code-dark'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 Plug 'openuado/vimtips-fortune'
 
@@ -476,11 +477,24 @@ let g:mapleader = " "
 " [N] -- Titlise A Line
 nmap ,t :s/.*/\L&/<bar>:s/\<./\u&/g<cr>
 
+let g:which_key_map = {}
+" let g:which_key_map['w'] = {
+"    \ 'name' : '+windows',
+"    \ 'j'    : ['<C-w>j', 'window-below']     ,
+"    \ }
+
+nnoremap <silent> <leader>  :WhichKey '<Space>'<CR>
+nnoremap <silent> b         :WhichKey 'b'<CR>
+nnoremap <silent> ,         :WhichKey ','<CR>
+autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
+
+
 " Terminal:
 let g:terminal_height = -10
 set termwinsize=18x200
 set shell=/bin/bash
 nnoremap <leader>` :botright terminal<CR>
+
 tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 
@@ -506,7 +520,7 @@ nnoremap <leader>Q          :q!<CR>
 " Except K also opens man pages for some non-vim words
 " nnoremap <leader>vv  :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>vh  K
-nnoremap <leader>bs  /<C-R>=escape(expand("<cword>"), "/")<CR><CR>
+" nnoremap <leader>bs  /<C-R>=escape(expand("<cword>"), "/")<CR><CR>
 nnoremap <leader>u   :UndotreeToggle<CR>
 nnoremap <leader>pv  :Ex<CR>
 nnoremap <leader>+   :resize +5<CR>
@@ -518,11 +532,11 @@ nnoremap <leader>rp  :resize 100<CR>
 
 "  <Leader>s to start a substitution
 nnoremap <leader>s   :%s/
-nnoremap <leader>S   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+" nnoremap <leader>S   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
-nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
-nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
-nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
+" nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
+" nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
+" nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
 
 " Easy vertical split
 nnoremap  <leader>v    :vs<CR>
@@ -558,9 +572,9 @@ map <c-j> :call WinMove('j')<CR>
 " end highlighting by searching for garbage
 nnoremap  <leader>;    /xckla<CR>
 
-nnoremap <F6> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" nnoremap <F6> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+" \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+" \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 nnoremap <leader>j  :m+<CR>==
 nnoremap <leader>k  :m-2<CR>==
@@ -571,14 +585,14 @@ noremap <leader>l :setlocal relativenumber!<CR>
 map     <F12>     :setlocal number!<CR>
 
 " Turn off hlsearch temporarily
-nnoremap \q :set hlsearch!<CR>:setlocal hlsearch?<CR>
-noremap <leader>H :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
+" nnoremap \q :set hlsearch!<CR>:setlocal hlsearch?<CR>
+" noremap <leader>H :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
 
 " Globally search and replace the <word> under the cursor
-nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
+" nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
 
 " Toggle case sensitive search
-nnoremap <leader>i :setlocal ic!<CR>:setlocal ic?<CR>
+" nnoremap <leader>i :setlocal ic!<CR>:setlocal ic?<CR>
 
 " F2 = pastetoggle
 " Repeat last search, because reasons
@@ -609,7 +623,7 @@ command! -bang -range ToggleSlash <line1>,<line2>call ToggleSlash(<bang>1)
 noremap <silent> <F8> :ToggleSlash<CR>
 
 " <leader>m to erase all ^M in a Dos file. Remembers location
-noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
+" noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
@@ -747,19 +761,20 @@ inoremap <C-J>        <Down>
 " inoremap <C-K><C-K>   <Up>
 
 " When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
+" vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+" vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+" vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 " Pressing <leader>r sets up search and replace on visual selection
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+" vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
 " Open vimgrep and put the cursor in the right position
 " noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 
+" noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
+
 " Vimgreps in the current file
-noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
 
 " map <nowait><leader>c :Colors<CR>
 nnoremap <leader>I    :Startify<CR>

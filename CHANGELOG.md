@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.56] - 2024-10-18
+
+### 🚀 Features
+
+- Add which-key to vim
+
 ## [1.5.55] - 2024-10-17
 
 ### ⚙️ Miscellaneous Tasks
