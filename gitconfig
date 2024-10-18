@@ -54,6 +54,8 @@
   process = git-lfs filter-process
 [pull]
   rebase = false
+[tag]
+  sort = v:refname
 [credential "https://github.com"]
   helper =
   helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
@@ -210,7 +212,7 @@
   ltn = "!git tag -n --sort=v:refname | tail -1"
 
   # Show verbose output of tags and branches and remotes
-  tags = tag -n --sort=-v:refname
+  tags = tag -n
   branches = branch -a
   br = branch
   b  = branch -v

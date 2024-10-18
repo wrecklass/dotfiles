@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.57] - 2024-10-18
+
+### ⚙️ Miscellaneous Tasks
+
+- Add tag.sort to gitconfig making tags sort by default
+
 ## [1.5.56] - 2024-10-18
 
 ### 🚀 Features
