@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.58] - 2024-10-18
+
+### ⚙️ Miscellaneous Tasks
+
+- Refresh some oh-my-posh templates and icons
+
 ## [1.5.57] - 2024-10-18
 
 ### ⚙️ Miscellaneous Tasks
