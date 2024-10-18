@@ -117,13 +117,13 @@
       "alignment": "right",
       "segments": [
         {
-          "type": "shell",
+          "type": "sysinfo",
           "style": "diamond",
-          "foreground": "#011627",
-          "background": "#d6deeb",
+          "foreground": "#ffffff",
+          "background": "#8f43f3",
           "leading_diamond": "\ue0b6",
-          "trailing_diamond": "<transparent,#d6deeb>\ue0b2</>",
-          "template": "\udb84\udd83 {{ .Name }} "
+          "trailing_diamond": "<transparent,#8f43f3>\ue0b2</>",
+          "template": "\ue266 {{ round .PhysicalPercentUsed .Precision }}% "
         },
         {
           "type": "ipify",
@@ -138,15 +138,6 @@
             "http_timeout": 1000
           },
           "min_width": 145
-        },
-        {
-          "type": "sysinfo",
-          "style": "diamond",
-          "foreground": "#ffffff",
-          "background": "#8f43f3",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "<transparent,#8f43f3>\ue0b2</>",
-          "template": "\ue266 {{ round .PhysicalPercentUsed .Precision }}% "
         },
         {
           "type": "angular",
@@ -217,7 +208,7 @@
           "foreground": "#fefefe",
           "background": "#4e4e0e",
           "leading_diamond": "\ue0b2",
-          "trailing_diamond": "<transparent,#0e0e0e>\ue0b2</>",
+          "trailing_diamond": "<transparent,#4e4e0e>\ue0b2</>",
           "template": "{{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} "
         },
         {
@@ -393,6 +384,15 @@
           "style": "plain",
           "foreground": "#616161",
           "template": "\u2570\u2500"
+        },
+        {
+          "type": "shell",
+          "style": "diamond",
+          "foreground": "#011627",
+          "background": "#d6deeb",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b0</>",
+          "template": "\udb84\udd83 {{ .Name }} "
         },
         {
           "type": "upgrade",

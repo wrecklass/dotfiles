@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.59] - 2024-10-18
+
+### ⚙️ Miscellaneous Tasks
+
+- Move shell segment to right prompt in oh-my-posh
+
 ## [1.5.58] - 2024-10-18
 
 ### ⚙️ Miscellaneous Tasks
