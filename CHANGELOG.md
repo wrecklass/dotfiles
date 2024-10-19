@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.61] - 2024-10-19
+
+### ⚙️ Miscellaneous Tasks
+
+- Add WhichKey descriptions where needed
+
 ## [1.5.60] - 2024-10-18
 
 ### ⚙️ Miscellaneous Tasks

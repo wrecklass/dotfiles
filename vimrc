@@ -478,10 +478,6 @@ let g:mapleader = " "
 nmap ,t :s/.*/\L&/<bar>:s/\<./\u&/g<cr>
 
 let g:which_key_map = {}
-" let g:which_key_map['w'] = {
-"    \ 'name' : '+windows',
-"    \ 'j'    : ['<C-w>j', 'window-below']     ,
-"    \ }
 
 nnoremap <silent> <leader>  :WhichKey '<Space>'<CR>
 nnoremap <silent> b         :WhichKey 'b'<CR>
@@ -494,13 +490,16 @@ let g:terminal_height = -10
 set termwinsize=18x200
 set shell=/bin/bash
 nnoremap <leader>` :botright terminal<CR>
+let g:which_key_map['`'] = "btm Term"
 
 tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 
 " map for cprev and cnext, also open folds at location
 nnoremap <leader><      :cprev<CR>zv
+let g:which_key_map['<'] = 'cprev'
 nnoremap <leader>>      :cnext<CR>zv
+let g:which_key_map['>'] = 'cnext'
 
 nnoremap <Tab>          gt
 nnoremap <S-Tab>        gT
@@ -532,7 +531,8 @@ nnoremap <leader>rp  :resize 100<CR>
 
 "  <Leader>s to start a substitution
 nnoremap <leader>s   :%s/
-" nnoremap <leader>S   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+nnoremap <leader>S   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+let g:which_key_map.S =  'Search&Replace'
 
 " nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
 " nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
@@ -572,9 +572,9 @@ map <c-j> :call WinMove('j')<CR>
 " end highlighting by searching for garbage
 nnoremap  <leader>;    /xckla<CR>
 
-" nnoremap <F6> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-" \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-" \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+nnoremap <F6> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 nnoremap <leader>j  :m+<CR>==
 nnoremap <leader>k  :m-2<CR>==
@@ -582,11 +582,13 @@ nnoremap <leader>k  :m-2<CR>==
 " Toggle line numbers
 nnoremap \l       :setlocal number!<CR>
 noremap <leader>l :setlocal relativenumber!<CR>
+let g:which_key_map.l = 'toggle RelNum'
 map     <F12>     :setlocal number!<CR>
 
 " Turn off hlsearch temporarily
 " nnoremap \q :set hlsearch!<CR>:setlocal hlsearch?<CR>
-" noremap <leader>H :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
+noremap <leader>H :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
+let g:which_key_map.H = 'toggle hlsearch'
 
 " Globally search and replace the <word> under the cursor
 " nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
@@ -768,6 +770,7 @@ inoremap <C-J>        <Down>
 
 " Pressing <leader>r sets up search and replace on visual selection
 " vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+" let g:which_key_map.r = 'visual vimgrep'
 
 " Open vimgrep and put the cursor in the right position
 " noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
@@ -792,6 +795,7 @@ nnoremap <silent> <leader>h: :History:<CR>
 nnoremap <silent> <leader>W :Windows<CR>
 nnoremap <silent> <leader>M :Maps<CR>
 nnoremap <silent> <leader>t :FloatermToggle<CR>
+let g:which_key_map.t = 'Float Term'
 
 " Easy bracket pairing
 " inoremap<nowait>" ""<left>
