@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.64] - 2024-10-22
+
+### ◀️ Revert
+
+- OMP prompt has bugs with shell argument on left
+
 ## [1.5.63] - 2024-10-22
 
 ### 🐛 Bug Fixes
