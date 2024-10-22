@@ -64,7 +64,7 @@ if [[ "${USER}" == "root" ]]; then
 elif [[ "${UNAME}" == "cygwin" ]];then
   userName="${USER}"
   GREP="$(command -v grep)"
-  "${IDCMD}" -Gn 2>/dev/null | "${GREP}" -iq admin
+  "${IDCMD}" -Gn 2>/dev/null | "${GREP}" -iq "admin "
   declare -i RETVAL="$?"
   if [ "$RETVAL" -eq 0 ];then
     # Give me a Big Red Admin tag so we know we're running with
