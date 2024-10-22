@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.62] - 2024-10-22
+
+### ⚙️ Miscellaneous Tasks
+
+- ohgit removed
+
 ## [1.5.61] - 2024-10-19
 
 ### ⚙️ Miscellaneous Tasks
