@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.66] - 2024-10-23
+
+### 🐛 Bug Fixes
+
+- Put spaces around the non-wifi connection icon
+
 ## [1.5.65] - 2024-10-23
 
 ### 🚀 Features

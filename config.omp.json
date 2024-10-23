@@ -27,7 +27,7 @@
           "powerline_symbol": "\ue0b0",
           "foreground": "#f0f0f0",
           "background": "#588858",
-          "template": "{{ if eq .Type \"wifi\"}} \uf1eb {{ else if eq .Type \"ethernet\"}}\ueba9{{ end }}",
+          "template": "{{ if eq .Type \"wifi\"}} \uf1eb {{ else if eq .Type \"ethernet\"}} \ueba9 {{ end }}",
           "max_width": 130
         },
         {
@@ -36,7 +36,7 @@
           "powerline_symbol": "\ue0b0",
           "foreground": "#f0f0f0",
           "background": "#588858",
-          "template": "{{ if eq .Type \"wifi\"}} \uf1eb {{ .Name }} {{ else if eq .Type \"ethernet\"}}\ueba9{{ end }}",
+          "template": "{{ if eq .Type \"wifi\"}} \uf1eb {{ .Name }} {{ else if eq .Type \"ethernet\"}} \ueba9 {{ end }}",
           "min_width": 131
         },
         {
