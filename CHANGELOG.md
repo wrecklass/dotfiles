@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.65] - 2024-10-23
+
+### 🚀 Features
+
+- Add SSID to OMP connection on wide display
+
 ## [1.5.64] - 2024-10-22
 
 ### ◀️ Revert
