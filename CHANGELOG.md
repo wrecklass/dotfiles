@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.67] - 2024-10-29
+
+### 🐛 Bug Fixes
+
+- Make sure we have GOROOT properly set
+
 ## [1.5.66] - 2024-10-23
 
 ### 🐛 Bug Fixes
