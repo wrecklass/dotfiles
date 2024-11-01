@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.68] - 2024-11-01
+
+### 🚀 Features
+
+- Change vim-airline theme
+
 ## [1.5.67] - 2024-10-29
 
 ### 🐛 Bug Fixes
