@@ -8,23 +8,23 @@ alias llsg="_lsg"
 
 _lsg() {
     if [ $# -gt 0 ]; then
-        /bin/ls -lF $DF $colorflag "$@" | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g'  -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g' -e 's/rwt/7t/g' -e 's/r-t/5t/' -e 's/-wt/3t/g' -e 's/--t/1t/g' -e 's/rws/47/g' -e 's/--s/41/g' -e 's/-ws/43/g'
+        /bin/ls -lF $_DF $_colorflag "$@" | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g'  -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g' -e 's/rwt/7t/g' -e 's/r-t/5t/' -e 's/-wt/3t/g' -e 's/--t/1t/g' -e 's/rws/47/g' -e 's/--s/41/g' -e 's/-ws/43/g'
     else
-        /bin/ls -lF $DF $colorflag | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g'  -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g' -e 's/rwt/7t/g' -e 's/r-t/5t/' -e 's/-wt/3t/g' -e 's/--t/1t/g' -e 's/rws/47/g' -e 's/--s/41/g' -e 's/-ws/43/g'
+        /bin/ls -lF $_DF $_colorflag | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g'  -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g' -e 's/rwt/7t/g' -e 's/r-t/5t/' -e 's/-wt/3t/g' -e 's/--t/1t/g' -e 's/rws/47/g' -e 's/--s/41/g' -e 's/-ws/43/g'
     fi
 }
 
 _lso() {
     if [ $# -gt 0 ]; then
-        /bin/ls -lFG $DF $colorflag "$@" | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g'  -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g' -e 's/rwt/7t/g' -e 's/r-t/5t/' -e 's/-wt/3t/g' -e 's/--t/1t/g' -e 's/rws/47/g' -e 's/--s/41/g' -e 's/-ws/43/g'
+        /bin/ls -lFG $_DF $_colorflag "$@" | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g'  -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g' -e 's/rwt/7t/g' -e 's/r-t/5t/' -e 's/-wt/3t/g' -e 's/--t/1t/g' -e 's/rws/47/g' -e 's/--s/41/g' -e 's/-ws/43/g'
     else
-        /bin/ls -lFG $DF $colorflag | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g'  -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g' -e 's/rwt/7t/g' -e 's/r-t/5t/' -e 's/-wt/3t/g' -e 's/--t/1t/g' -e 's/rws/47/g' -e 's/--s/41/g' -e 's/-ws/43/g'
+        /bin/ls -lFG $_DF $_colorflag | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g'  -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g' -e 's/rwt/7t/g' -e 's/r-t/5t/' -e 's/-wt/3t/g' -e 's/--t/1t/g' -e 's/rws/47/g' -e 's/--s/41/g' -e 's/-ws/43/g'
     fi
 }
 
 la() {
   # shellcheck disable=SC2012
-  /bin/ls -lF $DF $colorflag "$@" | awk '
+  /bin/ls -lF $_DF $_colorflag "$@" | awk '
     {
       k=0;
       for (i=0;i<=8;i++)

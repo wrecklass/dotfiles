@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.69] - 2024-11-01
+
+### 🐛 Bug Fixes
+
+- correct variables for ls-funcs
+
 ## [1.5.68] - 2024-11-01
 
 ### 🚀 Features
