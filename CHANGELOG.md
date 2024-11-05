@@ -2,11 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.5.70] - 2024-11-04
+## [1.5.71] - 2024-11-04
 
 ### ⚙️ Miscellaneous Tasks
 
-- Changes forced by new oh-my-posh update
+- Nvim cleanup in Makefile
 
 ## [1.5.69] - 2024-11-01
 
