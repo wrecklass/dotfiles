@@ -352,7 +352,6 @@ try
   " colorscheme vimspectrgrey-dark
   " END VIMSPECTRGREY
 
-
   " let g:codedark_conservative=1
   " let g:codedark_modern=0
   " let g:codedark_italics=1
@@ -718,6 +717,7 @@ inoremap <C-J>        <Down>
 " noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
 
 " Vimgreps in the current file
+" noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
 
 " map <nowait><leader>c :Colors<CR>
 nnoremap <leader>I    :Startify<CR>

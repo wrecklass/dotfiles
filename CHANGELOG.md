@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.72] - 2024-11-04
+
+### ⚙️ Miscellaneous Tasks
+
+- Sync windows/standard vimrc's
+
 ## [1.5.71] - 2024-11-04
 
 ### ⚙️ Miscellaneous Tasks
