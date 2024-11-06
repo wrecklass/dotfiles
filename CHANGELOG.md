@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.71] - 2024-11-05
+
+### ⚙️ Miscellaneous Tasks
+
+- OMP path changes color for non-writable directory
+
 ## [1.5.70] - 2024-11-04
 
 ### ⚙️ Miscellaneous Tasks

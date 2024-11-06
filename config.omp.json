@@ -91,6 +91,10 @@
           "foreground": "p:black",
           "powerline_symbol": "\ue0b0",
           "background": "p:orange",
+          "background_templates": [
+            "{{ if .Root }}red{{ end }}",
+            "{{ if not .Writable }}white{{ end }}"
+          ],
           "type": "path"
         },
         {
