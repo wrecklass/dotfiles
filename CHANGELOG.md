@@ -2,11 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.5.71] - 2024-11-05
+## [1.5.73] - 2024-11-05
 
 ### ⚙️ Miscellaneous Tasks
 
 - OMP path changes color for non-writable directory
+
+## [1.5.72] - 2024-11-04
+
+### ⚙️ Miscellaneous Tasks
+
+- Sync windows/standard vimrc's
+
+## [1.5.71] - 2024-11-04
+
+### ⚙️ Miscellaneous Tasks
+
+- Nvim cleanup in Makefile
 
 ## [1.5.70] - 2024-11-04
 

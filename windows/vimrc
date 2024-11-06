@@ -11,6 +11,10 @@ endif
 set autoread
 " Start this way, turn on once plugins are loaded
 filetype off
+
+" nvim is supposed to be nocompatible by default
+" This has to come before defaults.vim with vim91
+set nocompatible
 source $VIMRUNTIME/defaults.vim
 
 " let g:ale_completion_enabled = 1
@@ -18,6 +22,9 @@ source $VIMRUNTIME/defaults.vim
 "
 " Allows us to disable ctags generation
 " let g:gutentags_define_advanced_commands=1
+
+" Turn off vimtips auto display
+let g:fortune_vimtips_auto_display = 0
 
 let g:ft_man_open_mode='tab'
 
@@ -46,8 +53,6 @@ if has('folding')
   set foldcolumn=1
 endif
 
-" nvim is supposed to be nocompatible by default
-set nocompatible
 " set hidden
 set encoding=utf-8
 set noexrc
@@ -63,6 +68,8 @@ set incsearch
 set smartcase
 set ignorecase
 
+set smoothscroll
+
 " Show matching parens
 set showmatch
 
@@ -73,14 +80,15 @@ set matchtime=5
 set path=.,,
 
 " No bells
-set novisualbell
 set noerrorbells
+set belloff=all
+set novisualbell
 set t_vb=
 
 " Set in defaults.vim
 " set showcmd
 
-set timeoutlen=500
+" set timeoutlen=500
 " Set in defaults.vim
 " set ttimeoutlen=100
 
@@ -107,10 +115,14 @@ set textwidth=0
 
 set matchpairs+=<:>
 
-" Highlight the cursor line and column on display
+" Don't Highlight the cursor line and column on display
 set cursorline
-set cursorcolumn
+" Highlight the number column only
+set cursorlineopt=number
+
 " No column ruler at 80 characters.
+set nocursorcolumn
+" No column ruler
 set colorcolumn=
 
 " Where the backspace key works
@@ -204,28 +216,6 @@ set fileformats=unix,dos,mac
 " Don't pass messages to |ins-completion-menu|.
 " set shortmess+=c
 " }}}
-" {{{ Startify
-" Bookmarks for Startify:
-let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'c': 'c:/tools/bcurran3/choco-output.txt'} ]
-let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'}, {'s' : 'so $MYVIMRC'} ]
-let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
-let g:startify_lists = [
-          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
-          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
-          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
-          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
-          \ ]
-
-" Highlights
-highlight StartifyBracket ctermfg=240
-highlight StartifyFile    ctermfg=147
-highlight StartifyFooter  ctermfg=240
-highlight StartifyHeader  ctermfg=114
-highlight StartifyNumber  ctermfg=215
-highlight StartifyPath    ctermfg=245
-highlight StartifySlash   ctermfg=240
-highlight StartifySpecial ctermfg=240
-" }}}
 " {{{ Plugins
 source C:/Users/smartin/.vim/autoload/plug.vim
 call plug#begin('c:/Users/smartin/.vim/plugged')
@@ -253,7 +243,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
-if $UNAME != "cygwin"
+Plug 'rust-lang/rust.vim'
+if $UNAME != "cygwin" && $MTYPE != "Ras"
   Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 endif
 " Plug 'octol/vim-cpp-enhanced-highlight'
@@ -278,7 +269,7 @@ Plug 'wrecklass/wc.vim'
 " Plug 'kkew3/wc.vim'
 
 " Ok, colorschemes:
-Plug 'vimpostor/vim-lumen'
+" Plug 'vimpostor/vim-lumen'
 " Plug 'haystackandroid/carbonized'
 " Plug 'haystackandroid/vimspectr'
 " Plug 'gruvbox-community/gruvbox'
@@ -287,6 +278,9 @@ Plug 'nlknguyen/papercolor-theme'
 " Plug 'hardhackerlabs/theme-vim', {'as' : 'hardhacker'}
 " Plug 'haystackandroid/snow'
 " Plug 'tomasiser/vim-code-dark'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
+Plug 'openuado/vimtips-fortune'
 
 " Powerline Status Line
 Plug 'vim-airline/vim-airline'
@@ -351,6 +345,7 @@ try
   " let g:hardhacker_darker = 1
   " colorscheme hardhacker
   " END HARDHACKER
+  " colorscheme carbonized-dark
 
   " let g:vimspectrLineNr = 'on'
   " let g:vimspectrItalicComment = 'on'
@@ -392,78 +387,25 @@ try
   colorscheme PaperColor
   " I like italics
   highlight Folded gui=italic cterm=italic
-  let g:airline_theme='papercolor'
+  " highlight Error guibg=NONE guifg=#EF0000
+  " let g:airline_theme='papercolor'
   " END PAPERCOLOR
 catch
 endtry
 
-highlight Normal guibg=background
-highlight QuickFixLine guibg=#65000B guifg=#CFCFCF ctermbg=darkred
+" highlight Normal guibg=background
+highlight Normal guibg=NONE
+highlight SignColumn guibg=NONE
+highlight LineNr guibg=NONE guifg=#747474
+
+highlight QuickFixLine guibg=NONE guifg=#CFCFCF ctermbg=darkred
+" highlight QuickFixLine guibg=#65000B guifg=#CFCFCF ctermbg=darkred
 
 " Airline Status Bar
 let g:airline_powerline_fonts=1
 
-" let g:airline_theme='ayu_dark'
-" let g:airline_theme='cool'
-" let g:airline_theme='dark'
-" let g:airline_theme='deus'
+let g:airline_theme='base16_google_dark'
 " let g:airline_theme='google_dark'
-" let g:airline_theme='luna'
-" let g:airline_theme='molokai'
-" let g:airline_theme='monochrome'
-" let g:airline_theme='night_owl'
-" let g:airline_theme='papercolor'
-" let g:airline_theme='raven'
-" let g:airline_theme='term'
-" let g:airline_theme='selenized_bw'
-" let g:airline_theme='tomorrow'
-" let g:airline_theme='understated'
-" let g:airline_theme='ravenpower'
-" let g:airline_theme='murmur'
-" let g:airline_theme='badwolf'
-" let g:airline_theme='base16'
-" let g:airline_theme='base16_ashes'
-" let g:airline_theme='base16_bright'
-" let g:airline_theme='base16_black_metal'
-" let g:airline_theme='base16_classic'
-" let g:airline_theme='base16_colors'
-" let g:airline_theme='base16_chalk'
-" let g:airline_theme='base16_classic_dark'
-" let g:airline_theme='base16_darktooth'
-" let g:airline_theme='base16_decaf'
-" let g:airline_theme='base16_default_dark'
-" let g:airline_theme='base16_eighties'
-" let g:airline_theme='base16_embers'
-" let g:airline_theme='base16_espresso'
-" let g:airline_theme='base16_flat'
-" let g:airline_theme='base16_framer'
-" let g:airline_theme='base16_gigavolt'
-" let g:airline_theme='base16_google'
-" let g:airline_theme='base16_grayscale'
-" let g:airline_theme='base16_gruvbox_dark_soft'
-" let g:airline_theme='base16_gruvbox_dark_medium'
-" let g:airline_theme='base16_gruvbox_dark_hard'
-" let g:airline_theme='jet'
-" let g:airline_theme='base16_helios'
-" let g:airline_theme='base16_materia'
-" let g:airline_theme='base16_material'
-" let g:airline_theme='base16_material_darker'
-" let g:airline_theme='base16_phd'
-" let g:airline_theme='base16_sandcastle'
-" let g:airline_theme='base16_snazzy'
-" let g:airline_theme='base16_tomorrow'
-" let g:airline_theme='base16_tube'
-" let g:airline_theme='base16color'
-" let g:airline_theme='base16_vim'
-" let g:airline_theme='base16_unikitty_dark'
-" let g:airline_theme='base16_synth_midnight_dark'
-" let g:airline_theme='base16_summerfruit_dark'
-" let g:airline_theme='base16_snazzy'
-" let g:airline_theme='base16_shell'
-" let g:airline_theme='base16_porple'
-" let g:airline_theme='base16_outrun_dark'
-" let g:airline_theme='base16_londontube'
-" let g:airline_theme='base16_irblack'
 " color00 = Background
 " }}}
 " {{{ Mappings
@@ -471,17 +413,32 @@ let g:airline_powerline_fonts=1
 let mapleader = " "
 let g:mapleader = " "
 
+" [N] -- Titlise A Line
+nmap ,t :s/.*/\L&/<bar>:s/\<./\u&/g<cr>
+
+let g:which_key_map = {}
+
+nnoremap <silent> <leader>  :WhichKey '<Space>'<CR>
+nnoremap <silent> b         :WhichKey 'b'<CR>
+nnoremap <silent> ,         :WhichKey ','<CR>
+autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
+
+
 " Terminal:
 let g:terminal_height = -10
 set termwinsize=18x200
 " set shell=/bin/bash
 nnoremap <leader>` :botright terminal<CR>
+let g:which_key_map['`'] = "btm Term"
+
 tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 
-" map for cprev and cnext, also opne folds at location
+" map for cprev and cnext, also open folds at location
 nnoremap <leader><      :cprev<CR>zv
+let g:which_key_map['<'] = 'cprev'
 nnoremap <leader>>      :cnext<CR>zv
+let g:which_key_map['>'] = 'cnext'
 
 nnoremap <Tab>          gt
 nnoremap <S-Tab>        gT
@@ -501,7 +458,7 @@ nnoremap <leader>Q          :q!<CR>
 " Except K also opens man pages for some non-vim words
 " nnoremap <leader>vv  :h <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>vh  K
-nnoremap <leader>bs  /<C-R>=escape(expand("<cword>"), "/")<CR><CR>
+" nnoremap <leader>bs  /<C-R>=escape(expand("<cword>"), "/")<CR><CR>
 nnoremap <leader>u   :UndotreeToggle<CR>
 nnoremap <leader>pv  :Ex<CR>
 nnoremap <leader>+   :resize +5<CR>
@@ -514,10 +471,11 @@ nnoremap <leader>rp  :resize 100<CR>
 "  <Leader>s to start a substitution
 nnoremap <leader>s   :%s/
 nnoremap <leader>S   :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+let g:which_key_map.S =  'Search&Replace'
 
-nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
-nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
-nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
+" nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
+" nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
+" nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
 
 " Easy vertical split
 nnoremap  <leader>v    :vs<CR>
@@ -553,22 +511,29 @@ map <c-j> :call WinMove('j')<CR>
 " end highlighting by searching for garbage
 nnoremap  <leader>;    /xckla<CR>
 
+nnoremap <F6> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 nnoremap <leader>j  :m+<CR>==
 nnoremap <leader>k  :m-2<CR>==
 
 " Toggle line numbers
-nnoremap \l :setlocal number!<CR>
+nnoremap \l       :setlocal number!<CR>
 noremap <leader>l :setlocal relativenumber!<CR>
+let g:which_key_map.l = 'toggle RelNum'
+map     <F12>     :setlocal number!<CR>
 
 " Turn off hlsearch temporarily
-nnoremap \q :set hlsearch!<CR>:setlocal hlsearch?<CR>
+" nnoremap \q :set hlsearch!<CR>:setlocal hlsearch?<CR>
 noremap <leader>H :setlocal hlsearch!<CR>:setlocal hlsearch?<CR>
+let g:which_key_map.H = 'toggle hlsearch'
 
 " Globally search and replace the <word> under the cursor
-nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
+" nnoremap  <leader>*  :%s/\<<c-r><c-w>\>//g<Left><Left>
 
 " Toggle case sensitive search
-nnoremap <leader>i :setlocal ic!<CR>:setlocal ic?<CR>
+" nnoremap <leader>i :setlocal ic!<CR>:setlocal ic?<CR>
 
 " F2 = pastetoggle
 " Repeat last search, because reasons
@@ -599,7 +564,7 @@ command! -bang -range ToggleSlash <line1>,<line2>call ToggleSlash(<bang>1)
 noremap <silent> <F8> :ToggleSlash<CR>
 
 " <leader>m to erase all ^M in a Dos file. Remembers location
-noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
+" noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
@@ -608,6 +573,10 @@ map <leader>e :e! $MYVIMRC<cr>
 map <leader>ev :vsplit $MYVIMRC<cr>
 augroup SourceMyVimRc
   autocmd! BufWritePost $MYVIMRC nested source $MYVIMRC
+augroup END
+
+augroup PHP
+  autocmd BufEnter *.php :%s/[ \t\r]\+$//e
 augroup END
 
 " Use <space>pp to toggle Paste mode
@@ -733,19 +702,22 @@ inoremap <C-J>        <Down>
 " inoremap <C-K><C-K>   <Up>
 
 " When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
+" vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+" vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+" vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 " Pressing <leader>r sets up search and replace on visual selection
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+" vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+" let g:which_key_map.r = 'visual vimgrep'
 
 " Open vimgrep and put the cursor in the right position
 " noremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 
+" noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
+
 " Vimgreps in the current file
-noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
+" noremap <leader><space> :vimgrep // <C-R>%<HOME><right><right><right><right><right><right><right><right><right>
 
 " map <nowait><leader>c :Colors<CR>
 nnoremap <leader>I    :Startify<CR>
@@ -763,6 +735,7 @@ nnoremap <silent> <leader>h: :History:<CR>
 nnoremap <silent> <leader>W :Windows<CR>
 nnoremap <silent> <leader>M :Maps<CR>
 nnoremap <silent> <leader>t :FloatermToggle<CR>
+let g:which_key_map.t = 'Float Term'
 
 " Easy bracket pairing
 " inoremap<nowait>" ""<left>
@@ -848,6 +821,28 @@ function! VisualSelection(direction, extra_filter) range abort
   let @" = l:saved_reg
 endfunction
 
+" }}}
+" {{{ Startify
+" Bookmarks for Startify:
+let g:startify_bookmarks = [ {'v': '~/.vimrc'} ]
+let g:startify_commands = [ {'i': 'ver'}, {'z': 'qa'}, {'s': 'source $MYVIMRC'}, {'p': 'PlugUpdate'} ]
+let g:startify_custom_footer = ['', "Once you get in, There is no getting out ", '']
+let g:startify_lists = [
+          \ { 'type': 'bookmarks' , 'header': ['   Bookmarks']      } ,
+          \ { 'type': 'files'     , 'header': ['   Recent'   ]      } ,
+          \ { 'type': 'sessions'  , 'header': ['   Sessions' ]      } ,
+          \ { 'type': 'commands'  , 'header': ['   Commands' ]      } ,
+          \ ]
+
+" Highlights
+highlight StartifyBracket ctermfg=240
+highlight StartifyFile    ctermfg=147
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
 " }}}
 " {{{ Functions
 
