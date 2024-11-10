@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.74] - 2024-11-10
+
+### 🚀 Features
+
+- Make vif more robust and cancel with ESC
+
 ## [1.5.73] - 2024-11-05
 
 ### ⚙️ Miscellaneous Tasks

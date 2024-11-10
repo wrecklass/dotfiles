@@ -69,10 +69,22 @@ _vifind() {
 }
 
 _vifzf() {
-  if command -v bat &> /dev/null;then
-    vim "$(fzf --preview="bat --color=always --decorations=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)"
+  local _tt
+  local _bat
+
+  _bat="$(command -v batcat)"
+  if [ -z "$_bat" ]; then
+    _bat="$(command -v bat)"
+  fi
+
+  if [ -n "$_bat" ]; then
+    _tt="$(fzf -q "$1" --preview="$_bat --color=always --decorations=always {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)"
   else
-    vim "$(fzf --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)"
+    _tt="$(fzf -q "$1" --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)"
+  fi
+
+  if [ -n "$_tt" ]; then
+    vim "$_tt"
   fi
 }
 
