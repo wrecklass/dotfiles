@@ -18,9 +18,9 @@
 # I put the file alacritty.toml in $HOME/.config/alacritty. However it can be kept anywhere among the places mentioned in
 # https://github.com/alacritty/alacritty/tree/master#configuration
 
-# [general]
-shell.program = "/bin/bash"
-shell.args = ["-l"]
+[general]
+# shell.program = "/bin/bash"
+# shell.args = ["-l"]
 ipc_socket = true
 
 [env]
