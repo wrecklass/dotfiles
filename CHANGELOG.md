@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.76] - 2024-11-12
+
+### 🚀 Features
+
+- Alacritty opacity added
+
 ## [1.5.75] - 2024-11-12
 
 ### 🚀 Features
