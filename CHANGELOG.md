@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.77] - 2024-11-14
+
+### ⚙️ Miscellaneous Tasks
+
+- Alacritty window size
+
 ## [1.5.76] - 2024-11-12
 
 ### 🚀 Features
