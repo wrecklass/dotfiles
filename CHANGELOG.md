@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.78] - 2024-11-14
+
+### ⚙️ Miscellaneous Tasks
+
+- Unset figlet and fortune vars
+
 ## [1.5.77] - 2024-11-14
 
 ### ⚙️ Miscellaneous Tasks
