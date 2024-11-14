@@ -285,12 +285,14 @@ if [ -n "$PS1" ]; then
     printf "Welcome to $HOSTNAME\n"
   fi
 fi
+unset FIGLET
 # }}}
 # {{{ fortune
 FORTUNE="$(command -v fortune)"
 if [ -x "$FORTUNE" ]; then
   "$FORTUNE"
 fi
+unset FORTUNE
 # }}}
 # {{{ node
 export NVM_DIR="$HOME/.nvm"
