@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.80] - 2024-11-16
+
+### 🚀 Features
+
+- Get PSFzf module additions
+
 ## [1.5.79] - 2024-11-16
 
 ### 🚀 Features
