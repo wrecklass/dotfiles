@@ -83,8 +83,10 @@ _vifzf() {
     _tt="$(fzf -q "$1" --preview="less {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)"
   fi
 
+  # Passes a set of Null/zero separated strings
+  _tt="$(echo "$_tt" | tr '^0' ' ')"
   if [ -n "$_tt" ]; then
-    vim "$_tt"
+    vim $_tt
   fi
 }
 

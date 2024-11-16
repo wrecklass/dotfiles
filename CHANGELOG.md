@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.81] - 2024-11-16
+
+### 🐛 Bug Fixes
+
+- vifzf properly edits multiple selected files
+
 ## [1.5.80] - 2024-11-16
 
 ### 🚀 Features
