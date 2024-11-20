@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.82] - 2024-11-20
+
+### 🐛 Bug Fixes
+
+- correct path for $HOME/.local/bin
+
 ## [1.5.81] - 2024-11-16
 
 ### 🐛 Bug Fixes
