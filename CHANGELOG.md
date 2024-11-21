@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.83] - 2024-11-21
+
+### ⚙️ Miscellaneous Tasks
+
+- FZF options for Powershell
+
 ## [1.5.82] - 2024-11-20
 
 ### 🐛 Bug Fixes
