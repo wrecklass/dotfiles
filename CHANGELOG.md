@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.84] - 2024-11-21
+
+### 🚀 Features
+
+- Pretty color format for git
+
 ## [1.5.83] - 2024-11-21
 
 ### ⚙️ Miscellaneous Tasks
