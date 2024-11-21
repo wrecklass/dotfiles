@@ -73,7 +73,7 @@ Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 $env:FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 $env:FZF_CTRL_T_COMMAND="$env:FZF_DEFAULT_COMMAND"
-
+$env:FZF_COMPLETION_OPTS="70% --info=inline --border"
 # Import-Module -ArgumentList 'Ctrl+t','Ctrl+r' PSFzf
 Import-Module PSFzf
 Import-Module PSFzfHistory
