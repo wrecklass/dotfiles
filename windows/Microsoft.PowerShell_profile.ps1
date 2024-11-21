@@ -15,7 +15,7 @@ function Get-CmdletAlias ($cmdletname) {
     Get-Alias |
         Where-Object -FilterScript {$_.Definition -like "$cmdletname"} |
             Format-Table -Property Definition, Name -AutoSize
-} 
+}
 
 function mklnk ($target, $link) {
   New-Item -Path $link -ItemType SymbolicLink -Value $target
@@ -71,9 +71,11 @@ Import-Module PSReadLine
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
-$env:FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-$env:FZF_CTRL_T_COMMAND="$env:FZF_DEFAULT_COMMAND"
-$env:FZF_COMPLETION_OPTS="70% --info=inline --border"
+$env:FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
+$env:FZF_CTRL_T_COMMAND  = "$env:FZF_DEFAULT_COMMAND"
+$env:FZF_COMPLETION_OPTS = '--height=70% --info=inline --border'
+$env:FZF_ALT_C_COMMAND   = 'fd --type=d --hidden --strip-cwd-prefix --exclude .git'
+
 # Import-Module -ArgumentList 'Ctrl+t','Ctrl+r' PSFzf
 Import-Module PSFzf
 Import-Module PSFzfHistory
@@ -82,8 +84,7 @@ Import-Module Terminal-Icons
 
 Remove-PSReadLineKeyHandler 'Ctrl+r'
 Remove-PSReadLineKeyHandler 'Ctrl+t'
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
-
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r' -PSReadlineChordSetLocation 'Alt+c'
 oh-my-posh init pwsh --config "C:\cygwin64\home\smartin\src\dotfiles\config.omp.json" | Invoke-Expression
 
 # Winget Tab Completion
