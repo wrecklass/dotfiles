@@ -33,6 +33,8 @@
   defaultBranch = master
 [interactive]
   diffFilter = delta --color-only
+[pretty]
+  color = tformat:%Cred%h%Creset -%C(green)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
 [push]
   default = simple
 [credential]
@@ -84,6 +86,7 @@
   hh = !git log | batcat
   last = log -1 HEAD
   l = log --pretty=oneline --graph --all --abbrev-commit
+  dog = log --decorate --oneline --graph
   oneline = log --oneline
   lcm = log --pretty=oneline --graph --all
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
