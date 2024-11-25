@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.85] - 2024-11-25
+
+### 🚀 Features
+
+- oh-my-posh fortran section added
+
 ## [1.5.84] - 2024-11-21
 
 ### 🚀 Features

@@ -345,6 +345,15 @@
           "style": "diamond",
           "leading_diamond": "\ue0b2",
           "trailing_diamond": "<transparent,#41436d>\ue0b2</>",
+          "template": "\udb84\ude1a {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
+          "foreground": "#ffffff",
+          "background": "#41436d",
+          "type": "fortran"
+        },
+        {
+          "style": "diamond",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "<transparent,#41436d>\ue0b2</>",
           "template": "\ue769 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
           "foreground": "#ffffff",
           "background": "#41436d",
