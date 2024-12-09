@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.87] - 2024-12-09
+
+### 🚀 Features
+
+- dircolors add .ico
+
 ## [1.5.86] - 2024-12-09
 
 ### 🚀 Features
