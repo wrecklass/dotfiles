@@ -2,11 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.5.82] - 2024-12-07
+## [1.5.87] - 2024-12-09
+
+### 🚀 Features
+
+- dircolors add .ico
+
+## [1.5.86] - 2024-12-09
+
+### 🚀 Features
+
+- dircolors add config files (yaml,toml,ini,etc.) and markdown
+
+## [1.5.85] - 2024-11-25
+
+### 🚀 Features
+
+- oh-my-posh fortran section added
+
+## [1.5.84] - 2024-11-21
+
+### 🚀 Features
+
+- Pretty color format for git
+
+## [1.5.83] - 2024-11-21
+
+### ⚙️ Miscellaneous Tasks
+
+- FZF options for Powershell
+
+## [1.5.82] - 2024-11-20
 
 ### 🐛 Bug Fixes
 
-- oh-my-posh temp object needs to be deleted for it
+- correct path for $HOME/.local/bin
 
 ## [1.5.81] - 2024-11-16
 

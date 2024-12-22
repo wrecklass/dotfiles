@@ -79,6 +79,7 @@ EXEC 01;33
 # executable bit actually set.
 .sh 01;37
 .csh 01;37
+.lua 01;37
 .py 01;37
 .php 01;37
 .pl 01;37
@@ -129,6 +130,7 @@ EXEC 01;33
 .jpg 01;35
 .jpeg 01;35
 .gif 01;35
+.ico 01;35
 .bmp 01;35
 .pbm 01;35
 .pgm 01;35
@@ -192,3 +194,14 @@ EXEC 01;33
 .opus 00;36
 .spx 00;36
 .xspf 00;36
+# config types
+.cnf  01;31
+.conf 01;31
+.ini  01;31
+.json 01;31
+.toml 01;31
+.yaml 01;31
+.yml 01;31
+# Markdown
+.md  00;34
+
