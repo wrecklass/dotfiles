@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.88] - 2025-03-07
+
+### 🚀 Features
+
+- Added new Branch Length for OMP git segment
+
 ## [1.5.87] - 2024-12-09
 
 ### 🚀 Features
