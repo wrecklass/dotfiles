@@ -77,6 +77,8 @@ blocks:
           - '{{ if not .Writable }}white{{ end }}'
         type: path
       - properties:
+          branch_max_length: 25
+          branch_template: '{{ trunc 25 .Branch }}'
           branch_icon: ' '
           fetch_stash_count: true
           fetch_status: true
@@ -264,6 +266,13 @@ blocks:
         foreground: '#1e293b'
         background: '#6488c0'
         type: nx
+      - style: diamond
+        leading_diamond: 
+        trailing_diamond: <transparent,#41436d></>
+        template: "\U000F121A {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        foreground: '#ffffff'
+        background: '#41436d'
+        type: fortran
       - style: diamond
         leading_diamond: 
         trailing_diamond: <transparent,#41436d></>

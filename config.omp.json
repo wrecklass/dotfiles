@@ -99,6 +99,8 @@
         },
         {
           "properties": {
+            "branch_max_length": 25,
+            "branch_template": "{{ trunc 25 .Branch }}",
             "branch_icon": "\ue725 ",
             "fetch_stash_count": true,
             "fetch_status": true,
