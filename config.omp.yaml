@@ -126,7 +126,7 @@ blocks:
       - properties:
           http_timeout: 1000
         cache:
-          duration: 5m0s
+          duration: 15m0s
           strategy: folder
         style: diamond
         leading_diamond: 
@@ -338,10 +338,12 @@ blocks:
         template: ╰─
         foreground: '#616161'
         type: text
-      - style: plain
+      - type: upgrade
+        style: plain
         foreground: '#111111'
         background: '#ffd664'
-        type: upgrade
+        properties:
+          cache_duration: 1h
       - properties:
           always_enabled: true
           status_separator: ' '
@@ -364,6 +366,10 @@ tooltips:
     type: aws
     tips:
       - aws
-version: 3
-auto_upgrade: true
 final_space: true
+version: 3
+upgrade:
+  notice: true
+  auto: true
+  interval: 12h
+  source: cdn
