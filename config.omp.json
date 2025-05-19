@@ -99,6 +99,8 @@
         },
         {
           "properties": {
+            "branch_max_length": 25,
+            "branch_template": "{{ trunc 25 .Branch }}",
             "branch_icon": "\ue725 ",
             "fetch_stash_count": true,
             "fetch_status": true,
@@ -162,7 +164,7 @@
             "http_timeout": 1000
           },
           "cache": {
-            "duration": "5m0s",
+            "duration": "15m0s",
             "strategy": "folder"
           },
           "style": "diamond",
@@ -438,10 +440,13 @@
           "type": "text"
         },
         {
+          "type": "upgrade",
           "style": "plain",
           "foreground": "#111111",
           "background": "#ffd664",
-          "type": "upgrade"
+          "properties": {
+            "cache_duration": "1h"
+          }
         },
         {
           "properties": {
@@ -477,7 +482,12 @@
       ]
     }
   ],
+  "final_space": true,
   "version": 3,
-  "auto_upgrade": true,
-  "final_space": true
+  "upgrade": {
+    "notice": true,
+    "auto": true,
+    "interval": "12h",
+    "source": "cdn"
+  }
 }

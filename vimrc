@@ -31,6 +31,7 @@ let g:ft_man_open_mode='tab'
 " set wildmode=longest,list,full
 if v:version >= 900
   set wildoptions+=pum
+  set smoothscroll
 endif
 " Set in defaults.vim
 " set wildmenu
@@ -67,8 +68,6 @@ set hlsearch
 set incsearch
 set smartcase
 set ignorecase
-
-set smoothscroll
 
 " Show matching parens
 set showmatch
