@@ -77,6 +77,8 @@ blocks:
           - '{{ if not .Writable }}white{{ end }}'
         type: path
       - properties:
+          branch_max_length: 25
+          branch_template: '{{ trunc 25 .Branch }}'
           branch_icon: ' '
           fetch_stash_count: true
           fetch_status: true
@@ -124,7 +126,7 @@ blocks:
       - properties:
           http_timeout: 1000
         cache:
-          duration: 5m0s
+          duration: 15m0s
           strategy: folder
         style: diamond
         leading_diamond: 
@@ -267,6 +269,13 @@ blocks:
       - style: diamond
         leading_diamond: 
         trailing_diamond: <transparent,#41436d></>
+        template: "\U000F121A {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        foreground: '#ffffff'
+        background: '#41436d'
+        type: fortran
+      - style: diamond
+        leading_diamond: 
+        trailing_diamond: <transparent,#41436d></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#ffffff'
         background: '#41436d'
@@ -329,10 +338,12 @@ blocks:
         template: ╰─
         foreground: '#616161'
         type: text
-      - style: plain
+      - type: upgrade
+        style: plain
         foreground: '#111111'
         background: '#ffd664'
-        type: upgrade
+        properties:
+          cache_duration: 1h
       - properties:
           always_enabled: true
           status_separator: ' '
@@ -355,6 +366,10 @@ tooltips:
     type: aws
     tips:
       - aws
-version: 3
-auto_upgrade: true
 final_space: true
+version: 3
+upgrade:
+  notice: true
+  auto: true
+  interval: 12h
+  source: cdn

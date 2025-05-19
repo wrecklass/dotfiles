@@ -55,7 +55,7 @@
   required = true
   process = git-lfs filter-process
 [pull]
-  rebase = false
+  rebase = true
 [tag]
   sort = v:refname
 [credential "https://github.com"]

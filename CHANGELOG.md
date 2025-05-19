@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.89] - 2025-04-02
+
+### 🚀 Features
+
+- New OMP update syntax.
+- git pull.rebase = true
+
+## [1.5.88] - 2025-03-07
+
+### 🚀 Features
+
+- Added new Branch Length for OMP git segment
+
 ## [1.5.87] - 2024-12-09
 
 ### 🚀 Features
