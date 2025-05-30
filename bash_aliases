@@ -22,6 +22,7 @@ else
 fi
 
 if [ "$UNAME" == "cygwin" ]; then
+  alias wsl='wsl.exe'
   alias diff="diff --color"
   alias dif="diff --color"
 fi
