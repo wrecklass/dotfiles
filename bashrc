@@ -19,6 +19,13 @@ if [ -z "$TMUX" ]; then
   [[ -z "${BASH_RC}" ]] && readonly BASH_RC=true || return 0
 fi
 
+# We can't do xterm-kitty on this system
+if [[ $TERM = xterm-kitty ]]; then
+  if ! infocmp xterm-kitty &> /dev/null ; then
+    export TERM='xterm-256color'
+  fi
+fi
+
 case $- in
 *i*) ;;
 *) return ;;
