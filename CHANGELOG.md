@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.92] - 2025-08-26
+
+### 🚀 Features
+
+- Add uwu function for bash
+
 ## [1.5.91] - 2025-06-10
 
 ### 🐛 Bug Fixes
