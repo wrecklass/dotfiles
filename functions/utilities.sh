@@ -273,3 +273,11 @@ substring () {
 	echo "$STRING" | cut -c$(( START + 1 ))-$(( START + $LEN ))
 }
 
+uwu() {
+  local cmd
+  cmd="$(uwu-cli "$@")" || return
+  # requires interactive shell and bash 4+
+  read -e -i "$cmd" -p "" cmd || return
+  builtin history -s -- "$cmd"
+  eval -- "$cmd"
+}
