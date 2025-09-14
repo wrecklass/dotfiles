@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.93] - 2025-10-14
+
+### 🚀 Features
+
+- Add new way of init for OMP
+
 ## [1.5.92] - 2025-08-26
 
 ### 🚀 Features
