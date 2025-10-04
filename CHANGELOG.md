@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.93] - 2025-10-04
+
+### ◀️ Note
+
+- Interval on OMP set to 2H from 12H. Kitty map to edit_config enabled
+
 ## [1.5.92] - 2025-08-26
 
 ### 🚀 Features
