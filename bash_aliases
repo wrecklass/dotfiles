@@ -167,7 +167,7 @@ alias now='date +"%T"'
 alias nowtime='now'
 alias nowdate='date +"%d-%m-%Y"'
 
-alias gitoh='open https://github.com/jandedobbeleer/oh-my-posh'
+# alias gitoh='open https://github.com/jandedobbeleer/oh-my-posh'
 
 alias pp='ping 8.8.8.8'
 # alias fastping='ping -c 10 -i .2'
