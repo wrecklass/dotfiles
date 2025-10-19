@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.96] - 2025-10-19
+
+### 🐛 Bug Fixes
+
+- Fixes typo in env.linux
+
 ## [1.5.94] - 2025-10-04
 
 ### ◀️ Note
