@@ -371,5 +371,5 @@ version: 3
 upgrade:
   notice: true
   auto: true
-  interval: 12h
+  interval: 2h
   source: cdn
