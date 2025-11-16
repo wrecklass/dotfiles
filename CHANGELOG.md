@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.98] - 2025-10-24
+
+### 🐛 Bug Fixes
+
+- env.cygwin may get TERM=linux
+
 ## [1.5.97] - 2025-10-24
 
 ### ◀️ Note
