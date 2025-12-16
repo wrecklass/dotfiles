@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.99] - 2025-12-15
+
+### ◀️ Note
+
+- Standardization created by OMP on config
+
 ## [1.5.98] - 2025-10-24
 
 ### 🐛 Bug Fixes
