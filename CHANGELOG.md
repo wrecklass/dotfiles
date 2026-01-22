@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.100] - 2026-01-21
+
+### ◀️ Note
+
+- Get rid of $_LS in bash_alias
+
 ## [1.5.99] - 2025-12-15
 
 ### ◀️ Note
