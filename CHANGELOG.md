@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.101] - 2026-02-03
+
+### 🚀 Features
+
+- Added ssh/config to repo
+
 ## [1.5.100] - 2026-01-21
 
 ### ◀️ Note
