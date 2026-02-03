@@ -1,0 +1,89 @@
+StrictHostKeyChecking false
+User smartin
+
+Host xen4
+  #hostkeyalgorithms ssh-dss
+    kexalgorithms diffie-hellman-group1-sha1
+    user root
+    hostname 192.168.1.4
+
+Host netserver
+  #hostkeyalgorithms ssh-dss
+    kexalgorithms diffie-hellman-group1-sha1
+    user smartin
+    hostname 192.168.1.24
+
+Host ubu2
+    hostname 192.168.1.44
+    user smartin
+    port 22
+Host ubu2fi
+    hostname 192.168.1.50
+    user smartin
+    port 22
+Host ubu3
+    hostname 192.168.1.15
+    user smartin
+    port 22
+Host ubu1
+    hostname 192.168.1.11
+    user smartin
+    port 22
+Host ras42
+    hostname 192.168.1.19
+    warnweakcrypto false
+    user smartin
+    port 22
+Host ras4
+    hostname 192.168.1.36
+    warnweakcrypto false
+    user smartin
+    port 22
+Host poof
+    hostname 192.168.1.41
+    user smartin
+    port 22
+Host poodle
+    hostname 192.168.1.41
+    user smartin
+    port 22
+Host oc
+    hostname oc.kdyfish.net
+    user smartin
+    port 22
+Host ras3wire
+    hostname 192.168.1.34
+    user smartin
+    port 22
+Host ras3
+    hostname 192.168.1.35
+    warnweakcrypto false
+    user smartin
+    port 22
+Host rasberry
+    hostname 192.168.1.31
+    warnweakcrypto false
+    user smartin
+    port 22
+Host ras32
+    hostname 192.168.1.33
+    warnweakcrypto false
+    user smartin
+    port 22
+Host freedom
+    hostname 192.168.1.27
+    user smartin
+    port 22
+Host pve
+    hostname 192.168.1.8
+    user smartin
+    port 22
+Host macpro
+    hostname 192.168.1.30
+    user smartin
+    port 22
+Host mpro
+    hostname 192.168.1.30
+    user smartin
+    port 22
+
