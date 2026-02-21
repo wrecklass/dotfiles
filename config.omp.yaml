@@ -15,49 +15,55 @@ transient_prompt:
   template: '<p:yellow,transparent></><,p:yellow> {{ .Folder }} </><p:yellow,transparent></> '
   foreground: p:black
   background: transparent
+upgrade:
+  source: cdn
+  interval: 2h
+  auto: true
+  notice: true
 console_title_template: '{{ .Shell }} in {{ .Folder }}'
+streaming: 100
 blocks:
   - type: prompt
     alignment: left
     segments:
-      - properties:
+      - options:
           macos: mac
           windows: "\U000F0570"
-        style: diamond
         leading_diamond: ╭─
         template: ' {{ if .WSL }}WSL at {{ end }}{{.Icon}} '
         foreground: p:yellow
         background: '#6E6E65'
         type: os
-      - style: powerline
-        template: '{{ if eq .Type "wifi"}}  {{ else if eq .Type "ethernet"}}  {{ end }}'
+        style: diamond
+      - template: '{{ if eq .Type "wifi"}}  {{ else if eq .Type "ethernet"}}  {{ end }}'
         foreground: '#f0f0f0'
         powerline_symbol: 
         background: '#588858'
         type: connection
+        style: powerline
         max_width: 130
-      - style: powerline
-        template: '{{ if eq .Type "wifi"}}  {{ .Name }} {{ else if eq .Type "ethernet"}}  {{ end }}'
+      - template: '{{ if eq .Type "wifi"}}  {{ .Name }} {{ else if eq .Type "ethernet"}}  {{ end }}'
         foreground: '#f0f0f0'
         powerline_symbol: 
         background: '#588858'
         type: connection
+        style: powerline
         min_width: 131
-      - style: powerline
-        template: '{{ if .SSHSession }} {{ end }}{{ .HostName }}'
+      - template: '{{ if .SSHSession }} {{ end }}{{ .HostName }}'
         foreground: p:black
         powerline_symbol: 
         background: p:green
         type: session
+        style: powerline
         max_width: 130
-      - style: powerline
-        template: '{{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }}'
+      - template: '{{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }}'
         foreground: p:black
         powerline_symbol: 
         background: p:green
         type: session
+        style: powerline
         min_width: 131
-      - properties:
+      - options:
           folder_separator_icon: /
           home_icon: 
           mapped_locations:
@@ -68,308 +74,303 @@ blocks:
             C:/cygwin64: "\0/"
           max_width: 24
           style: powerlevel
-        style: powerline
         foreground: p:black
         powerline_symbol: 
         background: p:orange
+        type: path
+        style: powerline
         background_templates:
           - '{{ if .Root }}red{{ end }}'
           - '{{ if not .Writable }}white{{ end }}'
-        type: path
-      - properties:
+      - options:
+          branch_icon: ' '
           branch_max_length: 25
           branch_template: '{{ trunc 25 .Branch }}'
-          branch_icon: ' '
           fetch_stash_count: true
           fetch_status: true
           fetch_upstream_icon: true
           fetch_worktree_count: true
-        style: powerline
         template: ' {{ url .UpstreamIcon .UpstreamURL }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
         foreground: '#011627'
         powerline_symbol: 
         background: '#addb67'
         type: git
+        style: powerline
         background_templates:
           - '{{ if or (.Working.Changed) (.Staging.Changed) }}#e4cf6a{{ end }}'
           - '{{ if and (gt .Ahead 0) (gt .Behind 0) }}#f78c6c{{ end }}'
           - '{{ if gt .Ahead 0 }}#C792EA{{ end }}'
           - '{{ if gt .Behind 0 }}#c792ea{{ end }}'
-      - properties:
+      - options:
           root_icon: 
-        style: powerline
         template: '  '
         foreground: p:white
         powerline_symbol: 
         background: p:red
         type: root
-      - properties:
+        style: powerline
+      - options:
           style: roundrock
           threshold: 0
-        style: diamond
         trailing_diamond: 
         template: " \U000F051F{{ .FormattedMs }}⠀"
         foreground: '#d6deeb'
         background: '#575656'
         type: executiontime
+        style: diamond
   - type: prompt
     alignment: right
     overflow: break
     segments:
-      - style: diamond
-        leading_diamond: 
+      - leading_diamond: 
         trailing_diamond: <transparent,#d6deeb></>
         template: "\U000F1183 {{ .Name }} "
         foreground: '#011627'
         background: '#d6deeb'
         type: shell
-      - properties:
+        style: diamond
+      - options:
           http_timeout: 1000
         cache:
           duration: 15m0s
           strategy: folder
-        style: diamond
         leading_diamond: 
         trailing_diamond: <transparent,#c386f1></>
         template: '{{ .IP }}'
         foreground: '#ffffff'
         background: '#c386f1'
         type: ipify
+        style: diamond
         min_width: 145
-      - style: diamond
-        leading_diamond: 
+      - leading_diamond: 
         trailing_diamond: <transparent,#8f43f3></>
         template: ' {{ round .PhysicalPercentUsed .Precision }}% '
         foreground: '#ffffff'
         background: '#8f43f3'
         type: sysinfo
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#ffffff></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#ce092f'
         background: '#ffffff'
         type: angular
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#565656></>
         template: ' {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} '
         foreground: '#faa029'
         background: '#565656'
         type: aws
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#000000></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#000000'
         background: '#ffffff'
         type: crystal
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#ffffff></>
         template: '  cf {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#1d5185'
         background: '#ffffff'
         type: cf
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#ffffff></>
         template: ' {{if .Org }}{{ .Org }}{{ end }}{{ if .Space }}/{{ .Space }}{{ end }} '
         foreground: '#1d5185'
         background: '#ffffff'
         type: cftarget
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#d2d2d2></>
         template: '<#2829b2></> <#be1818></>  cmake {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#01a300'
         background: '#d2d2d2'
         type: cmake
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#e1e8e9></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#055b9c'
         background: '#e1e8e9'
         type: dart
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#0e0e0e></>
         template: '{{ if .Unsupported }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#fefefe'
         background: '#4e4e0e'
         type: dotnet
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#06A4CE></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#ffffff'
         background: '#06A4CE'
         type: flutter
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#ffffff></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#06aad5'
         background: '#ffffff'
         type: go
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#100e23></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#906cff'
         background: '#100e23'
         type: haskell
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#ffffff></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#ec2729'
         background: '#ffffff'
         type: java
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#945bb3></>
         template: '<#ca3c34></> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#ffffff'
         background: '#945bb3'
         type: julia
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#906cff></>
         template: 'K {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#ffffff'
         background: '#906cff'
         type: kotlin
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#316ce4></>
         template: "\U000F10FE {{.Context}} :: {{if .Namespace}}{{.Namespace}}{{else}}default{{end}} "
         foreground: '#ffffff'
         background: '#316ce4'
         type: kubectl
-      - properties:
+        style: diamond
+      - options:
           fetch_package_manager: true
           npm_icon: '<#cc3a3a></> '
           yarn_icon: "<#348cba>\U000F011B</> "
-        style: diamond
         leading_diamond: 
         trailing_diamond: <transparent,#303030></>
         template: ' {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
         foreground: '#3C873A'
         background: '#303030'
         type: node
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#6488c0></>
         template: 'Nx {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#1e293b'
         background: '#6488c0'
         type: nx
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#41436d></>
         template: "\U000F121A {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         foreground: '#ffffff'
         background: '#41436d'
         type: fortran
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#41436d></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#ffffff'
         background: '#41436d'
         type: perl
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#787CB5></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#000000'
         background: '#787CB5'
         type: php
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#306998></>
         template:   {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}
         foreground: '#FFE873'
         background: '#306998'
         type: python
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#b9bbbf></>
         template: 'R {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#1c68bd'
         background: '#b9bbbf'
         type: r
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#ffffff></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#9c1006'
         background: '#ffffff'
         type: ruby
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#ffffff></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#000000'
         background: '#ffffff'
         type: rust
-      - style: diamond
-        leading_diamond: 
+        style: diamond
+      - leading_diamond: 
         trailing_diamond: <transparent,#fe562e></>
         template: ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
         foreground: '#ffffff'
         background: '#fe562e'
         type: swift
-      - properties:
-          time_format: 15:04:05
         style: diamond
+      - options:
+          time_format: 15:04:05
         leading_diamond: 
         trailing_diamond: 
         template: " \U000F0954 {{ .CurrentDate | date .Format }}"
         foreground: '#d6deeb'
         background: '#234d70'
         type: time
+        style: diamond
   - type: prompt
     alignment: left
     segments:
-      - style: plain
-        template: ╰─
+      - template: ╰─
         foreground: '#616161'
         type: text
-      - type: upgrade
         style: plain
+      - options:
+          cache_duration: 1h
         foreground: '#111111'
         background: '#ffd664'
-        properties:
-          cache_duration: 1h
-      - properties:
+        type: upgrade
+        style: plain
+      - options:
           always_enabled: true
           status_separator: ' '
-        style: plain
         template: '{{ if gt .Code 0 }} {{ .Meaning  }} ({{ .Code }}){{ else }}{{ end }}'
         foreground: '#22da6e'
         type: status
+        style: plain
         foreground_templates:
           - '{{ if gt .Code 0 }}#ef5350{{ end }}'
     newline: true
 tooltips:
-  - properties:
+  - options:
       display_default: true
-    style: diamond
     leading_diamond: 
     trailing_diamond: 
     template: '  {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} '
     foreground: p:white
     background: p:orange
     type: aws
+    style: diamond
     tips:
       - aws
+version: 4
 final_space: true
-version: 3
-upgrade:
-  notice: true
-  auto: true
-  interval: 2h
-  source: cdn
