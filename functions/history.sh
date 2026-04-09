@@ -7,7 +7,12 @@ export HISTFILESIZE=5000
 
 _h () {
     if [ $# -gt 0 ]; then
+      declare -i I="$*"
+      if [[ $I > 0 ]]; then
+        history | tail -n "$I"
+      else
         history | grep -i "$*"
+      fi
     else
         history
     fi
