@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.102] - 2026-04-09
+
+### 🚀 Features
+
+- History can do tail now
+
 ## [1.5.101] - 2026-02-03
 
 ### 🚀 Features
