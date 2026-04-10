@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.104] - 2026-04-10
+
+### 🚀 Features
+
+- Added python install to path.
+- Made HISTIGNORE more robust.
+
 ## [1.5.103] - 2026-04-09
 
 ### 🚀 Features
