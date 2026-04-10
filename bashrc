@@ -56,7 +56,7 @@ declare -x -l UNAME
 : "${UNAME=$($UNAMECMD -o)}"
 # export UNAME
 if [ "${UNAME}" = "cygwin" ]; then
-  PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/lib/lapack:$PATH"
+  PATH="/c/Users/smartin/AppData/local/python/bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/lib/lapack:$PATH"
 fi
 
 if [[ -z "$USER" ]]; then
