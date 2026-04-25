@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.105] - 2026-04-25
+
+### ◀️ Note
+
+- Push /usr/bin and the rest to PATH earlier. May break on other systems.
+
 ## [1.5.104] - 2026-04-10
 
 ### 🚀 Features
