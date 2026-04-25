@@ -37,7 +37,12 @@ if [[ -z $WSL ]]; then
   export LC_ALL="C.UTF-8"
 fi
 ORIGPATH="$PATH"
+PATH="/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/lib/lapack:$PATH"
 UNAMECMD=$(command -v uname)
+echo "unamecmd $UNAMECMD"
+UNAMECMD=""
+echo "unamecmd $UNAMECMD"
+
 if [ -z "$UNAMECMD" ]; then
   if [ -x /bin/uname ]; then
     UNAMECMD=/bin/uname
@@ -45,34 +50,6 @@ if [ -z "$UNAMECMD" ]; then
     UNAMECMD=/usr/bin/uname
   fi
 fi
-
-declare -x MTYPE='Win'
-if grep -q BCM /proc/cpuinfo &>/dev/null; then
-  MTYPE='Ras'
-fi
-# UNAMECMD="/usr/bin/uname"
-declare -x -l UNAME
-: "${HOME=~}"
-: "${UNAME=$($UNAMECMD -o)}"
-# export UNAME
-if [ "${UNAME}" = "cygwin" ]; then
-  PATH="/c/Users/smartin/AppData/local/python/bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/lib/lapack:$PATH"
-fi
-
-if [[ -z "$USER" ]]; then
-  USER="$(/usr/bin/id -un)"
-fi
-
-if [[ -z "$HOSTNAME" ]]; then
-  HOSTNAME="$(/usr/bin/hostname)"
-fi
-
-# Change various versions of CYGWIN_NT-XX.X to just 'cygwin'
-# To make sourcing our defaults environment easier.
-# UNAME="${UNAME/cygwin*/cygwin}"
-# change "gnu/linux" to just "linux"
-UNAME="${UNAME/*linux/linux}"
-
 # Set =1 for verbose output
 declare -x -i VERBOSE=0
 
@@ -98,10 +75,41 @@ else
     fi
   }
 fi
-_log ".bashrc"
+_log "SOURCING .bashrc"
+_log "UNAMECMD=${UNAMECMD}"
+
+declare -x MTYPE='Win'
+if grep -q BCM /proc/cpuinfo &>/dev/null; then
+  MTYPE='Ras'
+fi
+# UNAMECMD="/usr/bin/uname"
+declare -x -l UNAME
+: "${HOME=~}"
+: "${UNAME=$($UNAMECMD -o)}"
+# export UNAME
+if [ "${UNAME}" = "cygwin" ]; then
+  PATH="/c/Users/smartin/AppData/local/python/bin:$PATH"
+fi
+_log "UNAME: $UNAME"
+
+if [[ -z "$USER" ]]; then
+  USER="$(/usr/bin/id -un)"
+fi
+
+if [[ -z "$HOSTNAME" ]]; then
+  HOSTNAME="$(/usr/bin/hostname)"
+fi
+
+# Change various versions of CYGWIN_NT-XX.X to just 'cygwin'
+# To make sourcing our defaults environment easier.
+# UNAME="${UNAME/cygwin*/cygwin}"
+# change "gnu/linux" to just "linux"
+UNAME="${UNAME/*linux/linux}"
+
 _log "USER: $USER"
 _log "UNAME: $UNAME"
 _log "MTYPE: $MTYPE"
+unset UNAMECMD
 # _log "PATH: $PATH"
 # }}}
 # {{{ shopts
@@ -237,19 +245,20 @@ unset file
 # Get our functions
 if [ -d "${HOME}/.functions/" ]; then
   for SCRIPT in "${HOME}"/.functions/*; do
-    if [[ "${file}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
-      _log "Not sourcing ${file}"
+    if [[ "${SCRIPT}" =~ "fzf" ]] && [[ -z "${FZF}" ]]; then
+      _log "Not sourcing ${SCRIPT}"
       continue
     fi
     if [[ "${SCRIPT}" =~ "off" ]]; then
-      _log "Not sourcing ${file}"
+      _log "Not sourcing ${SCRIPT}"
       continue
     fi
     if [[ "${SCRIPT}" =~ git-prompt.sh ]]; then
-      _log "Not sourcing ${file}"
+      _log "Not sourcing ${SCRIPT}"
       # We source this later if we need it
       continue
     fi
+    _log "Sourcing ${SCRIPT}"
     [ -r "${SCRIPT}" ] && source "${SCRIPT}"
   done
 else
@@ -257,7 +266,6 @@ else
   _log "Make sure the directory hasn't been moved or changed."
 fi
 
-unset UNAMECMD
 # }}}
 # {{{ Appended by other programs
 [[ -r "${HOME}/.fzf.bash" ]] && source ~/.fzf.bash
