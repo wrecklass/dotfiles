@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.106] - 2026-04-28
+
+### ◀️ Note
+
+- Removed some instrumentation
+
 ## [1.5.105] - 2026-04-25
 
 ### ◀️ Note

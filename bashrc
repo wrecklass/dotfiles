@@ -39,9 +39,7 @@ fi
 ORIGPATH="$PATH"
 PATH="/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/lib/lapack:$PATH"
 UNAMECMD=$(command -v uname)
-echo "unamecmd $UNAMECMD"
 UNAMECMD=""
-echo "unamecmd $UNAMECMD"
 
 if [ -z "$UNAMECMD" ]; then
   if [ -x /bin/uname ]; then
